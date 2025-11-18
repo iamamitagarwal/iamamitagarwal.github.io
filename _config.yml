@@ -1,5 +1,76 @@
+# Site basics
+locale: en
+url: https://iamamitagarwal.github.io
+baseurl: ""
 title: Amit Agarwal
 name: Amit Agarwal
-description: Principal Applied Scientist at Oracle Cloud Infrastructure
-url: https://iamamitagarwal.github.io
-theme: jekyll-theme-cayman
+subtitle: Principal Applied Scientist at Oracle Cloud Infrastructure
+
+
+# Theme (hosted, works on GitHub Pages)
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: default # options: default, air, aqua, contrast, dark, dirt, neon, mint
+
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
+include: ["_pages"]
+plugins:
+- jekyll-include-cache
+
+
+# Author card (shown on the left of pages with author_profile: true)
+author:
+name: "Amit Agarwal"
+avatar: "/images/profile.jpg" # add your headshot at images/profile.jpg
+bio: "Principal Applied Scientist at Oracle Cloud Infrastructure (OCI). Applied ML/LLMs and cloud-scale systems."
+location: "Seattle, WA"
+links:
+- label: "Google Scholar"
+icon: "fas fa-graduation-cap"
+url: "https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&hl=en"
+- label: "LinkedIn"
+icon: "fab fa-linkedin"
+url: "https://www.linkedin.com/in/amitagarwal6/"
+- label: "GitHub"
+icon: "fab fa-github"
+url: "https://github.com/iamamitagarwal"
+
+
+# Defaults for different content types
+defaults:
+- scope:
+path: ""
+type: pages
+values:
+layout: single
+author_profile: true
+sidebar: "main"
+- scope:
+path: ""
+type: posts
+values:
+layout: single
+author_profile: true
+
+
+# Collections (optional; you can add MD files later under these folders)
+collections:
+publications:
+output: true
+permalink: /publications/:path/
+talks:
+output: true
+permalink: /talks/:path/
+
+
+# Footer
+footer:
+links:
+- label: "Google Scholar"
+icon: "fas fa-graduation-cap"
+url: "https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&hl=en"
+- label: "LinkedIn"
+icon: "fab fa-linkedin"
+url: "https://www.linkedin.com/in/amitagarwal6/"
