@@ -6,7 +6,7 @@ title: "About me"
 header:
   overlay_image: /images/llm-hero.jpg
   overlay_filter: 0.25
-  caption: "LLM systems · evaluation · retrieval"
+  caption: "GenAI · LLM systems · evaluation · retrieval"
 ---
 
 I’m a Principal Applied Scientist at **Oracle Cloud Infrastructure (OCI)**. I build ML systems that scale—taking research to production with reliability, safety, and efficiency.
@@ -25,5 +25,3 @@ I’m a Principal Applied Scientist at **Oracle Cloud Infrastructure (OCI)**. I 
 ## Now
 - Building evaluation pipelines for LLM features and retrieval quality.  
 - Optimizing inference cost/latency for high-traffic services.
-
-> Tip: keep your headshot square (e.g., 400×400) at `/images/profile.jpeg` so the sidebar avatar renders perfectly circular.
