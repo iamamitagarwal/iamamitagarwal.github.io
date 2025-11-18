@@ -7,6 +7,9 @@ baseurl: ""
 remote_theme: mmistakes/minimal-mistakes@4.24.0
 minimal_mistakes_skin: air
 
+search: true
+search_full_content: true
+
 markdown: kramdown
 permalink: /:categories/:title/
 include:
