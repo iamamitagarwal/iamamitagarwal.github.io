@@ -5,7 +5,7 @@ title: "About me"
 ---
 
 
-![Amit Agarwal](/images/profile.jpg){: .align-left width="220" }
+![Amit Agarwal](/images/profile.jpeg){: .align-left width="220" }
 
 
 I’m a Principal Applied Scientist at **Oracle Cloud Infrastructure (OCI)**. I build ML systems that scale—taking research to production with reliability, safety, and efficiency.
