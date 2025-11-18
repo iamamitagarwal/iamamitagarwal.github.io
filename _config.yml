@@ -17,7 +17,7 @@ plugins:
 
 author:
   name: "Amit Agarwal"
-  avatar: "/images/profile.jpg"
+  avatar: "/images/profile.jpeg"
   bio: "Principal Applied Scientist at Oracle Cloud Infrastructure (OCI). Applied ML/LLMs and cloud-scale systems."
   location: "Seattle, WA"
   links:
