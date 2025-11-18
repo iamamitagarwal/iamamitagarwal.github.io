@@ -21,6 +21,12 @@ author:
   bio: "Principal Applied Scientist at Oracle Cloud Infrastructure (OCI). Applied ML/LLMs and cloud-scale systems."
   location: "Seattle, WA"
   links:
+    - label: "Oracle Cloud Infrastructure"
+      icon: "fas fa-building"
+      url: "https://www.oracle.com/cloud/"
+    - label: "Email"
+      icon: "fas fa-envelope"
+      url: "mailto:amit.pinaki@gmail.com"
     - label: "Google Scholar"
       icon: "fas fa-graduation-cap"
       url: "https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&hl=en"
