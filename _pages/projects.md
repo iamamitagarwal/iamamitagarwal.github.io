@@ -1,7 +1,7 @@
 ---
 permalink: /projects/
-classes: wide
 title: "Projects"
+classes: wide
 search: true
 feature_row:
   - image_path: /images/proj-llm-eval.jpg
