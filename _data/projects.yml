@@ -9,7 +9,7 @@ cards:
   - image_path: /images/profile.jpeg
     alt: "Retrieval"
     title: "Retrieval Quality & Relevance"
-    excerpt: "Hybrid retrieval + rerankers, offline eval → online guardrails and A/B."
+    excerpt: "Hybrid retrieval + rerankers; offline eval → online guardrails & A/B."
     url: "#"
     btn_label: "Details"
     btn_class: "btn--primary"
