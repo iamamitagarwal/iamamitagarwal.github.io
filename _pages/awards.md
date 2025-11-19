@@ -1,6 +1,7 @@
 ---
 permalink: /awards/
 title: "Awards"
+title_separator: " | "   
 ---
 
 
