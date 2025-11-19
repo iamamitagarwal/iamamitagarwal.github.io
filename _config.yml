@@ -1,5 +1,8 @@
-logo: "" 
-masthead_title: "Amit Agarwal's Personal Website"  # forces exact header text
+# --- Site identity ---
+title: "Amit Agarwal's Personal Website"   # REQUIRED by the theme/SEO
+logo: ""                                    # keep text brand in header
+masthead_title: "Amit Agarwal's Personal Website"
+title_separator: " · "                      # change to " | " or "" if you insist
 locale: en
 timezone: America/Los_Angeles
 
@@ -7,8 +10,6 @@ name: "Amit Agarwal"
 description: Principal Applied Scientist at Oracle Cloud Infrastructure
 url: https://iamamitagarwal.github.io
 baseurl: ""
-title_separator: ""
-
 
 remote_theme: mmistakes/minimal-mistakes@4.24.0
 minimal_mistakes_skin: air
