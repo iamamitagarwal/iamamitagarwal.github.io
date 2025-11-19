@@ -1,20 +1,6 @@
 ---
 permalink: /projects/
 title: "Projects"
-feature_row:
-  - image_path: /images/llm-hero.jpg
-    alt: "LLM Evaluation"
-    title: "LLM Evaluation Platform"
-    excerpt: "Automatic metrics + human ratings + safety checks with dashboards."
-    url: "#"
-    btn_label: "Details"
-    btn_class: "btn--primary"
-  - image_path: /images/profile.jpeg
-    alt: "Retrieval"
-    title: "Retrieval Quality & Relevance"
-    excerpt: "Hybrid retrieval + rerankers; offline eval → online guardrails & A/B."
-    url: "#"
-    btn_label: "Details"
-    btn_class: "btn--primary"
 ---
+{% assign feature_row = site.data.projects.cards %}
 {% include feature_row %}
