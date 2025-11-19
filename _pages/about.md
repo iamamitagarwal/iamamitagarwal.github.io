@@ -7,6 +7,7 @@ header:
   overlay_image: /images/llm-hero.gif
   overlay_filter: 0.55
   caption: "GenAI · LLM systems · evaluation · retrieval"
+classes: wide
 ---
 
 I’m a Principal Applied Scientist at **Oracle Cloud Infrastructure (OCI)**. I build ML systems that scale—taking research to production with reliability, safety, and efficiency.
