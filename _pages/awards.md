@@ -1,8 +1,8 @@
 ---
 permalink: /awards/
-classes: wide
 title: "Awards"
 title_separator: " | "   
+classes: wide
 search: true
 ---
 
