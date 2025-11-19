@@ -9,26 +9,29 @@ search: true
 
 <div id="pub-filters" style="margin:.5rem 0 1rem 0;">
   <button class="btn btn--primary" data-tag="all">All</button>
-  <button class="btn" data-tag="LLM">LLM</button>
-  <button class="btn" data-tag="Retrieval">Retrieval</button>
-  <button class="btn" data-tag="Safety">Safety</button>
-  <button class="btn" data-tag="Document-AI">Document AI</button>
+  {% assign all_tags = site.publications | map:'tags' | join:',' | split:',' | uniq | sort %}
+  {% for t in all_tags %}{% unless t == '' %}
+    <button class="btn" data-tag="{{ t | strip }}">{{ t | strip }}</button>
+  {% endunless %}{% endfor %}
 </div>
 
-{% assign pubs_by_year = site.publications | sort: "year" | reverse | group_by: "year" %}
+{% comment %} robust grouping; drop items with blank year {% endcomment %}
+{% assign pubs = site.publications | where_exp:'p','p.title' | where_exp:'p','p.year' | sort:'year' | reverse %}
+{% assign years = pubs | map:'year' | uniq %}
 
-{% for y in pubs_by_year %}
-### {{ y.name }}
+{% for y in years %}
+### {{ y }}
 <ul class="pub-list">
-{% for p in y.items %}
-  <li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
-    <strong>{{ p.title }}</strong><br/>
-    <em>{{ p.authors }}</em>. {{ p.venue }} ({{ p.year }}).<br/>
-    {% if p.paper_url %}<a href="{{ p.paper_url }}">Paper</a>{% endif %}
+{% for p in pubs %}{% if p.year == y %}
+  <li class="pub-item" data-tags="{{ p.tags | join:' ' }}">
+    <strong>{{ p.title }}</strong><br>
+    {% if p.authors %}<em>{{ p.authors }}</em>.{% endif %}
+    {% if p.venue %} {{ p.venue }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
+    {% if p.paper_url %} <a href="{{ p.paper_url }}">Paper</a>{% endif %}
     {% if p.pdf_url %} · <a href="{{ p.pdf_url }}">PDF</a>{% endif %}
     {% if p.code_url %} · <a href="{{ p.code_url }}">Code</a>{% endif %}
   </li>
-{% endfor %}
+{% endif %}{% endfor %}
 </ul>
 {% endfor %}
 
@@ -40,7 +43,7 @@ search: true
     b.classList.add('btn--primary');
     const tag = b.dataset.tag;
     items.forEach(li => {
-      const tags = (li.dataset.tags || '').split(' ');
+      const tags = (li.dataset.tags || '').split(' ').filter(Boolean);
       li.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
     });
   }));
