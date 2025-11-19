@@ -1,5 +1,6 @@
 ---
 permalink: /projects/
+classes: wide
 title: "Projects"
 search: true
 feature_row:
