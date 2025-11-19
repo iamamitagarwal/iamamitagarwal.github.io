@@ -1,5 +1,6 @@
 ---
 permalink: /publications/
+classes: wide
 title: "Publications"
 search: true
 ---
