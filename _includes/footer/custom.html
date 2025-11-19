@@ -1,94 +1,53 @@
-<button id="themeToggle" aria-label="Toggle theme"
+<button id="theme-toggle" aria-label="Toggle theme"
   style="position:fixed; right:16px; bottom:16px; z-index:9999; border:0; padding:10px 12px; border-radius:999px; background:#0d1117; color:#fff; cursor:pointer;">
   🌙
 </button>
 
 <script>
-  (function(){
-    const btn = document.getElementById('theme-toggle'); // your toggle button
+  (function () {
+    const html = document.documentElement;
+    const saved = (()=>{ try { return localStorage.getItem('theme'); } catch(e){ return null; } })();
+    if (saved === 'dark') html.classList.add('theme-dark');
+
+    const btn = document.getElementById('theme-toggle');
     if (!btn) return;
-    btn.addEventListener('click', function(){
-      const html = document.documentElement;
-      const dark = html.classList.toggle('theme-dark');
-      try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
+    btn.addEventListener('click', () => {
+      const isDark = html.classList.toggle('theme-dark');
+      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch(e){}
     });
   })();
 </script>
 
 <style>
-:root { color-scheme: light dark; } /* better defaults for form controls, etc. */
+  :root { color-scheme: light dark; }
 
-/* Base */
-.theme-dark, .theme-dark body { background:#0d1117 !important; color:#e6edf3 !important; }
+  /* Base */
+  .theme-dark, .theme-dark body { background:#0d1117 !important; color:#e6edf3 !important; }
 
-/* Content + sidebar text */
-.theme-dark .page,
-.theme-dark .page__inner-wrap,
-.theme-dark .page__content,
-.theme-dark .sidebar,
-.theme-dark .archive__item,
-.theme-dark .archive__item-excerpt {
-  background:transparent !important;
-  color:#e6edf3 !important;
-}
+  /* Content + sidebar text */
+  .theme-dark .page, .theme-dark .page__inner-wrap, .theme-dark .page__content,
+  .theme-dark .sidebar, .theme-dark .archive__item, .theme-dark .archive__item-excerpt {
+    background:transparent !important; color:#e6edf3 !important;
+  }
+  .theme-dark p, .theme-dark li, .theme-dark dt, .theme-dark dd, .theme-dark span, .theme-dark small { color:#e6edf3 !important; }
 
-.theme-dark p,
-.theme-dark li,
-.theme-dark dt,
-.theme-dark dd,
-.theme-dark span,
-.theme-dark small { color:#e6edf3 !important; }
+  /* Headings */
+  .theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4, .theme-dark h5, .theme-dark h6, .theme-dark .page__title { color:#f3f4f6 !important; }
 
-/* Headings */
-.theme-dark h1,
-.theme-dark h2,
-.theme-dark h3,
-.theme-dark h4,
-.theme-dark h5,
-.theme-dark h6,
-.theme-dark .page__title { color:#f3f4f6 !important; }
+  /* Links */
+  .theme-dark a { color:#58a6ff !important; }
+  .theme-dark a:hover { color:#8ab4ff !important; }
 
-/* Links */
-.theme-dark a { color:#58a6ff !important; }
-.theme-dark a:hover { color:#8ab4ff !important; }
+  /* Masthead / nav / footer */
+  .theme-dark .masthead, .theme-dark .greedy-nav { background:#0d1117 !important; }
+  .theme-dark .greedy-nav a, .theme-dark .site-title { color:#e6edf3 !important; }
 
-/* Masthead / nav / footer */
-.theme-dark .masthead,
-.theme-dark .greedy-nav { background:#0d1117 !important; }
-.theme-dark .greedy-nav a,
-.theme-dark .site-title { color:#e6edf3 !important; }
-.theme-dark .page__footer { background:#0d1117 !important; color:#9aa4b2 !important; }
+  /* Footer brand color and readable links/icons in dark */
+  .theme-dark .page__footer { background:#0B2738 !important; color:#9ec1d9 !important; }
+  .theme-dark .page__footer a { color:#58a6ff !important; }
+  .theme-dark .author__urls i, .theme-dark .social-icons .fa, .theme-dark .page__meta .fa { color:#9ecbff !important; }
 
-/* Accents */
-.theme-dark blockquote { color:#c9d1d9 !important; border-left-color:#30363d !important; }
-.theme-dark pre,
-.theme-dark code,
-.theme-dark .highlighter-rouge {
-  background:#0b1220 !important; color:#e6edf3 !important; border-color:#1f2937 !important;
-}
-.theme-dark .notice,
-.theme-dark .toc,
-.theme-dark .btn,
-.theme-dark .btn--primary {
-  background:#0f172a !important; color:#e6edf3 !important; border-color:#1f2937 !important;
-}
-
-/* Keep media normal */
-.theme-dark img, .theme-dark video { filter:none; }
-
-/* Footer: bring back a brand-y dark blue and brighter links */
-.theme-dark .page__footer {
-  background: #0B2738 !important;  /* deep blue */
-  color: #9ec1d9 !important;
-}
-.theme-dark .page__footer a { color: #58a6ff !important; }
-
-/* Sidebar icons (Font Awesome) brighter in dark */
-.theme-dark .author__urls i,
-.theme-dark .social-icons .fa,
-.theme-dark .page__meta .fa { color: #9ecbff !important; }
-
-/* Nav contrast in dark */
-.theme-dark .greedy-nav a,
-.theme-dark .site-title { color:#e6edf3 !important; }
+  /* Code/btns/toc in dark */
+  .theme-dark pre, .theme-dark code, .theme-dark .highlighter-rouge { background:#0b1220 !important; color:#e6edf3 !important; border-color:#1f2937 !important; }
+  .theme-dark .notice, .theme-dark .toc, .theme-dark .btn, .theme-dark .btn--primary { background:#0f172a !important; color:#e6edf3 !important; border-color:#1f2937 !important; }
 </style>
