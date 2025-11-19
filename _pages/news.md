@@ -1,10 +1,10 @@
 ---
 permalink: /news/
-classes: wide
 title: "News"
 layout: home
 author_profile: true
 entries_layout: list
+classes: wide
 search: true
 ---
 
