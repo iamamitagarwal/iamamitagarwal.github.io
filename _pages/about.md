@@ -24,6 +24,13 @@ I’m a Principal Applied Scientist at **Oracle Cloud Infrastructure (OCI)**. I 
 - Led evaluation and safety initiatives across product surfaces.  
 - Prior work across document understanding, classification, and key-value extraction.
 
+## Selected Publications
+- **LLM Evaluation at Scale** (2024). [Paper](#) · [PDF](#) · [Code](#)
+- **Improving Retrieval Quality with Rerankers** (2020). [Paper](#)
+- **Document AI with Graph-based Layouts** (2019). [Paper](#) · [Code](#)
+
+[All publications →](/publications/)
+
 ## Now
 - Building evaluation pipelines for LLM features and retrieval quality.  
 - Optimizing inference cost/latency for high-traffic services.
