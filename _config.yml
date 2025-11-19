@@ -17,9 +17,7 @@ search_full_content: true
 og_image: /images/og-card.png
 
 analytics:
-  provider: "google"
-  google:
-    tracking_id: "G-351QZEBS4T"
+  provider: "false"
 
 markdown: kramdown
 permalink: /:categories/:title/
