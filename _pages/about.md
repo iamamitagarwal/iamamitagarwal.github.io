@@ -3,6 +3,7 @@ permalink: /
 title: "About me"
 image: /images/og-card.png   # social preview for this page
 classes: wide
+search: true
 # Optional banner — delete header block if you don't have llm-hero.jpg yet
 header:
   overlay_image: /images/llm-hero.gif
