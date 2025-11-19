@@ -2,12 +2,12 @@
 permalink: /
 title: "About me"
 image: /images/og-card.png   # social preview for this page
+classes: wide
 # Optional banner — delete header block if you don't have llm-hero.jpg yet
 header:
   overlay_image: /images/llm-hero.gif
   overlay_filter: 0.55
   caption: "GenAI · LLM systems · evaluation · retrieval"
-classes: wide
 ---
 
 I’m a Principal Applied Scientist at **Oracle Cloud Infrastructure (OCI)**. I build ML systems that scale—taking research to production with reliability, safety, and efficiency.
