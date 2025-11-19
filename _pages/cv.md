@@ -2,6 +2,7 @@
 permalink: /cv/
 title: "CV"
 classes: wide
+search: true
 ---
 
 📄 **Download:** [/files/amit-agarwal-cv.pdf](/files/amit-agarwal-cv.pdf)
