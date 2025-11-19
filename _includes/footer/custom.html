@@ -14,11 +14,63 @@
 })();
 </script>
 <style>
-/* simple dark theme overrides */
-.theme-dark { background:#0d1117; color:#e6edf3; }
-.theme-dark a { color:#2f81f7; }
-.theme-dark .greedy-nav, .theme-dark .masthead { background:#0d1117; }
-.theme-dark .page__content, .theme-dark .sidebar, .theme-dark .page__inner-wrap { background:transparent !important; }
-.theme-dark .archive__item-excerpt, .theme-dark .notice--primary { color:#c9d1d9; }
-.theme-dark img, .theme-dark video { filter: none; } /* keep media colors */
+:root { color-scheme: light dark; } /* better defaults for form controls, etc. */
+
+/* Base */
+.theme-dark, .theme-dark body { background:#0d1117 !important; color:#e6edf3 !important; }
+
+/* Content + sidebar text */
+.theme-dark .page,
+.theme-dark .page__inner-wrap,
+.theme-dark .page__content,
+.theme-dark .sidebar,
+.theme-dark .archive__item,
+.theme-dark .archive__item-excerpt {
+  background:transparent !important;
+  color:#e6edf3 !important;
+}
+
+.theme-dark p,
+.theme-dark li,
+.theme-dark dt,
+.theme-dark dd,
+.theme-dark span,
+.theme-dark small { color:#e6edf3 !important; }
+
+/* Headings */
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4,
+.theme-dark h5,
+.theme-dark h6,
+.theme-dark .page__title { color:#f3f4f6 !important; }
+
+/* Links */
+.theme-dark a { color:#58a6ff !important; }
+.theme-dark a:hover { color:#8ab4ff !important; }
+
+/* Masthead / nav / footer */
+.theme-dark .masthead,
+.theme-dark .greedy-nav { background:#0d1117 !important; }
+.theme-dark .greedy-nav a,
+.theme-dark .site-title { color:#e6edf3 !important; }
+.theme-dark .page__footer { background:#0d1117 !important; color:#9aa4b2 !important; }
+
+/* Accents */
+.theme-dark blockquote { color:#c9d1d9 !important; border-left-color:#30363d !important; }
+.theme-dark pre,
+.theme-dark code,
+.theme-dark .highlighter-rouge {
+  background:#0b1220 !important; color:#e6edf3 !important; border-color:#1f2937 !important;
+}
+.theme-dark .notice,
+.theme-dark .toc,
+.theme-dark .btn,
+.theme-dark .btn--primary {
+  background:#0f172a !important; color:#e6edf3 !important; border-color:#1f2937 !important;
+}
+
+/* Keep media normal */
+.theme-dark img, .theme-dark video { filter:none; }
 </style>
