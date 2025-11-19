@@ -17,3 +17,12 @@
   gtag('config', 'G-351QZEBS4T');
 </script>
 
+<script>
+  (function() {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark') document.documentElement.classList.add('theme-dark');
+    } catch(e){}
+  })();
+</script>
+
