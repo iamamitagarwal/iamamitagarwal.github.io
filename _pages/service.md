@@ -1,5 +1,6 @@
 ---
 permalink: /service/
+classes: wide
 title: "Service"
 search: true
 ---
