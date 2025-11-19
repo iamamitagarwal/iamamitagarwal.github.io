@@ -1,8 +1,8 @@
 ---
 permalink: /
 title: "About me"
-# layout and author_profile come from _config.yml defaults
-# Optional hero header — upload /images/llm-hero.jpg for a banner
+image: /images/og-card.png   # social preview for this page
+# Optional banner — delete header block if you don't have llm-hero.jpg yet
 header:
   overlay_image: /images/llm-hero.jpg
   overlay_filter: 0.25
