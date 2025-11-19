@@ -1,5 +1,6 @@
 ---
 permalink: /news/
+classes: wide
 title: "News"
 layout: home
 author_profile: true
