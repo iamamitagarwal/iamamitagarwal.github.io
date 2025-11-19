@@ -1,9 +1,6 @@
 ---
 permalink: /news/
 title: "News"
+layout: home
+author_profile: false
 ---
-
-
-- **2025** — Launched this site.
-- **2024** — Led evaluation framework rollout for LLM features at OCI.
-- **2023** — Delivered retrieval improvements adopted by multiple product teams.
