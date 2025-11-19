@@ -1,6 +1,7 @@
 ---
 permalink: /projects/
 title: "Projects"
+search: true
 feature_row:
   - image_path: /images/proj-llm-eval.jpg
     alt: "LLM Evaluation"
