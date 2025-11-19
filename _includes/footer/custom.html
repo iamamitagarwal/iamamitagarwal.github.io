@@ -2,18 +2,18 @@
   style="position:fixed; right:16px; bottom:16px; z-index:9999; border:0; padding:10px 12px; border-radius:999px; background:#0d1117; color:#fff; cursor:pointer;">
   🌙
 </button>
+
 <script>
-(function(){
-  const key='mm-theme';
-  const root=document.documentElement;
-  const btn=document.getElementById('themeToggle');
-  const apply = m => { root.classList.toggle('theme-dark', m==='dark'); btn.textContent = m==='dark' ? '☀️' : '🌙'; };
-  let mode = localStorage.getItem(key) || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  apply(mode);
-  btn.onclick = () => { mode = (mode==='dark'?'light':'dark'); localStorage.setItem(key,mode); apply(mode); };
-})();
+  (function(){
+    const btn = document.getElementById('theme-toggle'); // your toggle button
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      const html = document.documentElement;
+      const dark = html.classList.toggle('theme-dark');
+      try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
+    });
+  })();
 </script>
-<style>
 :root { color-scheme: light dark; } /* better defaults for form controls, etc. */
 
 /* Base */
