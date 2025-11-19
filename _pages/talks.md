@@ -1,7 +1,7 @@
 ---
 permalink: /talks/
-classes: wide
 title: "Talks"
+classes: wide
 search: true
 ---
 
