@@ -1,6 +1,7 @@
 ---
 permalink: /service/
 title: "Service"
+search: true
 ---
 
 
