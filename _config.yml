@@ -1,4 +1,8 @@
-title: "Amit Agarwal's Personal Website"
+logo: "" 
+masthead_title: "Amit Agarwal's Personal Website"  # forces exact header text
+locale: en
+timezone: America/Los_Angeles
+
 name: "Amit Agarwal"
 description: Principal Applied Scientist at Oracle Cloud Infrastructure
 url: https://iamamitagarwal.github.io
