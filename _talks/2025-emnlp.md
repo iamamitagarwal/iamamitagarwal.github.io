@@ -5,7 +5,7 @@ author_profile: True
 classes: "wide"
 venue: "EMNLP"
 year: 2025
-link_url: [https://emnlp.org/2025/program#your-session](https://x.com/emnlpmeeting/status/1986923462619734140?s=12)
+link_url: https://x.com/emnlpmeeting/status/1986923462619734140?s=12
 images:
   - /images/talks/emnlp-2025-emnlp-2.jpeg
   - /images/talks/emnlp-2025-emnlp.jpeg
