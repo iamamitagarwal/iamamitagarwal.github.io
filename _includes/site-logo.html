@@ -1,0 +1,13 @@
+<a class="site-title" href="{{ '/' | relative_url }}">
+  {% if site.logo %}
+    <span class="site-logo">
+      <img src="{{ site.logo | relative_url }}" alt="{{ site.title }} logo" />
+    </span>
+  {% endif %}
+
+  <span class="brand-text">{{ site.title }}</span>
+
+  {% if site.brand_sub or site.description %}
+    <small class="brand-sub">{{ site.brand_sub | default: site.description }}</small>
+  {% endif %}
+</a>
