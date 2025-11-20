@@ -8,135 +8,224 @@ classes: wide
 
 <style>
   :root{
-    --ink:#0b1320; --muted:#6b7280; --line:#e5e7eb; --paper:#fffdfa;
-    --accent:#0ea5e9; --accent-2:#f59e0b;
+    --paper:#fffaf1;
+    --ink:#0b1320;
+    --muted:#64748b;
+    --ring:#e7dbc7;
+    --ring-strong:#d9c6a6;
+    --tile:#fff;
+    --shadow:0 10px 18px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06);
+    --accentA:#2d8fa2;  --accentB:#7c62ff; --accentC:#f97316; --accentD:#14b8a6;
   }
-  .awards-grid{ display:grid; grid-template-columns:360px 1px minmax(0,1fr); gap:2rem; align-items:start; }
-  @media (max-width:1100px){ .awards-grid{ grid-template-columns:1fr; } .awards-divider{ display:none; } }
-  .awards-divider{ width:1px; background:linear-gradient(180deg,transparent,var(--line),transparent); }
 
-  .awards-metrics{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
-  .metric{ background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:1.1rem 1rem;
-           box-shadow:0 10px 18px rgba(0,0,0,.06), 0 2px 5px rgba(0,0,0,.04); }
-  .metric__num{ font-size:2.2rem; font-weight:800; line-height:1.1; color:var(--ink); }
-  .metric__label{ margin-top:.2rem; color:var(--muted); font-weight:600; letter-spacing:.01em; }
-  .metric--accent{ border-color: rgba(14,165,233,.35); }
-  .metric--gold{ border-color: rgba(245,158,11,.35); }
+  /* two-column responsive layout with a visible vertical divider */
+  .awards-wrap{
+    display:grid; grid-template-columns: 1.1fr minmax(420px, 1.1fr);
+    gap:1.25rem; align-items:start; position:relative;
+  }
+  @media(max-width:1100px){ .awards-wrap{ grid-template-columns:1fr; } }
 
-  .best-card{ margin-top:1rem; background:#fff; border:1px solid var(--line); border-radius:16px; padding:1rem;
-              box-shadow:0 8px 16px rgba(0,0,0,.05); }
-  .best-card h4{ margin:.1rem 0 .6rem; font-weight:900; }
-  .best-item{ display:flex; gap:.5rem; align-items:flex-start; margin:.35rem 0; }
-  .best-medal{ font-size:1rem; line-height:1.25rem; }
-  .best-item a{ font-weight:700; text-decoration:none; }
-  .best-item a:hover{ text-decoration:underline; }
+  .awards-wrap::before{
+    content:""; position:absolute; top:.25rem; bottom:.25rem; left:50%; width:2px;
+    transform:translateX(-50%);
+    background:linear-gradient(180deg, rgba(45,143,162,.25), rgba(124,98,255,.25));
+    border-radius:2px;
+    opacity:.8;
+  }
+  @media(max-width:1100px){ .awards-wrap::before{ display:none; } }
 
-  .awards-list{ display:flex; flex-direction:column; gap:1rem; }
-  .award{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:1.0rem 1.1rem; box-shadow:0 8px 16px rgba(0,0,0,.05); }
-  .award__head{ display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin-bottom:.25rem; }
-  .award__title{ margin:0; font-size:1.05rem; font-weight:800; color:var(--ink); }
-  .award__badge{ font:700 .75rem/1 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
-                 padding:.18rem .5rem; border-radius:999px; border:1px solid var(--line); color:#334155; background:#f8fafc; }
-  .award__meta{ color:var(--muted); margin:.15rem 0 .5rem; }
-  .award__desc{ margin:.2rem 0 .6rem; }
+  /* Left: metrics */
+  .metrics{
+    display:grid; grid-template-columns:repeat(2,minmax(180px,1fr)); gap:1rem;
+  }
+  @media(max-width:720px){ .metrics{ grid-template-columns:1fr 1fr; } }
 
-  .pill{ display:inline-flex; align-items:center; gap:.4rem; padding:.32rem .7rem; border-radius:999px;
-         font-weight:800; font-size:.85rem; border:1px solid var(--accent); color:var(--ink);
-         text-decoration:none; background:#ecfeff; }
-  .pill:hover{ background:var(--accent); color:#fff; }
-  .pill--pdf{ border-color:#ef4444; background:#fff1f1; color:#6b1010; }
-  .pill--pdf:hover{ background:#ef4444; color:#fff; }
-  .pill svg{ width:16px; height:16px }
+  .metric{
+    background:var(--tile); border:1.5px solid var(--ring); border-radius:16px;
+    box-shadow:var(--shadow); padding:1rem 1rem .9rem;
+  }
+  .metric strong{
+    display:block; font-size:2.2rem; line-height:1; letter-spacing:.02em; color:var(--ink);
+    margin-bottom:.35rem;
+  }
+  .metric small{
+    display:block; color:var(--muted); font-weight:600; font-size:.96rem;
+  }
+  .metric small .muter{ font-weight:500; opacity:.95; }
 
-  html.theme-dark .metric,html.theme-dark .award,html.theme-dark .best-card{ background:#0b1220; border-color:#1f2937; box-shadow:none; }
-  html.theme-dark .award__badge{ background:#0f172a; color:#e2e8f0; border-color:#1e293b; }
-  html.theme-dark .pill{ background:#062a30; color:#d7eef6; border-color:#22d3ee; }
-  html.theme-dark .pill--pdf{ background:#2a1212; color:#ffe2e2; border-color:#f87171; }
+  /* Best paper badge list (kept once, with link) */
+  .best-paper{
+    margin-top:1rem;
+    background:var(--tile); border:1.5px solid var(--ring); border-radius:16px;
+    box-shadow:var(--shadow); padding:1rem 1.1rem;
+  }
+  .best-paper h4{ margin:.1rem 0 .6rem; }
+  .bp-item{ display:flex; gap:.6rem; align-items:flex-start; margin:.35rem 0; }
+  .bp-emoji{ font-size:1.15rem; line-height:1.15; margin-top:.05rem }
+  .bp-title a{ font-weight:700; }
+  .bp-title span{ color:var(--muted); font-weight:600; margin-left:.35rem; }
+
+  /* Right: awards bubbles */
+  .awards-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1rem;
+  }
+  .award-card{
+    background:var(--tile);
+    border:1.5px solid var(--ring);
+    border-radius:20px; box-shadow:var(--shadow);
+    padding:1rem 1.1rem; display:flex; align-items:center; gap:.9rem;
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    position:relative; isolation:isolate;
+  }
+  .award-card:hover{ transform:translateY(-2px) scale(1.01); border-color:var(--ring-strong); }
+  .award-icon{
+    flex:0 0 42px; height:42px; border-radius:999px; display:grid; place-items:center;
+    color:#fff; font-size:1.05rem; font-weight:900;
+    background:linear-gradient(135deg, var(--accentA), var(--accentB));
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+  }
+  .award-body{ min-width:0; }
+  .award-title{ font-weight:800; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .award-meta{ color:var(--muted); font-weight:600; font-size:.95rem; }
+  .award-actions{ margin-left:auto; display:flex; gap:.5rem; }
+  .pill{
+    display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .7rem; border-radius:999px;
+    border:1px solid var(--accentA); color:var(--accentA); background:#f0fbfe; text-decoration:none; font-weight:800;
+  }
+  .pill:hover{ background:var(--accentA); color:#fff; }
+  .pill--pdf{ border-color:#d44; color:#d44; background:#fff1f1; }
+  .pill--pdf:hover{ background:#d44; color:#fff; }
+
+  /* give each bubble a slightly different rim hue */
+  .awards-grid .award-card:nth-child(4n+1){ --accentA:#2d8fa2; --accentB:#7c62ff; }
+  .awards-grid .award-card:nth-child(4n+2){ --accentA:#f97316; --accentB:#f59e0b; }
+  .awards-grid .award-card:nth-child(4n+3){ --accentA:#14b8a6; --accentB:#0ea5e9; }
+  .awards-grid .award-card:nth-child(4n+4){ --accentA:#22c55e; --accentB:#10b981; }
 </style>
 
-{% comment %}
-Compute live counts; keep best_papers configurable via _data/awards_stats.yml (or page.stats).
-{% endcomment %}
-{% assign papers_total  = site.publications | size %}
-{% assign patents_total = site.patents | size %}
-{% assign talks_total   = site.talks | size | default: 0 %}
-{% assign stats = site.data.awards_stats | default: page.stats %}
-{% assign best_list = stats.best_papers %}
+{%- comment -%}
+Counts are computed from your collections:
+- Papers = site.publications.size
+- Patents = site.patents.size
+- Talks (top-tier) = count of site.talks where `tier` contains "top", or tags include "top"/"tier1"/"top-tier", or `venue_tier == 'top'`.
+Best-paper items come from _data/best_papers.yml (list), each with { title, venue, year, link }.
+Awards are read from your _awards collection. Optional front-matter on each item:
+  title: "Victor Award"
+  year: 2024
+  org: "Acme Corp"
+  icon: "trophy" | "medal" | "star"
+  certificate: /assets/awards/victor-award.pdf  # or leave blank to auto-match a PDF in /assets/awards/
+{%- endcomment -%}
 
-<div class="awards-grid">
-  <!-- Left: metrics + best-paper list -->
-  <section aria-label="Highlights">
-    <div class="awards-metrics">
-      <div class="metric metric--accent">
-        <div class="metric__num">{{ papers_total }}</div>
-        <div class="metric__label">papers in top venues</div>
+{%- assign papers_count = site.publications | size -%}
+{%- assign patents_count = site.patents | size -%}
+{%- assign talks_top = 0 -%}
+{%- for t in site.talks -%}
+  {%- assign tier = t.tier | default:t.venue_tier | downcase -%}
+  {%- assign tags_join = t.tags | join: " " | downcase -%}
+  {%- if tier contains "top" or tags_join contains "tier1" or tags_join contains "top-tier" or tags_join contains "top" -%}
+    {%- assign talks_top = talks_top | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<div class="awards-wrap">
+  <!-- LEFT: metrics + best paper list -->
+  <div>
+    <div class="metrics">
+      <div class="metric">
+        <strong>{{ papers_count }}</strong>
+        <small>papers in<br><span class="muter">top venues</span></small>
       </div>
       <div class="metric">
-        <div class="metric__num">{{ patents_total }}</div>
-        <div class="metric__label">patents</div>
+        <strong>{{ patents_count }}</strong>
+        <small>patents</small>
       </div>
       <div class="metric">
-        <div class="metric__num">&gt;{{ talks_total }}</div>
-        <div class="metric__label">talks at tier-1 confs</div>
-      </div>
-      <div class="metric metric--gold">
-        <div class="metric__num">🏅</div>
-        <div class="metric__label">best paper awards</div>
+        <strong>&gt;{{ talks_top }}</strong>
+        <small>talks at tier-1<br><span class="muter">conferences</span></small>
       </div>
     </div>
 
-    {% if best_list and best_list.size > 0 %}
-    <div class="best-card">
+    <div class="best-paper">
       <h4>Best paper awards</h4>
-      {% for bp in best_list %}
-        {%- assign link = bp.url -%}
-        {%- if link == nil and bp.pub_id -%}
-          {%- assign hit = site.publications | where_exp: "p", "p.path contains bp.pub_id" | first -%}
-          {%- if hit -%}{%- assign link = hit.url | relative_url -%}{%- endif -%}
+      {%- if site.data.best_papers and site.data.best_papers.size > 0 -%}
+        {%- for bp in site.data.best_papers -%}
+          <div class="bp-item">
+            <div class="bp-emoji">🏅</div>
+            <div class="bp-title">
+              <a href="{{ bp.link | relative_url }}" target="_blank" rel="noopener">{{ bp.title }}</a>
+              <span>— {{ bp.venue }} {{ bp.year }}</span>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Fallback: try to find the Accesseval paper automatically {%- endcomment -%}
+        {%- assign acc = nil -%}
+        {%- for p in site.publications -%}
+          {%- assign tl = p.title | downcase -%}
+          {%- if tl contains "accesseval" or tl contains "disability bias" -%}
+            {%- assign acc = p -%}{%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if acc -%}
+          <div class="bp-item">
+            <div class="bp-emoji">🏅</div>
+            <div class="bp-title">
+              <a href="{{ acc.url | relative_url }}">{{ acc.title }}</a>
+              <span>— {{ acc.venue | default:"EMNLP" }} {{ acc.year | default:"2025" }}</span>
+            </div>
+          </div>
+        {%- else -%}
+          <p style="color:var(--muted)">Add items to <code>_data/best_papers.yml</code> to list them here.</p>
         {%- endif -%}
-        <div class="best-item">
-          <div class="best-medal">🥇</div>
-          <div>
-            {% if link %}<a href="{{ link }}" target="_blank" rel="noopener">{{ bp.note }}</a>
-            {% else %}{{ bp.note }}{% endif %}
+      {%- endif -%}
+    </div>
+  </div>
+
+  <!-- RIGHT: award bubbles -->
+  <div class="awards-grid">
+    {%- assign awards = site.awards | sort: "year" | reverse -%}
+    {%- for a in awards -%}
+      {%- assign icon = a.icon | default:"trophy" -%}
+      {%- assign cert = a.certificate | default:a.pdf | default:a.certificate_url -%}
+
+      {%- if cert == nil or cert == "" -%}
+        {%- assign akey = a.slug | default:a.title | slugify: "pretty" -%}
+        {%- for sf in site.static_files -%}
+          {%- assign sp = sf.path | downcase -%}
+          {%- if sp contains "/assets/awards/" and sf.extname == ".pdf" -%}
+            {%- assign base = sf.name | remove: sf.extname | slugify: "pretty" -%}
+            {%- if base == akey -%}
+              {%- assign cert = sf.path | relative_url -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+      <div class="award-card">
+        <div class="award-icon">
+          {%- if icon == "medal" -%}🥇
+          {%- elsif icon == "star" -%}⭐
+          {%- else -%}🏆
+          {%- endif -%}
+        </div>
+        <div class="award-body">
+          <div class="award-title">{{ a.title }}</div>
+          <div class="award-meta">
+            {%- if a.org %}{{ a.org }}{% endif -%}
+            {%- if a.year %}{% if a.org %} • {% endif %}{{ a.year }}{% endif -%}
           </div>
         </div>
-      {% endfor %}
-    </div>
-    {% endif %}
-  </section>
-
-  <div class="awards-divider" aria-hidden="true"></div>
-
-  <!-- Right: award cards from the awards collection -->
-  <section aria-label="Awards" class="awards-list">
-    {% assign items = site.awards | sort: "year" | reverse %}
-    {% for a in items %}
-      <article class="award">
-        <div class="award__head">
-          <h3 class="award__title">{{ a.title }}</h3>
-          {% if a.year %}<span class="award__badge">{{ a.year }}</span>{% endif %}
+        <div class="award-actions">
+          {%- if cert and cert != "" -%}
+            <a class="pill pill--pdf" href="{{ cert }}" target="_blank" rel="noopener">PDF</a>
+          {%- endif -%}
+          {%- if a.link and a.link != "" -%}
+            <a class="pill" href="{{ a.link }}" target="_blank" rel="noopener">Site</a>
+          {%- endif -%}
         </div>
-        <p class="award__meta">
-          {% if a.org %}<strong>{{ a.org }}</strong>{% endif %}
-          {% if a.location %} — {{ a.location }}{% endif %}
-        </p>
-        {% if a.summary %}<p class="award__desc">{{ a.summary }}</p>{% endif %}
-        <div class="award__actions">
-          {% if a.certificate_url %}
-            <a class="pill pill--pdf" href="{{ a.certificate_url }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm1 7V3.5L19.5 9H15Z"/><path fill="currentColor" d="M7 14h10v2H7zm0-4h7v2H7z"/></svg>
-              Certificate
-            </a>
-          {% endif %}
-          {% if a.link %}
-            <a class="pill" href="{{ a.link }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m10.59 13.41 6.3-6.3v4.59h2V4h-7.7v2h4.59l-6.3 6.3 1.12 1.11Z"/><path fill="currentColor" d="M19 19H5V5h6V3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-6h-2v6Z"/></svg>
-              Details
-            </a>
-          {% endif %}
-        </div>
-      </article>
-    {% endfor %}
-  </section>
+      </div>
+    {%- endfor -%}
+  </div>
 </div>
