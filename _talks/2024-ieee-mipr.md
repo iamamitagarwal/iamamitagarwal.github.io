@@ -6,6 +6,7 @@ classes: "wide"
 venue: "IEEE MIPR"
 year: 2024
 images:
+  - /images/talks/ieee-mipr-2024.jfif
 pdf_url: "/files/talks/ieee-mipr-2024-panel--ieee-mipr---innovation-forums-bio.pdf"
 ---
 
