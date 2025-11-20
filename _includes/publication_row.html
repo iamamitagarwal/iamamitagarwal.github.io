@@ -1,47 +1,60 @@
-{% assign p = include.pub %}
+{%- assign p = include.pub -%}
+{%- assign title_link = p.paper_url | default: p.pdf_url | default: p.url | relative_url -%}
 
-{% comment %} highlight your name {% endcomment %}
-{% assign authors_marked = p.authors | replace: 'Agarwal, Amit', '<strong><em>Agarwal, Amit</em></strong>' %}
+/* ----- venue token (front-matter override wins) ----- */
+{%- assign tok = p.venue_token | downcase | default: "" -%}
+{%- if tok == "" -%}
+  {%- assign vtxt = p.venue | default: "" | downcase -%}
+  {%- assign href = p.paper_url | default: "" | downcase -%}
+  {%- if vtxt contains "emnlp" or href contains "emnlp" -%}{% assign tok = "emnlp" %}
+  {%- elsif vtxt contains "naacl" or href contains "naacl" -%}{% assign tok = "naacl" %}
+  {%- elsif vtxt contains "acl"   or href contains "acl"   -%}{% assign tok = "acl"   %}
+  {%- elsif vtxt contains "neurips" or href contains "neurips" -%}{% assign tok = "neurips" %}
+  {%- elsif vtxt contains "iclr" or href contains "iclr" -%}{% assign tok = "iclr" %}
+  {%- elsif vtxt contains "icml" or href contains "icml" -%}{% assign tok = "icml" %}
+  {%- elsif vtxt contains "cvpr" or href contains "cvpr" -%}{% assign tok = "cvpr" %}
+  {%- elsif vtxt contains "iccv" or href contains "iccv" -%}{% assign tok = "iccv" %}
+  {%- elsif vtxt contains "eccv" or href contains "eccv" -%}{% assign tok = "eccv" %}
+  {%- elsif vtxt contains "ieee" or href contains "ieee" -%}{% assign tok = "ieee" %}
+  {%- elsif vtxt contains "acm"  or href contains "acm"  -%}{% assign tok = "acm"  %}
+  {%- elsif vtxt contains "arxiv" or href contains "arxiv" -%}{% assign tok = "arxiv" %}
+  {%- endif -%}
+{%- endif -%}
 
-{% comment %} pick best title target {% endcomment %}
-{% assign title_href = p.paper_url | default: p.pdf_url | default: p.url | relative_url %}
+/* ----- highlight your name ----- */
+{%- assign authors_html = p.authors | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>" -%}
 
-{% comment %} venue badge detection from venue or URL {% endcomment %}
-{% assign source = p.venue | downcase | default: '' %}
-{% if source == '' %}
-  {% assign source = p.paper_url | downcase | default: p.pdf_url | downcase | default: '' %}
-{% endif %}
+/* ----- figure out a usable PDF link ----- */
+{%- assign pdf = p.pdf_url | default: p.pdf -%} {# support legacy 'pdf' too #}
+{%- if pdf == nil or pdf == "" -%}
+  {%- assign href = p.paper_url | default: "" -%}
+  {%- assign href_lc = href | downcase -%}
+  {%- if href_lc contains '.pdf' -%}
+    {%- assign pdf = href -%}
+  {%- elsif href_lc contains 'arxiv.org/abs/' -%}
+    {%- assign pdf = href | replace: '/abs/', '/pdf/' -%}
+    {%- unless pdf endswith '.pdf' -%}{% assign pdf = pdf | append: '.pdf' %}{%- endunless -%}
+  {%- elsif href_lc contains 'aclanthology.org/' -%}
+    {%- assign after = href | split: 'aclanthology.org/' | last -%}
+    {%- assign id = after | replace: '/', '' -%}
+    {%- assign pdf = 'https://aclanthology.org/' | append: id -%}
+    {%- unless pdf endswith '.pdf' -%}{% assign pdf = pdf | append: '.pdf' %}{%- endunless -%}
+  {%- elsif href_lc contains 'openreview.net/forum?id=' -%}
+    {%- assign rid = href | split: 'id=' | last -%}
+    {%- assign pdf = 'https://openreview.net/pdf?id=' | append: rid -%}
+  {%- endif -%}
+{%- endif -%}
 
-{% assign badge_key = '' %}
-{% assign badge_text = '' %}
-{% if source contains 'emnlp' %}{% assign badge_key='emnlp' %}{% assign badge_text='EMNLP' %}
-{% elsif source contains 'naacl' %}{% assign badge_key='naacl' %}{% assign badge_text='NAACL' %}
-{% elsif source contains 'acl' or source contains 'aclanthology' %}{% assign badge_key='acl' %}{% assign badge_text='ACL' %}
-{% elsif source contains 'neurips' %}{% assign badge_key='neurips' %}{% assign badge_text='NeurIPS' %}
-{% elsif source contains 'iclr' %}{% assign badge_key='iclr' %}{% assign badge_text='ICLR' %}
-{% elsif source contains 'icml' %}{% assign badge_key='icml' %}{% assign badge_text='ICML' %}
-{% elsif source contains 'cvpr' %}{% assign badge_key='cvpr' %}{% assign badge_text='CVPR' %}
-{% elsif source contains 'iccv' %}{% assign badge_key='iccv' %}{% assign badge_text='ICCV' %}
-{% elsif source contains 'eccv' %}{% assign badge_key='eccv' %}{% assign badge_text='ECCV' %}
-{% elsif source contains 'ieee' %}{% assign badge_key='ieee' %}{% assign badge_text='IEEE' %}
-{% elsif source contains 'acm' %}{% assign badge_key='acm' %}{% assign badge_text='ACM' %}
-{% elsif source contains 'arxiv' or source contains '/abs/' %}{% assign badge_key='arxiv' %}{% assign badge_text='arXiv' %}
-{% endif %}
-
-<li class="pub-item" data-tags="{{ p.tags | join:' ' }}">
-  <strong>
-    <a class="pub-title" href="{{ title_href }}">{{ p.title }}</a>
-    {% if badge_key != '' %}
-      <span class="venue-badge badge-{{ badge_key }}">{{ badge_text }}</span>
-    {% endif %}
-  </strong><br/>
-  <em>{{ authors_marked }}</em>.
-  {% if p.venue %} {{ p.venue }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
+<li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
+  <strong><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></strong>
+  {%- if tok != "" -%}<span class="venue-badge badge-{{ tok }}">{{ tok }}</span>{%- endif -%}
+  <br/>
+  <em>{{ authors_html }}</em>.{%- if p.venue %} {{ p.venue }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
 
   <div class="link-pills">
-    {% if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}">📄 Paper</a>{% endif %}
-    {% if p.pdf_url %}<a class="link-pill pill--pdf" href="{{ p.pdf_url }}">PDF</a>{% endif %}
-    {% if p.code_url %}<a class="link-pill pill--code" href="{{ p.code_url }}">Code</a>{% endif %}
-    {% if p.bibtex %}<button class="link-pill pill--copy" data-bib="{{ p.bibtex | escape }}">BibTeX</button>{% endif %}
+    {%- if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}" target="_blank" rel="noopener">📄 Paper</a>{% endif -%}
+    {%- if pdf       %}<a class="link-pill pill--pdf" href="{{ pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
+    {%- if p.code_url %}<a class="link-pill pill--code" href="{{ p.code_url }}" target="_blank" rel="noopener">Code</a>{% endif -%}
+    <a class="link-pill" href="{{ p.url | relative_url }}">Details</a>
   </div>
 </li>
