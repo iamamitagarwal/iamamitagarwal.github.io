@@ -1,7 +1,15 @@
 {%- assign p = include.pub -%}
-{%- assign title_link = p.paper_url | default: p.pdf_url | default: p.url | relative_url -%}
 
-/* ----- venue token (front-matter override wins) ----- */
+{%- comment -%} Title link: prefer external paper_url; else internal details page {%- endcomment -%}
+{%- if p.paper_url -%}
+  {%- assign title_link = p.paper_url -%}
+{%- elsif p.url -%}
+  {%- assign title_link = p.url | relative_url -%}
+{%- else -%}
+  {%- assign title_link = "#" -%}
+{%- endif -%}
+
+{%- comment -%} Venue token (front-matter venue_token wins; else infer) {%- endcomment -%}
 {%- assign tok = p.venue_token | downcase | default: "" -%}
 {%- if tok == "" -%}
   {%- assign vtxt = p.venue | default: "" | downcase -%}
@@ -21,27 +29,31 @@
   {%- endif -%}
 {%- endif -%}
 
-/* ----- highlight your name ----- */
+{%- comment -%} Highlight your name {%- endcomment -%}
 {%- assign authors_html = p.authors | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>" -%}
 
-/* ----- figure out a usable PDF link ----- */
-{%- assign pdf = p.pdf_url | default: p.pdf -%} {# support legacy 'pdf' too #}
+{%- comment -%} Best-effort PDF discovery {%- endcomment -%}
+{%- assign pdf = p.pdf_url | default: p.pdf -%}
 {%- if pdf == nil or pdf == "" -%}
   {%- assign href = p.paper_url | default: "" -%}
   {%- assign href_lc = href | downcase -%}
-  {%- if href_lc contains '.pdf' -%}
+
+  {%- if href_lc contains ".pdf" -%}
     {%- assign pdf = href -%}
-  {%- elsif href_lc contains 'arxiv.org/abs/' -%}
-    {%- assign pdf = href | replace: '/abs/', '/pdf/' -%}
-    {%- unless pdf endswith '.pdf' -%}{% assign pdf = pdf | append: '.pdf' %}{%- endunless -%}
-  {%- elsif href_lc contains 'aclanthology.org/' -%}
-    {%- assign after = href | split: 'aclanthology.org/' | last -%}
-    {%- assign id = after | replace: '/', '' -%}
-    {%- assign pdf = 'https://aclanthology.org/' | append: id -%}
-    {%- unless pdf endswith '.pdf' -%}{% assign pdf = pdf | append: '.pdf' %}{%- endunless -%}
-  {%- elsif href_lc contains 'openreview.net/forum?id=' -%}
-    {%- assign rid = href | split: 'id=' | last -%}
-    {%- assign pdf = 'https://openreview.net/pdf?id=' | append: rid -%}
+
+  {%- elsif href_lc contains "arxiv.org/abs/" -%}
+    {%- assign pdf = href | replace: "/abs/", "/pdf/" -%}
+    {%- unless pdf contains ".pdf" -%}{% assign pdf = pdf | append: ".pdf" %}{%- endunless -%}
+
+  {%- elsif href_lc contains "aclanthology.org/" -%}
+    {%- assign after = href | split: "aclanthology.org/" | last -%}
+    {%- assign id = after | replace: "/", "" -%}
+    {%- assign pdf = "https://aclanthology.org/" | append: id -%}
+    {%- unless pdf contains ".pdf" -%}{% assign pdf = pdf | append: ".pdf" %}{%- endunless -%}
+
+  {%- elsif href_lc contains "openreview.net/forum?id=" -%}
+    {%- assign rid = href | split: "id=" | last -%}
+    {%- assign pdf = "https://openreview.net/pdf?id=" | append: rid -%}
   {%- endif -%}
 {%- endif -%}
 
@@ -53,8 +65,8 @@
 
   <div class="link-pills">
     {%- if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}" target="_blank" rel="noopener">📄 Paper</a>{% endif -%}
-    {%- if pdf       %}<a class="link-pill pill--pdf" href="{{ pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
+    {%- if pdf %}<a class="link-pill pill--pdf" href="{{ pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
     {%- if p.code_url %}<a class="link-pill pill--code" href="{{ p.code_url }}" target="_blank" rel="noopener">Code</a>{% endif -%}
-    <a class="link-pill" href="{{ p.url | relative_url }}">Details</a>
+    {%- if p.url %}<a class="link-pill" href="{{ p.url | relative_url }}">Details</a>{% endif -%}
   </div>
 </li>
