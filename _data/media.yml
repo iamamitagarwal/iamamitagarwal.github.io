@@ -1,8 +1,30 @@
 # _data/media.yml
-techcrunch-award:
-  title: "TechCrunch: Startup of the Year"
-  site:  "https://example.com/techcrunch-article"
-forbes-interview:
-  title: "Forbes Interview"
-  site:  "https://example.com/forbes-interview"
-# add more as you like; missing items fall back to filename and "#" link
+# Key can be the base name or a slug. Update `site:` with the real article URL.
+
+ahmedabadmirror-ai-unleashed:
+  title: "Ahmedabad Mirror — AI Unleashed"
+  site: "https://example.com/ahmedabad-mirror-ai-unleashed"
+
+dainik-ajay-ujala-amit-english:
+  title: "Dainik Ajay Ujala — Amit (English)"
+  site: "https://example.com/dainik-ajay-ujala-amit-english"
+
+substack-measuring-retrieval:
+  title: "Substack — Measuring Retrieval"
+  site: "https://example.com/substack-measuring-retrieval"
+
+centralchronicle-in-amit-agarwal:
+  title: "Central Chronicle — Amit Agarwal"
+  site: "https://example.com/centralchronicle-amit-agarwal"
+
+khabarganga-in-amit-agarwal:
+  title: "Khabarganga — Amit Agarwal"
+  site: "https://example.com/khabarganga-amit-agarwal"
+
+qq-com-sweeval-a-multilingual:
+  title: "QQ.com — SweEval: A Multilingual"
+  site: "https://example.com/qq-sweeval-multilingual"
+
+www-prabhatkhabar-com-amit-achieved-new-heights:
+  title: "Prabhat Khabar — Amit achieved new heights"
+  site: "https://example.com/prabhatkhabar-amit-achieved-new-heights"
