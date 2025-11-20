@@ -1,5 +1,5 @@
 ---
-title: "ICDMAI 2020 \u2020 Invited talk"
+title: "ICDMAI 2020 \u2014 Invited talk"
 layout: "single"
 author_profile: True
 classes: "wide"
