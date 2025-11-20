@@ -20,8 +20,8 @@ classes: wide
     border:1px solid rgba(0,0,0,.08); background:#fff;
   }
   .media-card img{
-    width:100%; height:auto; display:block; object-fit:cover; aspect-ratio:16/9;
-    transition:transform .35s ease;
+    width:100%; height:auto; display:block; object-fit:cover;
+    aspect-ratio:16/9; transition:transform .35s ease;
   }
   .media-card:hover img{ transform:scale(1.02); }
 
@@ -30,7 +30,6 @@ classes: wide
     display:flex; gap:.5rem; padding:.5rem .6rem;
     background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.45) 80%);
   }
-
   .pill{
     display:inline-flex; align-items:center; gap:.35rem;
     padding:.28rem .65rem; border-radius:999px; font-weight:700; font-size:.85rem;
@@ -42,44 +41,68 @@ classes: wide
   html.theme-dark .media-card{ border-color:#1f2937; background:#0b1220; }
 </style>
 
-{% assign picture_root = "/assets/media/Picture/" %}
-{% assign pdf_root     = "/assets/media/Media/" %}
-
 {%- comment -%}
-Collect all images under picture_root. We do filtering of extensions OUTSIDE where_exp
-to stay compatible with GitHub Pages.
+We compare lowercased paths to be resilient to case differences.
+Expected folders:
+  - /assets/media/Picture/  (images)
+  - /assets/media/Media/    (PDFs)
 {%- endcomment -%}
-{% assign pictures = site.static_files | where_exp: "f", "f.path contains picture_root" | sort: "name" %}
+{% assign picture_root_lc = "/assets/media/picture/" %}
+{% assign pdf_root_lc     = "/assets/media/media/" %}
+
+{%- comment -%} read optional link map from either file {%- endcomment -%}
+{% if site.data.media_links %}
+  {% assign linkmap = site.data.media_links %}
+{% elsif site.data.media %}
+  {% assign linkmap = site.data.media %}
+{% else %}
+  {% assign linkmap = nil %}
+{% endif %}
+
+{% assign found_any = false %}
 
 <div class="media-grid">
-{% for pic in pictures %}
-  {% assign ext = pic.extname | downcase %}
-  {% if ext == ".png" or ext == ".jpg" or ext == ".jpeg" or ext == ".webp" or ext == ".gif" %}
-    {% assign base = pic.name | remove: pic.extname %}
+{% for f in site.static_files %}
+  {% assign p = f.path | downcase %}
+  {% if p contains picture_root_lc %}
+    {% assign ext = f.extname | downcase %}
+    {% if ext == ".png" or ext == ".jpg" or ext == ".jpeg" or ext == ".webp" or ext == ".gif" %}
+      {% assign base = f.name | remove: f.extname %}
 
-    {%- comment -%} Precompute potential PDF paths (both .pdf and .PDF) {%- endcomment -%}
-    {% assign pdf_path1 = pdf_root | append: base | append: ".pdf" %}
-    {% assign pdf_path2 = pdf_root | append: base | append: ".PDF" %}
-
-    {%- comment -%} This where_exp uses only variables and == / or (no filters) {%- endcomment -%}
-    {% assign pdf_match = site.static_files | where_exp:"f","f.path == pdf_path1 or f.path == pdf_path2" %}
-
-    {%- comment -%} Optional external site link from _data/media_links.yml (basename -> url) {%- endcomment -%}
-    {% if site.data.media_links %}
-      {% assign site_link = site.data.media_links[base] | default: "#" %}
-    {% else %}
-      {% assign site_link = "#" %}
-    {% endif %}
-
-    <figure class="media-card">
-      <img src="{{ pic.path | relative_url }}" alt="{{ base | escape }}">
-      <figcaption class="media-actions">
-        {% if pdf_match and pdf_match.size > 0 %}
-          <a class="pill pill--pdf" href="{{ pdf_match[0].path | relative_url }}" target="_blank" rel="noopener">PDF</a>
+      {%- comment -%} find matching PDF (case-insensitive) {%- endcomment -%}
+      {% assign pdf1 = pdf_root_lc | append: base | append: ".pdf" %}
+      {% assign pdf2 = pdf_root_lc | append: base | append: ".PDF" %}
+      {% assign pdf_hit = nil %}
+      {% for sf in site.static_files %}
+        {% assign sp = sf.path | downcase %}
+        {% if sp == pdf1 or sp == pdf2 %}
+          {% assign pdf_hit = sf %}
+          {% break %}
         {% endif %}
-        <a class="pill" href="{{ site_link }}" target="_blank" rel="noopener">Site</a>
-      </figcaption>
-    </figure>
+      {% endfor %}
+
+      {% if linkmap %}
+        {% assign site_link = linkmap[base] | default: "#" %}
+      {% else %}
+        {% assign site_link = "#" %}
+      {% endif %}
+
+      {% assign found_any = true %}
+
+      <figure class="media-card">
+        <img src="{{ f.path | relative_url }}" alt="{{ base | escape }}">
+        <figcaption class="media-actions">
+          {% if pdf_hit %}
+            <a class="pill pill--pdf" href="{{ pdf_hit.path | relative_url }}" target="_blank" rel="noopener">PDF</a>
+          {% endif %}
+          <a class="pill" href="{{ site_link }}" target="_blank" rel="noopener">Site</a>
+        </figcaption>
+      </figure>
+    {% endif %}
   {% endif %}
 {% endfor %}
 </div>
+
+{% unless found_any %}
+<p><em>No media found under <code>/assets/media/Picture/</code>. Double-check folder names and file types (.png, .jpg, .jpeg, .webp, .gif). PDFs should live in <code>/assets/media/Media/</code> with the same base filename.</em></p>
+{% endunless %}
