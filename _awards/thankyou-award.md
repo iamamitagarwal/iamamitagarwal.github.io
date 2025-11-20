@@ -1,7 +1,10 @@
 ---
 title: "Thank You Award"
-organization: "Abzooba"
-pdf_url: "/assets/awards/Thankyou Award.pdf"
+year: 2017
+org: "Abzooba"
+icon: "trophy"     # trophy | medal | star
+certificate: "/assets/awards/Thankyou Award.pdf"
+link: ""
 layout: single
 author_profile: true
 ---
