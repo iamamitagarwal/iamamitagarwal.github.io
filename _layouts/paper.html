@@ -1,0 +1,55 @@
+---
+layout: single
+---
+
+<style>
+  .pub-hero{margin-bottom:1rem;padding:1rem;border:1px solid rgba(0,0,0,.08);border-radius:14px}
+  .pub-meta{margin:.25rem 0 .75rem;color:#475569}
+  .pub-actions{display:flex;flex-wrap:wrap;gap:.5rem}
+  .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .7rem;border-radius:999px;
+        border:1px solid #0ea5e9;font-weight:700;text-decoration:none}
+  .pill:hover{background:#0ea5e9;color:#fff}
+  .pill--pdf{border-color:#ef4444}.pill--pdf:hover{background:#ef4444}
+  .pill--code{border-color:#16a34a}.pill--code:hover{background:#16a34a}
+  .pill--grey{border-color:#94a3b8}.pill--grey:hover{background:#94a3b8}
+  html.theme-dark .pub-hero{border-color:#1f2937;background:#0b1220}
+  html.theme-dark .pub-meta{color:#cbd5e1}
+</style>
+
+<div class="pub-hero">
+  <h1 class="page__title">{{ page.title }}</h1>
+  <div class="pub-meta">
+    {% if page.authors %}<strong>{{ page.authors }}</strong>. {% endif %}
+    {% if page.venue_url %}<a href="{{ page.venue_url }}" target="_blank" rel="noopener">{{ page.venue }}</a>{% elsif page.venue %}{{ page.venue }}{% endif %}
+    {% if page.year %} ({{ page.year }}){% endif %}.
+  </div>
+
+  <div class="pub-actions">
+    {% assign doi_link = page.doi | default: page.DOI %}
+    {% if page.paper_url %}
+      <a class="pill" href="{{ page.paper_url }}" target="_blank" rel="noopener">Publisher</a>
+    {% elsif doi_link %}
+      <a class="pill" href="https://doi.org/{{ doi_link }}" target="_blank" rel="noopener">DOI</a>
+    {% endif %}
+    {% if page.arxiv_id %}
+      <a class="pill pill--grey" href="https://arxiv.org/abs/{{ page.arxiv_id }}" target="_blank" rel="noopener">arXiv</a>
+    {% endif %}
+    {% if page.pdf_url %}
+      <a class="pill pill--pdf" href="{{ page.pdf_url }}" target="_blank" rel="noopener">PDF</a>
+    {% endif %}
+    {% if page.code_url %}
+      <a class="pill pill--code" href="{{ page.code_url }}" target="_blank" rel="noopener">Code</a>
+    {% endif %}
+
+    {% if page.bibtex %}
+      <details class="pill pill--grey" style="cursor:pointer">
+        <summary>Cite (BibTeX)</summary>
+        <pre style="margin:.5rem 0 0 .5rem;white-space:pre-wrap">{{ page.bibtex }}</pre>
+      </details>
+    {% endif %}
+  </div>
+</div>
+
+<article class="page__content">
+  {{ content }}
+</article>
