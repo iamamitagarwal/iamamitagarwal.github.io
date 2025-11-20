@@ -14,7 +14,7 @@
   align-items: center;
   gap: .6rem;
   /* scale nicely from phones to desktop */
-  font-size: clamp(20px, 2.1vw, 30px);
+  font-size: clamp(10px, 2.1vw, 20px);
   margin: 0;
 }
 
