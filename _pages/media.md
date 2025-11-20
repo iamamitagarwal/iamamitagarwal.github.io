@@ -7,90 +7,101 @@ classes: wide
 ---
 
 <style>
-  /* Masonry layout – auto-fills as you add more */
-  .masonry{ column-count:3; column-gap:1.2rem; }
+  /* Masonry columns – it will auto-flow as you add media */
+  .masonry{ column-count:3; column-gap:1rem; }
   @media (max-width:1200px){ .masonry{ column-count:2; } }
-  @media (max-width:720px){ .masonry{ column-count:1; } }
+  @media (max-width:720px){  .masonry{ column-count:1; } }
 
-  .masonry-item{ break-inside:avoid; width:100%; margin:0 0 1.2rem; }
+  .masonry-item{ break-inside:avoid; width:100%; margin:0 0 1rem; }
 
-  /* ===== Newspaper clipping card ===== */
+  /* ===== Parchment newspaper clipping ===== */
   .media-card{
     position:relative;
-    border-radius:16px;
-    background:#fffdfa; /* warm paper */
-    border:1px solid #e5e7eb;
-    box-shadow:0 12px 22px rgba(0,0,0,.08), 0 2px 5px rgba(0,0,0,.06);
+    border-radius:14px;
+    background:#fffaf1;               /* parchment */
+    border:1px solid #e7dbc7;         /* paper edge */
+    box-shadow:
+      0 10px 18px rgba(0,0,0,.07),
+      0 1px 3px rgba(0,0,0,.06);
     overflow:hidden;
-    transform:rotate(-.25deg);
+    transform:rotate(-.18deg);        /* tiny hand-made feel */
   }
-  .media-card:nth-child(2n){ transform:rotate(.2deg); }
-  .media-card:nth-child(3n){ transform:rotate(-.1deg); }
+  .media-card:nth-child(2n){ transform:rotate(.15deg) }
+  .media-card:nth-child(3n){ transform:rotate(-.08deg) }
 
-  /* soft vignette */
+  /* soft vignette + curled corners */
   .media-card::after{
     content:"";
     position:absolute; inset:0; pointer-events:none;
     background:
-      radial-gradient(1200px 600px at 10% -200px, rgba(0,0,0,.06), transparent 60%),
-      radial-gradient(900px 500px at 110% 120%, rgba(0,0,0,.05), transparent 55%);
+      radial-gradient(1200px 600px at 8% -200px, rgba(0,0,0,.06), transparent 60%),
+      radial-gradient(900px 500px at 112% 120%, rgba(0,0,0,.05), transparent 55%);
     mix-blend-mode:multiply; opacity:.5;
   }
+  .media-card::before{
+    content:"";
+    position:absolute; inset:-1px;
+    background:
+      radial-gradient(35px 35px at left top, rgba(0,0,0,.10), transparent 60%) top left no-repeat,
+      radial-gradient(35px 35px at right top, rgba(0,0,0,.10), transparent 60%) top right no-repeat,
+      radial-gradient(35px 35px at left bottom, rgba(0,0,0,.08), transparent 60%) bottom left no-repeat,
+      radial-gradient(35px 35px at right bottom, rgba(0,0,0,.08), transparent 60%) bottom right no-repeat;
+    background-size:36px 36px,36px 36px,36px 36px,36px 36px;
+    opacity:.25; pointer-events:none;
+  }
 
-  /* “taped” label – cooler blue */
+  /* “taped” label – warm sticky-note tone (smaller) */
   .tape{
-    position:absolute; top:10px; left:50%;
+    position:absolute; top:8px; left:50%;
     transform:translateX(-50%) rotate(-2deg);
-    padding:.35rem .9rem;
-    background:#e7eef9;            /* label bg */
+    padding:.28rem .7rem;
+    background:#f7ecd5;             /* warm */
     color:#1f2937;
-    font-weight:800; font-size:.85rem;
-    border:1px solid #cfe0ff;       /* label border */
+    font-weight:800; font-size:.8rem;
+    border:1px solid #eadfca;
     border-radius:6px;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    box-shadow:0 3px 8px rgba(0,0,0,.08);
     max-width:85%;
     text-align:center;
     white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
 
-  .media-img{ width:100%; background:#f4f6f8; }
+  .media-img{ width:100%; background:#f4f2ee; }
   .media-img img{ display:block; width:100%; height:auto; object-fit:contain; }
 
   .media-foot{
     display:flex; align-items:center; justify-content:flex-end;
-    gap:.5rem; padding:.55rem .65rem .7rem;
+    gap:.45rem; padding:.5rem .6rem .65rem;
     background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.05) 100%);
   }
 
   .pill{
-    display:inline-flex; align-items:center; gap:.45rem;
-    padding:.34rem .78rem; border-radius:999px;
-    font-weight:800; font-size:.85rem; letter-spacing:.01em;
-    border:1px solid #0ea5e9; color:#0b1320; text-decoration:none;
-    background:#ecfeff; box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.28rem .62rem; border-radius:999px;
+    font-weight:800; font-size:.8rem; letter-spacing:.01em;
+    border:1px solid #7aa6b1; color:#10343d; text-decoration:none;
+    background:#eef7f9; box-shadow:0 1px 0 rgba(255,255,255,.85) inset;
   }
-  .pill svg{ width:16px; height:16px; }
-  .pill:hover{ background:#0ea5e9; color:#fff; }
-  .pill--pdf{ border-color:#ef4444; background:#fff1f1; }
-  .pill--pdf:hover{ background:#ef4444; color:#fff; }
+  .pill svg{ width:15px; height:15px; }
+  .pill:hover{ background:#2d8fa2; color:#fff; border-color:#2d8fa2; }
 
+  .pill--pdf{ border-color:#d44; background:#fff1f1; color:#6b1010; }
+  .pill--pdf:hover{ background:#d44; color:#fff; }
+
+  /* Dark mode */
   html.theme-dark .media-card{ background:#0b1220; border-color:#1f2937; box-shadow:none; }
-  html.theme-dark .tape{ background:#22314a; color:#e6eefb; border-color:#334766; }
-  html.theme-dark .pill{ background:#062a30; color:#d7eef6; border-color:#22d3ee; }
+  html.theme-dark .tape{ background:#2a2b26; color:#f4f1e8; border-color:#3a3b33; }
+  html.theme-dark .pill{ background:#0e2a31; color:#d7eef6; border-color:#2aaec4; }
   html.theme-dark .pill--pdf{ background:#2a1212; border-color:#f87171; color:#ffe2e2; }
 </style>
 
 {% assign pictures_dir = "/assets/media/pictures/" %}
 {% assign pdfs_dir     = "/assets/media/pdfs/" %}
 
-{%- comment -%} prefer media_links.yml; fallback to media.yml {%- endcomment -%}
-{% if site.data.media_links %}
-  {% assign linkmap = site.data.media_links %}
-{% elsif site.data.media %}
-  {% assign linkmap = site.data.media %}
-{% else %}
-  {% assign linkmap = nil %}
-{% endif %}
+{%- comment -%} Prefer media_links.yml; fallback to media.yml {%- endcomment -%}
+{% if site.data.media_links %}{% assign linkmap = site.data.media_links %}
+{% elsif site.data.media %}{% assign linkmap = site.data.media %}
+{% else %}{% assign linkmap = nil %}{% endif %}
 
 {% assign found_any = false %}
 
@@ -101,36 +112,39 @@ classes: wide
     {% assign ext = f.extname | downcase %}
     {% if ext == ".png" or ext == ".jpg" or ext == ".jpeg" or ext == ".webp" or ext == ".gif" %}
 
-      {% assign base = f.name | remove: f.extname %}
-      {% assign slug_target  = base | slugify: 'pretty' %}
-      {% assign tight_target = slug_target | replace: '-', '' | replace: '_','' %}
+      {% assign base       = f.name | remove: f.extname %}
+      {% assign slug_base  = base  | slugify: 'pretty' %}
+      {% assign tight_base = slug_base | replace: '-', '' | replace: '_','' %}
 
-      {%- comment -%} PDF lookup by normalized slug (equal OR partial) {%- endcomment -%}
+      {%- comment -%} Match a PDF by normalized slug (== or contains both ways) {%- endcomment -%}
       {% assign pdf_hit = nil %}
       {% for sf in site.static_files %}
         {% assign sp = sf.path | downcase %}
         {% if sp contains pdfs_dir and sf.extname %}
-          {% assign pbase = sf.name | remove: sf.extname %}
-          {% assign pslug  = pbase | slugify: 'pretty' %}
-          {% assign ptight = pslug | replace: '-', '' | replace: '_','' %}
-          {% if ptight == tight_target or ptight contains tight_target or tight_target contains ptight %}
+          {% assign pbase   = sf.name | remove: sf.extname %}
+          {% assign pslug   = pbase | slugify: 'pretty' %}
+          {% assign ptight  = pslug | replace: '-', '' | replace: '_','' %}
+          {% if ptight == tight_base or ptight contains tight_base or tight_base contains ptight %}
             {% assign pdf_hit = sf %}{% break %}
           {% endif %}
         {% endif %}
       {% endfor %}
 
-      {%- comment -%} Robust data lookup: equal OR partial match on normalized keys {%- endcomment -%}
+      {%- comment -%} Robust data lookup: try direct keys, then scan all keys normalized {%- endcomment -%}
       {% assign entry = nil %}
       {% if linkmap %}
-        {% for pair in linkmap %}
-          {% assign k = pair[0] %}
-          {% assign v = pair[1] %}
-          {% assign kslug  = k | slugify: 'pretty' %}
-          {% assign ktight = kslug | replace: '-', '' | replace: '_','' %}
-          {% if ktight == tight_target or tight_target contains ktight or ktight contains tight_target %}
-            {% assign entry = v %}{% break %}
-          {% endif %}
-        {% endfor %}
+        {% assign entry = linkmap[base] | default: linkmap[slug_base] | default: linkmap[tight_base] %}
+        {% if entry == nil %}
+          {% for pair in linkmap %}
+            {% assign k = pair[0] %}
+            {% assign v = pair[1] %}
+            {% assign kslug  = k | slugify: 'pretty' %}
+            {% assign ktight = kslug | replace: '-', '' | replace: '_','' %}
+            {% if ktight == tight_base or tight_base contains ktight or ktight contains tight_base %}
+              {% assign entry = v %}{% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
       {% endif %}
 
       {% assign site_link = "" %}
@@ -139,11 +153,10 @@ classes: wide
 
       {% if entry %}
         {% if entry.site or entry.title or entry.pdf %}
-          {% assign site_link = entry.site | default: "" | strip %}
+          {% assign site_link     = entry.site  | default: "" | strip %}
           {% assign title_override = entry.title %}
-          {% assign pdf_manual = entry.pdf %}
+          {% assign pdf_manual     = entry.pdf %}
         {% else %}
-          {# allow a plain string value to be a URL #}
           {% assign site_link = entry | default: "" | strip %}
         {% endif %}
       {% endif %}
@@ -163,9 +176,11 @@ classes: wide
 
       <figure class="masonry-item media-card">
         <div class="tape" title="{{ display_title }}">{{ display_title }}</div>
+
         <div class="media-img">
           <img src="{{ f.path | relative_url }}" alt="{{ display_title | escape }}" loading="lazy">
         </div>
+
         <div class="media-foot">
           {% if pdf_hit %}
             <a class="pill pill--pdf" href="{{ pdf_hit.path | relative_url }}" target="_blank" rel="noopener">
