@@ -1,194 +1,147 @@
+<!-- FAVICONS -->
 <link rel="icon" href="/images/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
 <!-- Prevent FOUC: apply saved theme ASAP -->
 <script>
   (function() {
-    try {
-      var t = localStorage.getItem('theme');
-      if (t === 'dark') document.documentElement.classList.add('theme-dark');
+    try { if (localStorage.getItem('theme') === 'dark')
+      document.documentElement.classList.add('theme-dark');
     } catch(e){}
   })();
 </script>
 
+<!-- Brand tokens, dark-mode styling, sticky header + pills -->
 <style>
   :root{
-    /* brand accents */
     --brand-accent: #0ea5e9;
 
-    /* sticky header offset for in-page anchors (tweak if header height changes) */
-    --sticky-offset: 76px;
-
     /* dark tokens */
-    --dark-bg:          #0d1117;
-    --dark-text:        #e6edf3;
-    --dark-heading:     #f3f4f6;
-    --dark-link:        #58a6ff;
-    --dark-link-hov:    #8ab4ff;
-    --dark-panel:       #0b1220;
-    --dark-panel-brdr:  #1f2937;
+    --dark-bg:#0d1117; --dark-text:#e6edf3; --dark-heading:#f3f4f6;
+    --dark-link:#58a6ff; --dark-link-hov:#8ab4ff;
+    --dark-panel:#0b1220; --dark-panel-brdr:#1f2937;
 
     /* footer in dark */
-    --dark-footer-bg:   #0B2738;
-    --dark-footer-text: #9ec1d9;
-    --dark-footer-link: #58a6ff;
-    --dark-footer-brdr: #0f3a52;
+    --dark-footer-bg:#0B2738; --dark-footer-text:#9ec1d9;
+    --dark-footer-link:#58a6ff; --dark-footer-brdr:#0f3a52;
   }
 
-  /* Subtle brand line under header */
-  .masthead { border-bottom: 4px solid var(--brand-accent); }
+  /* subtle brand line */
+  .masthead{ border-bottom:4px solid var(--brand-accent); }
+  html.theme-dark .masthead{ border-color:#22d3ee; }
 
-  /* Keep the top bar visible on scroll */
-  .masthead {
-    position: sticky;
-    top: 0;
-    z-index: 1030;
+  /* sticky header + readable when scrolled */
+  .masthead{ position:sticky; top:0; z-index:1050; }
+  .masthead.header-glass{
+    background:rgba(255,255,255,.78);
+    backdrop-filter:saturate(180%) blur(12px);
   }
-  /* readable translucent bar over hero images */
-  .masthead .greedy-nav {
-    background: rgba(255,255,255,.86);
-    backdrop-filter: saturate(180%) blur(8px);
-  }
-  html.theme-dark .masthead { border-color: #22d3ee; }
-  html.theme-dark .masthead .greedy-nav {
-    background: rgba(13,17,23,.92);
-    backdrop-filter: saturate(180%) blur(8px);
-  }
+  html.theme-dark .masthead.header-glass{ background:rgba(13,17,23,.78); }
 
-  /* Optional: justify body copy */
-  .page__content p,
-  .page__content li { text-align: justify; text-justify: inter-word; }
+  /* body copy */
+  .page__content p, .page__content li{ text-align:justify; text-justify:inter-word; }
 
-  /* === Dark mode rules === */
-  html.theme-dark,
-  html.theme-dark body { background: var(--dark-bg) !important; color: var(--dark-text) !important; }
-
-  /* content + sidebars */
-  html.theme-dark .page,
-  html.theme-dark .page__inner-wrap,
-  html.theme-dark .page__content,
-  html.theme-dark .sidebar,
-  html.theme-dark .archive__item,
-  html.theme-dark .archive__item-excerpt {
-    background: transparent !important;
-    color: var(--dark-text) !important;
+  /* DARK MODE — sitewide */
+  html.theme-dark, html.theme-dark body{ background:var(--dark-bg)!important; color:var(--dark-text)!important; }
+  html.theme-dark .page, html.theme-dark .page__inner-wrap, html.theme-dark .page__content,
+  html.theme-dark .sidebar, html.theme-dark .archive__item, html.theme-dark .archive__item-excerpt{
+    background:transparent!important; color:var(--dark-text)!important;
   }
-  html.theme-dark p, html.theme-dark li, html.theme-dark dt,
-  html.theme-dark dd, html.theme-dark span, html.theme-dark small {
-    color: var(--dark-text) !important;
+  html.theme-dark h1, html.theme-dark h2, html.theme-dark h3, html.theme-dark h4,
+  html.theme-dark h5, html.theme-dark h6, html.theme-dark .page__title{ color:var(--dark-heading)!important; }
+  html.theme-dark a{ color:var(--dark-link)!important; }
+  html.theme-dark a:hover{ color:var(--dark-link-hov)!important; }
+  html.theme-dark .masthead, html.theme-dark .greedy-nav{ background:var(--dark-bg)!important; }
+  html.theme-dark .greedy-nav a, html.theme-dark .site-title{ color:var(--dark-text)!important; }
+
+  html.theme-dark pre, html.theme-dark code, html.theme-dark .highlighter-rouge{
+    background:var(--dark-panel)!important; color:var(--dark-text)!important; border-color:var(--dark-panel-brdr)!important;
+  }
+  html.theme-dark .notice, html.theme-dark .toc, html.theme-dark .btn, html.theme-dark .btn--primary{
+    background:#0f172a!important; color:var(--dark-text)!important; border-color:var(--brand-accent)!important;
   }
 
-  /* headings */
-  html.theme-dark h1, html.theme-dark h2, html.theme-dark h3,
-  html.theme-dark h4, html.theme-dark h5, html.theme-dark h6,
-  html.theme-dark .page__title { color: var(--dark-heading) !important; }
-
-  /* links */
-  html.theme-dark a { color: var(--dark-link) !important; }
-  html.theme-dark a:hover { color: var(--dark-link-hov) !important; }
-
-  /* nav/masthead base colors in dark */
-  html.theme-dark .masthead,
-  html.theme-dark .greedy-nav { background: var(--dark-bg) !important; }
-  html.theme-dark .greedy-nav a,
-  html.theme-dark .site-title { color: var(--dark-text) !important; }
-
-  /* code blocks, notices, buttons */
-  html.theme-dark pre,
-  html.theme-dark code,
-  html.theme-dark .highlighter-rouge {
-    background: var(--dark-panel) !important;
-    color: var(--dark-text) !important;
-    border-color: var(--dark-panel-brdr) !important;
-  }
-  html.theme-dark .notice,
-  html.theme-dark .toc,
-  html.theme-dark .btn,
-  html.theme-dark .btn--primary {
-    background: #0f172a !important;
-    color: var(--dark-text) !important;
-    border-color: var(--brand-accent) !important;
-  }
-
-  /* footer: branded dark */
+  /* footer overrides in dark */
   html.theme-dark .page__footer{
-    background: var(--dark-footer-bg) !important;
-    color: var(--dark-footer-text) !important;
-    border-top: 1px solid var(--dark-footer-brdr) !important;
+    background:var(--dark-footer-bg)!important; color:var(--dark-footer-text)!important;
+    border-top:1px solid var(--dark-footer-brdr)!important;
   }
-  html.theme-dark .page__footer a,
-  html.theme-dark .page__footer .fa,
-  html.theme-dark .page__footer .fab{
-    color: var(--dark-footer-link) !important;
+  html.theme-dark .page__footer a, html.theme-dark .page__footer .fa, html.theme-dark .page__footer .fab{
+    color:var(--dark-footer-link)!important;
   }
 
-  /* icons in author sidebar / meta */
-  html.theme-dark .author__urls i,
-  html.theme-dark .social-icons .fa,
-  html.theme-dark .page__meta .fa { color: #9ecbff !important; }
+  /* author/meta icons a bit brighter in dark */
+  html.theme-dark .author__urls i, html.theme-dark .social-icons .fa, html.theme-dark .page__meta .fa{ color:#9ecbff!important; }
 
-  /* search inputs (Minimal Mistakes uses a few classes) */
-  html.theme-dark input[type="search"],
-  html.theme-dark .search-input,
-  html.theme-dark .search-content__input,
-  html.theme-dark .search-content input {
-    background: var(--dark-panel) !important;
-    color: var(--dark-text) !important;
-    border-color: var(--dark-panel-brdr) !important;
+  /* search inputs in dark */
+  html.theme-dark input[type="search"], html.theme-dark .search-input,
+  html.theme-dark .search-content__input, html.theme-dark .search-content input{
+    background:var(--dark-panel)!important; color:var(--dark-text)!important; border-color:var(--dark-panel-brdr)!important;
   }
-  html.theme-dark ::placeholder { color:#9aa4b2 !important; opacity:1; }
+  html.theme-dark ::placeholder{ color:#9aa4b2!important; opacity:1; }
 
-  /* theme toggle button (style lives here; logic is in footer) */
+  /* theme toggle button (HTML lives in footer) */
   #theme-toggle{
-    position: fixed; right: 16px; bottom: 16px; z-index: 9999;
-    border: 0; padding: 10px 12px; border-radius: 999px;
-    background: var(--dark-bg); color: #fff; cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    position:fixed; right:16px; bottom:16px; z-index:9999; border:0; padding:10px 12px;
+    border-radius:999px; background:var(--dark-bg); color:#fff; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.25);
   }
-  html:not(.theme-dark) #theme-toggle{ background: #0e7490; } /* nicer in light */
+  html:not(.theme-dark) #theme-toggle{ background:#0e7490; }
 
-  /* Dark-mode footer color (force override of the skin) */
-  html.theme-dark {
-    --mm-footer-background: #0B2738;
-    --mm-footer-color: #9ec1d9;
-  }
-  html.theme-dark footer.page__footer,
-  html.theme-dark .page__footer,
-  html.theme-dark .page__footer::before,
-  html.theme-dark .page__footer::after {
-    background-color: #0B2738 !important;
-    background: #0B2738 !important;
-    background-image: none !important;
-    box-shadow: none !important;
-    border-color: #0B2738 !important;
-  }
-  html.theme-dark .page__footer,
-  html.theme-dark .page__footer a,
-  html.theme-dark .page__footer .copyright {
-    color: #9ec1d9 !important;
-  }
-  html.theme-dark .page__footer a:hover { color: #b7daf5 !important; }
+  /* --- About page callout (better contrast in dark) --- */
+  .about-callout{ background:#e8f4fb; border:1px solid #bcdcff; }
+  html.theme-dark .about-callout{ background:#0f2d3a!important; border:1px solid #1f6b8f!important; color:var(--dark-text)!important; }
+  html.theme-dark .about-callout strong{ color:#fff!important; }
+  html.theme-dark .about-callout em{ color:#cfe8ff!important; }
+  html.theme-dark .about-callout a{ color:#7dc9ff!important; }
+  html.theme-dark .about-callout:before{ color:#7dc9ff!important; opacity:1!important; }
 
-  /* Custom callout class for About */
-  .about-callout {
-    background: #e8f4fb;           /* light mode */
-    border: 1px solid #bcdcff;
+  /* --- Publication/Patent pills --- */
+  .link-pills{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.4rem 0 0; }
+  .link-pill{
+    display:inline-flex; align-items:center; gap:.4rem; padding:.25rem .7rem;
+    border-radius:999px; font-weight:600; border:1px solid var(--brand-accent);
+    text-decoration:none; background:transparent; transition:.15s ease;
   }
-  html.theme-dark .about-callout {
-    background: #0f2d3a !important; /* dark mode */
-    border: 1px solid #1f6b8f !important;
-    color: #e6edf3 !important;
-  }
-  html.theme-dark .about-callout strong { color: #ffffff !important; }
-  html.theme-dark .about-callout em     { color: #cfe8ff !important; }
-  html.theme-dark .about-callout a      { color: #7dc9ff !important; }
-  html.theme-dark .about-callout:before { color: #7dc9ff !important; opacity: 1 !important; }
+  .link-pill:hover{ background:var(--brand-accent); color:#fff; }
+  .pill--pdf{ border-color:#ef4444; } .pill--pdf:hover{ background:#ef4444; }
+  .pill--code{ border-color:#16a34a; } .pill--code:hover{ background:#16a34a; }
+  .pill--uspto{ border-color:#8b5cf6; } .pill--uspto:hover{ background:#8b5cf6; }
+  .pill--copy{ cursor:pointer; }
 
-  /* Prevent headings from hiding under the sticky masthead when using #anchors */
-  [id] { scroll-margin-top: var(--sticky-offset); }
+  /* list spacing & light hover card (optional) */
+  .pub-item, .pat-item{ padding:.6rem .8rem; border-radius:.75rem; }
+  .pub-item:hover, .pat-item:hover{ background:rgba(14,165,233,.08); }
+  html.theme-dark .pub-item:hover, html.theme-dark .pat-item:hover{ background:#0b1220; }
+
+  /* divider between years */
+  .pub-list, .pat-list{ margin:.6rem 0 1.2rem; }
+  .pub-list + h3, .pat-list + h3{ border-top:1px solid rgba(0,0,0,.06); padding-top:1rem; }
+  html.theme-dark .pub-list + h3, html.theme-dark .pat-list + h3{ border-color:#1f2937; }
 </style>
 
-<!-- Google Analytics (gtag) -->
+<script>
+/* masthead glass after tiny scroll */
+(function(){
+  const h = document.querySelector('.masthead');
+  if(!h) return;
+  const onScroll = () => h.classList.toggle('header-glass', window.scrollY > 8);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+})();
+
+/* Copy BibTeX pill */
+document.addEventListener('click', e=>{
+  const b = e.target.closest('.pill--copy');
+  if(!b) return;
+  const txt = b.dataset.bib || '';
+  navigator.clipboard.writeText(txt).then(()=>{
+    b.dataset.label = b.textContent;
+    b.textContent = 'Copied!';
+    setTimeout(()=>{ b.textContent = b.dataset.label || 'BibTeX'; }, 900);
+  });
+});
+</script>
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-351QZEBS4T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
