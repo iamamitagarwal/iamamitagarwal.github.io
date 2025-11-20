@@ -1,0 +1,8 @@
+# _data/media.yml
+techcrunch-award:
+  title: "TechCrunch: Startup of the Year"
+  site:  "https://example.com/techcrunch-article"
+forbes-interview:
+  title: "Forbes Interview"
+  site:  "https://example.com/forbes-interview"
+# add more as you like; missing items fall back to filename and "#" link
