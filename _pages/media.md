@@ -46,15 +46,15 @@ classes: wide
 
 {%- comment -%}
 Expected folders (case-sensitive):
-  /assets/media/Picture/  -> images (png, jpg, jpeg, webp, gif)
-  /assets/media/Media/    -> PDFs with same *logical* name (slugified match ok)
+  /assets/media/pictures/  -> images (png, jpg, jpeg, webp, gif)
+  /assets/media/pdfs/    -> PDFs with same *logical* name (slugified match ok)
 Optionally add site links in either:
   _data/media_links.yml  OR  _data/media.yml
 with keys = base name or slugified base name.
 {%- endcomment -%}
 
-{% assign picture_root_lc = "/assets/media/picture/" %}
-{% assign pdf_root_lc     = "/assets/media/media/" %}
+{% assign picture_root_lc = "/assets/media/pictures/" %}
+{% assign pdf_root_lc     = "/assets/media/pdfs/" %}
 
 {% if site.data.media_links %}
   {% assign linkmap = site.data.media_links %}
@@ -112,5 +112,5 @@ with keys = base name or slugified base name.
 </div>
 
 {% unless found_any %}
-<p><em>No media found under <code>/assets/media/Picture/</code>. Double-check folder names and file types (.png, .jpg, .jpeg, .webp, .gif). PDFs go in <code>/assets/media/Media/</code>.</em></p>
+<p><em>No media found under <code>/assets/media/pictures/</code>. Double-check folder names and file types (.png, .jpg, .jpeg, .webp, .gif). PDFs go in <code>/assets/media/pdfs/</code>.</em></p>
 {% endunless %}
