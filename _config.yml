@@ -1,7 +1,8 @@
 # --- Site identity ---
 title: "Amit Agarwal's site"   # REQUIRED by the theme/SEO
 logo: /images/logo.png                                    # keep text brand in header
-masthead_title: "Hello!"
+masthead_title: ""
+brand_sub: "Principal Applied Scientist, OCI · ML/LLMs & cloud-scale systems"
 title_separator: " | "                      # change to " | " or "" if you insist
 locale: en
 timezone: America/Los_Angeles
