@@ -7,6 +7,32 @@ classes: wide
 search: true
 ---
 
+<style>
+/* Venue badge */
+.venue-badge{
+  display:inline-flex; align-items:center;
+  padding:.14rem .6rem; margin-left:.5rem;
+  border-radius:999px; font-weight:700; font-size:.8rem;
+  border:1px solid transparent;
+}
+
+/* Color map */
+.badge-emnlp{ background:#0d9488; color:#fff; }
+.badge-acl{ background:#10b981; color:#0b1320; }
+.badge-naacl{ background:#f59e0b; color:#111827; }
+.badge-neurips{ background:#06b6d4; color:#0b1320; }
+.badge-iclr{ background:#a78bfa; color:#111827; }
+.badge-icml{ background:#22c55e; color:#0b1320; }
+.badge-cvpr{ background:#60a5fa; color:#0b1320; }
+.badge-iccv{ background:#3b82f6; color:#fff; }
+.badge-eccv{ background:#2563eb; color:#fff; }
+.badge-ieee{ background:#93c5fd; color:#0b1320; }
+.badge-acm{ background:#f97316; color:#0b1320; }
+.badge-arxiv{ background:#e5e7eb; color:#111827; border-color:#cbd5e1; }
+html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4b5563; }
+</style>
+
+
 <div id="pub-filters" style="margin:.5rem 0 1rem 0;">
   <button class="btn btn--primary" data-tag="all">All</button>
   <button class="btn" data-tag="Document-AI">Document-AI</button>
