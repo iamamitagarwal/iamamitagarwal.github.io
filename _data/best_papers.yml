@@ -1,0 +1,5 @@
+# _data/best_papers.yml
+- title: "Accesseval: Benchmarking disability bias in large language models"
+  venue: "EMNLP"
+  year: 2025
+  link: "/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/"  # adjust to your pub page
