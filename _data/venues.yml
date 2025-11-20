@@ -1,0 +1,9 @@
+emnlp:
+  url: "https://2025.emnlp.org/"
+coling:
+  url: "https://coling2025.org/"
+ieee-mipr:
+  url: "https://mipr2025.ieee.org/"
+icdmai:
+  url: "https://icdmai.org/"
+# add more as needed…
