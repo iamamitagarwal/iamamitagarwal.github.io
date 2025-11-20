@@ -26,11 +26,9 @@ classes: wide
     overflow:hidden;
     transform: rotate(-.25deg);
   }
-  /* tiny random feel */
   .media-card:nth-child(2n){ transform: rotate(.2deg); }
   .media-card:nth-child(3n){ transform: rotate(-.1deg); }
 
-  /* subtle deckled edge by masking a gradient fringe */
   .media-card::after{
     content:"";
     position:absolute; inset:0;
@@ -42,12 +40,11 @@ classes: wide
     opacity:.5;
   }
 
-  /* header “tape” */
   .tape{
     position:absolute; top:10px; left:50%;
     transform:translateX(-50%) rotate(-2deg);
     padding:.3rem .8rem;
-    background:#fef3c7;                           /* sticky note */
+    background:#fef3c7;
     color:#312e2b; font-weight:800; font-size:.85rem;
     border:1px solid #e5d5aa; border-radius:6px;
     box-shadow:0 4px 10px rgba(0,0,0,.08);
@@ -56,21 +53,12 @@ classes: wide
     white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
 
-  /* image — never crop */
-  .media-img{
-    width:100%;
-    background:#f4f6f8;
-  }
-  .media-img img{
-    display:block;
-    width:100%; height:auto; object-fit:contain;
-  }
+  .media-img{ width:100%; background:#f4f6f8; }
+  .media-img img{ display:block; width:100%; height:auto; object-fit:contain; }
 
-  /* footer bar with actions */
   .media-foot{
     display:flex; align-items:center; justify-content:flex-end;
-    gap:.5rem;
-    padding:.55rem .65rem .7rem;
+    gap:.5rem; padding:.55rem .65rem .7rem;
     background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.05) 100%);
   }
 
@@ -87,12 +75,9 @@ classes: wide
   .pill--pdf:hover{ background:#ef4444; color:#fff; }
 
   html.theme-dark .media-card{
-    background:#0b1220; border-color:#1f2937;
-    box-shadow: none;
+    background:#0b1220; border-color:#1f2937; box-shadow:none;
   }
-  html.theme-dark .tape{
-    background:#7c6f49; color:#fff; border-color:#6b623f;
-  }
+  html.theme-dark .tape{ background:#7c6f49; color:#fff; border-color:#6b623f; }
   html.theme-dark .pill{ background:#062a30; color:#d7eef6; border-color:#22d3ee; }
   html.theme-dark .pill--pdf{ background:#2a1212; border-color:#f87171; color:#ffe2e2; }
 </style>
@@ -100,10 +85,10 @@ classes: wide
 {%- comment -%}
 Folders (case sensitive):
   /assets/media/pictures/   -> png/jpg/jpeg/webp/gif
-  /assets/media/pdfs/       -> PDFs with the same base name (slug match is OK)
-Optional site/title overrides:
-  _data/media.yml
-Keys can be the exact base file name OR its slugified form.
+  /assets/media/pdfs/       -> PDF files with the same base name (slug match is OK)
+
+Optional site/title overrides in _data/media.yml
+Keys can be: exact base name, slugified base, or “tight” slug (no -/_).
 {%- endcomment -%}
 
 {% assign pictures_dir = "/assets/media/pictures/" %}
@@ -126,10 +111,10 @@ Keys can be the exact base file name OR its slugified form.
     {% assign ext = f.extname | downcase %}
     {% if ext == ".png" or ext == ".jpg" or ext == ".jpeg" or ext == ".webp" or ext == ".gif" %}
       {% assign base = f.name | remove: f.extname %}
-      {% assign slug_key = base | slugify: 'pretty' %}
+      {% assign slug_key  = base | slugify: 'pretty' %}
       {% assign tight_key = slug_key | replace: '-', '' | replace: '_','' %}
 
-      {#— locate matching PDF by slug —#}
+      {%- comment -%} Find matching PDF by slug (for convenience) {%- endcomment -%}
       {% assign pdf_hit = nil %}
       {% for sf in site.static_files %}
         {% assign sp = sf.path | downcase %}
@@ -143,37 +128,38 @@ Keys can be the exact base file name OR its slugified form.
         {% endif %}
       {% endfor %}
 
-      {#— resolve site link + title from _data/media.yml —#}
+      {%- comment -%} Pull title/site/pdf overrides from data by any of the 3 keys {%- endcomment -%}
       {% assign entry = nil %}
       {% if linkmap %}
         {% assign entry = linkmap[base] | default: linkmap[slug_key] | default: linkmap[tight_key] %}
       {% endif %}
 
-      {% assign site_link = nil %}
+      {% assign site_link = "" %}
       {% assign title_override = nil %}
       {% assign pdf_manual = nil %}
 
       {% if entry %}
         {% if entry.site or entry.title or entry.pdf %}
-          {% assign site_link = entry.site %}
+          {% assign site_link = entry.site | default: "" %}
           {% assign title_override = entry.title %}
           {% assign pdf_manual = entry.pdf %}
         {% else %}
-          {% assign site_link = entry %}
+          {% assign site_link = entry | default: "" %}
         {% endif %}
       {% endif %}
 
+      {%- comment -%} If YAML forces a specific PDF name, use that {%- endcomment -%}
       {% if pdf_manual %}
         {% assign pdf_hit = nil %}
         {% for sf in site.static_files %}
-          {% if sf.path contains pdfs_dir and sf.name == pdf_manual %}
+          {% assign sp2 = sf.path | downcase %}
+          {% if sp2 contains pdfs_dir and sf.name == pdf_manual %}
             {% assign pdf_hit = sf %}{% break %}
           {% endif %}
         {% endfor %}
       {% endif %}
 
       {% assign display_title = title_override | default: base %}
-
       {% assign found_any = true %}
 
       <figure class="masonry-item media-card">
@@ -187,7 +173,9 @@ Keys can be the exact base file name OR its slugified form.
           {% if pdf_hit %}
             <a class="pill pill--pdf" href="{{ pdf_hit.path | relative_url }}" target="_blank" rel="noopener">PDF</a>
           {% endif %}
-          <a class="pill" href="{{ site_link | default:'#' }}" target="_blank" rel="noopener">Site</a>
+          {% unless site_link == nil or site_link == "" or site_link == blank %}
+            <a class="pill" href="{{ site_link }}" target="_blank" rel="noopener">Site</a>
+          {% endunless %}
         </div>
       </figure>
 
