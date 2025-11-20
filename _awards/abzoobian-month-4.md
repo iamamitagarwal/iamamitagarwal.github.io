@@ -1,7 +1,10 @@
 ---
-title: "Abzoobian of the month"
-organization: "Abzooba"
-pdf_url: "/assets/awards/Abzoobian Month 4.pdf"
+title: "Abzoobian of the month 4"
+year: 2024
+org: "Abzooba"
+icon: "trophy"     # trophy | medal | star
+certificate: "/assets/awards/Abzoobian Month 4.pdf"
+link: ""
 layout: single
 author_profile: true
 ---
