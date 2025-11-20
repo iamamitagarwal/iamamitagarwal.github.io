@@ -4,109 +4,88 @@ title: "Talks"
 layout: single
 author_profile: true
 classes: wide
-search: true
 ---
 
 <style>
-/* --- Talks grid cards --- */
-.talks-group { margin: 1.5rem 0 2.25rem; }
-.talks-group > h2 { margin: 0 0 .25rem 0; }
-.talks-group > h3 {
-  margin: .25rem 0 1rem 0;
-  font-weight: 600; color: rgba(0,0,0,.66);
-}
-html.theme-dark .talks-group > h3 { color: #aab2bf; }
+  /* Layout: 2-column venue grid */
+  .venue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;margin-top:.5rem;}
+  @media(max-width:1100px){.venue-grid{grid-template-columns:1fr}}
+  .venue-col{min-width:0;}
 
-.talks-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-@media (max-width: 1100px) { .talks-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media (max-width: 720px)  { .talks-grid { grid-template-columns: 1fr; } }
+  /* Venue heading (links to official site if provided) */
+  .venue-title{margin:.5rem 0 1rem;font-size:1.35rem;font-weight:800;}
+  .venue-title a{text-decoration:none;border-bottom:2px solid transparent}
+  .venue-title a:hover{border-color:var(--brand-accent,#0ea5e9)}
 
-.talk-card{
-  background: rgba(255,255,255,.8);
-  border: 1px solid rgba(0,0,0,.08);
-  border-radius: 14px;
-  padding: .75rem;
-  transition: box-shadow .15s ease, transform .15s ease;
-}
-.talk-card:hover{ box-shadow: 0 10px 25px rgba(0,0,0,.08); transform: translateY(-2px); }
-html.theme-dark .talk-card{ background: #0b1220; border-color: #1f2937; }
+  /* Card list inside each venue */
+  .talks-list{display:grid;grid-template-columns:1fr;gap:1rem;}
 
-.talk-thumb{
-  display:block; overflow:hidden; border-radius: 10px;
-  aspect-ratio: 16/9; background:#eee;
-}
-.talk-thumb img{
-  width:100%; height:100%; object-fit: cover; display:block;
-}
-html.theme-dark .talk-thumb{ background:#0f172a; }
+  .talk-card{background:var(--mm-surface,#fff);border:1px solid rgba(0,0,0,.08);
+             border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  html.theme-dark .talk-card{background:#0b1220;border-color:#1f2937;box-shadow:none}
 
-.talk-title{ margin:.6rem 0 .25rem 0; font-size: 1.05rem; line-height:1.25; }
-.talk-meta{ margin:0 0 .5rem 0; font-size:.92rem; opacity:.8; }
+  .talk-cover img{display:block;width:100%;height:180px;object-fit:cover}
+  .talk-placeholder{height:180px;display:flex;align-items:center;justify-content:center;opacity:.6}
 
-.talk-pills{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.25rem; }
-/* reuse your link-pill classes; small size variant for cards */
-.talk-pills .link-pill{ padding:.2rem .6rem; font-size:.9rem; }
+  .talk-meta{padding:.75rem 1rem 1rem}
+  .talk-title{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:0;font-size:1.05rem;line-height:1.35}
+  .talk-title a{text-decoration:none}
+  .talk-title a:hover{text-decoration:underline}
+
+  /* Badges next to the title */
+  .badge-year{background:#f1f5f9;border:1px solid #cbd5e1;color:#0f172a;
+              padding:.12rem .55rem;border-radius:999px;font-weight:700;font-size:.8rem}
+  html.theme-dark .badge-year{background:#0f172a;border-color:#1f2937;color:#e6edf3}
+
+  .badge{display:inline-block;padding:.12rem .6rem;border-radius:999px;
+         font-weight:700;font-size:.8rem;text-decoration:none;transition:.15s ease}
+  .badge-event{border:1px solid var(--brand-accent,#0ea5e9)}
+  .badge-event:hover{background:var(--brand-accent,#0ea5e9);color:#fff}
+  .badge-pdf{border:1px solid #ef4444}
+  .badge-pdf:hover{background:#ef4444;color:#fff}
 </style>
 
-{% comment %}
-We expect each talk file in _talks/ to have at least:
----
-title: "...",
-venue: "EMNLP" | "COLING" | "IEEE MIPR" | "ICDMAI" | ...,
-year: 2025,
-role: "Invited talk" | "Panel" | "...",   # optional
-pdf_url: /files/talks/whatever.pdf       # optional
-link_url: https://event-program...       # optional
-images:
-  - /images/talks/cover.jpg               # first image is used as card cover
----
-Body content (optional, for the detail page)
-{% endcomment %}
+{% assign talks_all = site.talks | sort: "year" | reverse %}
+{% assign by_venue = talks_all | group_by: "venue" %}
 
-{% assign all = site.talks | sort: "year" | reverse %}
+<div class="venue-grid">
+  {% for v in by_venue %}
+    {% assign venue_slug = v.name | slugify %}
+    {% assign venue_meta = site.data.venues[venue_slug] %}
 
-{% assign by_venue = all | group_by: "venue" %}
-
-{% for vg in by_venue %}
-  {% assign venue_name = vg.name %}
-  {% assign venue_items = vg.items | sort: "year" | reverse %}
-  {% assign by_year = venue_items | group_by: "year" %}
-
-  {% for yg in by_year %}
-  <section class="talks-group">
-    <h2 id="{{ venue_name | slugify }}">{{ venue_name }}</h2>
-    <h3>{{ yg.name }}</h3>
-
-    <div class="talks-grid">
-      {% for t in yg.items %}
-      <article class="talk-card">
-        <a class="talk-thumb" href="{{ t.url | relative_url }}">
-          {% assign cover = t.images | first %}
-          {% if cover %}
-            <img src="{{ cover | relative_url }}" alt="{{ t.title | escape }}">
-          {% endif %}
-        </a>
-
-        <h4 class="talk-title"><a href="{{ t.url | relative_url }}">{{ t.title }}</a></h4>
-        {% if t.role %}
-          <p class="talk-meta">{{ t.role }}</p>
+    <section class="venue-col">
+      <h2 class="venue-title">
+        {% if venue_meta and venue_meta.url %}
+          <a href="{{ venue_meta.url }}" target="_blank" rel="noopener">{{ v.name }}</a>
+        {% else %}
+          {{ v.name }}
         {% endif %}
+      </h2>
 
-        <div class="talk-pills">
-          {% if t.pdf_url %}
-            <a class="link-pill" href="{{ t.pdf_url | relative_url }}" target="_blank" rel="noopener">PDF</a>
-          {% endif %}
-          {% if t.link_url %}
-            <a class="link-pill" href="{{ t.link_url }}" target="_blank" rel="noopener">Event</a>
-          {% endif %}
-        </div>
-      </article>
-      {% endfor %}
-    </div>
-  </section>
+      <div class="talks-list">
+        {% assign items = v.items | sort: "year" | reverse %}
+        {% for t in items %}
+          {% assign event_url = t.link_url | default: t.event_url | default: t.website | default: t.site_url %}
+          <article class="talk-card">
+            <a class="talk-cover" href="{{ t.url | relative_url }}">
+              {% if t.images and t.images[0] %}
+                <img src="{{ t.images[0] | relative_url }}" alt="{{ t.title | escape }}">
+              {% else %}
+                <div class="talk-placeholder">Talk</div>
+              {% endif %}
+            </a>
+
+            <div class="talk-meta">
+              <h3 class="talk-title">
+                <a href="{{ t.url | relative_url }}">{{ t.title }}</a>
+                {% if t.year %}<span class="badge-year">{{ t.year }}</span>{% endif %}
+                {% if event_url %}<a class="badge badge-event" href="{{ event_url }}" target="_blank" rel="noopener">Event</a>{% endif %}
+                {% if t.pdf_url %}<a class="badge badge-pdf" href="{{ t.pdf_url | relative_url }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+              </h3>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
   {% endfor %}
-{% endfor %}
+</div>
