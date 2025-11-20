@@ -1,64 +1,72 @@
-{% assign p = include.pub %}
+{%- assign p = include.pub -%}
+
+{%- comment -%} Title link: prefer external paper_url; else internal details page {%- endcomment -%}
+{%- if p.paper_url -%}
+  {%- assign title_link = p.paper_url -%}
+{%- elsif p.url -%}
+  {%- assign title_link = p.url | relative_url -%}
+{%- else -%}
+  {%- assign title_link = "#" -%}
+{%- endif -%}
+
+{%- comment -%} Venue token (front-matter venue_token wins; else infer) {%- endcomment -%}
+{%- assign tok = p.venue_token | downcase | default: "" -%}
+{%- if tok == "" -%}
+  {%- assign vtxt = p.venue | default: "" | downcase -%}
+  {%- assign href = p.paper_url | default: "" | downcase -%}
+  {%- if vtxt contains "emnlp" or href contains "emnlp" -%}{% assign tok = "emnlp" %}
+  {%- elsif vtxt contains "naacl" or href contains "naacl" -%}{% assign tok = "naacl" %}
+  {%- elsif vtxt contains "acl"   or href contains "acl"   -%}{% assign tok = "acl"   %}
+  {%- elsif vtxt contains "neurips" or href contains "neurips" -%}{% assign tok = "neurips" %}
+  {%- elsif vtxt contains "iclr" or href contains "iclr" -%}{% assign tok = "iclr" %}
+  {%- elsif vtxt contains "icml" or href contains "icml" -%}{% assign tok = "icml" %}
+  {%- elsif vtxt contains "cvpr" or href contains "cvpr" -%}{% assign tok = "cvpr" %}
+  {%- elsif vtxt contains "iccv" or href contains "iccv" -%}{% assign tok = "iccv" %}
+  {%- elsif vtxt contains "eccv" or href contains "eccv" -%}{% assign tok = "eccv" %}
+  {%- elsif vtxt contains "ieee" or href contains "ieee" -%}{% assign tok = "ieee" %}
+  {%- elsif vtxt contains "acm"  or href contains "acm"  -%}{% assign tok = "acm"  %}
+  {%- elsif vtxt contains "arxiv" or href contains "arxiv" -%}{% assign tok = "arxiv" %}
+  {%- endif -%}
+{%- endif -%}
+
+{%- comment -%} Highlight your name {%- endcomment -%}
+{%- assign authors_html = p.authors | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>" -%}
+
+{%- comment -%} Best-effort PDF discovery {%- endcomment -%}
+{%- assign pdf = p.pdf_url | default: p.pdf -%}
+{%- if pdf == nil or pdf == "" -%}
+  {%- assign href = p.paper_url | default: "" -%}
+  {%- assign href_lc = href | downcase -%}
+
+  {%- if href_lc contains ".pdf" -%}
+    {%- assign pdf = href -%}
+
+  {%- elsif href_lc contains "arxiv.org/abs/" -%}
+    {%- assign pdf = href | replace: "/abs/", "/pdf/" -%}
+    {%- unless pdf contains ".pdf" -%}{% assign pdf = pdf | append: ".pdf" %}{%- endunless -%}
+
+  {%- elsif href_lc contains "aclanthology.org/" -%}
+    {%- assign after = href | split: "aclanthology.org/" | last -%}
+    {%- assign id = after | replace: "/", "" -%}
+    {%- assign pdf = "https://aclanthology.org/" | append: id -%}
+    {%- unless pdf contains ".pdf" -%}{% assign pdf = pdf | append: ".pdf" %}{%- endunless -%}
+
+  {%- elsif href_lc contains "openreview.net/forum?id=" -%}
+    {%- assign rid = href | split: "id=" | last -%}
+    {%- assign pdf = "https://openreview.net/pdf?id=" | append: rid -%}
+  {%- endif -%}
+{%- endif -%}
 
 <li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
-  <strong>
-    <a class="pub-title" href="{{ p.paper_url | default: p.pdf_url | default: p.url | relative_url }}">
-      {{ p.title }}
-    </a>
-  </strong>
-
-  {%- comment -%} Venue badge (safe even if fields are missing) {%- endcomment -%}
-  {% assign lower_url = p.paper_url | default: "" | downcase %}
-  {% assign lower_vnu = p.venue | default: "" | downcase %}
-  {% assign badge = "" %}
-  {% if lower_vnu contains "emnlp" or lower_url contains "emnlp" %}
-    {% assign badge = "EMNLP" %}
-  {% elsif lower_vnu contains "acl" or lower_url contains "acl" %}
-    {% assign badge = "ACL" %}
-  {% elsif lower_vnu contains "naacl" or lower_url contains "naacl" %}
-    {% assign badge = "NAACL" %}
-  {% elsif lower_vnu contains "neurips" or lower_url contains "neurips" %}
-    {% assign badge = "NeurIPS" %}
-  {% elsif lower_vnu contains "iclr" or lower_url contains "iclr" %}
-    {% assign badge = "ICLR" %}
-  {% elsif lower_vnu contains "icml" or lower_url contains "icml" %}
-    {% assign badge = "ICML" %}
-  {% elsif lower_vnu contains "cvpr" or lower_url contains "cvpr" %}
-    {% assign badge = "CVPR" %}
-  {% elsif lower_vnu contains "iccv" or lower_url contains "iccv" %}
-    {% assign badge = "ICCV" %}
-  {% elsif lower_vnu contains "eccv" or lower_url contains "eccv" %}
-    {% assign badge = "ECCV" %}
-  {% elsif lower_vnu contains "ieee" or lower_url contains "ieee" %}
-    {% assign badge = "IEEE" %}
-  {% elsif lower_vnu contains "acm" or lower_url contains "acm" %}
-    {% assign badge = "ACM" %}
-  {% elsif lower_vnu contains "arxiv" or lower_url contains "arxiv" %}
-    {% assign badge = "arXiv" %}
-  {% endif %}
-
-  {% if badge != "" %}
-    <span class="venue-badge badge-{{ badge | downcase }}">{{ badge }}</span>
-  {% endif %}
-
+  <strong><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></strong>
+  {%- if tok != "" -%}<span class="venue-badge badge-{{ tok }}">{{ tok }}</span>{%- endif -%}
   <br/>
-
-  {%- comment -%} Authors, with Amit highlighted {%- endcomment -%}
-  <em>
-    {{ p.authors | replace: "Agarwal, Amit", "<strong>Agarwal, Amit</strong>" }}
-  </em>.
-  {% if p.venue %} {{ p.venue }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
+  <em>{{ authors_html }}</em>.{%- if p.venue %} {{ p.venue }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
 
   <div class="link-pills">
-    {% if p.paper_url %}
-      <a class="link-pill" href="{{ p.paper_url }}" target="_blank" rel="noopener">📄 Paper</a>
-    {% endif %}
-    {% if p.pdf_url %}
-      <a class="link-pill pill--pdf" href="{{ p.pdf_url }}" target="_blank" rel="noopener">PDF</a>
-    {% endif %}
-    {% if p.code_url %}
-      <a class="link-pill pill--code" href="{{ p.code_url }}" target="_blank" rel="noopener">Code</a>
-    {% endif %}
-    <a class="link-pill" href="{{ p.url | relative_url }}">Details</a>
+    {%- if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}" target="_blank" rel="noopener">📄 Paper</a>{% endif -%}
+    {%- if pdf %}<a class="link-pill pill--pdf" href="{{ pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
+    {%- if p.code_url %}<a class="link-pill pill--code" href="{{ p.code_url }}" target="_blank" rel="noopener">Code</a>{% endif -%}
+    {%- if p.url %}<a class="link-pill" href="{{ p.url | relative_url }}">Details</a>{% endif -%}
   </div>
 </li>
