@@ -133,6 +133,40 @@
   html:not(.theme-dark) #theme-toggle{ background: #0e7490; } /* nicer in light */
 </style>
 
+<style>
+/* Dark-mode footer color (force override of the skin) */
+html.theme-dark {
+  /* if the skin uses CSS variables, override them too */
+  --mm-footer-background: #0B2738;
+  --mm-footer-color: #9ec1d9;
+}
+
+/* crush any background/gradient the skin applies */
+html.theme-dark footer.page__footer,
+html.theme-dark .page__footer,
+html.theme-dark .page__footer::before,
+html.theme-dark .page__footer::after {
+  background-color: #0B2738 !important;
+  background: #0B2738 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border-color: #0B2738 !important;
+}
+
+/* readable footer text + links + icons in dark */
+html.theme-dark .page__footer,
+html.theme-dark .page__footer a,
+html.theme-dark .page__footer .copyright {
+  color: #9ec1d9 !important;
+}
+html.theme-dark .page__footer a:hover { color: #b7daf5 !important; }
+html.theme-dark .page__footer .social-icons .fa,
+html.theme-dark .author__urls i,
+html.theme-dark .page__meta .fa {
+  color: #9ecbff !important;
+}
+</style>
+
 <!-- Google Analytics gtag (OK to keep here) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-351QZEBS4T"></script>
 <script>
