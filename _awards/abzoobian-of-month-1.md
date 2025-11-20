@@ -1,6 +1,6 @@
 ---
 title: "Abzoobian of the month 1"
-year: 2024
+year: 2019
 org: "Abzooba"
 icon: "trophy"     # trophy | medal | star
 certificate: "/assets/awards/Abzoobian of Month 1.pdf"
