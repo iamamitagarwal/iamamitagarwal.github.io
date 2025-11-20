@@ -1,22 +1,7 @@
 <link rel="icon" href="/images/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-<style>
-/* optional: justify body copy */
-.page__content p,
-.page__content li { text-align: justify; text-justify: inter-word; }
-.masthead { border-bottom: 4px solid #0ea5e9; } /* thin cyan brand bar */
-</style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-351QZEBS4T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-351QZEBS4T');
-</script>
-
+<!-- Prevent FOUC: apply saved theme ASAP -->
 <script>
   (function() {
     try {
@@ -26,3 +11,132 @@
   })();
 </script>
 
+<!-- Brand + dark-mode design tokens -->
+<style>
+  :root{
+    /* brand accents */
+    --brand-accent: #0ea5e9;
+
+    /* dark tokens */
+    --dark-bg:          #0d1117;
+    --dark-text:        #e6edf3;
+    --dark-heading:     #f3f4f6;
+    --dark-link:        #58a6ff;
+    --dark-link-hov:    #8ab4ff;
+    --dark-panel:       #0b1220;
+    --dark-panel-brdr:  #1f2937;
+
+    /* footer in dark */
+    --dark-footer-bg:   #0B2738;
+    --dark-footer-text: #9ec1d9;
+    --dark-footer-link: #58a6ff;
+    --dark-footer-brdr: #0f3a52;
+  }
+
+  /* Subtle brand line under header */
+  .masthead { border-bottom: 4px solid var(--brand-accent); }
+  html.theme-dark .masthead { border-color: #22d3ee; }
+
+  /* Optional: justify body copy */
+  .page__content p,
+  .page__content li { text-align: justify; text-justify: inter-word; }
+
+  /* === Dark mode rules === */
+  html.theme-dark,
+  html.theme-dark body { background: var(--dark-bg) !important; color: var(--dark-text) !important; }
+
+  /* content + sidebars */
+  html.theme-dark .page,
+  html.theme-dark .page__inner-wrap,
+  html.theme-dark .page__content,
+  html.theme-dark .sidebar,
+  html.theme-dark .archive__item,
+  html.theme-dark .archive__item-excerpt {
+    background: transparent !important;
+    color: var(--dark-text) !important;
+  }
+
+  html.theme-dark p,
+  html.theme-dark li,
+  html.theme-dark dt,
+  html.theme-dark dd,
+  html.theme-dark span,
+  html.theme-dark small { color: var(--dark-text) !important; }
+
+  /* headings */
+  html.theme-dark h1, html.theme-dark h2, html.theme-dark h3,
+  html.theme-dark h4, html.theme-dark h5, html.theme-dark h6,
+  html.theme-dark .page__title { color: var(--dark-heading) !important; }
+
+  /* links */
+  html.theme-dark a { color: var(--dark-link) !important; }
+  html.theme-dark a:hover { color: var(--dark-link-hov) !important; }
+
+  /* nav / masthead */
+  html.theme-dark .masthead,
+  html.theme-dark .greedy-nav { background: var(--dark-bg) !important; }
+  html.theme-dark .greedy-nav a,
+  html.theme-dark .site-title { color: var(--dark-text) !important; }
+
+  /* code blocks, notices, buttons */
+  html.theme-dark pre,
+  html.theme-dark code,
+  html.theme-dark .highlighter-rouge {
+    background: var(--dark-panel) !important;
+    color: var(--dark-text) !important;
+    border-color: var(--dark-panel-brdr) !important;
+  }
+  html.theme-dark .notice,
+  html.theme-dark .toc,
+  html.theme-dark .btn,
+  html.theme-dark .btn--primary {
+    background: #0f172a !important;
+    color: var(--dark-text) !important;
+    border-color: var(--brand-accent) !important;
+  }
+
+  /* footer: branded dark */
+  html.theme-dark .page__footer{
+    background: var(--dark-footer-bg) !important;
+    color: var(--dark-footer-text) !important;
+    border-top: 1px solid var(--dark-footer-brdr) !important;
+  }
+  html.theme-dark .page__footer a,
+  html.theme-dark .page__footer .fa,
+  html.theme-dark .page__footer .fab{
+    color: var(--dark-footer-link) !important;
+  }
+
+  /* icons in author sidebar / meta */
+  html.theme-dark .author__urls i,
+  html.theme-dark .social-icons .fa,
+  html.theme-dark .page__meta .fa { color: #9ecbff !important; }
+
+  /* search inputs (Minimal Mistakes uses a few classes) */
+  html.theme-dark input[type="search"],
+  html.theme-dark .search-input,
+  html.theme-dark .search-content__input,
+  html.theme-dark .search-content input {
+    background: var(--dark-panel) !important;
+    color: var(--dark-text) !important;
+    border-color: var(--dark-panel-brdr) !important;
+  }
+  html.theme-dark ::placeholder { color:#9aa4b2 !important; opacity:1; }
+
+  /* theme toggle button (style lives here; logic is in footer) */
+  #theme-toggle{
+    position: fixed; right: 16px; bottom: 16px; z-index: 9999;
+    border: 0; padding: 10px 12px; border-radius: 999px;
+    background: var(--dark-bg); color: #fff; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  }
+  html:not(.theme-dark) #theme-toggle{ background: #0e7490; } /* nicer in light */
+</style>
+
+<!-- Google Analytics gtag (OK to keep here) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-351QZEBS4T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date()); gtag('config', 'G-351QZEBS4T');
+</script>
