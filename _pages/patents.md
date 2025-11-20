@@ -9,49 +9,70 @@ search: true
 
 <div id="pat-filters" style="margin:.5rem 0 1rem 0;">
   <button class="btn btn--primary" data-tag="all">All</button>
-  {% assign all_tags = site.patents | map:'tags' | join:',' | split:',' | uniq | sort %}
-  {% for t in all_tags %}{% unless t == '' %}
-    <button class="btn" data-tag="{{ t | strip }}">{{ t | strip }}</button>
-  {% endunless %}{% endfor %}
 </div>
 
-{% assign pats = site.patents | where_exp:'p','p.title' | where_exp:'p','p.year' | sort:'year' | reverse %}
-{% assign years = pats | map:'year' | uniq %}
+{% assign pats_by_year = site.patents | sort: "year" | reverse | group_by: "year" %}
 
-{% for y in years %}
-<h3 class="year-heading" data-year="{{ y }}">{{ y }}</h3>
-<ul class="pub-list">
-{% for p in pats %}{% if p.year == y %}
-  <li class="pub-item" data-tags="{{ p.tags | join:' ' }}">
-    <strong><a href="{{ p.url | relative_url }}">{{ p.title }}</a></strong><br>
-    {% if p.inventors %}<em>{{ p.inventors }}</em>.{% endif %}
-    {% if p.office %} {{ p.office }}{% endif %}{% if p.number %} — {{ p.number }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
-    {% if p.patent_url %} <a href="{{ p.patent_url }}">Patent</a>{% endif %}
+{% for y in pats_by_year %}
+### {{ y.name }}{:.year-head}
+<ul class="pat-list">
+{% for p in y.items %}
+  <li class="pat-item" data-tags="{{ p.tags | join: ' ' }}">
+    <strong><a href="{{ p.patent_url | default:p.uspto_url | default:'#' }}">{{ p.title }}</a></strong><br/>
+    <em>{{ p.inventors }}</em>.
+    {% if p.assignee %} {{ p.assignee }}.{% endif %}
+    {% if p.number %} {{ p.number }}.{% endif %}
+    {% if p.status %} <span class="label">{{ p.status }}</span>{% endif %}
+    {% if p.year %} ({{ p.year }}){% endif %}
+
+    {% if p.abstract %}
+    <details class="pub-abs"><summary>Abstract</summary>
+      <p>{{ p.abstract }}</p>
+    </details>
+    {% endif %}
+
+    <div class="link-pills">
+      {% if p.patent_url %}<a class="link-pill" href="{{ p.patent_url }}" target="_blank" rel="noopener"><i class="fa fa-file-alt"></i>Patent</a>{% endif %}
+      {% if p.uspto_url %}<a class="link-pill pill--uspto" href="{{ p.uspto_url }}" target="_blank" rel="noopener"><i class="fa fa-university"></i>USPTO</a>{% endif %}
+      {% if p.pdf_url %}<a class="link-pill pill--pdf" href="{{ p.pdf_url }}" target="_blank" rel="noopener"><i class="fa fa-file-pdf"></i>PDF</a>{% endif %}
+      {% if p.bibtex %}<button class="link-pill pill--copy" type="button" data-bib="{{ p.bibtex | escape }}"><i class="fa fa-clipboard"></i>BibTeX</button>{% endif %}
+    </div>
   </li>
-{% endif %}{% endfor %}
+{% endfor %}
 </ul>
 {% endfor %}
 
 <script>
-  const btns = document.querySelectorAll('#pat-filters .btn');
-  const applyFilter = (tag) => {
-    const items = [...document.querySelectorAll('.pub-item')];
-    const years = [...document.querySelectorAll('.year-heading')];
-    items.forEach(li => {
-      const tags = (li.dataset.tags || '').split(' ').filter(Boolean);
-      li.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
+  // Build tag buttons and filter (same pattern as publications)
+  (function(){
+    const wrap = document.getElementById('pat-filters');
+    const items = [...document.querySelectorAll('.pat-item')];
+    const set = new Set();
+    items.forEach(li => (li.dataset.tags||'').split(' ').filter(Boolean).forEach(t => set.add(t)));
+    [...set].sort().forEach(tag=>{
+      const b = document.createElement('button');
+      b.className = 'btn'; b.textContent = tag; b.dataset.tag = tag; wrap.appendChild(b);
     });
-    years.forEach(h => {
-      const list = h.nextElementSibling;
-      const visible = [...list.children].some(ch => ch.style.display !== 'none');
-      h.style.display = visible ? '' : 'none';
-      list.style.display = visible ? '' : 'none';
+
+    const buttons = wrap.querySelectorAll('button');
+    const years   = [...document.querySelectorAll('.year-head')];
+
+    function apply(tag){
+      buttons.forEach(x=>x.classList.toggle('btn--primary', x.dataset.tag===tag));
+      items.forEach(li=>{
+        const tags = (li.dataset.tags||'').split(' ');
+        li.style.display = (tag==='all' || tags.includes(tag)) ? '' : 'none';
+      });
+      years.forEach(h=>{
+        const ul = h.nextElementSibling;
+        const visible = ul && [...ul.children].some(li => li.style.display !== 'none');
+        h.style.display = ul.style.display = visible ? '' : 'none';
+      });
+    }
+    wrap.addEventListener('click', e=>{
+      const b = e.target.closest('button[data-tag]'); if(!b) return;
+      apply(b.dataset.tag);
     });
-  };
-  btns.forEach(b => b.addEventListener('click', () => {
-    btns.forEach(x => x.classList.remove('btn--primary'));
-    b.classList.add('btn--primary');
-    applyFilter(b.dataset.tag);
-  }));
-  applyFilter('all');
+    apply('all');
+  })();
 </script>
