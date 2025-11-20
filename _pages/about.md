@@ -21,7 +21,7 @@ I’m pushing an **evaluation-first** approach to LLM features. Every surface - 
 A good system shouldn’t just ace a benchmark once; it should **stay healthy** as products evolve and edge cases appear. That’s why evaluation, robustness, and safety are first-class citizens in my work and why I publish and review: to turn lessons from production into patterns others can reuse.
 
 > 🪂 **Off the clock:** I’m a **certified paraglider** and a **scuba diver**-two very fun ways to practice respecting complexity, preparing well, and staying calm when conditions shift.  
-> 🌏 Earlier, I worked with **AIESEC** across India and Thailand; I still enjoy mentoring students and teams building their first real systems.
+> 🌏 Earlier, I worked with **AIESEC** across India and Thailand; I still **enjoy mentoring students** and teams building their first real systems.
 {: .notice--info}
 
 ### Looking ahead
