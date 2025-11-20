@@ -61,6 +61,10 @@ defaults:
     values: { layout: single, author_profile: true, search: true, classes: wide }
   - scope: { path: "", type: patents }
     values: { layout: single, author_profile: true, search: true, classes: wide }
+  - scope: { path: "", type: awards }
+    values: { layout: single, author_profile: true, classes: wide }
+  - scope: { path: "", type: media }
+    values: { layout: single, author_profile: true, classes: wide }
 
 collections:
   publications:
@@ -72,3 +76,9 @@ collections:
   talks:
     output: true
     permalink: /talks/:path/
+  awards:
+    output: true
+    permalink: /awards/:path/
+  media:
+    output: true
+    permalink: /media/:path/
