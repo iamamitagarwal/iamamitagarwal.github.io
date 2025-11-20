@@ -22,7 +22,7 @@ A good system shouldn’t just ace a benchmark once; it should **stay healthy** 
 
 > 🪂 **Off the clock:** I’m a **certified paraglider** and a **scuba diver**-two very fun ways to practice respecting complexity, preparing well, and staying calm when conditions shift.  
 > 🌏 Earlier, I worked with **AIESEC** across India and Thailand; I still **enjoy mentoring students** and teams building their first real systems.
-{: .notice--info}
+{: .notice--info .about-callout}
 
 ### Looking ahead
 I’m excited about **evaluation-native AI**-systems that surface their confidence and trade-offs by design and about making **multilingual** and **multimodal** experiences feel natural, not bolted on.
