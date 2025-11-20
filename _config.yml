@@ -1,7 +1,7 @@
 # --- Site identity ---
 title: "Amit Agarwal's Personal Website"   # REQUIRED by the theme/SEO
 logo: ""                                    # keep text brand in header
-masthead_title: "Amit Agarwal's Personal Website"
+masthead_title: "Hey Amit"
 title_separator: " | "                      # change to " | " or "" if you insist
 locale: en
 timezone: America/Los_Angeles
