@@ -2,8 +2,7 @@
 layout: paper
 title: 'Improving clinical question answering with multi-task learning: A joint approach
   for answer extraction and medical categorization'
-authors: 'Pattnayak, Priyaranjan; Laxmichand Patel, Hitesh; **Agarwal, Amit**; Kumar,
-  Bhargava; Panda, Srikant; Kumar, Tejaswini; '
+authors: "Pattnayak, Priyaranjan; Laxmichand Patel, Hitesh; Agarwal, Amit; Kumar, Bhargava; Panda, Srikant; Kumar, Tejaswini;"
 year: 2025
 venue: arXiv
 tags:
