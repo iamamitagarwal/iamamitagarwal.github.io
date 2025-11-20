@@ -11,11 +11,13 @@
   })();
 </script>
 
-<!-- Brand + dark-mode design tokens -->
 <style>
   :root{
     /* brand accents */
     --brand-accent: #0ea5e9;
+
+    /* sticky header offset for in-page anchors (tweak if header height changes) */
+    --sticky-offset: 76px;
 
     /* dark tokens */
     --dark-bg:          #0d1117;
@@ -35,7 +37,23 @@
 
   /* Subtle brand line under header */
   .masthead { border-bottom: 4px solid var(--brand-accent); }
+
+  /* Keep the top bar visible on scroll */
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+  }
+  /* readable translucent bar over hero images */
+  .masthead .greedy-nav {
+    background: rgba(255,255,255,.86);
+    backdrop-filter: saturate(180%) blur(8px);
+  }
   html.theme-dark .masthead { border-color: #22d3ee; }
+  html.theme-dark .masthead .greedy-nav {
+    background: rgba(13,17,23,.92);
+    backdrop-filter: saturate(180%) blur(8px);
+  }
 
   /* Optional: justify body copy */
   .page__content p,
@@ -55,13 +73,10 @@
     background: transparent !important;
     color: var(--dark-text) !important;
   }
-
-  html.theme-dark p,
-  html.theme-dark li,
-  html.theme-dark dt,
-  html.theme-dark dd,
-  html.theme-dark span,
-  html.theme-dark small { color: var(--dark-text) !important; }
+  html.theme-dark p, html.theme-dark li, html.theme-dark dt,
+  html.theme-dark dd, html.theme-dark span, html.theme-dark small {
+    color: var(--dark-text) !important;
+  }
 
   /* headings */
   html.theme-dark h1, html.theme-dark h2, html.theme-dark h3,
@@ -72,7 +87,7 @@
   html.theme-dark a { color: var(--dark-link) !important; }
   html.theme-dark a:hover { color: var(--dark-link-hov) !important; }
 
-  /* nav / masthead */
+  /* nav/masthead base colors in dark */
   html.theme-dark .masthead,
   html.theme-dark .greedy-nav { background: var(--dark-bg) !important; }
   html.theme-dark .greedy-nav a,
@@ -131,46 +146,53 @@
     box-shadow: 0 4px 14px rgba(0,0,0,.25);
   }
   html:not(.theme-dark) #theme-toggle{ background: #0e7490; } /* nicer in light */
+
+  /* Dark-mode footer color (force override of the skin) */
+  html.theme-dark {
+    --mm-footer-background: #0B2738;
+    --mm-footer-color: #9ec1d9;
+  }
+  html.theme-dark footer.page__footer,
+  html.theme-dark .page__footer,
+  html.theme-dark .page__footer::before,
+  html.theme-dark .page__footer::after {
+    background-color: #0B2738 !important;
+    background: #0B2738 !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border-color: #0B2738 !important;
+  }
+  html.theme-dark .page__footer,
+  html.theme-dark .page__footer a,
+  html.theme-dark .page__footer .copyright {
+    color: #9ec1d9 !important;
+  }
+  html.theme-dark .page__footer a:hover { color: #b7daf5 !important; }
+
+  /* Custom callout class for About */
+  .about-callout {
+    background: #e8f4fb;           /* light mode */
+    border: 1px solid #bcdcff;
+  }
+  html.theme-dark .about-callout {
+    background: #0f2d3a !important; /* dark mode */
+    border: 1px solid #1f6b8f !important;
+    color: #e6edf3 !important;
+  }
+  html.theme-dark .about-callout strong { color: #ffffff !important; }
+  html.theme-dark .about-callout em     { color: #cfe8ff !important; }
+  html.theme-dark .about-callout a      { color: #7dc9ff !important; }
+  html.theme-dark .about-callout:before { color: #7dc9ff !important; opacity: 1 !important; }
+
+  /* Prevent headings from hiding under the sticky masthead when using #anchors */
+  [id] { scroll-margin-top: var(--sticky-offset); }
 </style>
 
-<style>
-/* Dark-mode footer color (force override of the skin) */
-html.theme-dark {
-  /* if the skin uses CSS variables, override them too */
-  --mm-footer-background: #0B2738;
-  --mm-footer-color: #9ec1d9;
-}
-
-/* crush any background/gradient the skin applies */
-html.theme-dark footer.page__footer,
-html.theme-dark .page__footer,
-html.theme-dark .page__footer::before,
-html.theme-dark .page__footer::after {
-  background-color: #0B2738 !important;
-  background: #0B2738 !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  border-color: #0B2738 !important;
-}
-
-/* readable footer text + links + icons in dark */
-html.theme-dark .page__footer,
-html.theme-dark .page__footer a,
-html.theme-dark .page__footer .copyright {
-  color: #9ec1d9 !important;
-}
-html.theme-dark .page__footer a:hover { color: #b7daf5 !important; }
-html.theme-dark .page__footer .social-icons .fa,
-html.theme-dark .author__urls i,
-html.theme-dark .page__meta .fa {
-  color: #9ecbff !important;
-}
-</style>
-
-<!-- Google Analytics gtag (OK to keep here) -->
+<!-- Google Analytics (gtag) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-351QZEBS4T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date()); gtag('config', 'G-351QZEBS4T');
+  gtag('js', new Date());
+  gtag('config', 'G-351QZEBS4T');
 </script>
