@@ -4,215 +4,143 @@
 
 <!-- Prevent FOUC: apply saved theme ASAP -->
 <script>
-  (function () {
-    try {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.classList.add('theme-dark');
-      }
-    } catch (e) {}
+  (function() {
+    try { if (localStorage.getItem('theme') === 'dark')
+      document.documentElement.classList.add('theme-dark');
+    } catch(e){}
   })();
 </script>
 
-<!-- Brand tokens, dark-mode styling, sticky header, pills, and callouts -->
+<!-- Brand tokens, dark-mode styling, sticky header, pills, callout -->
 <style>
   :root{
-    --brand-accent: #0ea5e9;
+    --brand-accent:#0ea5e9;
 
     /* dark tokens */
-    --dark-bg:            #0d1117;
-    --dark-text:          #e6edf3;
-    --dark-heading:       #f3f4f6;
-    --dark-link:          #58a6ff;
-    --dark-link-hov:      #8ab4ff;
-    --dark-panel:         #0b1220;
-    --dark-panel-brdr:    #1f2937;
+    --dark-bg:#0d1117; --dark-text:#e6edf3; --dark-heading:#f3f4f6;
+    --dark-link:#58a6ff; --dark-link-hov:#8ab4ff;
+    --dark-panel:#0b1220; --dark-panel-brdr:#1f2937;
 
     /* footer in dark */
-    --dark-footer-bg:     #0B2738;
-    --dark-footer-text:   #9ec1d9;
-    --dark-footer-link:   #58a6ff;
-    --dark-footer-brdr:   #0f3a52;
+    --dark-footer-bg:#0B2738; --dark-footer-text:#9ec1d9;
+    --dark-footer-link:#58a6ff; --dark-footer-brdr:#0f3a52;
   }
 
-  /* ===== Sticky masthead (no overlap), readable in both themes ===== */
-  .masthead{
-    position: sticky;
-    top: 0;
-    z-index: 1050;
-    background: rgba(255,255,255,.96);               /* light base */
-    border-bottom: 4px solid var(--brand-accent);
-    box-shadow: 0 1px 0 rgba(0,0,0,.06);
-    backdrop-filter: saturate(160%) blur(8px);
-    -webkit-backdrop-filter: saturate(160%) blur(8px);
-  }
-  html.theme-dark .masthead{
-    background: rgba(13,17,23,.90) !important;       /* dark base */
-    border-bottom-color: #22d3ee;
-    box-shadow: 0 1px 0 rgba(255,255,255,.05);
-  }
+  /* subtle brand line */
+  .masthead{ border-bottom:4px solid var(--brand-accent); }
 
-  /* Optional “glassier” look after a tiny scroll */
-  .masthead.header-glass{
-    background: rgba(255,255,255,.86);
-  }
-  html.theme-dark .masthead.header-glass{
-    background: rgba(13,17,23,.84) !important;
-  }
+  /* sticky masthead — solid background (no glass), readable in both themes */
+  .masthead{ position:sticky; top:0; z-index:2000; background:#ffffff; }
+  .greedy-nav{ background:inherit; }              /* keep nav same as masthead */
+  .greedy-nav a, .site-title{ color:#0f172a; }    /* readable links in light */
 
-  /* Make anchor jumps land below the sticky bar */
-  :where(h1,h2,h3,h4,h5,h6){ scroll-margin-top: 88px; }
+  /* tiny shadow only after scrolling a bit */
+  .masthead.is-stuck{ box-shadow:0 2px 6px rgba(0,0,0,.06); }
 
-  /* Body copy */
-  .page__content p,
-  .page__content li{ text-align: justify; text-justify: inter-word; }
-
-  /* ===== Dark mode: sitewide ===== */
-  html.theme-dark,
-  html.theme-dark body{ background: var(--dark-bg) !important; color: var(--dark-text) !important; }
-
-  html.theme-dark .page,
-  html.theme-dark .page__inner-wrap,
-  html.theme-dark .page__content,
-  html.theme-dark .sidebar,
-  html.theme-dark .archive__item,
-  html.theme-dark .archive__item-excerpt{
-    background: transparent !important;
-    color: var(--dark-text) !important;
-  }
-
-  html.theme-dark h1,
-  html.theme-dark h2,
-  html.theme-dark h3,
-  html.theme-dark h4,
-  html.theme-dark h5,
-  html.theme-dark h6,
-  html.theme-dark .page__title{ color: var(--dark-heading) !important; }
-
-  html.theme-dark a{ color: var(--dark-link) !important; }
-  html.theme-dark a:hover{ color: var(--dark-link-hov) !important; }
-
+  /* dark theme header */
+  html.theme-dark .masthead,
+  html.theme-dark .greedy-nav{ background:var(--dark-bg) !important; }
   html.theme-dark .greedy-nav a,
-  html.theme-dark .site-title{ color: var(--dark-text) !important; }
+  html.theme-dark .site-title{ color:var(--dark-text) !important; }
+  html.theme-dark .masthead{ border-bottom-color:#22d3ee; }
 
-  html.theme-dark pre,
-  html.theme-dark code,
-  html.theme-dark .highlighter-rouge{
-    background: var(--dark-panel) !important;
-    color: var(--dark-text) !important;
-    border-color: var(--dark-panel-brdr) !important;
+  /* body copy */
+  .page__content p, .page__content li{ text-align:justify; text-justify:inter-word; }
+
+  /* DARK MODE — sitewide */
+  html.theme-dark, html.theme-dark body{ background:var(--dark-bg)!important; color:var(--dark-text)!important; }
+  html.theme-dark .page, html.theme-dark .page__inner-wrap, html.theme-dark .page__content,
+  html.theme-dark .sidebar, html.theme-dark .archive__item, html.theme-dark .archive__item-excerpt{
+    background:transparent!important; color:var(--dark-text)!important;
+  }
+  html.theme-dark h1, html.theme-dark h2, html.theme-dark h3, html.theme-dark h4,
+  html.theme-dark h5, html.theme-dark h6, html.theme-dark .page__title{ color:var(--dark-heading)!important; }
+  html.theme-dark a{ color:var(--dark-link)!important; }
+  html.theme-dark a:hover{ color:var(--dark-link-hov)!important; }
+
+  html.theme-dark pre, html.theme-dark code, html.theme-dark .highlighter-rouge{
+    background:var(--dark-panel)!important; color:var(--dark-text)!important; border-color:var(--dark-panel-brdr)!important;
+  }
+  html.theme-dark .notice, html.theme-dark .toc, html.theme-dark .btn, html.theme-dark .btn--primary{
+    background:#0f172a!important; color:var(--dark-text)!important; border-color:var(--brand-accent)!important;
   }
 
-  html.theme-dark .notice,
-  html.theme-dark .toc,
-  html.theme-dark .btn,
-  html.theme-dark .btn--primary{
-    background: #0f172a !important;
-    color: var(--dark-text) !important;
-    border-color: var(--brand-accent) !important;
-  }
-
-  /* Footer in dark */
+  /* footer overrides in dark */
   html.theme-dark .page__footer{
-    background: var(--dark-footer-bg) !important;
-    color: var(--dark-footer-text) !important;
-    border-top: 1px solid var(--dark-footer-brdr) !important;
+    background:var(--dark-footer-bg)!important; color:var(--dark-footer-text)!important;
+    border-top:1px solid var(--dark-footer-brdr)!important;
   }
-  html.theme-dark .page__footer a,
-  html.theme-dark .page__footer .fa,
-  html.theme-dark .page__footer .fab{
-    color: var(--dark-footer-link) !important;
+  html.theme-dark .page__footer a, html.theme-dark .page__footer .fa, html.theme-dark .page__footer .fab{
+    color:var(--dark-footer-link)!important;
   }
 
-  /* Author/meta icons a bit brighter in dark */
-  html.theme-dark .author__urls i,
-  html.theme-dark .social-icons .fa,
-  html.theme-dark .page__meta .fa{ color: #9ecbff !important; }
+  /* author/meta icons brighter in dark */
+  html.theme-dark .author__urls i, html.theme-dark .social-icons .fa, html.theme-dark .page__meta .fa{ color:#9ecbff!important; }
 
-  /* Search inputs in dark */
-  html.theme-dark input[type="search"],
-  html.theme-dark .search-input,
-  html.theme-dark .search-content__input,
-  html.theme-dark .search-content input{
-    background: var(--dark-panel) !important;
-    color: var(--dark-text) !important;
-    border-color: var(--dark-panel-brdr) !important;
+  /* search inputs in dark */
+  html.theme-dark input[type="search"], html.theme-dark .search-input,
+  html.theme-dark .search-content__input, html.theme-dark .search-content input{
+    background:var(--dark-panel)!important; color:var(--dark-text)!important; border-color:var(--dark-panel-brdr)!important;
   }
-  html.theme-dark ::placeholder{ color:#9aa4b2 !important; opacity:1; }
+  html.theme-dark ::placeholder{ color:#9aa4b2!important; opacity:1; }
 
-  /* Theme toggle button (HTML lives in footer) */
+  /* theme toggle button (HTML lives in footer) */
   #theme-toggle{
-    position: fixed; right: 16px; bottom: 16px; z-index: 9999;
-    border: 0; padding: 10px 12px; border-radius: 999px;
-    background: var(--dark-bg); color: #fff; cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    position:fixed; right:16px; bottom:16px; z-index:9999; border:0; padding:10px 12px;
+    border-radius:999px; background:var(--dark-bg); color:#fff; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.25);
   }
-  html:not(.theme-dark) #theme-toggle{ background: #0e7490; }
+  html:not(.theme-dark) #theme-toggle{ background:#0e7490; }
 
-  /* ===== About-page callout (restores thin accent rule) ===== */
+  /* --- About page callout: bring back thin left rail + better contrast --- */
   .about-callout{
-    background: #e8f4fb;
-    border: 1px solid #bcdcff;
-    border-left: 4px solid #22a2cf;          /* accent line (light) */
-    border-radius: .5rem;
+    background:#e8f4fb; border:1px solid #bcdcff; border-left:4px solid var(--brand-accent);
   }
   html.theme-dark .about-callout{
-    background: #0f2d3a !important;
-    border: 1px solid #1f6b8f !important;
-    border-left-color: #1f6b8f;              /* accent line (dark) */
-    color: var(--dark-text) !important;
+    background:#0f2d3a!important; border:1px solid #1f6b8f!important; border-left-color:#22d3ee!important; color:var(--dark-text)!important;
   }
-  html.theme-dark .about-callout strong{ color: #fff !important; }
-  html.theme-dark .about-callout em{ color: #cfe8ff !important; }
-  html.theme-dark .about-callout a{ color: #7dc9ff !important; }
-  html.theme-dark .about-callout:before{ color: #7dc9ff !important; opacity: 1 !important; }
+  html.theme-dark .about-callout strong{ color:#fff!important; }
+  html.theme-dark .about-callout em{ color:#cfe8ff!important; }
+  html.theme-dark .about-callout a{ color:#7dc9ff!important; }
+  html.theme-dark .about-callout:before{ color:#7dc9ff!important; opacity:1!important; }
 
-  /* ===== Publication/Patent pills ===== */
-  .link-pills{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.4rem 0 0; }
+  /* --- Publication/Patent "pills" --- */
+  .link-pills{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0 0; }
   .link-pill{
-    display:inline-flex; align-items:center; gap:.4rem; padding:.25rem .7rem;
-    border-radius:999px; font-weight:600; border:1px solid var(--brand-accent);
-    text-decoration:none; background:transparent; transition:.15s ease;
+    display:inline-flex; align-items:center; gap:.45rem; padding:.28rem .75rem;
+    border-radius:999px; font-weight:700; border:1px solid var(--brand-accent);
+    text-decoration:none; background:transparent; transition:.15s ease; line-height:1.2;
   }
   .link-pill:hover{ background:var(--brand-accent); color:#fff; }
-  .pill--pdf{  border-color:#ef4444; } .pill--pdf:hover{  background:#ef4444; }
+  .pill--pdf{ border-color:#ef4444; } .pill--pdf:hover{ background:#ef4444; }
   .pill--code{ border-color:#16a34a; } .pill--code:hover{ background:#16a34a; }
-  .pill--uspto{border-color:#8b5cf6; } .pill--uspto:hover{background:#8b5cf6; }
+  .pill--uspto{ border-color:#8b5cf6; } .pill--uspto:hover{ background:#8b5cf6; }
   .pill--copy{ cursor:pointer; }
 
-  /* List spacing + hover cards */
+  /* list spacing & year headings */
+  .year-head{ margin:1.25rem 0 .25rem; font-weight:800; }
   .pub-item, .pat-item{ padding:.6rem .8rem; border-radius:.75rem; }
   .pub-item:hover, .pat-item:hover{ background:rgba(14,165,233,.08); }
-  html.theme-dark .pub-item:hover,
-  html.theme-dark .pat-item:hover{ background:#0b1220; }
-
-  /* Year section spacing */
-  .pub-list, .pat-list{ margin:.6rem 0 1.2rem; }
-  .pub-list + h3, .pat-list + h3{
-    border-top: 1px solid rgba(0,0,0,.06); padding-top: 1rem;
-  }
-  html.theme-dark .pub-list + h3,
-  html.theme-dark .pat-list + h3{ border-color:#1f2937; }
+  html.theme-dark .pub-item:hover, html.theme-dark .pat-item:hover{ background:#0b1220; }
 </style>
 
 <script>
-/* Add subtle "glass" background to masthead after tiny scroll */
+/* Solid sticky masthead with shadow after scroll */
 (function(){
-  const h = document.querySelector('.masthead');
-  if (!h) return;
-  const onScroll = () => h.classList.toggle('header-glass', window.scrollY > 8);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  var h = document.querySelector('.masthead');
+  if(!h) return;
+  var on = () => h.classList.toggle('is-stuck', window.scrollY > 8);
+  on(); window.addEventListener('scroll', on, {passive:true});
 })();
 
-/* Copy BibTeX pill handler */
-document.addEventListener('click', e => {
+/* Copy BibTeX pill */
+document.addEventListener('click', e=>{
   const b = e.target.closest('.pill--copy');
-  if (!b) return;
+  if(!b) return;
   const txt = b.dataset.bib || '';
-  navigator.clipboard.writeText(txt).then(() => {
-    const prev = b.textContent;
+  navigator.clipboard.writeText(txt).then(()=>{
+    b.dataset.label = b.textContent;
     b.textContent = 'Copied!';
-    setTimeout(() => { b.textContent = prev || 'BibTeX'; }, 900);
+    setTimeout(()=>{ b.textContent = b.dataset.label || 'BibTeX'; }, 900);
   });
 });
 </script>
@@ -222,6 +150,5 @@ document.addEventListener('click', e => {
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-351QZEBS4T');
+  gtag('js', new Date()); gtag('config', 'G-351QZEBS4T');
 </script>
