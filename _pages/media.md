@@ -20,9 +20,7 @@ classes: wide
     border-radius:16px;
     background:#fffdfa;                           /* warm paper */
     border:1px solid #e5e7eb;                     /* paper edge */
-    box-shadow:
-      0 12px 22px rgba(0,0,0,.08),
-      0 2px 5px rgba(0,0,0,.06);
+    box-shadow: 0 12px 22px rgba(0,0,0,.08), 0 2px 5px rgba(0,0,0,.06);
     overflow:hidden;
     transform: rotate(-.25deg);
   }
@@ -31,25 +29,25 @@ classes: wide
 
   .media-card::after{
     content:"";
-    position:absolute; inset:0;
-    pointer-events:none;
+    position:absolute; inset:0; pointer-events:none;
     background:
       radial-gradient(1200px 600px at 10% -200px, rgba(0,0,0,.06), transparent 60%),
       radial-gradient(900px 500px at 110% 120%, rgba(0,0,0,.05), transparent 55%);
-    mix-blend-mode:multiply;
-    opacity:.5;
+    mix-blend-mode:multiply; opacity:.5;
   }
 
+  /* tape label — softer blue instead of yellow */
   .tape{
     position:absolute; top:10px; left:50%;
     transform:translateX(-50%) rotate(-2deg);
-    padding:.3rem .8rem;
-    background:#fef3c7;
-    color:#312e2b; font-weight:800; font-size:.85rem;
-    border:1px solid #e5d5aa; border-radius:6px;
+    padding:.35rem .9rem;
+    background:#e7eef9;               /* <-- change this for another color */
+    color:#1f2937;
+    font-weight:800; font-size:.85rem;
+    border:1px solid #cfe0ff;          /* <-- and this */
+    border-radius:6px;
     box-shadow:0 4px 10px rgba(0,0,0,.08);
-    max-width:85%;
-    text-align:center;
+    max-width:85%; text-align:center;
     white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
 
@@ -67,29 +65,17 @@ classes: wide
     padding:.28rem .7rem; border-radius:999px;
     font-weight:800; font-size:.85rem; letter-spacing:.01em;
     border:1px solid #0ea5e9; color:#0b1320; text-decoration:none;
-    background:#ecfeff;
-    box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+    background:#ecfeff; box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
   }
   .pill:hover{ background:#0ea5e9; color:#fff; }
   .pill--pdf{ border-color:#ef4444; background:#fff1f1; }
   .pill--pdf:hover{ background:#ef4444; color:#fff; }
 
-  html.theme-dark .media-card{
-    background:#0b1220; border-color:#1f2937; box-shadow:none;
-  }
-  html.theme-dark .tape{ background:#7c6f49; color:#fff; border-color:#6b623f; }
+  html.theme-dark .media-card{ background:#0b1220; border-color:#1f2937; box-shadow:none; }
+  html.theme-dark .tape{ background:#22314a; color:#e6eefb; border-color:#334766; }
   html.theme-dark .pill{ background:#062a30; color:#d7eef6; border-color:#22d3ee; }
   html.theme-dark .pill--pdf{ background:#2a1212; border-color:#f87171; color:#ffe2e2; }
 </style>
-
-{%- comment -%}
-Folders (case sensitive):
-  /assets/media/pictures/   -> png/jpg/jpeg/webp/gif
-  /assets/media/pdfs/       -> PDF files with the same base name (slug match is OK)
-
-Optional site/title overrides in _data/media.yml
-Keys can be: exact base name, slugified base, or “tight” slug (no -/_).
-{%- endcomment -%}
 
 {% assign pictures_dir = "/assets/media/pictures/" %}
 {% assign pdfs_dir     = "/assets/media/pdfs/" %}
@@ -110,28 +96,37 @@ Keys can be: exact base name, slugified base, or “tight” slug (no -/_).
   {% if p contains pictures_dir %}
     {% assign ext = f.extname | downcase %}
     {% if ext == ".png" or ext == ".jpg" or ext == ".jpeg" or ext == ".webp" or ext == ".gif" %}
-      {% assign base = f.name | remove: f.extname %}
-      {% assign slug_key  = base | slugify: 'pretty' %}
-      {% assign tight_key = slug_key | replace: '-', '' | replace: '_','' %}
 
-      {%- comment -%} Find matching PDF by slug (for convenience) {%- endcomment -%}
+      {% assign base = f.name | remove: f.extname %}
+      {% assign slug_target = base | slugify: 'pretty' %}
+      {% assign tight_target = slug_target | replace: '-', '' | replace: '_','' %}
+
+      {%- comment -%} Match a PDF by normalized slug {%- endcomment -%}
       {% assign pdf_hit = nil %}
       {% for sf in site.static_files %}
         {% assign sp = sf.path | downcase %}
         {% if sp contains pdfs_dir and sf.extname %}
           {% assign pbase = sf.name | remove: sf.extname %}
-          {% assign pkey  = pbase | slugify: 'pretty' | replace: '-', '' | replace: '_','' %}
-          {% if pkey == tight_key %}
-            {% assign pdf_hit = sf %}
-            {% break %}
+          {% assign pslug = pbase | slugify: 'pretty' %}
+          {% assign ptight = pslug | replace: '-', '' | replace: '_','' %}
+          {% if ptight == tight_target %}
+            {% assign pdf_hit = sf %}{% break %}
           {% endif %}
         {% endif %}
       {% endfor %}
 
-      {%- comment -%} Pull title/site/pdf overrides from data by any of the 3 keys {%- endcomment -%}
+      {%- comment -%} Robust data lookup: compare normalized keys on both sides {%- endcomment -%}
       {% assign entry = nil %}
       {% if linkmap %}
-        {% assign entry = linkmap[base] | default: linkmap[slug_key] | default: linkmap[tight_key] %}
+        {% for pair in linkmap %}
+          {% assign k = pair[0] %}
+          {% assign v = pair[1] %}
+          {% assign kslug  = k | slugify: 'pretty' %}
+          {% assign ktight = kslug | replace: '-', '' | replace: '_','' %}
+          {% if k == base or kslug == slug_target or ktight == tight_target %}
+            {% assign entry = v %}{% break %}
+          {% endif %}
+        {% endfor %}
       {% endif %}
 
       {% assign site_link = "" %}
@@ -140,15 +135,14 @@ Keys can be: exact base name, slugified base, or “tight” slug (no -/_).
 
       {% if entry %}
         {% if entry.site or entry.title or entry.pdf %}
-          {% assign site_link = entry.site | default: "" %}
+          {% assign site_link = entry.site | default: "" | strip %}
           {% assign title_override = entry.title %}
           {% assign pdf_manual = entry.pdf %}
         {% else %}
-          {% assign site_link = entry | default: "" %}
+          {% assign site_link = entry | default: "" | strip %}
         {% endif %}
       {% endif %}
 
-      {%- comment -%} If YAML forces a specific PDF name, use that {%- endcomment -%}
       {% if pdf_manual %}
         {% assign pdf_hit = nil %}
         {% for sf in site.static_files %}
@@ -164,11 +158,9 @@ Keys can be: exact base name, slugified base, or “tight” slug (no -/_).
 
       <figure class="masonry-item media-card">
         <div class="tape" title="{{ display_title }}">{{ display_title }}</div>
-
         <div class="media-img">
           <img src="{{ f.path | relative_url }}" alt="{{ display_title | escape }}" loading="lazy">
         </div>
-
         <div class="media-foot">
           {% if pdf_hit %}
             <a class="pill pill--pdf" href="{{ pdf_hit.path | relative_url }}" target="_blank" rel="noopener">PDF</a>
