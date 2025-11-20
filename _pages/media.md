@@ -9,8 +9,8 @@ classes: wide
 <style>
   /* Masonry grid */
   .masonry{ column-count:3; column-gap:1rem; }
-  @media(max-width:1200px){ .masonry{ column-count:2; } }
-  @media(max-width:720px){ .masonry{ column-count:1; } }
+  @media (max-width:1200px){ .masonry{ column-count:2; } }
+  @media (max-width:720px){  .masonry{ column-count:1; } }
 
   .masonry-item{ break-inside:avoid; margin:0 0 1rem; width:100%; }
 
@@ -21,8 +21,8 @@ classes: wide
   }
   .media-card img{
     width:100%; height:auto; display:block;
-    object-fit:contain; /* keep the whole image visible */
-    background:#f3f4f6; /* neutral pad for transparent images */
+    object-fit:contain;               /* keep the whole image visible */
+    background:#f3f4f6;               /* neutral pad for transparent images */
   }
 
   /* Overlay actions */
@@ -47,10 +47,14 @@ classes: wide
 {%- comment -%}
 Expected folders (case-sensitive):
   /assets/media/pictures/  -> images (png, jpg, jpeg, webp, gif)
-  /assets/media/pdfs/    -> PDFs with same *logical* name (slugified match ok)
-Optionally add site links in either:
-  _data/media_links.yml  OR  _data/media.yml
-with keys = base name or slugified base name.
+  /assets/media/pdfs/      -> PDFs with same *logical* name (slugified match ok)
+
+Optional link data:
+  _data/media_links.yml OR _data/media.yml
+Key can be the base filename (no ext) OR a slugified version (with hyphens).
+Value can be:
+  - string URL (treated as the "site" link), or
+  - map with fields: { title: "...", site: "https://...", pdf: "Exact.pdf" }
 {%- endcomment -%}
 
 {% assign picture_root_lc = "/assets/media/pictures/" %}
@@ -73,34 +77,36 @@ with keys = base name or slugified base name.
     {% assign ext = f.extname | downcase %}
     {% if ext == ".png" or ext == ".jpg" or ext == ".jpeg" or ext == ".webp" or ext == ".gif" %}
       {% assign base = f.name | remove: f.extname %}
-      {% assign key  = base | slugify: 'pretty' | replace: '-', '' | replace: '_','' %}
+      {% assign slug_hyphen  = base | slugify: 'pretty' %}
+      {% assign slug_compact = slug_hyphen | replace: '-', '' | replace: '_','' %}
 
-      {%- comment -%} Fuzzy PDF match by slug {%- endcomment -%}
+      {%- comment -%} Fuzzy PDF match by slug or exact filename {%- endcomment -%}
       {% assign pdf_hit = nil %}
       {% for sf in site.static_files %}
         {% assign sp = sf.path | downcase %}
-        {% if sp contains pdf_root_lc and sf.extname %}
+        {% if sp contains pdf_root_lc and sf.extname and sf.extname == ".pdf" %}
           {% assign pbase = sf.name | remove: sf.extname %}
-          {% assign pkey  = pbase | slugify: 'pretty' | replace: '-', '' | replace: '_','' %}
-          {% if pkey == key %}
+          {% assign pslug = pbase | slugify: 'pretty' %}
+          {% assign pcompact = pslug | replace: '-', '' | replace: '_','' %}
+          {% if pslug == slug_hyphen or pcompact == slug_compact or pbase == base %}
             {% assign pdf_hit = sf %}
             {% break %}
           {% endif %}
         {% endif %}
       {% endfor %}
 
-      {%- comment -%} Look up entry by base or slug, then read fields {%- endcomment -%}
+      {%- comment -%} Look up entry by base or slug variants {%- endcomment -%}
       {% assign entry = nil %}
       {% if linkmap %}
-        {% assign entry = linkmap[base] | default: linkmap[key] %}
+        {% assign entry = linkmap[base] | default: linkmap[slug_hyphen] | default: linkmap[slug_compact] %}
       {% endif %}
-      
+
       {% assign site_link = "#" %}
       {% assign title_override = nil %}
       {% assign pdf_manual = nil %}
-      
+
       {% if entry %}
-        {%- comment -%} If entry is a map with fields, use them; if a string, treat it as URL {%- endcomment -%}
+        {%- comment -%} If entry is a map (title/site/pdf), use fields; if a string, treat as URL {%- endcomment -%}
         {% if entry.site or entry.title or entry.pdf %}
           {% assign site_link = entry.site | default: "#" %}
           {% assign title_override = entry.title %}
@@ -109,8 +115,8 @@ with keys = base name or slugified base name.
           {% assign site_link = entry %}
         {% endif %}
       {% endif %}
-      
-      {%- comment -%} If YAML provides a specific PDF filename, prefer it {%- endcomment -%}
+
+      {%- comment -%} If YAML specifies a PDF filename, prefer that exact file {%- endcomment -%}
       {% if pdf_manual %}
         {% assign pdf_hit = nil %}
         {% for sf in site.static_files %}
@@ -122,16 +128,17 @@ with keys = base name or slugified base name.
         {% endfor %}
       {% endif %}
 
-
       {% assign found_any = true %}
 
       <figure class="masonry-item media-card">
-        <img src="{{ f.path | relative_url }}" alt="{{ base | escape }}" loading="lazy">
+        <img src="{{ f.path | relative_url }}" alt="{{ title_override | default: base | escape }}" loading="lazy">
         <figcaption class="media-actions">
           {% if pdf_hit %}
-            <a class="pill pill--pdf" href="{{ pdf_hit.path | relative_url }}" target="_blank" rel="noopener">PDF</a>
+            <a class="pill pill--pdf" href="{{ pdf_hit.path | relative_url }}" target="_blank" rel="noopener noreferrer">PDF</a>
           {% endif %}
-          <a class="pill" href="{{ site_link }}" target="_blank" rel="noopener">Site</a>
+          {% if site_link and site_link != "" and site_link != "#" %}
+            <a class="pill" href="{{ site_link }}" target="_blank" rel="noopener noreferrer">Site</a>
+          {% endif %}
         </figcaption>
       </figure>
     {% endif %}
