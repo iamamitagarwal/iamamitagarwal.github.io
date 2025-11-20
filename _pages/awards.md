@@ -11,8 +11,8 @@ classes: wide
     --paper:#fffaf1;
     --ink:#0b1320;
     --muted:#64748b;
-    --ring:#e7dbc7;
-    --ring-strong:#d9c6a6;
+    --ring:#e4e2da;
+    --ring-strong:#d2c7ad;
     --tile:#fff;
     --shadow:0 10px 18px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06);
     --accentA:#2d8fa2;  --accentB:#7c62ff; --accentC:#f97316; --accentD:#14b8a6;
@@ -26,11 +26,10 @@ classes: wide
   @media(max-width:1100px){ .awards-wrap{ grid-template-columns:1fr; } }
 
   .awards-wrap::before{
-    content:""; position:absolute; top:.25rem; bottom:.25rem; left:50%; width:2px;
+    content:""; position:absolute; top:.25rem; bottom:.25rem; left:50%; width:3px;
     transform:translateX(-50%);
-    background:linear-gradient(180deg, rgba(45,143,162,.25), rgba(124,98,255,.25));
-    border-radius:2px;
-    opacity:.8;
+    background:linear-gradient(180deg, rgba(45,143,162,.35), rgba(124,98,255,.35));
+    border-radius:3px;
   }
   @media(max-width:1100px){ .awards-wrap::before{ display:none; } }
 
@@ -53,7 +52,7 @@ classes: wide
   }
   .metric small .muter{ font-weight:500; opacity:.95; }
 
-  /* Best paper badge list (kept once, with link) */
+  /* Best paper badge list */
   .best-paper{
     margin-top:1rem;
     background:var(--tile); border:1.5px solid var(--ring); border-radius:16px;
@@ -64,6 +63,11 @@ classes: wide
   .bp-emoji{ font-size:1.15rem; line-height:1.15; margin-top:.05rem }
   .bp-title a{ font-weight:700; }
   .bp-title span{ color:var(--muted); font-weight:600; margin-left:.35rem; }
+  .bp-cat{
+    margin-left:.5rem; padding:.12rem .45rem; border-radius:999px;
+    background:#f0fbfe; border:1px solid var(--accentA);
+    color:var(--accentA); font-weight:800; font-size:.72rem;
+  }
 
   /* Right: awards bubbles */
   .awards-grid{
@@ -73,7 +77,7 @@ classes: wide
     background:var(--tile);
     border:1.5px solid var(--ring);
     border-radius:20px; box-shadow:var(--shadow);
-    padding:1rem 1.1rem; display:flex; align-items:center; gap:.9rem;
+    padding:.9rem 1rem; display:flex; align-items:center; gap:.75rem;
     transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
     position:relative; isolation:isolate;
   }
@@ -85,8 +89,12 @@ classes: wide
     box-shadow:0 4px 10px rgba(0,0,0,.08);
   }
   .award-body{ min-width:0; }
-  .award-title{ font-weight:800; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .award-meta{ color:var(--muted); font-weight:600; font-size:.95rem; }
+  .award-title{
+    font-weight:800; color:var(--ink); font-size:1rem;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .award-meta{ color:var(--muted); font-weight:600; font-size:.9rem; }
   .award-actions{ margin-left:auto; display:flex; gap:.5rem; }
   .pill{
     display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .7rem; border-radius:999px;
@@ -96,7 +104,7 @@ classes: wide
   .pill--pdf{ border-color:#d44; color:#d44; background:#fff1f1; }
   .pill--pdf:hover{ background:#d44; color:#fff; }
 
-  /* give each bubble a slightly different rim hue */
+  /* varied rim hues */
   .awards-grid .award-card:nth-child(4n+1){ --accentA:#2d8fa2; --accentB:#7c62ff; }
   .awards-grid .award-card:nth-child(4n+2){ --accentA:#f97316; --accentB:#f59e0b; }
   .awards-grid .award-card:nth-child(4n+3){ --accentA:#14b8a6; --accentB:#0ea5e9; }
@@ -107,26 +115,41 @@ classes: wide
 Counts are computed from your collections:
 - Papers = site.publications.size
 - Patents = site.patents.size
-- Talks (top-tier) = count of site.talks where `tier` contains "top", or tags include "top"/"tier1"/"top-tier", or `venue_tier == 'top'`.
-Best-paper items come from _data/best_papers.yml (list), each with { title, venue, year, link }.
+- Talks (top-tier) is derived from talk front-matter or venue name; can be overridden by _data/metrics.yml { talks_top: N }.
+Best-paper items come from _data/best_papers.yml (list), each with { title, venue, year, category, link }.
 Awards are read from your _awards collection. Optional front-matter on each item:
-  title: "Victor Award"
-  year: 2024
-  org: "Acme Corp"
-  icon: "trophy" | "medal" | "star"
-  certificate: /assets/awards/victor-award.pdf  # or leave blank to auto-match a PDF in /assets/awards/
+  title, year, org, icon: trophy|medal|star, certificate: /assets/awards/whatever.pdf, link: "https://…"
 {%- endcomment -%}
 
-{%- assign papers_count = site.publications | size -%}
-{%- assign patents_count = site.patents | size -%}
+{%- assign papers_count  = site.publications | size -%}
+{%- assign patents_count = site.patents      | size -%}
+
 {%- assign talks_top = 0 -%}
+{%- assign top_names = "ACL|EMNLP|NAACL|NeurIPS|NIPS|ICLR|ICML|CVPR|ICCV|ECCV|AAAI|IJCAI|KDD|SIGIR|WWW|CHI|COLING" | split:"|" -%}
 {%- for t in site.talks -%}
-  {%- assign tier = t.tier | default:t.venue_tier | downcase -%}
-  {%- assign tags_join = t.tags | join: " " | downcase -%}
-  {%- if tier contains "top" or tags_join contains "tier1" or tags_join contains "top-tier" or tags_join contains "top" -%}
+  {%- assign tags_join = t.tags | join:" " | downcase -%}
+  {%- assign v = t.venue | default:t.title | downcase -%}
+  {%- assign is_top = false -%}
+
+  {%- if t.top == true or t.venue_tier == "top" or t.tier contains "top" or tags_join contains "tier1" or tags_join contains "top-tier" or tags_join contains "top" -%}
+    {%- assign is_top = true -%}
+  {%- else -%}
+    {%- for n in top_names -%}
+      {%- assign needle = n | downcase -%}
+      {%- if v contains needle -%}
+        {%- assign is_top = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- if is_top -%}
     {%- assign talks_top = talks_top | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}
+{%- if talks_top == 0 and site.data.metrics and site.data.metrics.talks_top -%}
+  {%- assign talks_top = site.data.metrics.talks_top -%}
+{%- endif -%}
 
 <div class="awards-wrap">
   <!-- LEFT: metrics + best paper list -->
@@ -155,11 +178,11 @@ Awards are read from your _awards collection. Optional front-matter on each item
             <div class="bp-title">
               <a href="{{ bp.link | relative_url }}" target="_blank" rel="noopener">{{ bp.title }}</a>
               <span>— {{ bp.venue }} {{ bp.year }}</span>
+              {%- if bp.category -%}<span class="bp-cat">{{ bp.category }}</span>{%- endif -%}
             </div>
           </div>
         {%- endfor -%}
       {%- else -%}
-        {%- comment -%} Fallback: try to find the Accesseval paper automatically {%- endcomment -%}
         {%- assign acc = nil -%}
         {%- for p in site.publications -%}
           {%- assign tl = p.title | downcase -%}
@@ -173,6 +196,7 @@ Awards are read from your _awards collection. Optional front-matter on each item
             <div class="bp-title">
               <a href="{{ acc.url | relative_url }}">{{ acc.title }}</a>
               <span>— {{ acc.venue | default:"EMNLP" }} {{ acc.year | default:"2025" }}</span>
+              <span class="bp-cat">Social Impact</span>
             </div>
           </div>
         {%- else -%}
