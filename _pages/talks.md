@@ -17,17 +17,35 @@ classes: wide
   .venue-title a{text-decoration:none;border-bottom:2px solid transparent}
   .venue-title a:hover{border-color:var(--brand-accent,#0ea5e9)}
 
-  /* Card list inside each venue */
-  .talks-list{display:grid;grid-template-columns:1fr;gap:1rem;}
+  /* Card grid inside each venue (make cards sit next to each other) */
+  .talks-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:1.25rem;
+  }
 
   .talk-card{background:var(--mm-surface,#fff);border:1px solid rgba(0,0,0,.08);
-             border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+             border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04);
+             display:flex;flex-direction:column}
   html.theme-dark .talk-card{background:#0b1220;border-color:#1f2937;box-shadow:none}
 
-  .talk-cover img{display:block;width:100%;height:180px;object-fit:cover}
-  .talk-placeholder{height:180px;display:flex;align-items:center;justify-content:center;opacity:.6}
+  .talk-cover img{
+    width:100%;
+    aspect-ratio:16/9;
+    height:auto;
+    object-fit:cover;
+    display:block;
+  }
+  .talk-placeholder{
+    aspect-ratio:16/9;
+    height:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:.6;
+  }
 
-  .talk-meta{padding:.75rem 1rem 1rem}
+  .talk-meta{flex:1; padding:.75rem 1rem 1rem}
   .talk-title{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:0;font-size:1.05rem;line-height:1.35}
   .talk-title a{text-decoration:none}
   .talk-title a:hover{text-decoration:underline}
@@ -43,6 +61,8 @@ classes: wide
   .badge-event:hover{background:var(--brand-accent,#0ea5e9);color:#fff}
   .badge-pdf{border:1px solid #ef4444}
   .badge-pdf:hover{background:#ef4444;color:#fff}
+  .badge-paper{border:1px solid #2563eb}
+  .badge-paper:hover{background:#2563eb;color:#fff}
 </style>
 
 {% assign talks_all = site.talks | sort: "year" | reverse %}
@@ -66,6 +86,19 @@ classes: wide
         {% assign items = v.items | sort: "year" | reverse %}
         {% for t in items %}
           {% assign event_url = t.link_url | default: t.event_url | default: t.website | default: t.site_url %}
+
+          {%- comment -%} Resolve related publication link via pub_url / pub_slug / pub_title {%- endcomment -%}
+          {%- assign pub_link = nil -%}
+          {% if t.pub_url %}
+            {% assign pub_link = t.pub_url %}
+          {% elsif t.pub_slug %}
+            {% assign match = site.publications | where_exp: 'p', 'p.url contains t.pub_slug' | first %}
+            {% if match %}{% assign pub_link = match.url | relative_url %}{% endif %}
+          {% elsif t.pub_title %}
+            {% assign match = site.publications | where: 'title', t.pub_title | first %}
+            {% if match %}{% assign pub_link = match.url | relative_url %}{% endif %}
+          {% endif %}
+
           <article class="talk-card">
             <a class="talk-cover" href="{{ t.url | relative_url }}">
               {% if t.images and t.images[0] %}
@@ -80,6 +113,7 @@ classes: wide
                 <a href="{{ t.url | relative_url }}">{{ t.title }}</a>
                 {% if t.year %}<span class="badge-year">{{ t.year }}</span>{% endif %}
                 {% if event_url %}<a class="badge badge-event" href="{{ event_url }}" target="_blank" rel="noopener">Event</a>{% endif %}
+                {% if pub_link %}<a class="badge badge-paper" href="{{ pub_link }}">Paper</a>{% endif %}
                 {% if t.pdf_url %}<a class="badge badge-pdf" href="{{ t.pdf_url | relative_url }}" target="_blank" rel="noopener">PDF</a>{% endif %}
               </h3>
             </div>
