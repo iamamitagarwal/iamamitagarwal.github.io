@@ -37,6 +37,38 @@
   /* tiny shadow only after scrolling a bit */
   .masthead.is-stuck{ box-shadow:0 2px 6px rgba(0,0,0,.06); }
 
+  <style>
+  .masthead__inner-wrap { padding-block: 10px; }
+
+  .site-title {
+    display: inline-flex; align-items: center; gap: .5rem;
+    text-decoration: none;
+  }
+  .site-logo img { height: 22px; width: auto; display: block; }
+
+  .brand-text {
+    font-weight: 800; font-size: 1.06rem; letter-spacing: .2px;
+    color: var(--mm-text, #0b1320);
+  }
+
+  /* tagline chip */
+  .brand-sub {
+    display: inline-flex; align-items: center;
+    padding: .18rem .5rem; margin-left: .15rem;
+    border-radius: 999px; font-weight: 700; font-size: .72rem;
+    color: #0b3a46; background: #eaf6f8; border: 1px solid #cfe9ee;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 820px){ .brand-sub { display: none; } }
+
+  /* subtle header underline tweak */
+  .greedy-nav { border-bottom: 2px solid #52b3cf20; }
+
+  /* dark mode */
+  html.theme-dark .brand-text { color: #e6edf3; }
+  html.theme-dark .brand-sub { color:#cce9ef; background:#0d2a31; border-color:#1f5b68; }
+
   /* dark theme header */
   html.theme-dark .masthead,
   html.theme-dark .greedy-nav{ background:var(--dark-bg) !important; }
