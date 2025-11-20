@@ -89,11 +89,39 @@ with keys = base name or slugified base name.
         {% endif %}
       {% endfor %}
 
+      {%- comment -%} Look up entry by base or slug, then read fields {%- endcomment -%}
+      {% assign entry = nil %}
       {% if linkmap %}
-        {% assign site_link = linkmap[base] | default: linkmap[key] | default: "#" %}
-      {% else %}
-        {% assign site_link = "#" %}
+        {% assign entry = linkmap[base] | default: linkmap[key] %}
       {% endif %}
+      
+      {% assign site_link = "#" %}
+      {% assign title_override = nil %}
+      {% assign pdf_manual = nil %}
+      
+      {% if entry %}
+        {%- comment -%} If entry is a map with fields, use them; if a string, treat it as URL {%- endcomment -%}
+        {% if entry.site or entry.title or entry.pdf %}
+          {% assign site_link = entry.site | default: "#" %}
+          {% assign title_override = entry.title %}
+          {% assign pdf_manual = entry.pdf %}
+        {% else %}
+          {% assign site_link = entry %}
+        {% endif %}
+      {% endif %}
+      
+      {%- comment -%} If YAML provides a specific PDF filename, prefer it {%- endcomment -%}
+      {% if pdf_manual %}
+        {% assign pdf_hit = nil %}
+        {% for sf in site.static_files %}
+          {% assign sp = sf.path | downcase %}
+          {% if sp contains pdf_root_lc and sf.name == pdf_manual %}
+            {% assign pdf_hit = sf %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
 
       {% assign found_any = true %}
 
