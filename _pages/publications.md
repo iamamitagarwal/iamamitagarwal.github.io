@@ -9,69 +9,68 @@ search: true
 
 <div id="pub-filters" style="margin:.5rem 0 1rem 0;">
   <button class="btn btn--primary" data-tag="all">All</button>
+  <button class="btn" data-tag="Document-AI">Document-AI</button>
+  <button class="btn" data-tag="LLM">LLM</button>
+  <button class="btn" data-tag="ML">ML</button>
+  <button class="btn" data-tag="Retrieval">Retrieval</button>
+  <button class="btn" data-tag="Safety">Safety</button>
+  <button class="btn" data-tag="Systems">Systems</button>
+  <button class="btn" data-tag="Vision-Language">Vision-Language</button>
 </div>
 
-{% assign pubs_by_year = site.publications | sort: "year" | reverse | group_by: "year" %}
-
-{% for y in pubs_by_year %}
-### {{ y.name }}{:.year-head}
-<ul class="pub-list">
-{% for p in y.items %}
-  <li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
-    <strong><a href="{{ p.paper_url | default:p.pdf_url | default:'#' }}">{{ p.title }}</a></strong><br/>
-    <em>{{ p.authors }}</em>. {{ p.venue }}{% if p.year %} ({{ p.year }}){% endif %}.
-
-    {% if p.abstract %}
-    <details class="pub-abs"><summary>Abstract</summary>
-      <p>{{ p.abstract }}</p>
-    </details>
-    {% endif %}
-
-    <div class="link-pills">
-      {% if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}" target="_blank" rel="noopener"><i class="fa fa-file-alt"></i>Paper</a>{% endif %}
-      {% if p.pdf_url %}<a class="link-pill pill--pdf" href="{{ p.pdf_url }}" target="_blank" rel="noopener"><i class="fa fa-file-pdf"></i>PDF</a>{% endif %}
-      {% if p.code_url %}<a class="link-pill pill--code" href="{{ p.code_url }}" target="_blank" rel="noopener"><i class="fab fa-github"></i>Code</a>{% endif %}
-      {% if p.bibtex %}<button class="link-pill pill--copy" type="button" data-bib="{{ p.bibtex | escape }}"><i class="fa fa-clipboard"></i>BibTeX</button>{% endif %}
-    </div>
-  </li>
+{% assign pubs = site.publications | sort: "year" | reverse %}
+{% assign years = "" | split: "" %}
+{% for p in pubs %}
+  {% unless years contains p.year %}{% assign years = years | push: p.year %}{% endunless %}
 {% endfor %}
-</ul>
+
+{% for yr in years %}
+  {% assign in_year = pubs | where: "year", yr %}
+  {% if in_year.size > 0 %}
+  <section class="year-block" data-year="{{ yr }}">
+    <h3 class="year-head">{{ yr }}</h3>
+    <ul class="pub-list">
+      {% for p in in_year %}
+      <li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
+        <strong><a class="pub-title" href="{{ p.paper_url | default: p.pdf_url | default: p.url | relative_url }}">{{ p.title }}</a></strong><br/>
+        <em>{{ p.authors }}</em>. {{ p.venue }}{% if p.year %} ({{ p.year }}){% endif %}.
+        <div class="link-pills">
+          {% if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}">📄 Paper</a>{% endif %}
+          {% if p.pdf_url %}<a class="link-pill pill--pdf" href="{{ p.pdf_url }}">PDF</a>{% endif %}
+          {% if p.code_url %}<a class="link-pill pill--code" href="{{ p.code_url }}">Code</a>{% endif %}
+          {% if p.bibtex %}<button class="link-pill pill--copy" data-bib="{{ p.bibtex | escape }}">BibTeX</button>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
 {% endfor %}
 
 <script>
-  // Build tag buttons from data-tags across items
   (function(){
-    const wrap = document.getElementById('pub-filters');
-    const items = [...document.querySelectorAll('.pub-item')];
-    const set = new Set();
-    items.forEach(li => (li.dataset.tags||'').split(' ').filter(Boolean).forEach(t => set.add(t)));
-    [...set].sort().forEach(tag=>{
-      const b = document.createElement('button');
-      b.className = 'btn'; b.textContent = tag; b.dataset.tag = tag; wrap.appendChild(b);
-    });
+    const btns  = document.querySelectorAll('#pub-filters .btn');
+    const items = Array.from(document.querySelectorAll('.pub-item'));
+    const blocks= Array.from(document.querySelectorAll('.year-block'));
 
-    const buttons = wrap.querySelectorAll('button');
-    const years   = [...document.querySelectorAll('.year-head')];
-
-    function apply(tag){
-      buttons.forEach(x=>x.classList.toggle('btn--primary', x.dataset.tag===tag));
-      items.forEach(li=>{
-        const tags = (li.dataset.tags||'').split(' ');
-        li.style.display = (tag==='all' || tags.includes(tag)) ? '' : 'none';
-      });
-      // hide year headers with no visible items in the following list
-      years.forEach(h=>{
-        const ul = h.nextElementSibling;
-        const visible = ul && [...ul.children].some(li => li.style.display !== 'none');
-        h.style.display = ul.style.display = visible ? '' : 'none';
+    function updateYears(){
+      blocks.forEach(b=>{
+        const visible = b.querySelectorAll('.pub-item').length &&
+                        Array.from(b.querySelectorAll('.pub-item')).some(li => li.style.display !== 'none');
+        b.style.display = visible ? '' : 'none';
       });
     }
-
-    wrap.addEventListener('click', e=>{
-      const b = e.target.closest('button[data-tag]'); if(!b) return;
-      apply(b.dataset.tag);
-    });
-
-    apply('all');
+    function setActive(tag){
+      items.forEach(li=>{
+        const tags = (li.dataset.tags || '').split(/\s+/).filter(Boolean);
+        const show = (tag === 'all' || tags.includes(tag));
+        li.style.display = show ? '' : 'none';
+      });
+      btns.forEach(x => x.classList.remove('btn--primary'));
+      document.querySelector(`#pub-filters .btn[data-tag="${tag}"]`)?.classList.add('btn--primary');
+      updateYears();
+    }
+    btns.forEach(b => b.addEventListener('click', () => setActive(b.dataset.tag)));
+    updateYears(); // initial cleanup for any empty years
   })();
 </script>
