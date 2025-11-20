@@ -9,6 +9,7 @@ link_url: "https://x.com/emnlpmeeting/status/1986923462619734140?s=12"
 images:
   - /images/talks/emnlp-2025-emnlp-2.jpeg
   - /images/talks/emnlp-2025-emnlp.jpeg
+pub_slug: 2025-accesseval-benchmarking-disability-bias-in-llms
 ---
 
 **Event:** EMNLP 2025
