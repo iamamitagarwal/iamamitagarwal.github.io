@@ -44,11 +44,11 @@ classes: wide
 {%- comment -%}
 We compare lowercased paths to be resilient to case differences.
 Expected folders:
-  - /assets/media/Picture/  (images)
-  - /assets/media/Media/    (PDFs)
+  - /assets/media/pictures/  (images)
+  - /assets/media/pdfs/    (PDFs)
 {%- endcomment -%}
-{% assign picture_root_lc = "/assets/media/picture/" %}
-{% assign pdf_root_lc     = "/assets/media/media/" %}
+{% assign picture_root_lc = "/assets/media/pictures/" %}
+{% assign pdf_root_lc     = "/assets/media/pdfs/" %}
 
 {%- comment -%} read optional link map from either file {%- endcomment -%}
 {% if site.data.media_links %}
@@ -104,5 +104,5 @@ Expected folders:
 </div>
 
 {% unless found_any %}
-<p><em>No media found under <code>/assets/media/Picture/</code>. Double-check folder names and file types (.png, .jpg, .jpeg, .webp, .gif). PDFs should live in <code>/assets/media/Media/</code> with the same base filename.</em></p>
+<p><em>No media found under <code>/assets/media/pictures/</code>. Double-check folder names and file types (.png, .jpg, .jpeg, .webp, .gif). PDFs should live in <code>/assets/media/pdfs/</code> with the same base filename.</em></p>
 {% endunless %}
