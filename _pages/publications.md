@@ -41,7 +41,7 @@ Build the filter buttons from the real tags across all publications.
 Handles tags as arrays OR strings (single or space/comma-separated).
 {%- endcomment -%}
 {% assign pubs = site.publications | sort: "year" | reverse %}
-{% assign pub_tags = "" | split: "" %}
+{% assign tags = "" | split: "" %}
 {% for p in pubs %}
   {% if p.tags %}
     {%- comment -%} Normalize to a space-separated string {%- endcomment -%}
@@ -53,17 +53,17 @@ Handles tags as arrays OR strings (single or space/comma-separated).
     {% assign tlist = tag_source | replace: ',', ' ' | split: ' ' %}
     {% for t in tlist %}
       {% assign tclean = t | strip %}
-      {% if tclean != "" and not pub_tags contains tclean %}
-        {% assign pub_tags = pub_tags | push: tclean %}
+      {% if tclean != "" and not tags contains tclean %}
+        {% assign tags = tags | push: tclean %}
       {% endif %}
     {% endfor %}
   {% endif %}
 {% endfor %}
-{% assign pub_tags = pub_tags | sort %}
+{% assign tags = tags | sort %}
 
 <div id="pub-filters" style="margin:.5rem 0 1rem 0;">
   <button class="btn btn--primary" data-tag="all">All</button>
-  {% for t in pub_tags %}
+  {% for t in tags %}
     <button class="btn" data-tag="{{ t }}">{{ t }}</button>
   {% endfor %}
 </div>
