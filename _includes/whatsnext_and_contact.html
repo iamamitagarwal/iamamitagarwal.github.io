@@ -32,7 +32,7 @@
 
   /* ---------- WHAT’S NEXT (collapsed by default) ---------- */
   .wnx-tab{
-    position:fixed; right:0; top:110px; z-index:1100;
+    position:fixed; right:0; top:45vh; z-index:1100;   /* moved lower */
     background:#1fb6ff; color:#fff; border:none;
     border-radius:12px 0 0 12px; padding:.6rem .7rem; font-weight:900;
     box-shadow:0 8px 16px rgba(0,0,0,.18);
@@ -59,14 +59,14 @@
     background:var(--wnx-card); color:var(--wnx-fg);
     border:1px solid var(--wnx-line); border-radius:14px; padding:12px 14px 12px 22px;
     box-shadow:var(--wnx-shadow); position:relative;
-    /* slim cyan “bullet” like the first design you liked */
+    /* slim cyan bullet */
     background-image:linear-gradient(var(--wnx-accent),var(--wnx-accent));
     background-repeat:no-repeat; background-size:3px 14px; background-position:12px 14px;
   }
   .wnx-title{ font-weight:900; color:var(--wnx-title); margin:0 0 4px; }
   .wnx-meta{ color:var(--wnx-sub); font-weight:600; }
 
-  /* ---------- CONTACT (modal center) ---------- */
+  /* ---------- CONTACT (right-side drawer) ---------- */
   .contact-fab{
     position:fixed; right:16px; bottom:16px; z-index:1090;
     width:56px; height:56px; border-radius:999px; display:grid; place-items:center;
@@ -75,19 +75,37 @@
   }
   .contact-fab svg{ width:26px; height:26px; }
 
-  .contact-scrim{
-    position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:1095;
-    display:none; align-items:center; justify-content:center; padding:1rem;
+  .contact-drawer{
+    position: fixed;
+    right: 16px;
+    bottom: 84px;                      /* sits above FAB */
+    top: auto;                         /* not centered */
+    width: 360px;
+    max-width: 92vw;
+    max-height: calc(100vh - 160px);   /* never clips under header */
+    overflow: auto;
+    background: var(--wnx-bg);
+    color: var(--wnx-fg);
+    border: 1px solid var(--wnx-line);
+    border-radius: 12px;
+    box-shadow: var(--wnx-shadow);
+    transform: translateY(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .16s ease, opacity .16s ease;
+    z-index: 1095;
+    display: flex;
+    flex-direction: column;
   }
-  .contact-scrim.open{ display:flex; }
-  .contact-card{
-    width:min(640px,96vw); background:var(--wnx-bg); color:var(--wnx-fg);
-    border:1px solid var(--wnx-line); border-radius:16px; box-shadow:var(--wnx-shadow);
+  .contact-drawer.open{
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
   .cd-head{
     display:flex; align-items:center; justify-content:space-between;
     padding:.9rem 1rem; border-bottom:1px solid var(--wnx-line);
-    font-weight:900; color:var(--wnx-title);   /* fix dark-mode legibility */
+    font-weight:900; color:var(--wnx-title);
   }
   .cd-title{ font-weight:900; }
   .cd-close{ background:transparent; border:0; font-weight:800; color:inherit; cursor:pointer; }
@@ -148,43 +166,41 @@
   </div>
 </aside>
 
-<!-- Contact FAB + modal -->
+<!-- Contact FAB + right-side drawer -->
 <button class="contact-fab" id="contactFab" aria-label="Contact">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
   </svg>
 </button>
 
-<div class="contact-scrim" id="contactScrim" role="dialog" aria-modal="true" aria-labelledby="cdTitle">
-  <div class="contact-card">
-    <div class="cd-head">
-      <span class="cd-title" id="cdTitle">Say hi</span>
-      <button class="cd-close" id="contactClose">Close</button>
-    </div>
-    <form class="cd-body" action="https://formspree.io/f/mwpydbpb" method="POST">
-      <div class="cd-row">
-        <label for="cname">Name</label>
-        <input id="cname" name="name" autocomplete="name"/>
-      </div>
-      <div class="cd-row">
-        <label for="cemail">Email</label>
-        <input id="cemail" type="email" name="email" autocomplete="email" required/>
-      </div>
-      <div class="cd-row">
-        <label for="csubject">Subject</label>
-        <input id="csubject" name="subject"/>
-      </div>
-      <div class="cd-row">
-        <label for="cmsg">Message</label>
-        <textarea id="cmsg" name="message" rows="6" required></textarea>
-      </div>
-      <div class="cd-actions">
-        <button class="btn-pill" type="button" id="contactCancel">Cancel</button>
-        <button class="btn-pill btn-cta" type="submit">Send</button>
-      </div>
-    </form>
+<form class="contact-drawer" id="contactDrawer" action="https://formspree.io/f/mwpydbpb" method="POST">
+  <div class="cd-head">
+    <span class="cd-title" id="cdTitle">Say hi</span>
+    <button class="cd-close" type="button" id="contactClose">Close</button>
   </div>
-</div>
+  <div class="cd-body">
+    <div class="cd-row">
+      <label for="cname">Name</label>
+      <input id="cname" name="name" autocomplete="name"/>
+    </div>
+    <div class="cd-row">
+      <label for="cemail">Email</label>
+      <input id="cemail" type="email" name="email" autocomplete="email" required/>
+    </div>
+    <div class="cd-row">
+      <label for="csubject">Subject</label>
+      <input id="csubject" name="subject"/>
+    </div>
+    <div class="cd-row">
+      <label for="cmsg">Message</label>
+      <textarea id="cmsg" name="message" rows="6" required></textarea>
+    </div>
+  </div>
+  <div class="cd-actions">
+    <button class="btn-pill" type="button" id="contactCancel">Cancel</button>
+    <button class="btn-pill btn-cta" type="submit">Send</button>
+  </div>
+</form>
 
 <script>
   (function(){
@@ -204,17 +220,23 @@
     tab.addEventListener('click', ()=> setOpen(true));
     close.addEventListener('click', ()=> setOpen(false));
 
-    /* --- Contact modal (centered) --- */
+    /* keep panel tucked under masthead regardless of height */
+    function adjustWnxTop(){
+      const mast = document.querySelector('.masthead');
+      const px = mast ? mast.offsetHeight + 12 : 96;
+      panel.style.top = px + 'px';
+    }
+    adjustWnxTop();
+    window.addEventListener('resize', adjustWnxTop);
+
+    /* --- Contact drawer (right side) --- */
     const fab    = document.getElementById('contactFab');
-    const scrim  = document.getElementById('contactScrim');
-    const cclose = document.getElementById('contactClose');
-    const ccanc  = document.getElementById('contactCancel');
+    const drawer = document.getElementById('contactDrawer');
+    const cClose = document.getElementById('contactClose');
+    const cCanc  = document.getElementById('contactCancel');
 
-    function openForm(){ scrim.classList.add('open'); }
-    function closeForm(){ scrim.classList.remove('open'); }
-
-    fab.addEventListener('click', openForm);
-    cclose.addEventListener('click', closeForm);
-    ccanc.addEventListener('click', closeForm);
+    fab.addEventListener('click',   () => drawer.classList.add('open'));
+    cClose.addEventListener('click',() => drawer.classList.remove('open'));
+    cCanc.addEventListener('click', () => drawer.classList.remove('open'));
   })();
 </script>
