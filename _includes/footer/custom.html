@@ -1,54 +1,67 @@
 {%- comment -%} Theme toggle + widgets injected site-wide {%- endcomment -%}
 <style>
-  /* (kept) If toggle has to float, offset it so it doesn't sit on top of the contact FAB */
-  #theme-toggle.floating{ right:72px !important; bottom:16px !important; z-index:9999; }
+  /* If the toggle has to float (before we attach it into the masthead),
+     offset it so it never overlaps the contact FAB. */
+  #theme-toggle.floating{
+    position:fixed; right:72px; bottom:16px; z-index:9999;
+    border:1px solid var(--mm-toggle-border, #cbd5e1);
+    background:var(--mm-toggle-bg, #fff);
+    color:var(--mm-toggle-fg, #111827);
+    border-radius:999px; padding:.45rem .6rem;
+    box-shadow:0 6px 16px rgba(0,0,0,.12); cursor:pointer;
+  }
+  html.theme-dark #theme-toggle.floating{
+    --mm-toggle-bg:#0f172a; --mm-toggle-fg:#e5e7eb; --mm-toggle-border:#334155;
+  }
+
+  /* When inserted into the masthead, inherit nav look */
+  .masthead .greedy-nav #theme-toggle{
+    border:1px solid transparent; background:transparent; color:currentColor;
+    border-radius:999px; padding:.25rem .4rem; margin-left:.35rem; line-height:1;
+    cursor:pointer;
+  }
+  .masthead .greedy-nav .hidden-links #theme-toggle,
+  .masthead .greedy-nav .visible-links #theme-toggle{
+    padding:.5rem .6rem;
+  }
 </style>
 
 <script>
 (function(){
-  // Apply saved theme very early
+  /* 1) Apply saved theme ASAP */
   try {
     var saved = localStorage.getItem('theme');
     if (saved === 'dark') document.documentElement.classList.add('theme-dark');
   } catch(e){}
 
-  // Create/reuse button
-  var existing = document.getElementById('theme-toggle');
-  var btn = existing || document.createElement('button');
-  btn.id = 'theme-toggle';
-  btn.type = 'button';
-  btn.setAttribute('aria-label','Toggle theme');
-  btn.setAttribute('title','Toggle theme');
-  var setIcon = function(){
-    btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙';
-  };
+  /* 2) Create / reuse toggle button */
+  var btn = document.getElementById('theme-toggle') || document.createElement('button');
+  btn.id='theme-toggle'; btn.type='button';
+  btn.setAttribute('aria-label','Toggle theme'); btn.setAttribute('title','Toggle theme');
+  function setIcon(){ btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙'; }
   setIcon();
-
   btn.addEventListener('click', function(){
     var dark = document.documentElement.classList.toggle('theme-dark');
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
     setIcon();
   });
 
+  /* 3) Try to place in masthead (next to search); otherwise float */
   function tryPlace(){
     var greedy = document.querySelector('.masthead .greedy-nav');
     if (!greedy) return false;
-    var search = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
-    if (search && search.parentNode) { search.parentNode.insertBefore(btn, search.nextSibling); return true; }
-    var links = greedy.querySelector('.visible-links') || greedy;
-    if (links) { links.appendChild(btn); return true; }
-    return false;
+    var anchor = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
+    if (anchor && anchor.parentNode){ anchor.parentNode.insertBefore(btn, anchor.nextSibling); return true; }
+    var vis = greedy.querySelector('.visible-links'); if (vis){ vis.appendChild(btn); return true; }
+    greedy.appendChild(btn); return true;
   }
-
-  if (!tryPlace()) {
+  if (!tryPlace()){
     btn.classList.add('floating');
     document.body.appendChild(btn);
-    window.addEventListener('load', function(){
-      if (tryPlace()) btn.classList.remove('floating');
-    });
+    window.addEventListener('load', function(){ if (tryPlace()) btn.classList.remove('floating'); });
   }
 })();
 </script>
 
-{%- comment -%} Inject the “What’s next” + Contact widgets everywhere {%- endcomment -%}
+{%- comment -%} The site-wide widgets (What’s next + Contact) {%- endcomment -%}
 {% include whatsnext_and_contact.html %}
