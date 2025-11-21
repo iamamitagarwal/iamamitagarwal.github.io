@@ -34,20 +34,27 @@ classes: wide
   }
 
   /* ====== Layout (with a clearer divider + wider column gap) ====== */
-  .awards-wrap{
-    display:grid;
-    grid-template-columns: 1.05fr minmax(420px,1.1fr);
-    column-gap:2rem; row-gap:1.5rem;
-    align-items:start; position:relative;
+  /* grid + divider spacing tweaks */
+.awards-wrap{
+  display:grid;
+  grid-template-columns:minmax(460px,1fr) minmax(520px,1fr);
+  gap:2rem;                        /* was 1.25rem */
+  align-items:start;
+  position:relative;
   }
-  @media(max-width:1100px){ .awards-wrap{ grid-template-columns:1fr; } }
 
-  .awards-wrap::before{
-    content:""; position:absolute; top:.25rem; bottom:.25rem; left:50%;
-    transform:translateX(-50%); width:3px; border-radius:3px;
-    background:linear-gradient(180deg,var(--accentA),var(--accentB));
-    opacity:.35;
+/* shift the divider slightly to the right and make it a touch stronger */
+.awards-wrap::before{
+  content:"";
+  position:absolute; top:.25rem; bottom:.25rem;
+  left:calc(50% + .75rem);         /* nudge off the left column */
+  width:2px;
+  background:linear-gradient(180deg, rgba(45,143,162,.28), rgba(124,98,255,.28));
+  border-radius:2px;
   }
+
+/* add a bit of padding so the left column doesn't hug the divider */
+.awards-wrap > :first-child{ padding-right:1rem; }
   @media(max-width:1100px){ .awards-wrap::before{ display:none; } }
 
   /* ====== Metric tiles (left) ====== */
