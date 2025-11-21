@@ -39,14 +39,39 @@
     align-items: center;
   }
 
-  /* Mobile */
-  @media (max-width: 540px){
-    .sidebar .author__avatar img{
-      width: 128px !important;
-      height: 128px !important;
+   /* Mobile avatar clamp + spacing so it never overlaps the title/bar */
+  @media (max-width: 640px){
+    /* keep the masthead above everything */
+    .masthead{ z-index: 2000; }
+  
+    /* a little breathing room under the hero */
+    .page__sidebar{ margin-top: 10px !important; overflow: hidden; }
+  
+    /* clamp the avatar wrapper (the theme sizes this too) */
+    .author__avatar,
+    .page__sidebar .author__avatar,
+    .sidebar .author__avatar{
+      width:112px !important;
+      height:112px !important;
+      flex:0 0 112px !important;   /* prevents row stretch */
+      margin:.25rem 0 .5rem 0 !important;
     }
+  
+    /* fill the wrapper, crop nicely */
+    .author__avatar img,
+    .page__sidebar .author__avatar img,
+    .sidebar .author__avatar img{
+      width:100% !important;
+      height:100% !important;
+      object-fit:cover !important;
+      border-radius:50%;
+      display:block;
+    }
+  
+    /* remove any leftover left offset next to the avatar */
+    .page__lead{ margin-left:0 !important; }
   }
-
+  
   /* --- Publication / Patent link pills ------------------------------------ */
   .link-pills{
     display:flex;
