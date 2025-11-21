@@ -1,15 +1,52 @@
-<button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+{%- comment -%} Theme toggle in masthead + site-wide widgets include {%- endcomment -%}
+<style>
+  /* Rare fallback: if we can’t mount in masthead, float it (kept clear of the contact FAB). */
+  #theme-toggle.floating{
+    position:fixed; right:88px; bottom:16px; z-index:9999;
+    border:0; background:#fff; color:#111; border-radius:999px;
+    padding:.35rem .55rem; box-shadow:0 6px 16px rgba(0,0,0,.12); cursor:pointer;
+  }
+  html.theme-dark #theme-toggle.floating{
+    background:#0f172a; color:#e5e7eb; border:1px solid #334155;
+  }
+  /* When mounted in masthead, inherit nav look */
+  .masthead .greedy-nav #theme-toggle{
+    border:0; background:transparent; color:currentColor; cursor:pointer;
+    padding:.25rem .4rem; margin-left:.35rem; line-height:1; font-size:18px;
+  }
+</style>
+
 <script>
   (function(){
-    const html = document.documentElement;
-    const btn  = document.getElementById('theme-toggle');
-    if(!btn) return;
-    const setIcon = () => { btn.textContent = html.classList.contains('theme-dark') ? '☀️' : '🌙'; };
+    // Reuse/create the button
+    var btn = document.getElementById('theme-toggle') || document.createElement('button');
+    btn.id='theme-toggle'; btn.type='button';
+    btn.setAttribute('aria-label','Toggle theme'); btn.setAttribute('title','Toggle theme');
+    function setIcon(){ btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙'; }
     setIcon();
-    btn.addEventListener('click', ()=>{
-      const dark = html.classList.toggle('theme-dark');
-      try{ localStorage.setItem('theme', dark ? 'dark' : 'light'); }catch(e){}
+
+    btn.addEventListener('click', function(){
+      var dark = document.documentElement.classList.toggle('theme-dark');
+      try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
       setIcon();
     });
+
+    // Mount beside the search icon in the masthead; otherwise float
+    function place(){
+      var nav = document.querySelector('.masthead .greedy-nav');
+      if (!nav) return false;
+      var anchor = nav.querySelector('.search__toggle') || nav.querySelector('.site-search');
+      if (anchor && anchor.parentNode){ anchor.parentNode.insertBefore(btn, anchor.nextSibling); return true; }
+      var vis = nav.querySelector('.visible-links'); if (vis){ vis.appendChild(btn); return true; }
+      nav.appendChild(btn); return true;
+    }
+    if (!place()){
+      btn.classList.add('floating');
+      document.body.appendChild(btn);
+      window.addEventListener('load', function(){ if (place()) btn.classList.remove('floating'); });
+    }
   })();
-</script><!-- Intentionally left blank (theme toggle lives in head/custom.html) -->
+</script>
+
+{%- comment -%} Side “What’s next” + contact widget (isolated styles & JS) {%- endcomment -%}
+{% include whatsnext_and_contact.html %}
