@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: 'Ngemm: Optimizing gemm for deep learning via compiler-based techniques'
-authors: 'Bao, Wenlei; Chang, Li-Wen; Chen, Yang; Deng, Ke; **Agarwal, Amit**; Barsoum,
+authors: 'Bao, Wenlei; Chang, Li-Wen; Chen, Yang; Deng, Ke; Agarwal, Amit; Barsoum,
   Emad; Taha, Abe; '
 year: 2019
 venue: arXiv
