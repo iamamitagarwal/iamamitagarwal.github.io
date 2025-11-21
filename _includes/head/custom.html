@@ -47,6 +47,44 @@
     }
   }
 
+  /* --- Publication / Patent link pills ------------------------------------ */
+  .link-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem;
+    margin:.5rem 0 0;
+  }
+  .link-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    padding:.28rem .75rem;
+    border-radius:999px;
+    font-weight:700;
+    border:1px solid var(--brand-accent, #0ea5e9);
+    text-decoration:none;
+    background:transparent;
+    line-height:1.2;
+    white-space:nowrap;
+  }
+  .link-pill:hover{ background:var(--brand-accent, #0ea5e9); color:#fff; }
+  
+  /* variants */
+  .pill--pdf   { border-color:#ef4444; } .pill--pdf:hover{ background:#ef4444; }
+  .pill--code  { border-color:#16a34a; } .pill--code:hover{ background:#16a34a; }
+  .pill--uspto { border-color:#8b5cf6; } .pill--uspto:hover{ background:#8b5cf6; }
+  .pill--copy  { cursor:pointer; }
+  
+  /* Dark mode tweaks */
+  html.theme-dark .link-pill{
+    color:var(--dark-text, #e6edf3);
+    border-color:#22d3ee;
+  }
+  html.theme-dark .link-pill:hover{
+    background:#22d3ee;
+    color:#0b1220;
+  }
+
   /* === What's next (tab + panel only) === */
   .wnx-tab{
     position:fixed; right:0; top:35vh; z-index:1000;
