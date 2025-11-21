@@ -14,6 +14,13 @@
     --mm-toggle-bg:#0f172a; --mm-toggle-fg:#e5e7eb; --mm-toggle-border:#334155;
   }
 
+   /* Offset floating theme toggle so it doesn't overlap the contact FAB */
+  #theme-toggle.floating{
+    right: 76px !important;   /* FAB is at 16px; give it ~60px space */
+    bottom: 16px !important;
+    z-index: 9999;
+  }
+  
   /* When inserted into the masthead, inherit nav look */
   .masthead .greedy-nav #theme-toggle{
     border:1px solid transparent; background:transparent; color:currentColor;
