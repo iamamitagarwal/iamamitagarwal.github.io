@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: 'MVTamperBench: Evaluating Robustness of Vision-Language Models'
-authors: '**Agarwal, Amit**; Panda, Srikant; Charles, Angeline; Kumar, Bhargava; Patel,
+authors: 'Agarwal, Amit; Panda, Srikant; Charles, Angeline; Kumar, Bhargava; Patel,
   Hitesh; Pattnayak, Priyaranjan; Rafi, Taki Hasan; Kumar, Tejaswini; Chae, Dong-Kyu; '
 year: 2024
 venue: ACL
