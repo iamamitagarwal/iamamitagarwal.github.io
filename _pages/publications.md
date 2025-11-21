@@ -8,6 +8,10 @@ search: true
 ---
 
 <style>
+/* Slightly smaller list typography so dense years feel lighter */
+.pub-list li{ font-size:.95rem; line-height:1.35; }
+.year-head{ font-size:1.55rem; }
+
 /* Venue badge */
 .venue-badge{
   display:inline-flex; align-items:center;
@@ -15,7 +19,6 @@ search: true
   border-radius:999px; font-weight:700; font-size:.8rem;
   border:1px solid transparent;
 }
-
 /* Color map */
 .badge-emnlp{ background:#0d9488; color:#fff; }
 .badge-acl{ background:#10b981; color:#0b1320; }
@@ -30,21 +33,16 @@ search: true
 .badge-acm{ background:#f97316; color:#0b1320; }
 .badge-arxiv{ background:#e5e7eb; color:#111827; border-color:#cbd5e1; }
 html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4b5563; }
-
-/* Slightly smaller publication rows (keep badges/tags as-is) */
-.pub-list li{ font-size:.95rem; line-height:1.35; }
-.year-head{ font-size:1.55rem; }
 </style>
 
 {%- comment -%}
-Build the filter buttons from the real tags across all publications.
-Handles tags as arrays OR strings (single or space/comma-separated).
+Collect unique tags from all publications.
+Handles tags stored as arrays or strings (single or comma/space separated).
 {%- endcomment -%}
 {% assign pubs = site.publications | sort: "year" | reverse %}
-{% assign tags = "" | split: "" %}
+{% assign pub_tags = "" | split: "" %}
 {% for p in pubs %}
   {% if p.tags %}
-    {%- comment -%} Normalize to a space-separated string {%- endcomment -%}
     {% capture joined %}{{ p.tags | join: ' ' }}{% endcapture %}
     {% assign tag_source = joined %}
     {% if tag_source == "" %}
@@ -53,22 +51,24 @@ Handles tags as arrays OR strings (single or space/comma-separated).
     {% assign tlist = tag_source | replace: ',', ' ' | split: ' ' %}
     {% for t in tlist %}
       {% assign tclean = t | strip %}
-      {% if tclean != "" and not tags contains tclean %}
-        {% assign tags = tags | push: tclean %}
+      {% if tclean != "" %}
+        {% unless pub_tags contains tclean %}
+          {% assign pub_tags = pub_tags | push: tclean %}
+        {% endunless %}
       {% endif %}
     {% endfor %}
   {% endif %}
 {% endfor %}
-{% assign tags = tags | sort %}
+{% assign pub_tags = pub_tags | sort %}
 
 <div id="pub-filters" style="margin:.5rem 0 1rem 0;">
   <button class="btn btn--primary" data-tag="all">All</button>
-  {% for t in tags %}
+  {% for t in pub_tags %}
     <button class="btn" data-tag="{{ t }}">{{ t }}</button>
   {% endfor %}
 </div>
 
-{% comment %} Build distinct year list {% endcomment %}
+{%- comment -%} Build distinct year list {%- endcomment -%}
 {% assign years = "" | split: "" %}
 {% for p in pubs %}
   {% unless years contains p.year %}
@@ -79,7 +79,7 @@ Handles tags as arrays OR strings (single or space/comma-separated).
 {% for yr in years %}
   {% assign in_year = pubs | where: "year", yr %}
 
-  {% comment %} Order each year: first-author = "Agarwal, Amit" first, then others {% endcomment %}
+  {%- comment -%} Agarwal-first ordering within the year {%- endcomment -%}
   {% assign agarwal_first = "" | split: "" %}
   {% assign others = "" | split: "" %}
   {% for p in in_year %}
@@ -128,6 +128,6 @@ Handles tags as arrays OR strings (single or space/comma-separated).
       updateYears();
     }
     btns.forEach(b => b.addEventListener('click', () => setActive(b.dataset.tag)));
-    updateYears(); // initial cleanup
+    updateYears();
   })();
 </script>
