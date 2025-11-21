@@ -2,7 +2,7 @@
 layout: paper
 title: A machine learning approach for unraveling the influence of air quality awareness
   on travel behavior
-authors: 'Meena, Kapil Kumar; Bairwa, Deepak; **Agarwal, Amit**; '
+authors: 'Meena, Kapil Kumar; Bairwa, Deepak; Agarwal, Amit; '
 year: 2024
 venue: Decision Analytics Journal
 tags:
