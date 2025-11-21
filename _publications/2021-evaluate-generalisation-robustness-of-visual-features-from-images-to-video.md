@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: Evaluate generalisation & robustness of visual features from images to video
-authors: '**Agarwal, Amit**; '
+authors: 'Agarwal, Amit; '
 year: 2021
 venue: nan
 tags:
