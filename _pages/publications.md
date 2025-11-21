@@ -30,31 +30,56 @@ search: true
 .badge-acm{ background:#f97316; color:#0b1320; }
 .badge-arxiv{ background:#e5e7eb; color:#111827; border-color:#cbd5e1; }
 html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4b5563; }
+
+/* Slightly smaller publication rows (keep badges/tags as-is) */
+.pub-list li{ font-size:.95rem; line-height:1.35; }
+.year-head{ font-size:1.55rem; }
 </style>
 
+{%- comment -%}
+Build the filter buttons from the real tags across all publications.
+Handles tags as arrays OR strings (single or space/comma-separated).
+{%- endcomment -%}
+{% assign pubs = site.publications | sort: "year" | reverse %}
+{% assign pub_tags = "" | split: "" %}
+{% for p in pubs %}
+  {% if p.tags %}
+    {%- comment -%} Normalize to a space-separated string {%- endcomment -%}
+    {% capture joined %}{{ p.tags | join: ' ' }}{% endcapture %}
+    {% assign tag_source = joined %}
+    {% if tag_source == "" %}
+      {% assign tag_source = p.tags %}
+    {% endif %}
+    {% assign tlist = tag_source | replace: ',', ' ' | split: ' ' %}
+    {% for t in tlist %}
+      {% assign tclean = t | strip %}
+      {% if tclean != "" and not pub_tags contains tclean %}
+        {% assign pub_tags = pub_tags | push: tclean %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+{% assign pub_tags = pub_tags | sort %}
 
 <div id="pub-filters" style="margin:.5rem 0 1rem 0;">
   <button class="btn btn--primary" data-tag="all">All</button>
-  <button class="btn" data-tag="Document-AI">Document-AI</button>
-  <button class="btn" data-tag="LLM">LLM</button>
-  <button class="btn" data-tag="ML">ML</button>
-  <button class="btn" data-tag="Retrieval">Retrieval</button>
-  <button class="btn" data-tag="Safety">Safety</button>
-  <button class="btn" data-tag="Systems">Systems</button>
-  <button class="btn" data-tag="Vision-Language">Vision-Language</button>
+  {% for t in pub_tags %}
+    <button class="btn" data-tag="{{ t }}">{{ t }}</button>
+  {% endfor %}
 </div>
 
-{% comment %} build distinct year list {% endcomment %}
-{% assign pubs = site.publications | sort: "year" | reverse %}
+{% comment %} Build distinct year list {% endcomment %}
 {% assign years = "" | split: "" %}
 {% for p in pubs %}
-  {% unless years contains p.year %}{% assign years = years | push: p.year %}{% endunless %}
+  {% unless years contains p.year %}
+    {% assign years = years | push: p.year %}
+  {% endunless %}
 {% endfor %}
 
 {% for yr in years %}
   {% assign in_year = pubs | where: "year", yr %}
 
-  {% comment %} split into first-author=Agarwal vs others {% endcomment %}
+  {% comment %} Order each year: first-author = "Agarwal, Amit" first, then others {% endcomment %}
   {% assign agarwal_first = "" | split: "" %}
   {% assign others = "" | split: "" %}
   {% for p in in_year %}
@@ -65,7 +90,6 @@ html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4
       {% assign others = others | push: p %}
     {% endif %}
   {% endfor %}
-
   {% assign ordered = agarwal_first | concat: others %}
 
   {% if ordered.size > 0 %}
@@ -88,15 +112,15 @@ html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4
 
     function updateYears(){
       blocks.forEach(b=>{
-        const vis = Array.from(b.querySelectorAll('.pub-item')).some(li => li.style.display !== 'none');
+        const vis = Array.from(b.querySelectorAll('.pub-item'))
+          .some(li => li.style.display !== 'none');
         b.style.display = vis ? '' : 'none';
       });
     }
     function setActive(tag){
       items.forEach(li=>{
         const tags = (li.dataset.tags || '').split(/\s+/).filter(Boolean);
-        const show = (tag === 'all' || tags.includes(tag));
-        li.style.display = show ? '' : 'none';
+        li.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
       });
       btns.forEach(x => x.classList.remove('btn--primary'));
       const active = document.querySelector(`#pub-filters .btn[data-tag="${tag}"]`);
@@ -104,6 +128,6 @@ html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4
       updateYears();
     }
     btns.forEach(b => b.addEventListener('click', () => setActive(b.dataset.tag)));
-    updateYears();
+    updateYears(); // initial cleanup
   })();
 </script>
