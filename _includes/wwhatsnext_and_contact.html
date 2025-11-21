@@ -1,0 +1,141 @@
+<div id="wnx-root" class="wnx">
+  <!-- Slide tab -->
+  <button class="wnx-tab" aria-controls="wnx-panel" aria-expanded="false" title="What's next">
+    <span>What's next</span>
+  </button>
+
+  <!-- Slide panel -->
+  <aside id="wnx-panel" class="wnx-panel" aria-hidden="true">
+    <header class="wnx-head">
+      <strong>What’s next</strong>
+      <button class="wnx-close" aria-label="Close">×</button>
+    </header>
+
+    <div class="wnx-body">
+      {% assign items = site.data.whats_next | default: empty %}
+      {% if items and items.size > 0 %}
+        <ul class="wnx-list">
+        {% for it in items %}
+          <li class="wnx-item">
+            <span class="wnx-tag">{{ it.tag }}</span>
+            <a class="wnx-link" href="{{ it.link | relative_url }}">{{ it.title }}</a>
+            <span class="wnx-when">{{ it.when }}</span>
+          </li>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <p class="wnx-empty">Nothing queued yet. Check back soon!</p>
+      {% endif %}
+    </div>
+  </aside>
+
+  <!-- Floating contact button -->
+  <button class="contact-fab" aria-haspopup="dialog" aria-controls="contact-modal" title="Message me">✉️</button>
+
+  <!-- Contact modal -->
+  <div id="contact-modal" class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-title" hidden>
+    <div class="contact-card">
+      <header class="contact-head">
+        <h3 id="contact-title">Say hello</h3>
+        <button class="contact-close" aria-label="Close">×</button>
+      </header>
+
+      <form id="contact-form" class="contact-form" method="post"
+            {% if site.contact_form_endpoint %} action="{{ site.contact_form_endpoint }}" {% endif %}>
+        <div class="row">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required>
+          </label>
+        </div>
+
+        <label>
+          <span>Subject</span>
+          <input type="text" name="subject" placeholder="Collab idea / question / feedback" required>
+        </label>
+
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+
+        <!-- Honeypot (spam) -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <!-- Formspree needs this (optional) -->
+        <input type="hidden" name="_subject" value="Site message">
+
+        <div class="actions">
+          <button type="submit" class="btn btn--primary">Send</button>
+          <button type="button" class="btn contact-cancel">Cancel</button>
+        </div>
+
+        <p class="contact-note">Your info is used only to reply. No spam.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const root    = document.querySelector('#wnx-root');
+  if(!root) return;
+
+  const panel   = root.querySelector('#wnx-panel');
+  const tab     = root.querySelector('.wnx-tab');
+  const close   = root.querySelector('.wnx-close');
+
+  const fab     = root.querySelector('.contact-fab');
+  const modal   = root.querySelector('#contact-modal');
+  const mclose  = root.querySelector('.contact-close');
+  const mcancel = root.querySelector('.contact-cancel');
+  const form    = root.querySelector('#contact-form');
+
+  // --- Slide panel ---
+  function openPanel(){ panel.classList.add('open'); panel.setAttribute('aria-hidden','false'); tab.setAttribute('aria-expanded','true'); localStorage.setItem('wnx_open','1'); }
+  function closePanel(){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); tab.setAttribute('aria-expanded','false'); localStorage.removeItem('wnx_open'); }
+
+  tab.addEventListener('click', ()=> panel.classList.contains('open') ? closePanel() : openPanel());
+  close.addEventListener('click', closePanel);
+
+  // Restore last state on desktop only
+  const mql = window.matchMedia('(min-width: 1100px)');
+  if(mql.matches && localStorage.getItem('wnx_open')==='1') openPanel();
+
+  // --- Contact modal ---
+  function openModal(){
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+  fab.addEventListener('click', openModal);
+  mclose.addEventListener('click', closeModal);
+  mcancel.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+
+  // Submit: if no Formspree endpoint, fall back to mailto
+  form.addEventListener('submit', function(e){
+    {% if site.contact_form_endpoint %}
+      // Let Formspree handle it (browser submit).
+    {% else %}
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = encodeURIComponent(data.get('name')||'');
+      const email= encodeURIComponent(data.get('email')||'');
+      const subj = encodeURIComponent(data.get('subject')||'Message');
+      const msg  = encodeURIComponent((data.get('message')||'') + `\n\n— ${name} <${decodeURIComponent(email)}>`);
+      const to   = "{{ site.contact_mailto | default: 'amit.pinaki@gmail.com' }}";
+      const href = `mailto:${to}?subject=${subj}&body=${msg}`;
+      window.location.href = href;
+      closeModal();
+    {% endif %}
+  });
+})();
+</script>
