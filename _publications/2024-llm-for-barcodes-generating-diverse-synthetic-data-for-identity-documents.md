@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: 'Llm for barcodes: Generating diverse synthetic data for identity documents'
-authors: 'Patel, Hitesh Laxmichand; **Agarwal, Amit**; Kumar, Bhargava; Gupta, Karan;
+authors: 'Patel, Hitesh Laxmichand; Agarwal, Amit; Kumar, Bhargava; Gupta, Karan;
   Pattnayak, Priyaranjan; '
 year: 2024
 venue: arXiv
