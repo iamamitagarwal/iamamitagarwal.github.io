@@ -18,9 +18,25 @@
   })();
 </script>
 
+
+
 <style>
   .author-me{ font-weight:800; color:#0e7490; }
   html.theme-dark .author-me{ color:#7dc9ff; }
+  /* ===== Bigger author avatar in Minimal Mistakes sidebar ===== */
+  .page__sidebar .author__avatar,
+  .page__sidebar .author__avatar img{
+    width: 156px;
+    height: 156px;
+  }
+  
+  @media (max-width: 540px){
+    .page__sidebar .author__avatar,
+    .page__sidebar .author__avatar img{
+      width: 128px;
+      height: 128px;
+    }
+  }
 </style>
 
 <!-- Brand tokens, dark-mode styling, sticky header, pills, callout -->
