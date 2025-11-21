@@ -1,180 +1,186 @@
-<!-- Site-wide "What’s next" bulletin + Contact drawer (Formspree) -->
+{%- assign items = site.data.whats_next | default: site.data.whatsnext | default: empty -%}
 <style>
-  :root{
-    --wn-bg:#ffffff; --wn-fg:#0b1320; --wn-muted:#64748b; --wn-ring:#e5e7eb;
-    --wn-accent:#2d8fa2; --wn-shadow:0 14px 28px rgba(0,0,0,.08), 0 4px 8px rgba(0,0,0,.06);
-    --wn-pill-bg:#f3f4f6; --wn-pill-fg:#0b1320;
+  /* ---------- FABs ---------- */
+  .mm-fab{
+    position:fixed; right:16px; bottom:16px; z-index:9998;
+    width:48px; height:48px; border-radius:999px; display:grid; place-items:center;
+    border:1px solid var(--mm-fab-brd,#cbd5e1);
+    background:var(--mm-fab-bg,#fff); color:var(--mm-fab-fg,#111827);
+    box-shadow:0 10px 18px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.06);
+    cursor:pointer;
   }
-  html.theme-dark{
-    --wn-bg:#0f172a; --wn-fg:#e5e7eb; --wn-muted:#93a4b8; --wn-ring:#1f2937;
-    --wn-accent:#22d3ee; --wn-shadow:0 18px 32px rgba(0,0,0,.35);
-    --wn-pill-bg:#111827; --wn-pill-fg:#e5e7eb;
+  html.theme-dark .mm-fab{
+    --mm-fab-bg:#0f172a; --mm-fab-fg:#e5e7eb; --mm-fab-brd:#334155;
+  }
+  /* keep theme button from overlapping the contact FAB when it has to float */
+  #theme-toggle.floating{ right:72px !important; bottom:16px !important; }
+
+  /* ---------- Contact drawer ---------- */
+  .mm-drawer{
+    position:fixed; top:0; right:0; height:100%; width:380px; max-width:92vw;
+    background:var(--mm-drawer-bg,#fff); color:var(--mm-drawer-fg,#111827);
+    border-left:1px solid var(--mm-drawer-brd,#e5e7eb);
+    box-shadow:-20px 0 40px rgba(0,0,0,.18);
+    transform:translateX(110%); transition:transform .22s ease;
+    z-index:9997; display:flex; flex-direction:column;
+  }
+  html.theme-dark .mm-drawer{
+    --mm-drawer-bg:#0b1220; --mm-drawer-fg:#e5e7eb; --mm-drawer-brd:#1f2937;
+  }
+  .mm-drawer.open{ transform:translateX(0); }
+  .mm-drawer header{ display:flex; justify-content:space-between; align-items:center;
+    padding:.9rem 1rem; border-bottom:1px solid var(--mm-drawer-brd);
+    position:sticky; top:0; background:inherit; z-index:1; }
+  .mm-drawer form{ padding:1rem; display:grid; gap:.75rem; }
+  .mm-drawer label{ font-weight:700; font-size:.92rem; }
+  .mm-drawer input, .mm-drawer textarea{
+    width:100%; border:1px solid var(--mm-drawer-brd); border-radius:10px;
+    padding:.6rem .7rem; background:transparent; color:inherit;
+  }
+  .mm-drawer textarea{ min-height:140px; resize:vertical; }
+  .mm-row{ display:grid; gap:.6rem; }
+  .mm-actions{ display:flex; gap:.6rem; justify-content:flex-end; padding:0 1rem 1rem; }
+  .mm-btn{ border:1px solid #cbd5e1; padding:.45rem .8rem; border-radius:10px; font-weight:800; }
+  .mm-btn--primary{ background:#1992c8; color:#fff; border-color:#1992c8; }
+  html.theme-dark .mm-btn{ border-color:#334155; }
+
+  /* Mobile bottom sheet behaviour for the drawer */
+  @media (max-width: 640px){
+    .mm-drawer{ width:100%; max-width:none; height:60vh; top:auto; bottom:0;
+      border-left:none; border-top:1px solid var(--mm-drawer-brd); transform:translateY(110%);
+    }
+    .mm-drawer.open{ transform:translateY(0); }
   }
 
-  /* ===== Right bulletin (desktop) ===== */
-  .wn-aside{
-    position:fixed; top:110px; right:18px; width:330px; z-index:999;
-    display:flex; flex-direction:column; gap:.75rem;
+  /* ---------- What's next panel ---------- */
+  .mm-whatsnext{
+    position:fixed; right:16px; top:110px; width:360px; max-width:92vw;
+    z-index:9996; transition:transform .22s ease, opacity .22s ease;
   }
-  .wn-card{
-    background:var(--wn-bg); color:var(--wn-fg); border:1px solid var(--wn-ring);
-    border-radius:16px; box-shadow:var(--wn-shadow); padding:1rem 1rem;
+  .mm-wn-card{
+    background:var(--mm-wn-bg,#fff); color:var(--mm-wn-fg,#111827);
+    border:1px solid var(--mm-wn-brd,#e5e7eb);
+    border-radius:16px; box-shadow:0 10px 18px rgba(0,0,0,.10);
+    overflow:hidden;
   }
-  .wn-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:.35rem;}
-  .wn-head h4{ margin:0; font-weight:800; font-size:1rem; }
-  .wn-pill{ background:var(--wn-pill-bg); color:var(--wn-pill-fg); border-radius:999px; padding:.25rem .6rem; font-weight:700; font-size:.78rem; }
-
-  .wn-list{ margin:.25rem 0 0 0; padding-left:1rem; }
-  .wn-list li{ margin:.25rem 0; }
-  .wn-list a{ color:var(--wn-accent); font-weight:700; text-underline-offset:2px; }
-
-  /* ===== Floating “Message me” button ===== */
-  .wn-fab{
-    position:fixed; right:18px; bottom:18px; z-index:1000;
-    display:inline-flex; align-items:center; gap:.5rem;
-    background:var(--wn-accent); color:#fff; border:none; cursor:pointer;
-    border-radius:999px; padding:.7rem 1rem; box-shadow:var(--wn-shadow); font-weight:900;
+  html.theme-dark .mm-wn-card{
+    --mm-wn-bg:#0b1220; --mm-wn-fg:#e5e7eb; --mm-wn-brd:#1f2937;
   }
-
-  /* ===== Slide-in contact drawer ===== */
-  .wn-drawer{
-    position:fixed; right:18px; bottom:86px; width:340px; max-width:92vw;
-    transform:translateY(20px); opacity:0; pointer-events:none;
-    transition:transform .18s ease, opacity .18s ease;
-    z-index:1000;
-  }
-  .wn-drawer.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
-  .wn-form{ background:var(--wn-bg); color:var(--wn-fg); border:1px solid var(--wn-ring);
-    border-radius:16px; box-shadow:var(--wn-shadow); padding:1rem; }
-  .wn-form h4{ margin:.15rem 0 .75rem; font-weight:900; }
-  .wn-row{ display:flex; gap:.6rem; }
-  .wn-field{ flex:1; display:flex; flex-direction:column; margin:.4rem 0; }
-  .wn-field label{ font-size:.85rem; color:var(--wn-muted); margin-bottom:.18rem; font-weight:700; }
-  .wn-field input, .wn-field textarea{
-    background:transparent; color:var(--wn-fg); border:1px solid var(--wn-ring); border-radius:10px;
-    padding:.6rem .7rem; outline:none;
-  }
-  .wn-field textarea{ min-height:110px; resize:vertical; }
-  .wn-actions{ display:flex; gap:.5rem; justify-content:flex-end; align-items:center; margin-top:.6rem; }
-  .wn-btn{ border-radius:10px; padding:.55rem .9rem; font-weight:800; cursor:pointer; border:1px solid var(--wn-ring); background:var(--wn-pill-bg); color:var(--wn-pill-fg);}
-  .wn-btn--primary{ background:var(--wn-accent); color:#fff; border-color:transparent; }
-  .wn-note{ color:var(--wn-muted); font-size:.8rem; margin-top:.25rem; }
-
-  .wn-toast{ position:fixed; right:18px; bottom:18px; transform:translateY(70px);
-    opacity:0; z-index:1001; transition:.2s ease; }
-  .wn-toast.show{ transform:translateY(0); opacity:1; }
-  .wn-toast .wn-card{ padding:.7rem .9rem; }
-
-  /* Hide the right bulletin on small screens; keep the FAB/drawer */
-  @media (max-width: 1100px){ .wn-aside{ display:none; } }
+  .mm-wn-head{ display:flex; justify-content:space-between; align-items:center; padding:.8rem 1rem; }
+  .mm-wn-list{ padding:0 1rem 1rem; display:grid; gap:.7rem; }
+  .mm-wn-item{ border:1px solid var(--mm-wn-brd); border-radius:14px; padding:.8rem; background:transparent; }
+  .mm-wn-item h4{ margin:0 0 .25rem; }
+  .mm-wn-meta{ display:flex; gap:.5rem; align-items:center; color:#64748b; font-weight:700; font-size:.86rem; }
+  .mm-wn-tag{ padding:.1rem .5rem; border-radius:999px; border:1px solid var(--mm-wn-brd); }
+  .mm-wn-collapsed{ transform:translateY(-8px); opacity:.0; pointer-events:none; }
+  @media (max-width: 1024px){ .mm-whatsnext{ display:none; } } /* hide on small screens */
 </style>
 
-<!-- Right bulletin -->
-<aside class="wn-aside" aria-label="What’s next">
-  <div class="wn-card">
-    <div class="wn-head">
-      <h4>What’s next</h4>
-      <span class="wn-pill">updates</span>
+<!-- Whats next (desktop) -->
+<div class="mm-whatsnext" id="mm-whatsnext">
+  <div class="mm-wn-card">
+    <div class="mm-wn-head">
+      <strong>What’s next</strong>
+      <button class="mm-btn" id="mm-wn-toggle" type="button">Collapse</button>
     </div>
-    <ul class="wn-list">
-      <li>Shipping <strong>GenAI Eval dashboards</strong> across OCI orgs.</li>
-      <li>Public release: <strong>Accesseval</strong> artifacts.</li>
-      <li>Talks: <strong>evaluation + safety</strong> playbook for enterprise LLMs.</li>
-    </ul>
+    <div class="mm-wn-list" id="mm-wn-list">
+      {%- if items and items.size > 0 -%}
+        {%- for it in items -%}
+          <article class="mm-wn-item">
+            <h4>
+              {%- if it.link -%}<a href="{{ it.link }}" target="_blank" rel="noopener">{{ it.title }}</a>
+              {%- else -%}{{ it.title }}{%- endif -%}
+            </h4>
+            {%- if it.desc %}<div style="margin:.25rem 0 .4rem; color:#475569">{{ it.desc }}</div>{% endif -%}
+            <div class="mm-wn-meta">
+              {%- if it.when %}<span>{{ it.when }}</span>{% endif -%}
+              {%- if it.tag %}<span class="mm-wn-tag">{{ it.tag }}</span>{% endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        <article class="mm-wn-item"><em>Add items to <code>_data/whats_next.yml</code>.</em></article>
+      {%- endif -%}
+    </div>
   </div>
+</div>
 
-  <div class="wn-card">
-    <div class="wn-head"><h4>Open to collaborate</h4><span class="wn-pill">say hi</span></div>
-    <div class="wn-note">Have an idea or dataset? Ping me—happy to brainstorm.</div>
-  </div>
-</aside>
+<!-- Contact FAB (bottom-right) -->
+<button class="mm-fab" id="mm-contact-fab" aria-label="Contact form" title="Contact me">✉️</button>
 
-<!-- Floating “message me” button -->
-<button class="wn-fab" id="wn-fab" aria-controls="wn-drawer" aria-expanded="false">✉️ Message me</button>
+<!-- Drawer -->
+<aside class="mm-drawer" id="mm-contact-drawer" aria-hidden="true">
+  <header>
+    <strong>Say hi</strong>
+    <button class="mm-btn" id="mm-contact-close" type="button">Close</button>
+  </header>
 
-<!-- Drawer with Formspree form -->
-<div class="wn-drawer" id="wn-drawer" aria-hidden="true">
-  <form class="wn-form" id="wn-form" method="POST" action="https://formspree.io/f/mwpydbpb">
-    <h4>Quick note</h4>
-
-    <div class="wn-row">
-      <div class="wn-field">
-        <label for="wn-name">Name</label>
-        <input id="wn-name" name="name" type="text" autocomplete="name" required>
-      </div>
-      <div class="wn-field">
-        <label for="wn-email">Email</label>
-        <input id="wn-email" name="email" type="email" autocomplete="email" required>
-      </div>
+  <!-- Formspree form -->
+  <form action="https://formspree.io/f/mwpydbpb" method="POST">
+    <div class="mm-row">
+      <label for="mm-name">Name</label>
+      <input id="mm-name" name="name" type="text" autocomplete="name" required />
     </div>
-
-    <div class="wn-field">
-      <label for="wn-subject">Subject</label>
-      <input id="wn-subject" name="subject" type="text" placeholder="Idea, collab, question…" required>
+    <div class="mm-row">
+      <label for="mm-email">Email</label>
+      <input id="mm-email" name="email" type="email" autocomplete="email" required />
     </div>
-
-    <div class="wn-field">
-      <label for="wn-message">Message</label>
-      <textarea id="wn-message" name="message" placeholder="Tell me a bit about it…" required></textarea>
+    <div class="mm-row">
+      <label for="mm-subject">Subject</label>
+      <input id="mm-subject" name="subject" type="text" />
     </div>
-
-    <!-- Honeypot (spam) -->
-    <input type="text" name="_gotcha" style="display:none">
-
-    <!-- Auto-subject in email and redirect fallback -->
-    <input type="hidden" name="_subject" id="wn-hidden-subject" value="New message via site">
-    <input type="hidden" name="_next" value="{{ '/' | relative_url }}#thanks">
-
-    <div class="wn-actions">
-      <button type="button" class="wn-btn" id="wn-cancel">Cancel</button>
-      <button type="submit" class="wn-btn wn-btn--primary">Send</button>
+    <div class="mm-row">
+      <label for="mm-message">Message</label>
+      <textarea id="mm-message" name="message" placeholder="Ideas, collab, or any question…"></textarea>
     </div>
-    <div class="wn-note">Powered by Formspree. I’ll reply ASAP.</div>
+    <div class="mm-actions">
+      <button class="mm-btn" type="button" id="mm-contact-cancel">Cancel</button>
+      <button class="mm-btn mm-btn--primary" type="submit">Send</button>
+    </div>
+    <!-- Optional spam honeypot -->
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
   </form>
-</div>
-
-<!-- Toast -->
-<div id="wn-toast" class="wn-toast" role="status" aria-live="polite">
-  <div class="wn-card">Thanks! Your message is on its way.</div>
-</div>
+</aside>
 
 <script>
 (function(){
-  const fab    = document.getElementById('wn-fab');
-  const drawer = document.getElementById('wn-drawer');
-  const form   = document.getElementById('wn-form');
-  const cancel = document.getElementById('wn-cancel');
-  const toast  = document.getElementById('wn-toast');
-  const hs     = document.getElementById('wn-hidden-subject');
-  const subj   = document.getElementById('wn-subject');
+  // ---------- Contact drawer ----------
+  const fab   = document.getElementById('mm-contact-fab');
+  const panel = document.getElementById('mm-contact-drawer');
+  const closeBtn = document.getElementById('mm-contact-close');
+  const cancelBtn= document.getElementById('mm-contact-cancel');
 
-  function openDrawer(){ drawer.classList.add('open'); fab.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); }
-  function closeDrawer(){ drawer.classList.remove('open'); fab.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); }
-  function showToast(){ toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 2600); }
+  function openDrawer(){ panel.classList.add('open'); panel.setAttribute('aria-hidden','false'); }
+  function closeDrawer(){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
 
-  fab.addEventListener('click', ()=> drawer.classList.contains('open') ? closeDrawer() : openDrawer());
-  cancel.addEventListener('click', closeDrawer);
+  fab?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  cancelBtn?.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeDrawer(); });
 
-  // Update hidden subject for nicer email subject lines
-  subj.addEventListener('input', () => { hs.value = 'Site message — ' + (subj.value || 'No subject'); });
+  // ---------- What's next ----------
+  const wn = document.getElementById('mm-whatsnext');
+  const wnList = document.getElementById('mm-wn-list');
+  const toggle = document.getElementById('mm-wn-toggle');
+  const LS_KEY = 'mm_wn_collapsed';
 
-  // AJAX submit to Formspree (no page nav)
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    const data = new FormData(form);
-    try{
-      const r = await fetch(form.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
-      if (r.ok){
-        form.reset(); closeDrawer(); showToast();
-      } else {
-        alert('Sorry, something went wrong. Please email me directly.');
-      }
-    }catch(err){
-      alert('Network error. Please try again or email me directly.');
-    }
+  function setCollapsed(collapsed){
+    if(!wn) return;
+    if(collapsed){ wn.classList.add('mm-wn-collapsed'); toggle.textContent='Expand'; }
+    else{ wn.classList.remove('mm-wn-collapsed'); toggle.textContent='Collapse'; }
+    try{ localStorage.setItem(LS_KEY, collapsed ? '1' : '0'); }catch(e){}
+  }
+  toggle?.addEventListener('click', ()=>{
+    const now = wn.classList.contains('mm-wn-collapsed'); // invert
+    setCollapsed(!now);
   });
 
-  // Close on Esc
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeDrawer(); });
+  // Default: collapsed unless user expanded it before
+  let collapsedDefault = true;
+  try{
+    const saved = localStorage.getItem(LS_KEY);
+    if(saved === null) setCollapsed(collapsedDefault);
+    else setCollapsed(saved === '1');
+  }catch(e){ setCollapsed(collapsedDefault); }
 })();
 </script>
