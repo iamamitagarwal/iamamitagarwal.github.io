@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: DOMAIN ADAPTING GRAPH NETWORKS FOR VISUALLY RICH DOCUMENTS
-authors: '**Agarwal, Amit**; Panda, Srikant; Karmakar, Deepak; Pachauri, Kulbhushan; '
+authors: 'Agarwal, Amit; Panda, Srikant; Karmakar, Deepak; Pachauri, Kulbhushan; '
 year: 2024
 venue: nan
 tags:
