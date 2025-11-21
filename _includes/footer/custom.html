@@ -1,2 +1,18 @@
 {%- comment -%} Site-wide widgets only (What’s next + Contact). No floating theme toggle here. {%- endcomment -%}
 {% include whatsnext_and_contact.html %}
+<script>
+  /* Move the existing #theme-toggle into the masthead (right of search) */
+  (function(){
+    var btn = document.getElementById('theme-toggle');
+    if(!btn) return;
+    var greedy = document.querySelector('.masthead .greedy-nav');
+    if(!greedy) return;
+
+    var anchor = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
+    if(anchor && anchor.parentNode){
+      anchor.parentNode.insertBefore(btn, anchor.nextSibling);
+    } else {
+      (greedy.querySelector('.visible-links') || greedy).appendChild(btn);
+    }
+  })();
+</script>
