@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: Review of reference generation methods in large language models
-authors: 'Pattnayak, Priyaranjan; **Agarwal, Amit**; Kumar, Bhargava; Bangera, Yeshil;
+authors: 'Pattnayak, Priyaranjan; Agarwal, Amit; Kumar, Bhargava; Bangera, Yeshil;
   Panda, Srikant; Kumar, Tejaswini; Patel, Hitesh Laxmichand; '
 year: 2024
 venue: IJAIML
