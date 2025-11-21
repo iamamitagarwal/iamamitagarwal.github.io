@@ -134,6 +134,41 @@ classes: wide
   .awards-grid .award-card:nth-child(4n+2){ --accentA:#f97316; --accentB:#f59e0b; }
   .awards-grid .award-card:nth-child(4n+3){ --accentA:#14b8a6; --accentB:#0ea5e9; }
   .awards-grid .award-card:nth-child(4n+4){ --accentA:#22c55e; --accentB:#10b981; }
+
+  /* --- Mobile resilience fixes for Awards --- */
+
+  /* 1) Never force a column wider than the viewport */
+  .awards-wrap{
+    grid-template-columns: minmax(0,1.1fr) minmax(0,1.1fr); /* remove 420px min */
+    max-width: 100%;
+  }
+  
+  /* 2) Soften the single-column breakpoint and make the left side breathe a bit */
+  @media (max-width: 1100px){
+    .awards-wrap{ grid-template-columns: 1fr; }
+    .awards-wrap::before{ display:none; } /* hide the vertical divider on small screens */
+  }
+  /* extra small phones: stack metrics in one column */
+  @media (max-width: 560px){
+    .metrics{ grid-template-columns: 1fr !important; }
+  }
+  
+  /* 3) Allow long award names / orgs to wrap instead of forcing a wide row */
+  .award-title,
+  .award-meta{
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  
+  /* 4) Ensure icons/buttons shrink and never cause overflow */
+  .award-actions{ flex-wrap: wrap; min-width: 0; }
+  .award-card{ min-width: 0; }
+  .award-icon{ flex:0 0 38px; height:38px; }
+  
+  /* 5) Last-resort guard: clip any stray horizontal overflow */
+  .page__content{ overflow-x: hidden; }
+  
 </style>
 
 {%- comment -%}
