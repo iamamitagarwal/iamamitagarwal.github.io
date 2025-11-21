@@ -1,20 +1,24 @@
 # _data/whats_next.yml
 - title: "Hostign workshop at ACL"
+  desc: ""
   when: "July, 2026"
   tag: "Workshop"
   link: "https://2026.aclweb.org/"
 
 - title: "Under Review papers at ICLR"
+  desc: ""
   when: "April, 2026"
   tag: "Publication"
   link: "https://iclr.cc/"
 
 - title: "Oral Presentation in WACV"
+  desc: ""
   when: "March, 2026"
   tag: "Presentation"
   link: "https://wacv.thecvf.com/"
 
 - title: "6 Patent in Draft"
+  desc: ""
   when: "Open"
   tag: "Patent"
   link: ""
