@@ -25,17 +25,25 @@
   .author-me{ font-weight:800; color:#0e7490; }
   html.theme-dark .author-me{ color:#7dc9ff; }
 
-  /* Bigger author avatar (desktop) + responsive fallback */
-  .page__sidebar .author__avatar,
-  .page__sidebar .author__avatar img{
-    width: 500px !important;
-    height: 500px !important;
+  /* Bigger author avatar (desktop) + responsive fallback) */
+  .sidebar .author__avatar img{
+    width: 200px !important;      /* pick 180–220px to taste */
+    height: 200px !important;
+    max-width: none !important;   /* override theme cap */
+    border-radius: 50%;
+    object-fit: cover;            /* crop nicely inside the circle */
+    display: block;
   }
+  .sidebar .author__avatar{
+    display: flex;                /* avoids odd centering */
+    align-items: center;
+  }
+
+  /* Mobile */
   @media (max-width: 540px){
-    .page__sidebar .author__avatar,
-    .page__sidebar .author__avatar img{
-      width: 400px !important;
-      height: 400px !important;
+    .sidebar .author__avatar img{
+      width: 128px !important;
+      height: 128px !important;
     }
   }
 
