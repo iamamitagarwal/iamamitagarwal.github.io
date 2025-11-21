@@ -1,121 +1,220 @@
 <!-- _includes/whatsnext_and_contact.html -->
-<script>
-(function(){
-  /* Compute a safe top offset for the panel so it never clips behind masthead */
-  function mastheadTop(){
-    const m = document.querySelector('.masthead');
-    const h = m ? m.getBoundingClientRect().height : 72;   // default ~72px
-    return Math.round(h + 12); // 12px breathing room
+<style>
+  /* ---------- TOKENS ---------- */
+  :root{
+    --wnx-bg:#ffffff;
+    --wnx-fg:#0b1320;
+    --wnx-title:#0b1320;
+    --wnx-sub:#475569;
+    --wnx-line:#e5e7eb;
+    --wnx-card:#ffffff;
+    --wnx-accent:#22d3ee;         /* cyan accent */
+    --wnx-shadow:0 10px 30px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
+
+    --fab-bg:#10b981;
+    --fab-fg:#ffffff;
+    --fab-shadow:0 10px 30px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.08);
+  }
+  html.theme-dark{
+    --wnx-bg:#0b1220;
+    --wnx-fg:#e6edf3;
+    --wnx-title:#e6edf3;
+    --wnx-sub:#9fb4cc;
+    --wnx-line:#203048;
+    --wnx-card:#0f172a;
+    --wnx-accent:#22d3ee;
+    --wnx-shadow:0 12px 32px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.30);
+
+    --fab-bg:#0ea5e9;
+    --fab-fg:#0b1220;
+    --fab-shadow:0 12px 32px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.30);
   }
 
-  // Build the tab + panel markup
-  const tab = document.createElement('button');
-  tab.className = 'wnx-tab';
-  tab.type = 'button';
-  tab.innerHTML = '<span>What’s next</span>';
+  /* ---------- WHAT’S NEXT (collapsed by default) ---------- */
+  .wnx-tab{
+    position:fixed; right:0; top:110px; z-index:1100;
+    background:#1fb6ff; color:#fff; border:none;
+    border-radius:12px 0 0 12px; padding:.6rem .7rem; font-weight:900;
+    box-shadow:0 8px 16px rgba(0,0,0,.18);
+  }
+  .wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); letter-spacing:.4px; }
 
-  const panel = document.createElement('div');
-  panel.className = 'wnx-panel';
-  panel.style.top = mastheadTop() + 'px';
+  .wnx-panel{
+    position:fixed; right:-360px; top:96px; width:340px; bottom:24px; z-index:1100;
+    background:var(--wnx-bg); color:var(--wnx-fg);
+    border:1px solid var(--wnx-line); border-radius:16px 0 0 16px;
+    box-shadow:var(--wnx-shadow);
+    transition:right .18s ease; display:flex; flex-direction:column;
+  }
+  .wnx-panel.open{ right:0; }
+  .wnx-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.75rem .85rem; font-weight:900; color:var(--wnx-title);
+    border-bottom:1px solid var(--wnx-line);
+  }
+  .wnx-close{ background:transparent; border:0; color:inherit; font-weight:800; cursor:pointer; }
+  .wnx-body{ overflow:auto; padding:.7rem .85rem; display:grid; gap:.75rem; }
 
-  panel.innerHTML = `
-    <div class="wnx-head">
-      <span>What’s next</span>
-      <button type="button" class="wnx-close">Close</button>
-    </div>
-    <div class="wnx-body">
-      <div class="wnx-list">
-        {% assign feed = site.data.whats_next %}
-        {% if feed and feed.size > 0 %}
-          {% for it in feed %}
-          <div class="wnx-card">
-            <div class="wnx-title">{{ it.title }}</div>
-            <div class="wnx-meta">
-              {{ it.tag | default: "" }}{% if it.when %} • {{ it.when }}{% endif %}
-            </div>
-            {% if it.desc and it.desc != "" %}
-              <div class="wnx-text" style="margin-top:6px;color:#64748b;">{{ it.desc }}</div>
-            {% endif %}
+  .wnx-card{
+    background:var(--wnx-card); color:var(--wnx-fg);
+    border:1px solid var(--wnx-line); border-radius:14px; padding:12px 14px 12px 22px;
+    box-shadow:var(--wnx-shadow); position:relative;
+    /* slim cyan “bullet” like the first design you liked */
+    background-image:linear-gradient(var(--wnx-accent),var(--wnx-accent));
+    background-repeat:no-repeat; background-size:3px 14px; background-position:12px 14px;
+  }
+  .wnx-title{ font-weight:900; color:var(--wnx-title); margin:0 0 4px; }
+  .wnx-meta{ color:var(--wnx-sub); font-weight:600; }
+
+  /* ---------- CONTACT (modal center) ---------- */
+  .contact-fab{
+    position:fixed; right:16px; bottom:16px; z-index:1090;
+    width:56px; height:56px; border-radius:999px; display:grid; place-items:center;
+    background:var(--fab-bg); color:var(--fab-fg); box-shadow:var(--fab-shadow);
+    border:0; cursor:pointer;
+  }
+  .contact-fab svg{ width:26px; height:26px; }
+
+  .contact-scrim{
+    position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:1095;
+    display:none; align-items:center; justify-content:center; padding:1rem;
+  }
+  .contact-scrim.open{ display:flex; }
+  .contact-card{
+    width:min(640px,96vw); background:var(--wnx-bg); color:var(--wnx-fg);
+    border:1px solid var(--wnx-line); border-radius:16px; box-shadow:var(--wnx-shadow);
+  }
+  .cd-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.9rem 1rem; border-bottom:1px solid var(--wnx-line);
+    font-weight:900; color:var(--wnx-title);   /* fix dark-mode legibility */
+  }
+  .cd-title{ font-weight:900; }
+  .cd-close{ background:transparent; border:0; font-weight:800; color:inherit; cursor:pointer; }
+
+  .cd-body{ padding:1rem; display:grid; gap:.75rem; }
+  .cd-row label{ display:block; font-weight:800; margin-bottom:.28rem; color:var(--wnx-sub); }
+  .cd-row input, .cd-row textarea{
+    width:100%; border:1px solid var(--wnx-line); background:var(--wnx-card); color:var(--wnx-fg);
+    border-radius:10px; padding:.7rem .8rem; font:inherit;
+  }
+  .cd-actions{ display:flex; justify-content:flex-end; gap:.6rem; padding:0 1rem 1rem; }
+  .btn-pill{
+    border:1px solid var(--wnx-line); background:transparent; color:var(--wnx-fg);
+    border-radius:999px; padding:.5rem 1rem; font-weight:900; cursor:pointer;
+  }
+  .btn-cta{ background:var(--fab-bg); color:var(--fab-fg); border-color:transparent; }
+
+  /* Mobile: panel becomes bottom drawer */
+  @media (max-width: 980px){
+    .wnx-tab{ top:auto; bottom:96px; right:14px; border-radius:999px; }
+    .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
+    .wnx-panel{
+      right:14px; left:14px; width:auto; bottom:96px; top:auto; border-radius:16px;
+      transform:translateY(110%); transition:transform .18s ease;
+    }
+    .wnx-panel.open{ transform:translateY(0); right:14px; }
+  }
+</style>
+
+<button class="wnx-tab" id="wnxTab" aria-controls="wnxPanel"><span>What’s next</span></button>
+<aside class="wnx-panel" id="wnxPanel" aria-label="What’s next">
+  <div class="wnx-head">
+    <span>What’s next</span>
+    <button class="wnx-close" id="wnxClose">Close</button>
+  </div>
+  <div class="wnx-body">
+    {% assign feed = site.data.whats_next %}
+    {% if feed and feed.size > 0 %}
+      {% for it in feed %}
+        <article class="wnx-card">
+          <h4 class="wnx-title">
             {% if it.link %}
-              <div style="margin-top:8px;">
-                <a href="{{ it.link }}" target="_blank" rel="noopener" class="link-pill" style="text-decoration:none;padding:.28rem .65rem;border-radius:999px;border:1px solid #0ea5e9;">Open</a>
-              </div>
+              <a href="{{ it.link }}" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
+                {{ it.title }}
+              </a>
+            {% else %}
+              {{ it.title }}
             {% endif %}
+          </h4>
+          <div class="wnx-meta">
+            {{ it.tag | default: "" }}{% if it.when %} • {{ it.when }}{% endif %}
           </div>
-          {% endfor %}
-        {% else %}
-          <div class="wnx-card"><div class="wnx-title">No items yet.</div></div>
-        {% endif %}
+        </article>
+      {% endfor %}
+    {% else %}
+      <article class="wnx-card"><h4 class="wnx-title">No items yet.</h4></article>
+    {% endif %}
+  </div>
+</aside>
+
+<!-- Contact FAB + modal -->
+<button class="contact-fab" id="contactFab" aria-label="Contact">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
+  </svg>
+</button>
+
+<div class="contact-scrim" id="contactScrim" role="dialog" aria-modal="true" aria-labelledby="cdTitle">
+  <div class="contact-card">
+    <div class="cd-head">
+      <span class="cd-title" id="cdTitle">Say hi</span>
+      <button class="cd-close" id="contactClose">Close</button>
+    </div>
+    <form class="cd-body" action="https://formspree.io/f/mwpydbpb" method="POST">
+      <div class="cd-row">
+        <label for="cname">Name</label>
+        <input id="cname" name="name" autocomplete="name"/>
       </div>
-    </div>
-  `;
+      <div class="cd-row">
+        <label for="cemail">Email</label>
+        <input id="cemail" type="email" name="email" autocomplete="email" required/>
+      </div>
+      <div class="cd-row">
+        <label for="csubject">Subject</label>
+        <input id="csubject" name="subject"/>
+      </div>
+      <div class="cd-row">
+        <label for="cmsg">Message</label>
+        <textarea id="cmsg" name="message" rows="6" required></textarea>
+      </div>
+      <div class="cd-actions">
+        <button class="btn-pill" type="button" id="contactCancel">Cancel</button>
+        <button class="btn-pill btn-cta" type="submit">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-  // Default: collapsed
-  document.body.appendChild(tab);
-  document.body.appendChild(panel);
+<script>
+  (function(){
+    /* --- What’s next: collapsed by default, remember last state on desktop --- */
+    const tab   = document.getElementById('wnxTab');
+    const panel = document.getElementById('wnxPanel');
+    const close = document.getElementById('wnxClose');
+    const LS_K  = 'wnx-open';
 
-  const open = () => panel.classList.add('open');
-  const close = () => panel.classList.remove('open');
-  tab.addEventListener('click', open);
-  panel.querySelector('.wnx-close').addEventListener('click', close);
+    function setOpen(v){
+      panel.classList.toggle('open', !!v);
+      try{ localStorage.setItem(LS_K, v ? '1' : '0'); }catch(e){}
+    }
+    const saved = (function(){ try{ return localStorage.getItem(LS_K) === '1'; }catch(e){ return false; }})();
+    setOpen(window.innerWidth > 980 ? saved : false);
 
-  // Recompute top on resize (avoids clipping if header height changes)
-  let rAF = null;
-  window.addEventListener('resize', function(){
-    if (rAF) cancelAnimationFrame(rAF);
-    rAF = requestAnimationFrame(()=>{ panel.style.top = mastheadTop() + 'px'; });
-  });
+    tab.addEventListener('click', ()=> setOpen(true));
+    close.addEventListener('click', ()=> setOpen(false));
 
-  /* ---- Contact FAB + Drawer (Formspree) ---------------------------------- */
-  const fab = document.createElement('button');
-  fab.className = 'contact-fab';
-  fab.type = 'button';
-  fab.innerHTML = `
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="26" height="26">
-      <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
-    </svg>
-  `;
-  document.body.appendChild(fab);
+    /* --- Contact modal (centered) --- */
+    const fab    = document.getElementById('contactFab');
+    const scrim  = document.getElementById('contactScrim');
+    const cclose = document.getElementById('contactClose');
+    const ccanc  = document.getElementById('contactCancel');
 
-  const drawer = document.createElement('form');
-  drawer.className = 'contact-drawer';
-  drawer.action = 'https://formspree.io/f/mwpydbpb';
-  drawer.method = 'POST';
-  drawer.style.cssText = 'position:fixed;right:16px;bottom:84px;width:320px;max-width:90vw;max-height:80vh;background:var(--mm-card-bg,#fff);color:inherit;border:1px solid var(--mm-border,#e5e7eb);border-radius:12px;box-shadow:0 12px 24px rgba(0,0,0,.18);transform:translateY(12px);opacity:0;pointer-events:none;transition:transform .16s ease,opacity .16s ease;z-index:998;display:flex;flex-direction:column;';
-  drawer.innerHTML = `
-    <div class="cd-head" style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--mm-border,#e5e7eb);font-weight:800;">
-      <span>Say hi</span>
-      <button class="btn-pill" type="button" id="contactClose" style="border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:999px;padding:.35rem .8rem;font-weight:800;cursor:pointer;">Close</button>
-    </div>
-    <div class="cd-body" style="padding:12px;display:grid;gap:10px;">
-      <label style="display:block;">
-        <span style="display:block;font-weight:800;margin-bottom:4px;color:#64748b;">Name</span>
-        <input name="name" autocomplete="name" style="width:100%;border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:10px;padding:10px;"/>
-      </label>
-      <label style="display:block;">
-        <span style="display:block;font-weight:800;margin-bottom:4px;color:#64748b;">Email</span>
-        <input type="email" name="email" autocomplete="email" required style="width:100%;border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:10px;padding:10px;"/>
-      </label>
-      <label style="display:block;">
-        <span style="display:block;font-weight:800;margin-bottom:4px;color:#64748b;">Subject</span>
-        <input name="subject" style="width:100%;border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:10px;padding:10px;"/>
-      </label>
-      <label style="display:block;">
-        <span style="display:block;font-weight:800;margin-bottom:4px;color:#64748b;">Message</span>
-        <textarea name="message" rows="5" required style="width:100%;border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:10px;padding:10px;"></textarea>
-      </label>
-    </div>
-    <div class="cd-actions" style="display:flex;justify-content:flex-end;gap:8px;padding:10px 12px 12px;">
-      <button class="btn-pill" type="button" id="contactCancel" style="border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:999px;padding:.45rem .9rem;font-weight:800;cursor:pointer;">Cancel</button>
-      <button class="btn-pill" type="submit" style="border:1px solid transparent;background:#0ea5e9;color:#fff;border-radius:999px;padding:.45rem .9rem;font-weight:800;cursor:pointer;">Send</button>
-    </div>
-  `;
-  document.body.appendChild(drawer);
+    function openForm(){ scrim.classList.add('open'); }
+    function closeForm(){ scrim.classList.remove('open'); }
 
-  function openDrawer(){ drawer.style.transform='translateY(0)'; drawer.style.opacity='1'; drawer.style.pointerEvents='auto'; }
-  function closeDrawer(){ drawer.style.transform='translateY(12px)'; drawer.style.opacity='0'; drawer.style.pointerEvents='none'; }
-  fab.addEventListener('click', openDrawer);
-  drawer.querySelector('#contactClose').addEventListener('click', closeDrawer);
-  drawer.querySelector('#contactCancel').addEventListener('click', closeDrawer);
-})();
+    fab.addEventListener('click', openForm);
+    cclose.addEventListener('click', closeForm);
+    ccanc.addEventListener('click', closeForm);
+  })();
 </script>
