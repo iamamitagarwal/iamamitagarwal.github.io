@@ -1,186 +1,145 @@
-{%- assign items = site.data.whats_next | default: site.data.whatsnext | default: empty -%}
 <style>
-  /* ---------- FABs ---------- */
-  .mm-fab{
-    position:fixed; right:16px; bottom:16px; z-index:9998;
-    width:48px; height:48px; border-radius:999px; display:grid; place-items:center;
-    border:1px solid var(--mm-fab-brd,#cbd5e1);
-    background:var(--mm-fab-bg,#fff); color:var(--mm-fab-fg,#111827);
-    box-shadow:0 10px 18px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.06);
-    cursor:pointer;
+  /* ---------- “What’s next” bulletin ---------- */
+  .whatsnext-wrap{
+    position:fixed; top:88px; right:16px; width:320px; z-index:800;
+    display:flex; flex-direction:column; gap:.6rem;
   }
-  html.theme-dark .mm-fab{
-    --mm-fab-bg:#0f172a; --mm-fab-fg:#e5e7eb; --mm-fab-brd:#334155;
+  .whatsnext-card{
+    background:var(--wn-bg,#fff); border:1px solid var(--wn-border,#e5e7eb);
+    border-radius:16px; box-shadow:0 8px 22px rgba(0,0,0,.08);
   }
-  /* keep theme button from overlapping the contact FAB when it has to float */
-  #theme-toggle.floating{ right:72px !important; bottom:16px !important; }
+  .whatsnext-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.8rem 1rem .6rem; border-bottom:1px solid var(--wn-border,#e5e7eb);
+  }
+  .whatsnext-title{ font-weight:800; font-size:1.15rem; }
+  .wn-list{ list-style:none; margin:0; padding:1rem; display:flex; flex-direction:column; gap:.75rem; }
+  .wn-item{ background:var(--wn-tile,#fff); border:1px solid var(--wn-border,#e5e7eb);
+           border-radius:12px; padding:.9rem 1rem; }
+  .wn-item h4{ margin:.1rem 0 .25rem; font-size:1.05rem; }
+  .wn-item p{ margin:0; color:var(--wn-muted,#4b5563); }
+  .wn-dot{ display:inline-block; width:7px; height:10px; border-radius:3px; margin-right:.35rem;
+           background:linear-gradient(180deg,#3b82f6,#22c55e); vertical-align:baseline; }
 
-  /* ---------- Contact drawer ---------- */
-  .mm-drawer{
-    position:fixed; top:0; right:0; height:100%; width:380px; max-width:92vw;
-    background:var(--mm-drawer-bg,#fff); color:var(--mm-drawer-fg,#111827);
-    border-left:1px solid var(--mm-drawer-brd,#e5e7eb);
-    box-shadow:-20px 0 40px rgba(0,0,0,.18);
-    transform:translateX(110%); transition:transform .22s ease;
-    z-index:9997; display:flex; flex-direction:column;
-  }
-  html.theme-dark .mm-drawer{
-    --mm-drawer-bg:#0b1220; --mm-drawer-fg:#e5e7eb; --mm-drawer-brd:#1f2937;
-  }
-  .mm-drawer.open{ transform:translateX(0); }
-  .mm-drawer header{ display:flex; justify-content:space-between; align-items:center;
-    padding:.9rem 1rem; border-bottom:1px solid var(--mm-drawer-brd);
-    position:sticky; top:0; background:inherit; z-index:1; }
-  .mm-drawer form{ padding:1rem; display:grid; gap:.75rem; }
-  .mm-drawer label{ font-weight:700; font-size:.92rem; }
-  .mm-drawer input, .mm-drawer textarea{
-    width:100%; border:1px solid var(--mm-drawer-brd); border-radius:10px;
-    padding:.6rem .7rem; background:transparent; color:inherit;
-  }
-  .mm-drawer textarea{ min-height:140px; resize:vertical; }
-  .mm-row{ display:grid; gap:.6rem; }
-  .mm-actions{ display:flex; gap:.6rem; justify-content:flex-end; padding:0 1rem 1rem; }
-  .mm-btn{ border:1px solid #cbd5e1; padding:.45rem .8rem; border-radius:10px; font-weight:800; }
-  .mm-btn--primary{ background:#1992c8; color:#fff; border-color:#1992c8; }
-  html.theme-dark .mm-btn{ border-color:#334155; }
+  /* collapsed state */
+  .whatsnext-card[data-collapsed="true"] .wn-list{ display:none; }
+  .whatsnext-card[data-collapsed="true"] .wn-toggle::after{ content:"Expand"; }
+  .wn-toggle{ border:1px solid #cbd5e1; background:#f8fafc; border-radius:10px; padding:.25rem .6rem; cursor:pointer; }
+  .wn-toggle::after{ content:"Collapse"; }
 
-  /* Mobile bottom sheet behaviour for the drawer */
-  @media (max-width: 640px){
-    .mm-drawer{ width:100%; max-width:none; height:60vh; top:auto; bottom:0;
-      border-left:none; border-top:1px solid var(--mm-drawer-brd); transform:translateY(110%);
-    }
-    .mm-drawer.open{ transform:translateY(0); }
-  }
+  html.theme-dark .whatsnext-card{ --wn-bg:#0b1220; --wn-border:#1f2937; }
+  html.theme-dark .wn-item{ --wn-tile:#0b1220; --wn-border:#1f2937; }
+  html.theme-dark .wn-item p{ --wn-muted:#9ca3af; }
 
-  /* ---------- What's next panel ---------- */
-  .mm-whatsnext{
-    position:fixed; right:16px; top:110px; width:360px; max-width:92vw;
-    z-index:9996; transition:transform .22s ease, opacity .22s ease;
+  /* ---------- Contact FAB + Drawer ---------- */
+  .contact-fab{
+    position:fixed; right:16px; bottom:16px; width:56px; height:56px; border-radius:50%;
+    background:#0ea5e9; color:#fff; display:grid; place-items:center; font-size:22px;
+    box-shadow:0 10px 24px rgba(2,132,199,.35); z-index:950; cursor:pointer;
   }
-  .mm-wn-card{
-    background:var(--mm-wn-bg,#fff); color:var(--mm-wn-fg,#111827);
-    border:1px solid var(--mm-wn-brd,#e5e7eb);
-    border-radius:16px; box-shadow:0 10px 18px rgba(0,0,0,.10);
-    overflow:hidden;
+  .contact-drawer{
+    position:fixed; top:0; right:0; width:360px; max-width:90vw; height:100vh; z-index:940;
+    transform:translateX(100%); transition:transform .22s ease;
+    background:var(--cd-bg,#fff); border-left:1px solid var(--cd-border,#e5e7eb);
+    box-shadow:-12px 0 30px rgba(0,0,0,.18);
+    display:flex; flex-direction:column;
   }
-  html.theme-dark .mm-wn-card{
-    --mm-wn-bg:#0b1220; --mm-wn-fg:#e5e7eb; --mm-wn-brd:#1f2937;
+  .contact-drawer.open{ transform:none; }
+  .cd-head{ display:flex; align-items:center; justify-content:space-between; padding:.9rem 1rem; border-bottom:1px solid var(--cd-border,#e5e7eb); }
+  .cd-body{ padding:1rem; gap:.75rem; display:flex; flex-direction:column; }
+  .cd-body label{ font-weight:700; font-size:.9rem; }
+  .cd-body input,.cd-body textarea{
+    width:100%; border:1px solid var(--cd-field,#cbd5e1); border-radius:10px; padding:.55rem .7rem; font:inherit;
+    background:var(--cd-input-bg,#fff); color:inherit;
   }
-  .mm-wn-head{ display:flex; justify-content:space-between; align-items:center; padding:.8rem 1rem; }
-  .mm-wn-list{ padding:0 1rem 1rem; display:grid; gap:.7rem; }
-  .mm-wn-item{ border:1px solid var(--mm-wn-brd); border-radius:14px; padding:.8rem; background:transparent; }
-  .mm-wn-item h4{ margin:0 0 .25rem; }
-  .mm-wn-meta{ display:flex; gap:.5rem; align-items:center; color:#64748b; font-weight:700; font-size:.86rem; }
-  .mm-wn-tag{ padding:.1rem .5rem; border-radius:999px; border:1px solid var(--mm-wn-brd); }
-  .mm-wn-collapsed{ transform:translateY(-8px); opacity:.0; pointer-events:none; }
-  @media (max-width: 1024px){ .mm-whatsnext{ display:none; } } /* hide on small screens */
+  .cd-body textarea{ min-height:120px; resize:vertical; }
+  .cd-actions{ display:flex; justify-content:flex-end; gap:.5rem; padding:0 1rem 1rem; }
+  .cd-btn{ border:1px solid #cbd5e1; border-radius:10px; padding:.45rem .8rem; background:#f8fafc; cursor:pointer; }
+  .cd-btn--primary{ background:#22c55e; border-color:#22c55e; color:#fff; }
+
+  html.theme-dark .contact-drawer{ --cd-bg:#0b1220; --cd-border:#1f2937; --cd-field:#334155; --cd-input-bg:#0b1220; }
+  @media (max-width: 1024px){
+    .whatsnext-wrap{ position:static; width:auto; margin:1rem 0; }
+  }
 </style>
 
-<!-- Whats next (desktop) -->
-<div class="mm-whatsnext" id="mm-whatsnext">
-  <div class="mm-wn-card">
-    <div class="mm-wn-head">
-      <strong>What’s next</strong>
-      <button class="mm-btn" id="mm-wn-toggle" type="button">Collapse</button>
+<div class="whatsnext-wrap">
+  <div class="whatsnext-card" id="wn-card" data-collapsed="true">
+    <div class="whatsnext-head">
+      <div class="whatsnext-title">What’s next</div>
+      <button type="button" class="wn-toggle" id="wn-toggle"></button>
     </div>
-    <div class="mm-wn-list" id="mm-wn-list">
-      {%- if items and items.size > 0 -%}
-        {%- for it in items -%}
-          <article class="mm-wn-item">
-            <h4>
-              {%- if it.link -%}<a href="{{ it.link }}" target="_blank" rel="noopener">{{ it.title }}</a>
-              {%- else -%}{{ it.title }}{%- endif -%}
-            </h4>
-            {%- if it.desc %}<div style="margin:.25rem 0 .4rem; color:#475569">{{ it.desc }}</div>{% endif -%}
-            <div class="mm-wn-meta">
-              {%- if it.when %}<span>{{ it.when }}</span>{% endif -%}
-              {%- if it.tag %}<span class="mm-wn-tag">{{ it.tag }}</span>{% endif -%}
-            </div>
-          </article>
-        {%- endfor -%}
-      {%- else -%}
-        <article class="mm-wn-item"><em>Add items to <code>_data/whats_next.yml</code>.</em></article>
-      {%- endif -%}
-    </div>
+    <ul class="wn-list">
+      {%- assign items = site.data.whats_next | default: site.data.whatsnext -%}
+      {%- for it in items -%}
+        <li class="wn-item">
+          <h4><span class="wn-dot"></span>
+            {%- if it.link and it.link != "" -%}
+              <a href="{{ it.link }}" target="_blank" rel="noopener">{{ it.title }}</a>
+            {%- else -%}
+              {{ it.title }}
+            {%- endif -%}
+          </h4>
+          {%- if it.desc and it.desc != "" -%}<p>{{ it.desc }}</p>{%- endif -%}
+          {%- if it.when or it.tag -%}
+            <p style="font-size:.85rem; opacity:.8">
+              {%- if it.tag -%}<em>{{ it.tag }}</em>{% if it.when %} • {% endif %}{%- endif -%}
+              {%- if it.when -%}{{ it.when }}{%- endif -%}
+            </p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
   </div>
 </div>
 
-<!-- Contact FAB (bottom-right) -->
-<button class="mm-fab" id="mm-contact-fab" aria-label="Contact form" title="Contact me">✉️</button>
-
-<!-- Drawer -->
-<aside class="mm-drawer" id="mm-contact-drawer" aria-hidden="true">
-  <header>
-    <strong>Say hi</strong>
-    <button class="mm-btn" id="mm-contact-close" type="button">Close</button>
-  </header>
-
-  <!-- Formspree form -->
-  <form action="https://formspree.io/f/mwpydbpb" method="POST">
-    <div class="mm-row">
-      <label for="mm-name">Name</label>
-      <input id="mm-name" name="name" type="text" autocomplete="name" required />
+<button class="contact-fab" id="contact-fab" aria-label="Open contact">✉️</button>
+<div class="contact-drawer" id="contact-drawer" aria-hidden="true">
+  <div class="cd-head">
+    <strong>Say hello</strong>
+    <button class="cd-btn" id="cd-close" aria-label="Close">Close</button>
+  </div>
+  <form class="cd-body" action="https://formspree.io/f/mwpydbpb" method="POST">
+    <label for="cd-name">Name</label>
+    <input id="cd-name" name="name" type="text" autocomplete="name" />
+    <label for="cd-email">Email</label>
+    <input id="cd-email" name="email" type="email" autocomplete="email" required />
+    <label for="cd-subj">Subject</label>
+    <input id="cd-subj" name="subject" type="text" />
+    <label for="cd-msg">Message</label>
+    <textarea id="cd-msg" name="message" required></textarea>
+    <div class="cd-actions">
+      <button type="button" class="cd-btn" id="cd-cancel">Cancel</button>
+      <button type="submit" class="cd-btn cd-btn--primary">Send</button>
     </div>
-    <div class="mm-row">
-      <label for="mm-email">Email</label>
-      <input id="mm-email" name="email" type="email" autocomplete="email" required />
-    </div>
-    <div class="mm-row">
-      <label for="mm-subject">Subject</label>
-      <input id="mm-subject" name="subject" type="text" />
-    </div>
-    <div class="mm-row">
-      <label for="mm-message">Message</label>
-      <textarea id="mm-message" name="message" placeholder="Ideas, collab, or any question…"></textarea>
-    </div>
-    <div class="mm-actions">
-      <button class="mm-btn" type="button" id="mm-contact-cancel">Cancel</button>
-      <button class="mm-btn mm-btn--primary" type="submit">Send</button>
-    </div>
-    <!-- Optional spam honeypot -->
-    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
   </form>
-</aside>
+</div>
 
 <script>
 (function(){
-  // ---------- Contact drawer ----------
-  const fab   = document.getElementById('mm-contact-fab');
-  const panel = document.getElementById('mm-contact-drawer');
-  const closeBtn = document.getElementById('mm-contact-close');
-  const cancelBtn= document.getElementById('mm-contact-cancel');
-
-  function openDrawer(){ panel.classList.add('open'); panel.setAttribute('aria-hidden','false'); }
-  function closeDrawer(){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
-
-  fab?.addEventListener('click', openDrawer);
-  closeBtn?.addEventListener('click', closeDrawer);
-  cancelBtn?.addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeDrawer(); });
-
-  // ---------- What's next ----------
-  const wn = document.getElementById('mm-whatsnext');
-  const wnList = document.getElementById('mm-wn-list');
-  const toggle = document.getElementById('mm-wn-toggle');
-  const LS_KEY = 'mm_wn_collapsed';
-
-  function setCollapsed(collapsed){
-    if(!wn) return;
-    if(collapsed){ wn.classList.add('mm-wn-collapsed'); toggle.textContent='Expand'; }
-    else{ wn.classList.remove('mm-wn-collapsed'); toggle.textContent='Collapse'; }
-    try{ localStorage.setItem(LS_KEY, collapsed ? '1' : '0'); }catch(e){}
+  /* “What’s next” collapse */
+  var card = document.getElementById('wn-card');
+  var tog  = document.getElementById('wn-toggle');
+  if (card && tog){
+    tog.addEventListener('click', function(){
+      var c = card.getAttribute('data-collapsed') === 'true';
+      card.setAttribute('data-collapsed', c ? 'false' : 'true');
+      try { localStorage.setItem('wn-collapsed', card.getAttribute('data-collapsed')); } catch(e){}
+    });
+    try {
+      var saved = localStorage.getItem('wn-collapsed');
+      if (saved) card.setAttribute('data-collapsed', saved);
+    } catch(e){}
   }
-  toggle?.addEventListener('click', ()=>{
-    const now = wn.classList.contains('mm-wn-collapsed'); // invert
-    setCollapsed(!now);
-  });
 
-  // Default: collapsed unless user expanded it before
-  let collapsedDefault = true;
-  try{
-    const saved = localStorage.getItem(LS_KEY);
-    if(saved === null) setCollapsed(collapsedDefault);
-    else setCollapsed(saved === '1');
-  }catch(e){ setCollapsed(collapsedDefault); }
+  /* Contact drawer */
+  var fab   = document.getElementById('contact-fab');
+  var draw  = document.getElementById('contact-drawer');
+  var close = document.getElementById('cd-close');
+  var cancel= document.getElementById('cd-cancel');
+  function open(){ draw.classList.add('open'); draw.setAttribute('aria-hidden','false'); }
+  function shut(){ draw.classList.remove('open'); draw.setAttribute('aria-hidden','true'); }
+  if (fab) fab.addEventListener('click', open);
+  [close,cancel].forEach(function(b){ if (b) b.addEventListener('click', shut); });
 })();
 </script>
