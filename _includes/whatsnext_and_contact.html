@@ -7,8 +7,12 @@
     --wnx-sub:#475569;
     --wnx-line:#e5e7eb;
     --wnx-card:#ffffff;
-    --wnx-badge:#0ea5e9;
     --wnx-shadow:0 10px 30px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
+
+    --badgeA:#60a5fa; /* blue */
+    --badgeB:#22c55e; /* green */
+    --badgeC:#f59e0b; /* amber */
+    --badgeD:#a78bfa; /* violet */
 
     --fab-bg:#10b981;
     --fab-fg:#ffffff;
@@ -20,7 +24,6 @@
     --wnx-sub:#94a3b8;
     --wnx-line:#1f2a44;
     --wnx-card:#0f172a;
-    --wnx-badge:#38bdf8;
     --wnx-shadow:0 12px 32px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.25);
 
     --fab-bg:#0ea5e9;
@@ -31,7 +34,7 @@
   /* ---------- WHAT’S NEXT RAIL ---------- */
   .wnx-rail{
     position: fixed;
-    top: 110px; /* clear the masthead */
+    top: 110px;              /* clear the masthead */
     right: 0;
     width: 320px;
     max-height: calc(100vh - 140px);
@@ -44,30 +47,10 @@
     border-top-left-radius: 14px;
     border-bottom-left-radius: 14px;
     z-index: 9996;
-    transform: translateX(100%);     /* collapsed by default */
+    transform: translateX(100%);    /* collapsed by default */
     transition: transform .18s ease;
   }
   .wnx-rail.open{ transform: translateX(0); }
-
-  /* Small “tab” opener visible when rail is collapsed */
-  .wnx-tab{
-    position: fixed;
-    top: 140px;
-    right: 0;
-    transform: translateX(0);
-    background: var(--wnx-bg);
-    color: var(--wnx-fg);
-    border: 1px solid var(--wnx-line);
-    border-right: none;
-    padding: .45rem .6rem;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    box-shadow: var(--wnx-shadow);
-    cursor: pointer;
-    z-index: 9995;
-    font-weight: 800;
-  }
-  .wnx-rail.open + .wnx-tab{ display: none; }
 
   .wnx-header{
     display:flex; align-items:center; justify-content:space-between;
@@ -77,36 +60,40 @@
     border:1px solid var(--wnx-line); background:transparent; color:var(--wnx-fg);
     padding:.25rem .55rem; border-radius:999px; cursor:pointer; font-weight:700;
   }
+
   .wnx-list{ display:grid; gap:12px; }
   .wnx-card{
     background: var(--wnx-card);
+    color: var(--wnx-fg);
     border:1px solid var(--wnx-line);
     border-radius:14px;
     box-shadow: var(--wnx-shadow);
     padding:12px 14px;
-    /* Force card text colors in light mode (some themes override) */
-    color: var(--wnx-fg) !important;
   }
-  /* And force descendants to inherit the intended colors */
-  .wnx-card * { color: inherit !important; }
-  .wnx-title{ font-weight:900; margin:0 0 4px; }
-  .wnx-meta{ color:var(--wnx-sub) !important; font-weight:600; font-size:.95rem; }
+  .wnx-title{ font-weight:900; margin:0 0 4px; display:flex; gap:.55rem; align-items:flex-start; }
+  .wnx-meta{ color:var(--wnx-sub); font-weight:600; font-size:.95rem; }
 
+  /* ★ bring back the tall accent “bullet” */
   .wnx-dot{
-    display:inline-block; width:6px; height:6px; border-radius:999px;
-    background: var(--wnx-badge); margin-right:.4rem;
+    flex:0 0 auto;
+    width: 4px;
+    height: 16px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--badgeA), var(--badgeD));
+    box-shadow: 0 0 0 2px rgba(96,165,250,.12);
+    margin-top: 2px;
   }
 
   /* ---------- FAB (contact) ---------- */
   .contact-fab{
     position: fixed;
-    right: 16px;                /* theme toggle floats at ~88px; we’re clear */
+    right: 16px;              /* FAB at 16px */
     bottom: 16px;
     width: 56px; height: 56px; border-radius:999px;
     display:grid; place-items:center;
     background: var(--fab-bg); color: var(--fab-fg);
     box-shadow: var(--fab-shadow);
-    cursor:pointer; z-index: 9998;
+    cursor:pointer; z-index: 9998;  /* sits ABOVE the theme toggle */
   }
   .contact-fab svg{ width:26px; height:26px; }
 
@@ -151,7 +138,6 @@
       transform: translateY(100%);    /* collapsed by default */
     }
     .wnx-rail.open{ transform: translateY(0); }
-    .wnx-tab{ display:none; } /* bottom sheet shows a pull-up; no side tab */
   }
 </style>
 
@@ -166,19 +152,14 @@
       {% for it in feed %}
         <div class="wnx-card">
           <div class="wnx-title">
-            <span class="wnx-dot"></span>
-            {% if it.link %}
-              <a href="{{ it.link }}" target="_blank" rel="noopener" style="text-decoration:none;">{{ it.title }}</a>
-            {% else %}
-              {{ it.title }}
-            {% endif %}
+            <span class="wnx-dot" aria-hidden="true"></span>
+            {% if it.link %}<a href="{{ it.link }}" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">{{ it.title }}</a>
+            {% else %}{{ it.title }}{% endif %}
           </div>
           <div class="wnx-meta">
             {{ it.tag | default: "" }}{% if it.when %} • {{ it.when }}{% endif %}
           </div>
-          {% if it.desc and it.desc != "" %}
-            <div class="wnx-text" style="margin-top:6px; color:var(--wnx-sub) !important;">{{ it.desc }}</div>
-          {% endif %}
+          {% if it.desc and it.desc != "" %}<div class="wnx-text" style="margin-top:6px; color:var(--wnx-sub);">{{ it.desc }}</div>{% endif %}
         </div>
       {% endfor %}
     {% else %}
@@ -186,10 +167,10 @@
     {% endif %}
   </div>
 </div>
-<button id="wnxTab" class="wnx-tab" aria-label="Open What's next">What’s next</button>
 
 <!-- Contact FAB and drawer -->
 <button class="contact-fab" id="contactFab" aria-label="Contact">
+  <!-- envelope + moon (just a fun accent) -->
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
   </svg>
@@ -226,23 +207,20 @@
 
 <script>
 (function(){
-  /* --- What's next: collapsed by default, with memory; plus a side tab --- */
+  /* --- What's next: collapsed by default (desktop remembers last state) --- */
   const rail = document.getElementById('wnx');
   const btn  = document.getElementById('wnxToggleBtn');
-  const tab  = document.getElementById('wnxTab');
-  const LS_K = 'wnx-open';
-  const saved = (function(){ try { return localStorage.getItem(LS_K) === '1'; } catch(e){ return false; } })();
+  const KEY  = 'wnx-open';
+  let saved = false;
+  try { saved = localStorage.getItem(KEY) === '1'; } catch(e){}
 
   function setOpen(v){
     rail.classList.toggle('open', !!v);
-    btn.textContent = v ? 'Collapse' : 'Collapse'; // text stays "Collapse" when open; tab shows when closed
-    try { localStorage.setItem(LS_K, v ? '1' : '0'); } catch(e){}
+    btn.textContent = v ? 'Collapse' : 'Expand';
+    try { localStorage.setItem(KEY, v ? '1' : '0'); } catch(e){}
   }
-  // Desktop: honor saved state; Mobile: start collapsed
   setOpen(saved && window.innerWidth > 980);
-
-  btn.addEventListener('click', ()=> setOpen(false));
-  tab.addEventListener('click', ()=> setOpen(true));
+  btn.addEventListener('click', ()=> setOpen(!rail.classList.contains('open')));
 
   /* --- Contact FAB + drawer --- */
   const fab     = document.getElementById('contactFab');
@@ -250,11 +228,8 @@
   const close   = document.getElementById('contactClose');
   const cancel  = document.getElementById('contactCancel');
 
-  function openDrawer(){ drawer.classList.add('open'); }
-  function closeDrawer(){ drawer.classList.remove('open'); }
-
-  fab.addEventListener('click', openDrawer);
-  close.addEventListener('click', closeDrawer);
-  cancel.addEventListener('click', closeDrawer);
+  fab.addEventListener('click', ()=> drawer.classList.add('open'));
+  close.addEventListener('click', ()=> drawer.classList.remove('open'));
+  cancel.addEventListener('click', ()=> drawer.classList.remove('open'));
 })();
 </script>
