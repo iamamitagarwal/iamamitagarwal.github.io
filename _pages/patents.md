@@ -18,7 +18,7 @@ Collect unique tags from all patents. Handles tags as arrays OR strings
 (single or comma/space separated).
 {%- endcomment -%}
 {% assign pats = site.patents | sort: "year" | reverse %}
-{% assign pat_tags = "" | split: "" %}
+{% assign tags = "" | split: "" %}
 {% for p in pats %}
   {% if p.tags %}
     {% capture joined %}{{ p.tags | join: ' ' }}{% endcapture %}
@@ -29,17 +29,17 @@ Collect unique tags from all patents. Handles tags as arrays OR strings
     {% assign tlist = tag_source | replace: ',', ' ' | split: ' ' %}
     {% for t in tlist %}
       {% assign tclean = t | strip %}
-      {% if tclean != "" and not pat_tags contains tclean %}
-        {% assign pat_tags = pat_tags | push: tclean %}
+      {% if tclean != "" and not tags contains tclean %}
+        {% assign tags = tags | push: tclean %}
       {% endif %}
     {% endfor %}
   {% endif %}
 {% endfor %}
-{% assign pat_tags = pat_tags | sort %}
+{% assign tags = tags | sort %}
 
 <div id="pat-filters" style="margin:.5rem 0 1rem 0;">
   <button class="btn btn--primary" data-tag="all">All</button>
-  {% for t in pat_tags %}
+  {% for t in tags %}
     <button class="btn" data-tag="{{ t }}">{{ t }}</button>
   {% endfor %}
 </div>
