@@ -1,35 +1,23 @@
-{%- comment -%} Theme toggle + widgets injected site-wide {%- endcomment -%}
+{%- comment -%} Theme toggle + site-wide widgets {%- endcomment -%}
 <style>
-  /* If the toggle has to float (before we attach it into the masthead),
-     offset it so it never overlaps the contact FAB. */
+  /* If we must float the theme toggle (before we can insert it in the masthead),
+     keep it away from the contact FAB. */
   #theme-toggle.floating{
-    position:fixed; right:72px; bottom:16px; z-index:9999;
+    position:fixed; right:88px; bottom:18px; z-index:9999;
     border:1px solid var(--mm-toggle-border, #cbd5e1);
     background:var(--mm-toggle-bg, #fff);
     color:var(--mm-toggle-fg, #111827);
-    border-radius:999px; padding:.45rem .6rem;
+    border-radius:999px; padding:.45rem .6rem; line-height:1;
     box-shadow:0 6px 16px rgba(0,0,0,.12); cursor:pointer;
   }
   html.theme-dark #theme-toggle.floating{
     --mm-toggle-bg:#0f172a; --mm-toggle-fg:#e5e7eb; --mm-toggle-border:#334155;
   }
-
-   /* Offset floating theme toggle so it doesn't overlap the contact FAB */
-  #theme-toggle.floating{
-    right: 76px !important;   /* FAB is at 16px; give it ~60px space */
-    bottom: 16px !important;
-    z-index: 9999;
-  }
-  
-  /* When inserted into the masthead, inherit nav look */
+  /* When placed inside the masthead */
   .masthead .greedy-nav #theme-toggle{
     border:1px solid transparent; background:transparent; color:currentColor;
-    border-radius:999px; padding:.25rem .4rem; margin-left:.35rem; line-height:1;
+    border-radius:999px; padding:.25rem .45rem; margin-left:.4rem; line-height:1;
     cursor:pointer;
-  }
-  .masthead .greedy-nav .hidden-links #theme-toggle,
-  .masthead .greedy-nav .visible-links #theme-toggle{
-    padding:.5rem .6rem;
   }
 </style>
 
@@ -53,22 +41,26 @@
     setIcon();
   });
 
-  /* 3) Try to place in masthead (next to search); otherwise float */
+  /* 3) Try hard to place in the masthead (next to search); otherwise float */
   function tryPlace(){
     var greedy = document.querySelector('.masthead .greedy-nav');
     if (!greedy) return false;
-    var anchor = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
-    if (anchor && anchor.parentNode){ anchor.parentNode.insertBefore(btn, anchor.nextSibling); return true; }
-    var vis = greedy.querySelector('.visible-links'); if (vis){ vis.appendChild(btn); return true; }
-    greedy.appendChild(btn); return true;
+    var anchor = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search') || greedy.querySelector('.visible-links');
+    if (!anchor) { greedy.appendChild(btn); return true; }
+    anchor.parentNode.insertBefore(btn, anchor.nextSibling);
+    btn.classList.remove('floating');
+    return true;
   }
+
   if (!tryPlace()){
     btn.classList.add('floating');
     document.body.appendChild(btn);
-    window.addEventListener('load', function(){ if (tryPlace()) btn.classList.remove('floating'); });
+    // Try again after DOM loaded and if the masthead mutates
+    window.addEventListener('load', tryPlace, { once:true });
+    new MutationObserver(tryPlace).observe(document.body, { childList:true, subtree:true });
   }
 })();
 </script>
 
-{%- comment -%} The site-wide widgets (What’s next + Contact) {%- endcomment -%}
+{%- comment -%} Inject the “What’s next” rail + Contact FAB across the site {%- endcomment -%}
 {% include whatsnext_and_contact.html %}
