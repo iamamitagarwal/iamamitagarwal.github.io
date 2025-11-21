@@ -2,7 +2,7 @@
 layout: paper
 title: 'FS-DAG: Few shot domain adapting graph networks for visually rich document
   understanding'
-authors: '**Agarwal, Amit**; Panda, Srikant; Pachauri, Kulbhushan; '
+authors: 'Agarwal, Amit; Panda, Srikant; Pachauri, Kulbhushan; '
 year: 2025
 venue: arXiv
 tags:
