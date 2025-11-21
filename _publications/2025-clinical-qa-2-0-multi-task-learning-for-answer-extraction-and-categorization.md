@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: 'Clinical qa 2.0: Multi-task learning for answer extraction and categorization'
-authors: 'Pattnayak, Priyaranjan; Patel, Hitesh Laxmichand; **Agarwal, Amit**; Kumar,
+authors: 'Pattnayak, Priyaranjan; Patel, Hitesh Laxmichand; Agarwal, Amit; Kumar,
   Bhargava; Panda, Srikant; Kumar, Tejaswini; '
 year: 2025
 venue: arXiv
