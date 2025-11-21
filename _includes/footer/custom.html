@@ -1,11 +1,11 @@
 {%- comment -%} Theme toggle + widgets injected site-wide {%- endcomment -%}
 <style>
-  /* When the toggle has to float, keep it clear of the contact FAB */
+  /* When the toggle has to float, offset it away from the FAB (which sits at 16px) */
   #theme-toggle.floating{
     position:fixed;
-    right: 88px !important;   /* <-- move a bit further right than before */
+    right:88px !important;     /* ← key change: stay ~72px left of FAB */
     bottom:16px !important;
-    z-index:9999;
+    z-index:9996;               /* below the FAB (9998) */
     border:1px solid var(--mm-toggle-border, #cbd5e1);
     background:var(--mm-toggle-bg, #fff);
     color:var(--mm-toggle-fg, #111827);
@@ -15,43 +15,36 @@
   html.theme-dark #theme-toggle.floating{
     --mm-toggle-bg:#0f172a; --mm-toggle-fg:#e5e7eb; --mm-toggle-border:#334155;
   }
-
-  /* When inserted into the masthead, inherit nav look */
+  /* When inserted into the masthead, just look like a nav icon */
   .masthead .greedy-nav #theme-toggle{
     border:1px solid transparent; background:transparent; color:currentColor;
-    border-radius:999px; padding:.25rem .4rem; margin-left:.35rem; line-height:1;
-    cursor:pointer;
+    border-radius:999px; padding:.25rem .4rem; margin-left:.35rem; line-height:1; cursor:pointer;
   }
   .masthead .greedy-nav .hidden-links #theme-toggle,
-  .masthead .greedy-nav .visible-links #theme-toggle{
-    padding:.5rem .6rem;
-  }
+  .masthead .greedy-nav .visible-links #theme-toggle{ padding:.5rem .6rem; }
 </style>
 
 <script>
 (function(){
+  /* 1) Apply saved theme ASAP */
   try {
     var saved = localStorage.getItem('theme');
     if (saved === 'dark') document.documentElement.classList.add('theme-dark');
   } catch(e){}
 
-  var existing = document.getElementById('theme-toggle');
-  var btn = existing || document.createElement('button');
-  btn.id = 'theme-toggle';
-  btn.type = 'button';
-  btn.setAttribute('aria-label','Toggle theme');
-  btn.setAttribute('title','Toggle theme');
-  function setIcon(){
-    btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙';
-  }
+  /* 2) Create / reuse toggle button */
+  var btn = document.getElementById('theme-toggle') || document.createElement('button');
+  btn.id='theme-toggle'; btn.type='button';
+  btn.setAttribute('aria-label','Toggle theme'); btn.setAttribute('title','Toggle theme');
+  function setIcon(){ btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙'; }
   setIcon();
-
   btn.addEventListener('click', function(){
     var dark = document.documentElement.classList.toggle('theme-dark');
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
     setIcon();
   });
 
+  /* 3) Try to place in masthead (next to search); otherwise float */
   function tryPlace(){
     var greedy = document.querySelector('.masthead .greedy-nav');
     if (!greedy) return false;
@@ -60,7 +53,6 @@
     var vis = greedy.querySelector('.visible-links'); if (vis){ vis.appendChild(btn); return true; }
     greedy.appendChild(btn); return true;
   }
-
   if (!tryPlace()){
     btn.classList.add('floating');
     document.body.appendChild(btn);
@@ -69,4 +61,5 @@
 })();
 </script>
 
+{%- comment -%} Site-wide widgets (What’s next + Contact) {%- endcomment -%}
 {% include whatsnext_and_contact.html %}
