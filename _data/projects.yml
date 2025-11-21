@@ -9,7 +9,7 @@
     - "Regression-proofed ranking/retrieval with measurable quality bars and alerts."
     - "Reduced serving cost ~20–30% via ranking/latency trade‑offs without quality loss."
   links:
-    - { label: "Notes", url: "https://aclanthology.org/2025.emnlp-main.1653/" }
+    - { label: "Notes", url: "https://substack.com/@reachsumit/p-164776541" }
 
 - title: "Accesseval — Benchmarking disability bias in LLMs"
   company: "Oracle Cloud Infrastructure"
@@ -20,7 +20,7 @@
     - "Built bias measurement slices and procedures; drove Best Paper – Social Impact at EMNLP 2025."
     - "Open, extensible task templates for continuous fairness monitoring."
   links:
-    - { label: "Publication", url: "https://aclanthology.org/" }
+    - { label: "Publication", url: "https://aclanthology.org/2025.emnlp-main.1653/" }
 
 - title: "LLM Retrieval + Ranking Optimization"
   company: "Oracle Cloud Infrastructure"
