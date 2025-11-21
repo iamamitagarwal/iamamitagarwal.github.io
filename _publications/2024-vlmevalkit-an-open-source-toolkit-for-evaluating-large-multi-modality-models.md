@@ -2,7 +2,7 @@
 layout: paper
 title: 'Vlmevalkit: An open-source toolkit for evaluating large multi-modality models'
 authors: 'Duan, Haodong; Yang, Junming; Qiao, Yuxuan; Fang, Xinyu; Chen, Lin; Liu,
-  Yuan; Dong, Xiaoyi; Zang, Yuhang; Zhang, Pan; Wang, Jiaqi; '
+  Yuan; Dong, Xiaoyi; Zang, Yuhang; Zhang, Pan; Wang, Jiaqi; Agarwal, Amit;'
 year: 2024
 venue: ACM
 tags:
