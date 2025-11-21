@@ -73,7 +73,12 @@ Works whether `tags` is an array or a string (comma/space separated).
 
         <li class="pat-item" data-tags="{{ tags_attr }}">
           <strong>{{ p.title }}</strong><br/>
-          <em>{{ p.inventors }}</em>{% if p.assignee %}. {{ p.assignee }}{% endif %}{% if p.status %} — {{ p.status }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
+          {% assign inv_str = p.inventors | default: "" %}
+          {% assign inv_html = inv_str | markdownify | remove: '<p>' | remove: '</p>' %}
+          {% assign inv_hl = inv_html
+            | replace: "<strong>Agarwal, Amit</strong>", "<span class='author-me'>Agarwal, Amit</span>"
+            | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>" %}
+          <em>{{ inv_hl }}</em>{% if p.assignee %}. {{ p.assignee }}{% endif %}{% if p.status %} — {{ p.status }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
           {% assign main_link = p.uspto_url | default: p.google_patents_url | default: p.google_patent_url | default: p.patent_url | default: p.url %}
           <div class="link-pills">
             {% if main_link %}
