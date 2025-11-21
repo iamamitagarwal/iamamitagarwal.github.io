@@ -2,8 +2,8 @@
 layout: paper
 title: 'FlexDoc: Parameterized Sampling for Diverse Multilingual Synthetic Documents
   for Training Document Understanding Models'
-authors: 'Dua, Karan; Patel, Hitesh Laxmichand; Mittal, Puneet; Gupta, Ranjeet; **Agarwal,
-  Amit**; Pabolu, Praneet; Panda, Srikant; Meghwani, Hansa; Horwood, Graham; Shah,
+authors: 'Dua, Karan; Patel, Hitesh Laxmichand; Mittal, Puneet; Gupta, Ranjeet; Agarwal,
+  Amit; Pabolu, Praneet; Panda, Srikant; Meghwani, Hansa; Horwood, Graham; Shah,
   Fahad; '
 year: 2025
 venue: EMNLP
