@@ -172,6 +172,36 @@
   html.theme-dark .pub-item:hover, html.theme-dark .pat-item:hover{ background:#0b1220; }
 </style>
 
+<style>
+  /* Dark-mode fixes for the mobile nav (greedy-nav hidden links) */
+  html.theme-dark .greedy-nav .hidden-links{
+    background:#0b1220;                /* dark panel */
+    border:1px solid #374151;          /* subtle border */
+    box-shadow:0 12px 24px rgba(0,0,0,.35);
+  }
+  html.theme-dark .greedy-nav .hidden-links:before{ /* little caret */
+    border-color:transparent transparent #374151 transparent;
+  }
+  html.theme-dark .greedy-nav .hidden-links li{
+    border-color:#374151;              /* item separators */
+  }
+  html.theme-dark .greedy-nav .hidden-links a{
+    color:#e5e7eb !important;          /* readable links */
+  }
+  html.theme-dark .greedy-nav .hidden-links a:hover{
+    background:#1f2937;
+    color:#fff !important;
+  }
+  
+  /* Make the toggle and visible links readable too */
+  html.theme-dark .greedy-nav__toggle,
+  html.theme-dark .greedy-nav a,
+  html.theme-dark .masthead a.site-title {
+    color:#e5e7eb;
+  }
+  html.theme-dark .greedy-nav__toggle:hover{ background:#1f2937; }
+</style>
+
 <script>
 /* Solid sticky masthead with shadow after scroll */
 (function(){
