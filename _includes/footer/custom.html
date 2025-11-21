@@ -1,300 +1,54 @@
-{%- comment -%} ============================================================
-Site-wide widgets:
-- Theme toggle (stays in masthead; falls back to floating)
-- Right-side "What's next" bulletin (collapsible on mobile)
-- Floating "Message me" button + modal (Formspree submission)
-Minimal Mistakes loads this file on every page.
-================================================================ {%- endcomment -%}
-
+{%- comment -%} Theme toggle + widgets injected site-wide {%- endcomment -%}
 <style>
-  /* ---------- Design tokens (light/dark aware) ---------- */
-  :root{
-    --wnx-bg:#ffffff; --wnx-fg:#0b1320; --wnx-sub:#64748b;
-    --wnx-card:#ffffff; --wnx-ring:#e5e7eb; --wnx-shadow:0 10px 24px rgba(0,0,0,.12);
-    --wnx-accent:#2d8fa2; --wnx-accent-2:#7c62ff;
-    --fab-bg:#0f172a; --fab-fg:#e5e7eb;
-    --modal-backdrop:rgba(0,0,0,.45);
-  }
-  html.theme-dark{
-    --wnx-bg:#0b1220; --wnx-fg:#e6eefb; --wnx-sub:#93a2b8;
-    --wnx-card:#0f172a; --wnx-ring:#1f2937; --wnx-shadow:0 10px 24px rgba(0,0,0,.35);
-    --fab-bg:#111827; --fab-fg:#e5e7eb;
-  }
-
-  /* ---------- Theme toggle (your button) ---------- */
-  #theme-toggle.floating {
-    position: fixed; right: 16px; bottom: 16px; z-index: 9998;
-    border: 1px solid var(--mm-toggle-border, #cbd5e1);
-    background: var(--mm-toggle-bg, #fff); color: var(--mm-toggle-fg, #111827);
-    border-radius: 999px; padding: .45rem .6rem; box-shadow: 0 6px 16px rgba(0,0,0,.12);
-    cursor: pointer;
-  }
-  html.theme-dark #theme-toggle.floating{
-    --mm-toggle-bg:#0f172a; --mm-toggle-fg:#e5e7eb; --mm-toggle-border:#334155;
-  }
-  .greedy-nav #theme-toggle{
-    border:1px solid transparent; background:transparent; color:currentColor;
-    border-radius:999px; padding:.25rem .4rem; margin-left:.35rem; line-height:1; cursor:pointer;
-  }
-  .visible-links #theme-toggle, .hidden-links #theme-toggle{ padding:.5rem .6rem; }
-
-  /* ---------- What's next bulletin ---------- */
-  .wnx-wrap{
-    position: fixed; top: 96px; right: 20px; z-index: 9997;
-    width: 320px; max-width: calc(100vw - 40px);
-  }
-  .wnx-card{
-    background: var(--wnx-card); color: var(--wnx-fg);
-    border:1px solid var(--wnx-ring); border-radius:16px; box-shadow: var(--wnx-shadow);
-    overflow:hidden;
-  }
-  .wnx-head{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:.8rem 1rem; border-bottom:1px solid var(--wnx-ring);
-    background: linear-gradient(90deg, rgba(45,143,162,.08), rgba(124,98,255,.08));
-  }
-  .wnx-title{ font-weight:900; font-size:1rem; letter-spacing:.01em; }
-  .wnx-toggle{
-    border:1px solid var(--wnx-ring); background:transparent; color:var(--wnx-fg);
-    border-radius:10px; padding:.25rem .55rem; cursor:pointer;
-  }
-  .wnx-body{ padding:.75rem .9rem; max-height: 60vh; overflow:auto; }
-  .wnx-item{
-    display:flex; gap:.6rem; padding:.55rem .4rem; border-radius:12px; border:1px solid var(--wnx-ring);
-    margin:.4rem 0; align-items:flex-start; background:var(--wnx-bg);
-  }
-  .wnx-dot{ width:8px; height:8px; border-radius:999px; margin-top:.4rem;
-    background:linear-gradient(135deg, var(--wnx-accent), var(--wnx-accent-2));
-    box-shadow:0 0 0 3px rgba(45,143,162,.15);
-  }
-  .wnx-item h5{ margin:.05rem 0; font-weight:800; }
-  .wnx-sub{ color:var(--wnx-sub); font-size:.92rem; }
-  .wnx-item a{ font-weight:800; color:var(--wnx-accent); text-decoration:none; }
-  .wnx-item a:hover{ text-decoration:underline; }
-
-  /* collapse on mobile */
-  @media (max-width: 980px){
-    .wnx-wrap{ position:fixed; right:12px; left:12px; bottom:84px; top:auto; width:auto; }
-  }
-
-  /* ---------- Floating contact button ---------- */
-  .contact-fab{
-    position:fixed; right:16px; bottom:16px; z-index:9999;
-    width:56px; height:56px; border-radius:999px; border:none; cursor:pointer;
-    background:linear-gradient(135deg,var(--wnx-accent),var(--wnx-accent-2)); color:#fff;
-    box-shadow: 0 12px 24px rgba(0,0,0,.25);
-    display:grid; place-items:center; font-size:22px;
-  }
-  .contact-fab:hover{ transform: translateY(-1px); }
-
-  /* ---------- Modal ---------- */
-  .modal-backdrop{
-    position:fixed; inset:0; background:var(--modal-backdrop); z-index:9998; display:none;
-  }
-  .modal{
-    position:fixed; inset:0; display:none; z-index:9999;
-    align-items:center; justify-content:center; padding:16px;
-  }
-  .modal.show, .modal-backdrop.show{ display:flex; }
-  .modal-card{
-    width:min(680px, 96vw); background:var(--wnx-card); color:var(--wnx-fg);
-    border:1px solid var(--wnx-ring); border-radius:16px; box-shadow:var(--wnx-shadow);
-    overflow:hidden;
-  }
-  .modal-head{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:.9rem 1rem; border-bottom:1px solid var(--wnx-ring);
-    background: linear-gradient(90deg, rgba(45,143,162,.08), rgba(124,98,255,.08));
-  }
-  .modal-title{ font-weight:900; font-size:1.05rem; }
-  .modal-close{
-    border:1px solid var(--wnx-ring); background:transparent; color:var(--wnx-fg);
-    border-radius:10px; padding:.25rem .55rem; cursor:pointer;
-  }
-  .modal-body{ padding:1rem; }
-  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
-  .form-grid .full{ grid-column:1 / -1; }
-  .form-grid label{ display:block; font-weight:700; margin-bottom:.25rem; }
-  .form-grid input, .form-grid textarea{
-    width:100%; border:1px solid var(--wnx-ring); background:var(--wnx-bg); color:var(--wnx-fg);
-    border-radius:10px; padding:.6rem .7rem;
-  }
-  .form-actions{ display:flex; gap:.5rem; justify-content:flex-end; margin-top:.6rem; }
-  .btn{
-    display:inline-flex; align-items:center; gap:.4rem; border-radius:999px; cursor:pointer;
-    border:1px solid var(--wnx-ring); background:var(--wnx-bg); color:var(--wnx-fg); padding:.45rem .9rem; font-weight:800;
-  }
-  .btn-primary{ border-color:transparent; background:linear-gradient(135deg,var(--wnx-accent),var(--wnx-accent-2)); color:#fff; }
-  @media (max-width:680px){ .form-grid{ grid-template-columns:1fr; } }
+  /* (kept) If toggle has to float, offset it so it doesn't sit on top of the contact FAB */
+  #theme-toggle.floating{ right:72px !important; bottom:16px !important; z-index:9999; }
 </style>
-
-<div id="wnx" class="wnx-wrap" aria-live="polite">
-  <div class="wnx-card" role="complementary" aria-label="What's next">
-    <div class="wnx-head">
-      <div class="wnx-title">What's next</div>
-      <button class="wnx-toggle" type="button" aria-expanded="true" aria-controls="wnx-body">Collapse</button>
-    </div>
-    <div id="wnx-body" class="wnx-body">
-      {%- comment -%}
-      If you create _data/whatsnext.yml as a list of
-        - title: …
-          desc: …
-          link: …
-      we’ll render it; else show the defaults below.
-      {%- endcomment -%}
-      {%- if site.data.whatsnext and site.data.whatsnext.size > 0 -%}
-        {%- for it in site.data.whatsnext -%}
-          <div class="wnx-item">
-            <div class="wnx-dot" aria-hidden="true"></div>
-            <div>
-              <h5>{{ it.title }}</h5>
-              {%- if it.desc %}<div class="wnx-sub">{{ it.desc }}</div>{% endif -%}
-              {%- if it.link %}<a href="{{ it.link }}" target="_blank" rel="noopener">Details →</a>{% endif -%}
-            </div>
-          </div>
-        {%- endfor -%}
-      {%- else -%}
-        <div class="wnx-item">
-          <div class="wnx-dot"></div>
-          <div>
-            <h5>Releasing AlignMMBench update</h5>
-            <div class="wnx-sub">Adding harder multimodal alignment tasks and CritiqueVLM tuning notes.</div>
-          </div>
-        </div>
-        <div class="wnx-item">
-          <div class="wnx-dot"></div>
-          <div>
-            <h5>Talk: Evaluation-first GenAI at scale</h5>
-            <div class="wnx-sub">Internal OCI talk; slides will go public after review.</div>
-          </div>
-        </div>
-        <div class="wnx-item">
-          <div class="wnx-dot"></div>
-          <div>
-            <h5>Paper camera-ready</h5>
-            <div class="wnx-sub">Accesseval (EMNLP 2025) polishing: ablations and bias notes.</div>
-          </div>
-        </div>
-      {%- endif -%}
-    </div>
-  </div>
-</div>
-
-<button id="contact-fab" class="contact-fab" aria-haspopup="dialog" aria-controls="contact-modal" title="Message me">✉️</button>
-<div id="contact-backdrop" class="modal-backdrop" aria-hidden="true"></div>
-<div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-  <div class="modal-card">
-    <div class="modal-head">
-      <div id="contact-title" class="modal-title">Say hello — ideas, collabs, questions</div>
-      <button class="modal-close" type="button" data-close>Close</button>
-    </div>
-    <div class="modal-body">
-      <form id="contact-form" class="form-grid" method="POST" novalidate>
-        <div>
-          <label for="cf-name">Name</label>
-          <input id="cf-name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div>
-          <label for="cf-email">Email</label>
-          <input id="cf-email" name="email" type="email" autocomplete="email" required>
-        </div>
-        <div class="full">
-          <label for="cf-subject">Subject</label>
-          <input id="cf-subject" name="subject" type="text" required>
-        </div>
-        <div class="full">
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="5" required></textarea>
-        </div>
-        <div class="form-actions full">
-          <button type="button" class="btn" data-close>Cancel</button>
-          <button type="submit" class="btn btn-primary">Send</button>
-        </div>
-        <input type="hidden" name="_subject" value="New message from your site">
-      </form>
-    </div>
-  </div>
-</div>
 
 <script>
 (function(){
-  /* ===================== Theme toggle ===================== */
+  // Apply saved theme very early
   try {
     var saved = localStorage.getItem('theme');
     if (saved === 'dark') document.documentElement.classList.add('theme-dark');
   } catch(e){}
+
+  // Create/reuse button
   var existing = document.getElementById('theme-toggle');
   var btn = existing || document.createElement('button');
-  btn.id = 'theme-toggle'; btn.type = 'button';
-  btn.setAttribute('aria-label','Toggle theme'); btn.setAttribute('title','Toggle theme');
-  var setIcon = function(){ btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙'; };
+  btn.id = 'theme-toggle';
+  btn.type = 'button';
+  btn.setAttribute('aria-label','Toggle theme');
+  btn.setAttribute('title','Toggle theme');
+  var setIcon = function(){
+    btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙';
+  };
   setIcon();
+
   btn.addEventListener('click', function(){
     var dark = document.documentElement.classList.toggle('theme-dark');
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
     setIcon();
   });
-  var placed = false;
+
   function tryPlace(){
-    if (placed) return false;
     var greedy = document.querySelector('.masthead .greedy-nav');
     if (!greedy) return false;
     var search = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
-    if (search && search.parentNode) { search.parentNode.insertBefore(btn, search.nextSibling); placed = true; return true; }
+    if (search && search.parentNode) { search.parentNode.insertBefore(btn, search.nextSibling); return true; }
     var links = greedy.querySelector('.visible-links') || greedy;
-    if (links) { links.appendChild(btn); placed = true; return true; }
+    if (links) { links.appendChild(btn); return true; }
     return false;
   }
-  if (!tryPlace()){
-    btn.classList.add('floating'); document.body.appendChild(btn);
-    window.addEventListener('load', function(){ if (tryPlace()) btn.classList.remove('floating'); });
-  }
 
-  /* ===================== What's next: collapse ===================== */
-  var wnxToggle = document.querySelector('.wnx-toggle');
-  var wnxBody = document.getElementById('wnx-body');
-  if (wnxToggle && wnxBody){
-    wnxToggle.addEventListener('click', function(){
-      var open = wnxBody.style.display !== 'none';
-      wnxBody.style.display = open ? 'none' : '';
-      wnxToggle.textContent = open ? 'Expand' : 'Collapse';
-      wnxToggle.setAttribute('aria-expanded', (!open).toString());
+  if (!tryPlace()) {
+    btn.classList.add('floating');
+    document.body.appendChild(btn);
+    window.addEventListener('load', function(){
+      if (tryPlace()) btn.classList.remove('floating');
     });
-    // Start collapsed on narrow screens
-    if (window.matchMedia('(max-width: 980px)').matches){
-      wnxBody.style.display = 'none';
-      wnxToggle.textContent = 'Expand';
-      wnxToggle.setAttribute('aria-expanded','false');
-    }
   }
-
-  /* ===================== Contact modal (Formspree) ===================== */
-  var FORM_ENDPOINT = 'https://formspree.io/f/mwpydbpb'; // <-- CHANGE THIS
-  var fab = document.getElementById('contact-fab');
-  var modal = document.getElementById('contact-modal');
-  var backdrop = document.getElementById('contact-backdrop');
-  var closeBtns = modal.querySelectorAll('[data-close]');
-  function openModal(){ modal.classList.add('show'); backdrop.classList.add('show'); }
-  function closeModal(){ modal.classList.remove('show'); backdrop.classList.remove('show'); }
-  fab.addEventListener('click', openModal);
-  closeBtns.forEach(function(b){ b.addEventListener('click', closeModal); });
-  backdrop.addEventListener('click', closeModal);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
-
-  var form = document.getElementById('contact-form');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var data = new FormData(form);
-    fetch(FORM_ENDPOINT, { method:'POST', body:data, headers:{ 'Accept':'application/json' } })
-      .then(function(r){ if(!r.ok) throw new Error('Network'); return r.json(); })
-      .then(function(){
-        form.reset();
-        closeModal();
-        alert('Thanks! Your message was sent.');
-      })
-      .catch(function(){
-        alert('Sorry, something went wrong. You can also email me directly.');
-      });
-  });
 })();
 </script>
+
+{%- comment -%} Inject the “What’s next” + Contact widgets everywhere {%- endcomment -%}
+{% include whatsnext_and_contact.html %}
