@@ -1,225 +1,81 @@
-{%- comment -%}
-Site-wide widgets + theme toggle (self-contained)
-- What’s next reads from _data/whats_next.yml
-- Contact FAB (Formspree)
-- Theme toggle never overlaps the FAB
-{%- endcomment -%}
-
+{%- comment -%} Theme toggle + widgets injected site-wide {%- endcomment -%}
 <style>
-/* ----------- THEME TOGGLE (when it must float) ----------- */
-#theme-toggle.floating{
-  position:fixed;
-  right:96px !important;   /* ← keep ~80px left of FAB */
-  bottom:16px !important;
-  z-index:9996;            /* under FAB */
-  border:1px solid #cbd5e1; background:#fff; color:#111827;
-  border-radius:999px; padding:.45rem .6rem;
-  box-shadow:0 6px 16px rgba(0,0,0,.12); cursor:pointer;
-}
-html.theme-dark #theme-toggle.floating{
-  border-color:#334155; background:#0f172a; color:#e5e7eb;
-}
-/* when placed in masthead, look like a nav chip */
-.masthead .greedy-nav #theme-toggle{
-  border:0; background:transparent; color:currentColor;
-  border-radius:999px; padding:.25rem .45rem; margin-left:.35rem;
-}
+  /* Single, authoritative rule for the floating theme toggle (fallback only). */
+  #theme-toggle.floating{
+    position: fixed;
+    right: 92px;            /* keeps clear of the contact FAB at 16px */
+    bottom: 18px;
+    z-index: 9998;          /* below the FAB (9999), above page */
+    border: 1px solid var(--mm-toggle-border, #cbd5e1);
+    background: var(--mm-toggle-bg, #fff);
+    color: var(--mm-toggle-fg, #111827);
+    border-radius: 999px;
+    padding: .45rem .6rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,.12);
+    cursor: pointer;
+  }
+  html.theme-dark #theme-toggle.floating{
+    --mm-toggle-bg:#0f172a; --mm-toggle-fg:#e5e7eb; --mm-toggle-border:#334155;
+  }
 
-/* ----------- WIDGETS (What’s next + Contact) ----------- */
-:root{
-  --wnx-bg:#ffffff; --wnx-fg:#111827; --wnx-sub:#475569;
-  --wnx-line:#e5e7eb; --wnx-card:#ffffff;
-  --wnx-shadow:0 10px 30px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
-
-  --fab-bg:#10b981; --fab-fg:#ffffff;
-  --fab-shadow:0 10px 30px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.08);
-}
-html.theme-dark{
-  --wnx-bg:#0b1220; --wnx-fg:#e5e7eb; --wnx-sub:#94a3b8;
-  --wnx-line:#1f2a44; --wnx-card:#0f172a;
-  --wnx-shadow:0 12px 32px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.25);
-
-  --fab-bg:#0ea5e9; --fab-fg:#0b1220;
-  --fab-shadow:0 12px 32px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.3);
-}
-
-/* Rail */
-#wnx-rail{
-  position:fixed; top:110px; right:0;
-  width:320px; max-height:calc(100vh - 140px); overflow:auto;
-  background:var(--wnx-bg); color:var(--wnx-fg);
-  border-left:1px solid var(--wnx-line);
-  box-shadow:var(--wnx-shadow);
-  padding:14px; border-top-left-radius:14px; border-bottom-left-radius:14px;
-  z-index:9995;
-  transform:translateX(100%); transition:transform .18s ease; /* collapsed by default */
-}
-#wnx-rail.open{ transform:translateX(0); }
-#wnx-rail .wnx-hd{ display:flex; align-items:center; justify-content:space-between;
-  font-weight:800; font-size:1.05rem; margin:2px 4px 10px; }
-#wnx-rail .btn{ border:1px solid var(--wnx-line); background:transparent; color:var(--wnx-fg);
-  padding:.25rem .6rem; border-radius:999px; font-weight:700; cursor:pointer; }
-#wnx-rail .list{ display:grid; gap:12px; }
-#wnx-rail .card{
-  background:var(--wnx-card); border:1px solid var(--wnx-line); color:var(--wnx-fg);
-  border-radius:14px; box-shadow:var(--wnx-shadow); padding:12px 14px;
-}
-#wnx-rail .ttl{ display:flex; gap:.55rem; align-items:flex-start; font-weight:900; margin:0 0 4px; }
-#wnx-rail .meta{ color:var(--wnx-sub); font-weight:600; font-size:.95rem; }
-/* slim gradient “bullet” */
-#wnx-rail .dot{
-  width:4px; height:16px; border-radius:999px;
-  background:linear-gradient(180deg,#60a5fa,#a78bfa);
-  box-shadow:0 0 0 2px rgba(96,165,250,.12);
-  margin-top:2px;
-}
-
-/* FAB */
-#contact-fab{
-  position:fixed; right:16px; bottom:16px;
-  width:56px; height:56px; border-radius:999px;
-  display:grid; place-items:center;
-  background:var(--fab-bg); color:var(--fab-fg);
-  box-shadow:var(--fab-shadow); z-index:10000; cursor:pointer;
-}
-/* Drawer */
-#contact-drawer{
-  position:fixed; right:16px; bottom:84px;
-  width:320px; max-width:90vw; max-height:80vh;
-  background:var(--wnx-bg); color:var(--wnx-fg);
-  border:1px solid var(--wnx-line); border-radius:12px;
-  box-shadow:var(--wnx-shadow);
-  transform:translateY(12px); opacity:0; pointer-events:none;
-  transition:transform .16s ease, opacity .16s ease; z-index:9999;
-  display:flex; flex-direction:column;
-}
-#contact-drawer.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
-#contact-drawer .hd{ display:flex; align-items:center; justify-content:space-between;
-  padding:10px 12px; border-bottom:1px solid var(--wnx-line); font-weight:800; }
-#contact-drawer .bd{ padding:12px; display:grid; gap:10px; }
-#contact-drawer label{ display:block; font-weight:700; margin-bottom:4px; color:var(--wnx-sub); }
-#contact-drawer input, #contact-drawer textarea{
-  width:100%; border:1px solid var(--wnx-line); background:var(--wnx-card); color:var(--wnx-fg);
-  border-radius:10px; padding:10px; font:inherit;
-}
-#contact-drawer .ft{ display:flex; justify-content:flex-end; gap:8px; padding:10px 12px 12px; }
-.btn-pill{ border:1px solid var(--wnx-line); background:transparent; color:var(--wnx-fg);
-  border-radius:999px; padding:.45rem .9rem; font-weight:800; cursor:pointer; }
-.btn-cta{ background:var(--fab-bg); color:var(--fab-fg); border-color:transparent; }
-
-/* Mobile: rail becomes bottom sheet */
-@media (max-width:980px){
-  #wnx-rail{ width:100vw; right:0; left:0; bottom:0; top:auto;
-    border-left:none; border-top:1px solid var(--wnx-line);
-    border-radius:16px 16px 0 0; transform:translateY(100%); }
-  #wnx-rail.open{ transform:translateY(0); }
-}
+  /* When inserted into the masthead, match the nav look. */
+  .masthead .greedy-nav #theme-toggle{
+    border: 1px solid transparent;
+    background: transparent;
+    color: currentColor;
+    border-radius: 999px;
+    padding: .25rem .45rem;
+    margin-left: .35rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .masthead .greedy-nav .visible-links #theme-toggle,
+  .masthead .greedy-nav .hidden-links  #theme-toggle{
+    padding: .5rem .6rem;
+  }
 </style>
 
 <script>
 (function(){
-  /* ---------- Theme: apply saved ASAP ---------- */
-  try{
-    if(localStorage.getItem('theme')==='dark'){
-      document.documentElement.classList.add('theme-dark');
-    }
-  }catch(e){}
+  /* Apply saved theme ASAP */
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.documentElement.classList.add('theme-dark');
+  } catch(e){}
 
-  /* ---------- Theme toggle ---------- */
-  var toggle = document.getElementById('theme-toggle') || document.createElement('button');
-  toggle.id='theme-toggle'; toggle.type='button';
-  function setIcon(){ toggle.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙'; }
+  /* Create / reuse the toggle */
+  var btn = document.getElementById('theme-toggle') || document.createElement('button');
+  btn.id = 'theme-toggle';
+  btn.type = 'button';
+  btn.setAttribute('aria-label','Toggle theme');
+  btn.setAttribute('title','Toggle theme');
+  function setIcon(){
+    btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙';
+  }
   setIcon();
-  toggle.addEventListener('click', function(){
+  btn.addEventListener('click', function(){
     var dark = document.documentElement.classList.toggle('theme-dark');
-    try{ localStorage.setItem('theme', dark?'dark':'light'); }catch(e){}
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
     setIcon();
   });
-  function placeToggle(){
-    var nav = document.querySelector('.masthead .greedy-nav');
-    if(nav){
-      var after = nav.querySelector('.search__toggle') || nav.querySelector('.site-search') || nav.querySelector('.visible-links');
-      if(after){ after.parentNode.insertBefore(toggle, after.nextSibling); return true; }
-    }
-    return false;
-  }
-  if(!placeToggle()){
-    toggle.classList.add('floating');
-    document.body.appendChild(toggle);
-    window.addEventListener('load', function(){ if(placeToggle()) toggle.classList.remove('floating'); });
+
+  /* Prefer to place in masthead, else float. */
+  function tryPlace(){
+    var greedy = document.querySelector('.masthead .greedy-nav');
+    if (!greedy) return false;
+    var anchor = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
+    if (anchor && anchor.parentNode){ anchor.parentNode.insertBefore(btn, anchor.nextSibling); return true; }
+    var vis = greedy.querySelector('.visible-links'); if (vis){ vis.appendChild(btn); return true; }
+    greedy.appendChild(btn); return true;
   }
 
-  /* ---------- What’s next + Contact ---------- */
-  // build once
-  if(!document.getElementById('wnx-rail')){
-    // rail
-    var rail = document.createElement('div');
-    rail.id='wnx-rail';
-    rail.innerHTML = '<div class="wnx-hd"><span>What’s next</span><button class="btn" id="wnx-btn">Expand</button></div><div class="list" id="wnx-list"></div>';
-    document.body.appendChild(rail);
-
-    // contact FAB
-    var fab = document.createElement('button');
-    fab.id='contact-fab';
-    fab.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/></svg>';
-    document.body.appendChild(fab);
-
-    // drawer
-    var drv = document.createElement('form');
-    drv.id='contact-drawer';
-    drv.method='POST';
-    drv.action='https://formspree.io/f/mwpydbpb';
-    drv.innerHTML =
-      '<div class="hd"><span>Say hi</span><button class="btn-pill" type="button" id="c-close">Close</button></div>'
-     +'<div class="bd">'
-     +  '<div><label for="cname">Name</label><input id="cname" name="name" autocomplete="name"/></div>'
-     +  '<div><label for="cemail">Email</label><input id="cemail" type="email" name="email" autocomplete="email" required/></div>'
-     +  '<div><label for="csubject">Subject</label><input id="csubject" name="subject"/></div>'
-     +  '<div><label for="cmsg">Message</label><textarea id="cmsg" name="message" rows="5" required></textarea></div>'
-     +'</div>'
-     +'<div class="ft"><button class="btn-pill" type="button" id="c-cancel">Cancel</button><button class="btn-pill btn-cta" type="submit">Send</button></div>';
-    document.body.appendChild(drv);
-
-    // wire up FAB
-    function openDrawer(){ drv.classList.add('open'); }
-    function closeDrawer(){ drv.classList.remove('open'); }
-    fab.addEventListener('click', openDrawer);
-    document.getElementById('c-close').addEventListener('click', closeDrawer);
-    document.getElementById('c-cancel').addEventListener('click', closeDrawer);
-
-    // populate rail from YAML (serialized by Liquid)
-    var data = {{ site.data.whats_next | jsonify | default: '[]' }};
-    var list = document.getElementById('wnx-list');
-    if(Array.isArray(data) && data.length){
-      data.forEach(function(it){
-        var card = document.createElement('div');
-        card.className='card';
-        var title = it.title || '';
-        var link  = it.link  || '';
-        var meta  = [(it.tag||''), (it.when||'')].filter(Boolean).join(' • ');
-        card.innerHTML =
-          '<div class="ttl"><span class="dot" aria-hidden="true"></span>'
-          +(link ? '<a href="'+link+'" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">'+title+'</a>' : title)
-          +'</div>'
-          +'<div class="meta">'+meta+'</div>'
-          +(it.desc ? '<div class="txt" style="margin-top:6px;color:var(--wnx-sub);">'+it.desc+'</div>' : '');
-        list.appendChild(card);
-      });
-    }else{
-      list.innerHTML = '<div class="card"><div class="ttl"><span class="dot"></span>No items yet.</div></div>';
-    }
-
-    // toggle open/close (desktop remembers last state; mobile starts closed)
-    var btn = document.getElementById('wnx-btn');
-    var KEY='wnx-open';
-    var saved=false; try{ saved = localStorage.getItem(KEY)==='1'; }catch(e){}
-    function setOpen(v){
-      rail.classList.toggle('open', !!v);
-      btn.textContent = v ? 'Collapse' : 'Expand';
-      try{ localStorage.setItem(KEY, v?'1':'0'); }catch(e){}
-    }
-    setOpen(saved && window.innerWidth>980);
-    btn.addEventListener('click', function(){ setOpen(!rail.classList.contains('open')); });
+  if (!tryPlace()){
+    btn.classList.add('floating');
+    document.body.appendChild(btn);
+    window.addEventListener('load', function(){ if (tryPlace()) btn.classList.remove('floating'); });
   }
 })();
 </script>
+
+{% comment %} Inject the widgets (What’s next + Contact) {% endcomment %}
+{% include whatsnext_and_contact.html %}
