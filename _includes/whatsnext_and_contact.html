@@ -1,6 +1,6 @@
 <!-- _includes/whatsnext_and_contact.html -->
 <style>
-  /* ---------- COLOR TOKENS ---------- */
+  /* ---------- LIGHT / DARK TOKENS ---------- */
   :root{
     --wnx-bg:#ffffff;
     --wnx-fg:#111827;
@@ -31,10 +31,12 @@
   /* ---------- WHAT’S NEXT RAIL ---------- */
   .wnx-rail{
     position: fixed;
-    top: 110px; /* clear the masthead */
+    /* keep below masthead; fallback height used if the theme doesn't expose a var */
+    --masthead-h: 72px;
+    top: calc(var(--masthead-height, var(--masthead-h)) + 24px);
     right: 0;
     width: 320px;
-    max-height: calc(100vh - 140px);
+    max-height: calc(100vh - var(--masthead-h) - 48px);
     overflow: auto;
     background: var(--wnx-bg);
     color: var(--wnx-fg);
@@ -66,17 +68,18 @@
     padding:12px 14px;
   }
   .wnx-title{ font-weight:900; margin:0 0 4px; }
+  .wnx-title a{ color:inherit; text-decoration:none; }
+  .wnx-title a:hover{ text-decoration:underline; }
   .wnx-meta{ color:var(--wnx-sub); font-weight:600; font-size:.95rem; }
-
   .wnx-dot{
     display:inline-block; width:6px; height:6px; border-radius:999px;
     background: var(--wnx-badge); margin-right:.4rem;
   }
 
-  /* ---------- FAB (contact) ---------- */
+  /* ---------- CONTACT FAB + DRAWER ---------- */
   .contact-fab{
     position: fixed;
-    right: 16px;                /* leaves room for theme toggle to sit at 76px */
+    right: 16px;
     bottom: 16px;
     width: 56px; height: 56px; border-radius:999px;
     display:grid; place-items:center;
@@ -86,10 +89,9 @@
   }
   .contact-fab svg{ width:26px; height:26px; }
 
-  /* Drawer */
   .contact-drawer{
     position: fixed;
-    right: 16px; bottom: 84px;   /* sit above the FAB */
+    right: 16px; bottom: 84px;   /* sits above the FAB */
     width: 320px; max-width: 90vw; max-height: 80vh;
     background: var(--wnx-bg); color:var(--wnx-fg);
     border:1px solid var(--wnx-line);
@@ -97,7 +99,7 @@
     box-shadow: var(--wnx-shadow);
     transform: translateY(12px); opacity:0; pointer-events:none;
     transition: transform .16s ease, opacity .16s ease;
-    z-index: 9997;               /* under the FAB, above page */
+    z-index: 9997;               /* under the FAB, above the page */
     display:flex; flex-direction:column;
   }
   .contact-drawer.open{ transform: translateY(0); opacity:1; pointer-events:auto; }
@@ -125,15 +127,17 @@
       border-left:none; border-top:1px solid var(--wnx-line);
       border-radius: 16px 16px 0 0;
       transform: translateY(100%);    /* collapsed by default */
+      max-height: 70vh;
     }
     .wnx-rail.open{ transform: translateY(0); }
   }
 </style>
 
+<!-- What’s next rail -->
 <div id="wnx" class="wnx-rail" aria-label="What's next">
   <div class="wnx-header">
     <span>What’s next</span>
-    <button class="wnx-btn" id="wnxToggleBtn">Collapse</button>
+    <button class="wnx-btn" id="wnxToggleBtn">Expand</button>
   </div>
   <div class="wnx-list">
     {% assign feed = site.data.whats_next %}
@@ -142,13 +146,16 @@
         <div class="wnx-card">
           <div class="wnx-title">
             <span class="wnx-dot"></span>
-            {% if it.link %}<a href="{{ it.link }}" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">{{ it.title }}</a>
+            {% if it.link and it.link != "" %}
+              <a href="{{ it.link }}" target="_blank" rel="noopener">{{ it.title }}</a>
             {% else %}{{ it.title }}{% endif %}
           </div>
           <div class="wnx-meta">
             {{ it.tag | default: "" }}{% if it.when %} • {{ it.when }}{% endif %}
           </div>
-          {% if it.desc and it.desc != "" %}<div class="wnx-text" style="margin-top:6px; color:var(--wnx-sub);">{{ it.desc }}</div>{% endif %}
+          {% if it.desc and it.desc != "" %}
+            <div class="wnx-text" style="margin-top:6px; color:var(--wnx-sub);">{{ it.desc }}</div>
+          {% endif %}
         </div>
       {% endfor %}
     {% else %}
@@ -157,15 +164,16 @@
   </div>
 </div>
 
-<!-- Contact FAB and drawer -->
+<!-- Contact FAB + drawer (Formspree) -->
 <button class="contact-fab" id="contactFab" aria-label="Contact">
-  <!-- envelope + moon (just a fun accent) -->
+  <!-- Envelope only (no overlay icon) -->
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
   </svg>
 </button>
 
-<form class="contact-drawer" id="contactDrawer" action="https://formspree.io/f/mwpydbpb" method="POST">
+<form class="contact-drawer" id="contactDrawer"
+      action="https://formspree.io/f/mwpydbpb" method="POST">
   <div class="cd-head">
     <span>Say hi</span>
     <button class="btn-pill" type="button" id="contactClose">Close</button>
@@ -196,19 +204,18 @@
 
 <script>
 (function(){
-  /* --- What's next: collapsed by default --- */
+  /* --- What's next: collapsed by default; remember state on desktop --- */
   const rail = document.getElementById('wnx');
   const btn  = document.getElementById('wnxToggleBtn');
   const LS_K = 'wnx-open';
-  const saved = (function(){ try { return localStorage.getItem(LS_K) === '1'; } catch(e){ return false; } })();
-
+  const saved = (()=>{ try { return localStorage.getItem(LS_K) === '1'; } catch(e){ return false; } })();
   function setOpen(v){
-    rail.classList.toggle('open', !!v);
+    rail.classList.toggle('open', v);
     btn.textContent = v ? 'Collapse' : 'Expand';
     try { localStorage.setItem(LS_K, v ? '1' : '0'); } catch(e){}
   }
-  setOpen(saved && window.innerWidth > 980); // desktop keeps last state; mobile starts collapsed
-
+  // Start collapsed everywhere; on desktop respect previous choice
+  setOpen(window.innerWidth > 980 ? saved : false);
   btn.addEventListener('click', ()=> setOpen(!rail.classList.contains('open')));
 
   /* --- Contact FAB + drawer --- */
@@ -216,10 +223,8 @@
   const drawer  = document.getElementById('contactDrawer');
   const close   = document.getElementById('contactClose');
   const cancel  = document.getElementById('contactCancel');
-
   function openDrawer(){ drawer.classList.add('open'); }
   function closeDrawer(){ drawer.classList.remove('open'); }
-
   fab.addEventListener('click', openDrawer);
   close.addEventListener('click', closeDrawer);
   cancel.addEventListener('click', closeDrawer);
