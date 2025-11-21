@@ -9,7 +9,7 @@
     - "Regression-proofed ranking/retrieval with measurable quality bars and alerts."
     - "Reduced serving cost ~20–30% via ranking/latency trade‑offs without quality loss."
   links:
-    - { label: "Notes", url: "https://substack.com/@reachsumit/p-164776541" }
+    - { label: "Notes", url: "/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/" }
 
 - title: "Accesseval — Benchmarking disability bias in LLMs"
   company: "Oracle Cloud Infrastructure"
