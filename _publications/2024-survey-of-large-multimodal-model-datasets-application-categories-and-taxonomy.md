@@ -1,8 +1,8 @@
 ---
 layout: paper
 title: Survey of large multimodal model datasets, application categories and taxonomy
-authors: 'Pattnayak, Priyaranjan; Patel, Hitesh Laxmichand; Kumar, Bhargava; **Agarwal,
-  Amit**; Banerjee, Ishan; Panda, Srikant; Kumar, Tejaswini; '
+authors: 'Pattnayak, Priyaranjan; Patel, Hitesh Laxmichand; Kumar, Bhargava; Agarwal,
+  Amit; Banerjee, Ishan; Panda, Srikant; Kumar, Tejaswini; '
 year: 2024
 venue: arXiv
 tags:
