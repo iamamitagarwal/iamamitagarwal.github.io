@@ -2,7 +2,7 @@
 layout: paper
 title: 'IRLCov19: A large COVID-19 multilingual twitter dataset of Indian regional
   languages'
-authors: 'Uniyal, Deepak; **Agarwal, Amit**; '
+authors: 'Uniyal, Deepak; Agarwal, Amit; '
 year: 2021
 venue: Springer
 tags:
