@@ -1,110 +1,118 @@
-<!-- _includes/whatsnext_and_contact.html -->
+<!-- Isolated styles + markup; no global selectors -->
 <style>
-  /* ---- Color tokens (scoped to the widgets only) ---- */
   :root{
-    --wnx-bg:#ffffff;  --wnx-fg:#0f172a; --wnx-sub:#475569;
-    --wnx-line:#e5e7eb; --wnx-card:#ffffff; --wnx-badge:#0ea5e9;
-    --wnx-shadow:0 10px 30px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
-
-    --fab-bg:#10b981; --fab-fg:#ffffff;
-    --fab-shadow:0 10px 30px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.08);
+    --wnx-bg:#ffffff; --wnx-fg:#111827; --wnx-sub:#475569; --wnx-br:#e5e7eb;
+    --wnx-card:#ffffff; --wnx-badge:#0ea5e9; --wnx-shadow:0 10px 30px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
+    --fab-bg:#10b981; --fab-fg:#ffffff; --fab-shadow:0 10px 30px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.08);
   }
   html.theme-dark{
-    --wnx-bg:#0b1220;  --wnx-fg:#e5e7eb; --wnx-sub:#94a3b8;
-    --wnx-line:#1f2a44; --wnx-card:#0f172a; --wnx-badge:#38bdf8;
-    --wnx-shadow:0 12px 32px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.25);
-
-    --fab-bg:#0ea5e9; --fab-fg:#0b1220;
+    --wnx-bg:#0b1220; --wnx-fg:#e5e7eb; --wnx-sub:#94a3b8; --wnx-br:#1f2a44;
+    --wnx-card:#0f172a; --wnx-badge:#38bdf8; --wnx-shadow:0 12px 32px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.25);
+    --fab-bg:#0ea5e9; --fab-fg:#0b1220; --fab-shadow:0 12px 32px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.3);
   }
 
-  /* ---- What’s next rail ---- */
-  .wnx-rail{
-    position: fixed; right: 12px; top: 88px;
-    width: 340px; max-height: calc(100vh - 120px); overflow:auto;
-    background: var(--wnx-bg); color: var(--wnx-fg);
-    border:1px solid var(--wnx-line); border-radius: 14px;
-    box-shadow: var(--wnx-shadow); padding: 10px 12px 14px;
-    z-index: 9996; transform: translateX(110%); transition: transform .18s ease;
+  /* ---------- launcher tab ---------- */
+  .wnx-tab{
+    position:fixed; right:0; top:35vh; z-index:1000;
+    background:var(--wnx-badge); color:#fff; border:none;
+    border-radius:12px 0 0 12px; padding:.55rem .75rem; font-weight:900;
+    box-shadow:0 8px 16px rgba(0,0,0,.15); cursor:pointer;
   }
-  .wnx-rail.open{ transform: translateX(0); }
-  .wnx-header{ display:flex; align-items:center; justify-content:space-between; font-weight:800; margin:4px 6px 10px; }
-  .wnx-btn{ border:1px solid var(--wnx-line); background:transparent; color:var(--wnx-fg); padding:.25rem .6rem; border-radius:999px; cursor:pointer; font-weight:700; }
-  .wnx-list{ display:grid; gap:12px; }
-  .wnx-card{ background:var(--wnx-card); color:var(--wnx-fg); border:1px solid var(--wnx-line); border-radius:14px; box-shadow:var(--wnx-shadow); padding:12px 14px; }
-  .wnx-title{ font-weight:900; margin:0 0 4px; }
+  .wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); }
+
+  /* ---------- panel ---------- */
+  .wnx-panel{
+    position:fixed; top:80px; right:-360px; width:340px; bottom:24px; z-index:1000;
+    background:var(--wnx-bg); color:var(--wnx-fg);
+    border:1.5px solid var(--wnx-br); border-radius:16px 0 0 16px;
+    box-shadow:var(--wnx-shadow); transition:right .18s ease; display:flex; flex-direction:column;
+  }
+  .wnx-panel.open{ right:0; }
+  .wnx-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.7rem .8rem; font-weight:900; border-bottom:1px solid var(--wnx-br);
+  }
+  .wnx-close{ border:none; background:transparent; font-size:1.1rem; line-height:1; color:inherit; cursor:pointer; }
+  .wnx-body{ overflow:auto; padding:.6rem .8rem; }
+  .wnx-list{ display:flex; flex-direction:column; gap:.6rem; }
+  .wnx-card{
+    background:var(--wnx-card); color:var(--wnx-fg);
+    border:1px solid var(--wnx-br); border-radius:14px; padding:.75rem .85rem; box-shadow:var(--wnx-shadow);
+  }
+  .wnx-title{ font-weight:900; margin:0 0 .25rem; display:flex; align-items:center; gap:.5rem; }
+  /* Slim bullet (the one you liked) */
+  .wnx-dot{ width:3px; height:14px; border-radius:2px; background:var(--wnx-badge); display:inline-block; }
   .wnx-meta{ color:var(--wnx-sub); font-weight:600; font-size:.95rem; }
-  /* slim vertical bullet you liked */
-  .wnx-dot{ display:inline-block; width:3px; height:14px; border-radius:2px; background:var(--wnx-badge); margin-right:.55rem; vertical-align:middle; }
 
-  /* ---- Contact FAB + drawer ---- */
+  /* ---------- contact FAB & drawer ---------- */
   .contact-fab{
-    position: fixed; right: 16px; bottom: 16px; width:56px; height:56px;
+    position:fixed; right:16px; bottom:16px; width:56px; height:56px; z-index:9998;
     border-radius:999px; display:grid; place-items:center;
-    background: var(--fab-bg); color: var(--fab-fg);
-    box-shadow: var(--fab-shadow); cursor:pointer; z-index: 9998;
+    background:var(--fab-bg); color:var(--fab-fg); box-shadow:var(--fab-shadow); cursor:pointer; border:0;
   }
   .contact-fab svg{ width:26px; height:26px; }
-
   .contact-drawer{
-    position: fixed; right: 16px; bottom: 84px; width: 320px; max-width: 90vw; max-height: 80vh;
-    background: var(--wnx-bg); color: var(--wnx-fg); border:1px solid var(--wnx-line);
-    border-radius: 12px; box-shadow: var(--wnx-shadow);
-    transform: translateY(12px); opacity:0; pointer-events:none;
-    transition: transform .16s ease, opacity .16s ease;
-    z-index: 9997; display:flex; flex-direction:column;
+    position:fixed; right:16px; bottom:84px; width:320px; max-width:90vw; max-height:80vh; z-index:9997;
+    background:var(--wnx-bg); color:var(--wnx-fg); border:1px solid var(--wnx-br); border-radius:12px;
+    box-shadow:var(--wnx-shadow); transform:translateY(12px); opacity:0; pointer-events:none;
+    transition:transform .16s ease, opacity .16s ease; display:flex; flex-direction:column;
   }
-  .contact-drawer.open{ transform: translateY(0); opacity:1; pointer-events:auto; }
-  .cd-head{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-bottom:1px solid var(--wnx-line); font-weight:800; }
+  .contact-drawer.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
+  .cd-head{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-bottom:1px solid var(--wnx-br); font-weight:800; }
   .cd-body{ padding:12px; display:grid; gap:10px; }
   .cd-row label{ display:block; font-weight:700; margin-bottom:4px; color:var(--wnx-sub); }
-  .cd-row input, .cd-row textarea{ width:100%; border:1px solid var(--wnx-line); background:var(--wnx-card); color:var(--wnx-fg); border-radius:10px; padding:10px; font:inherit; }
+  .cd-row input,.cd-row textarea{ width:100%; border:1px solid var(--wnx-br); background:var(--wnx-card); color:var(--wnx-fg); border-radius:10px; padding:10px; font:inherit; }
   .cd-actions{ display:flex; justify-content:flex-end; gap:8px; padding:10px 12px 12px; }
-  .btn-pill{ border:1px solid var(--wnx-line); background:transparent; color:var(--wnx-fg); border-radius:999px; padding:.45rem .9rem; font-weight:800; cursor:pointer; }
+  .btn-pill{ border:1px solid var(--wnx-br); background:transparent; color:var(--wnx-fg); border-radius:999px; padding:.45rem .9rem; font-weight:800; cursor:pointer; }
   .btn-cta{ background:var(--fab-bg); color:var(--fab-fg); border-color:transparent; }
 
-  /* Mobile: rail becomes bottom sheet */
-  @media (max-width: 980px){
-    .wnx-rail{
-      right:0; left:0; width:100vw; top:auto; bottom:0; border-radius:16px 16px 0 0;
-      transform: translateY(110%); max-height: 70vh;
-    }
-    .wnx-rail.open{ transform: translateY(0); }
+  /* Mobile: panel becomes bottom drawer; keep tab visible */
+  @media (max-width:1100px){
+    .wnx-tab{ top:auto; bottom:90px; right:14px; border-radius:999px; padding:.55rem .7rem; }
+    .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
+    .wnx-panel{ right:14px; left:14px; width:auto; bottom:90px; top:auto; border-radius:16px; transform:translateY(110%); transition:transform .18s ease; }
+    .wnx-panel.open{ transform:translateY(0); }
   }
 </style>
 
-<aside id="wnx" class="wnx-rail" aria-label="What's next">
-  <div class="wnx-header">
+<!-- launcher tab -->
+<button class="wnx-tab" id="wnxTab" type="button" aria-controls="wnxPanel"><span>What’s next</span></button>
+
+<!-- panel -->
+<aside id="wnxPanel" class="wnx-panel" aria-label="What’s next">
+  <div class="wnx-head">
     <span>What’s next</span>
-    <button class="wnx-btn" id="wnxToggleBtn">Open</button>
+    <button class="wnx-close" id="wnxClose" type="button">Close</button>
   </div>
-  <div class="wnx-list">
-    {% assign feed = site.data.whats_next %}
-    {% if feed and feed.size > 0 %}
-      {% for it in feed %}
-        <div class="wnx-card">
-          <div class="wnx-title">
-            <span class="wnx-dot"></span>
-            {% if it.link %}<a href="{{ it.link }}" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">{{ it.title }}</a>
-            {% else %}{{ it.title }}{% endif %}
+  <div class="wnx-body">
+    <div class="wnx-list">
+      {% assign feed = site.data.whats_next %}
+      {% if feed and feed.size > 0 %}
+        {% for it in feed %}
+          <div class="wnx-card">
+            <div class="wnx-title">
+              <span class="wnx-dot"></span>
+              {% if it.link %}<a class="wnx-link" href="{{ it.link }}" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">{{ it.title }}</a>
+              {% else %}{{ it.title }}{% endif %}
+            </div>
+            <div class="wnx-meta">{{ it.tag | default: "" }}{% if it.when %} • {{ it.when }}{% endif %}</div>
+            {% if it.desc and it.desc != "" %}<div style="margin-top:6px; color:var(--wnx-sub);">{{ it.desc }}</div>{% endif %}
           </div>
-          <div class="wnx-meta">{{ it.tag | default: "" }}{% if it.when %} • {{ it.when }}{% endif %}</div>
-          {% if it.desc and it.desc != "" %}<div class="wnx-text" style="margin-top:6px; color:var(--wnx-sub);">{{ it.desc }}</div>{% endif %}
-        </div>
-      {% endfor %}
-    {% else %}
-      <div class="wnx-card"><div class="wnx-title">No items yet.</div></div>
-    {% endif %}
+        {% endfor %}
+      {% else %}
+        <div class="wnx-card"><div class="wnx-title">Nothing queued yet.</div></div>
+      {% endif %}
+    </div>
   </div>
 </aside>
 
-<!-- Contact FAB -->
+<!-- contact FAB + drawer -->
 <button class="contact-fab" id="contactFab" aria-label="Contact">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
   </svg>
 </button>
 
-<!-- Drawer form via Formspree -->
 <form class="contact-drawer" id="contactDrawer" action="https://formspree.io/f/mwpydbpb" method="POST">
   <div class="cd-head">
     <span>Say hi</span>
@@ -135,23 +143,25 @@
 </form>
 
 <script>
-(function(){
-  /* What's next starts collapsed */
-  const rail = document.getElementById('wnx');
-  const btn  = document.getElementById('wnxToggleBtn');
-  function setOpen(v){ rail.classList.toggle('open', !!v); btn.textContent = v ? 'Close' : 'Open'; }
-  setOpen(false);
-  btn.addEventListener('click', ()=> setOpen(!rail.classList.contains('open')));
+  (function(){
+    // default collapsed
+    const tab   = document.getElementById('wnxTab');
+    const panel = document.getElementById('wnxPanel');
+    const close = document.getElementById('wnxClose');
+    function open(){ panel.classList.add('open'); }
+    function shut(){ panel.classList.remove('open'); }
+    tab.addEventListener('click', open);
+    close.addEventListener('click', shut);
 
-  /* Contact drawer */
-  const fab    = document.getElementById('contactFab');
-  const drawer = document.getElementById('contactDrawer');
-  const close  = document.getElementById('contactClose');
-  const cancel = document.getElementById('contactCancel');
-  function openD(){ drawer.classList.add('open'); }
-  function closeD(){ drawer.classList.remove('open'); }
-  fab.addEventListener('click', openD);
-  close.addEventListener('click', closeD);
-  cancel.addEventListener('click', closeD);
-})();
+    // contact drawer
+    const fab    = document.getElementById('contactFab');
+    const drawer = document.getElementById('contactDrawer');
+    const x1     = document.getElementById('contactClose');
+    const x2     = document.getElementById('contactCancel');
+    function openD(){ drawer.classList.add('open'); }
+    function closeD(){ drawer.classList.remove('open'); }
+    fab.addEventListener('click', openD);
+    x1.addEventListener('click', closeD);
+    x2.addEventListener('click', closeD);
+  })();
 </script>
