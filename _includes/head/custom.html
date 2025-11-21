@@ -35,96 +35,65 @@
       height: 128px;
     }
   }
-  /* === What's next slide-out + contact modal ================================= */
-.wnx-tab{
-  position:fixed; right:0; top:35vh; z-index:1000;
-  transform:translateX(0);
-  background:var(--mm-accent, #0ea5e9);
-  color:#fff; border:none; border-radius:12px 0 0 12px;
-  padding:.55rem .75rem; font-weight:900; letter-spacing:.02em;
-  box-shadow:0 8px 16px rgba(0,0,0,.15);
-}
-.wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); }
 
-/* Panel */
-.wnx-panel{
-  position:fixed; top:80px; right:-360px; width:340px; bottom:24px; z-index:1000;
-  background:var(--background, #fff);
-  border:1.5px solid var(--mm-border, #e5e7eb);
-  border-radius:16px 0 0 16px;
-  box-shadow:0 12px 24px rgba(0,0,0,.18);
-  transition:right .18s ease;
-  display:flex; flex-direction:column;
-  background:var(--mm-card-bg, #fff);
-}
-html.theme-dark .wnx-panel{
-  background:#0b1220; border-color:#263244; box-shadow:none;
-}
-.wnx-panel.open{ right:0; }
-.wnx-head{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:.7rem .8rem; font-weight:900; border-bottom:1px solid var(--mm-border, #e5e7eb);
-}
-.wnx-close{ border:none; background:transparent; font-size:1.4rem; line-height:1; color:inherit; cursor:pointer; }
-.wnx-body{ overflow:auto; padding:.6rem .8rem; }
-.wnx-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.6rem; }
-.wnx-item{ display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:.5rem; }
-.wnx-tag{
-  font-size:.75rem; font-weight:800; padding:.18rem .45rem; border-radius:999px;
-  border:1px solid var(--mm-border, #e5e7eb);
-}
-.wnx-link{ font-weight:800; text-decoration:none; }
-.wnx-link:hover{ text-decoration:underline; }
-.wnx-when{ color:var(--mm-muted, #6b7280); font-size:.85rem; }
-
-/* Floating contact button */
-.contact-fab{
-  position:fixed; right:18px; bottom:20px; z-index:1000;
-  width:54px; height:54px; border-radius:999px; border:none; cursor:pointer;
-  box-shadow:0 12px 22px rgba(0,0,0,.18);
-  background:var(--mm-accent, #0ea5e9); color:#fff; font-size:22px;
-}
-html.theme-dark .contact-fab{ box-shadow:none; }
-
-/* Modal */
-.contact-modal{
-  position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:1001;
-  display:flex; align-items:center; justify-content:center;
-  padding:1rem;
-}
-.contact-card{
-  width:min(640px, 96vw); background:var(--mm-card-bg, #fff);
-  border:1.5px solid var(--mm-border, #e5e7eb);
-  border-radius:16px; box-shadow:0 18px 30px rgba(0,0,0,.25); overflow:hidden;
-}
-html.theme-dark .contact-card{ background:#0b1220; border-color:#263244; box-shadow:none; }
-.contact-head{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:.8rem 1rem; font-weight:900; border-bottom:1px solid var(--mm-border, #e5e7eb);
-}
-.contact-close{ border:none; background:transparent; font-size:1.4rem; cursor:pointer; color:inherit; }
-.contact-form{ padding:1rem; display:flex; flex-direction:column; gap:.8rem; }
-.contact-form .row{ display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
-@media (max-width:640px){ .contact-form .row{ grid-template-columns:1fr; } }
-.contact-form label span{ display:block; font-weight:800; margin-bottom:.25rem; }
-.contact-form input, .contact-form textarea{
-  width:100%; border:1px solid var(--mm-border, #e5e7eb); border-radius:10px;
-  padding:.6rem .7rem; background:transparent; color:inherit;
-}
-.contact-form .actions{ display:flex; gap:.6rem; margin-top:.3rem; }
-.contact-note{ color:var(--mm-muted, #6b7280); font-size:.85rem; }
-
-/* Mobile adjustments: convert what's-next into bottom drawer */
-@media (max-width:1100px){
-  .wnx-tab{ top:auto; bottom:90px; right:14px; border-radius:999px; padding:.55rem .7rem; }
-  .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
-  .wnx-panel{
-    right:14px; left:14px; width:auto; bottom:90px; top:auto; border-radius:16px;
-    transform:translateY(110%); transition:transform .18s ease;
+  /* === What's next slide-out + contact modal (tab + panel only, visual tokens) === */
+  .wnx-tab{
+    position:fixed; right:0; top:35vh; z-index:1000;
+    transform:translateX(0);
+    background:var(--mm-accent, #0ea5e9);
+    color:#fff; border:none; border-radius:12px 0 0 12px;
+    padding:.55rem .75rem; font-weight:900; letter-spacing:.02em;
+    box-shadow:0 8px 16px rgba(0,0,0,.15);
   }
-  .wnx-panel.open{ transform:translateY(0); }
-}
-  
+  .wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); }
+
+  .wnx-panel{
+    position:fixed; right:-360px; width:340px; bottom:24px; z-index:1000;
+    /* top is set dynamically so it never clips behind the masthead */
+    background:var(--mm-card-bg, #fff);
+    border:1.5px solid var(--mm-border, #e5e7eb);
+    border-radius:16px 0 0 16px;
+    box-shadow:0 12px 24px rgba(0,0,0,.18);
+    transition:right .18s ease;
+    display:flex; flex-direction:column;
+  }
+  .wnx-panel.open{ right:0; }
+  .wnx-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.7rem .8rem; font-weight:900; border-bottom:1px solid var(--mm-border, #e5e7eb);
+  }
+  .wnx-close{ border:none; background:transparent; font-size:1.1rem; line-height:1; color:inherit; cursor:pointer; }
+  .wnx-body{ overflow:auto; padding:.6rem .8rem; }
+  .wnx-list{ display:flex; flex-direction:column; gap:.75rem; }
+  .wnx-card{
+    background:var(--mm-card-bg, #fff);
+    border:1px solid var(--mm-border, #e5e7eb);
+    border-radius:14px; padding:12px 14px; box-shadow:0 6px 14px rgba(0,0,0,.08);
+  }
+  /* the slim blue bullet you liked */
+  .wnx-title{ font-weight:900; margin:0 0 4px; display:flex; gap:.5rem; align-items:flex-start; }
+  .wnx-title::before{ content:""; width:3px; height:14px; border-radius:2px; background:#0ea5e9; margin-top:3px; }
+  .wnx-meta{ color:#64748b; font-weight:700; font-size:.95rem; }
+
+  /* Floating contact button stays bottom-right; theme toggle will be in masthead */
+  .contact-fab{
+    position:fixed; right:16px; bottom:16px; z-index:999; /* lower than masthead controls */
+    width:56px; height:56px; border-radius:999px; border:none; cursor:pointer;
+    box-shadow:0 12px 22px rgba(0,0,0,.18);
+    background:var(--mm-accent, #0ea5e9); color:#fff; font-size:22px;
+  }
+  html.theme-dark .contact-fab{ box-shadow:none; }
+
+  /* Mobile: turn panel into a bottom sheet */
+  @media (max-width:1100px){
+    .wnx-tab{ top:auto; bottom:90px; right:14px; border-radius:999px; padding:.55rem .7rem; }
+    .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
+    .wnx-panel{
+      right:14px; left:14px; width:auto; bottom:90px; top:auto; border-radius:16px;
+      transform:translateY(110%); transition:transform .18s ease;
+    }
+    .wnx-panel.open{ transform:translateY(0); right:14px; }
+  }
 </style>
 
 <!-- Brand tokens, dark-mode styling, sticky header, pills, callout -->
@@ -235,45 +204,7 @@ html.theme-dark .contact-card{ background:#0b1220; border-color:#263244; box-sha
   html.theme-dark .search-content__input, html.theme-dark .search-content input{
     background:var(--dark-panel)!important; color:var(--dark-text)!important; border-color:var(--dark-panel-brdr)!important;
   }
-  html.theme-dark ::placeholder{ color:#9aa4b2!important; opacity:1; }
-
-  /* theme toggle button (HTML lives in footer) */
-  #theme-toggle{
-    position:fixed; right:16px; bottom:16px; z-index:9999; border:0; padding:10px 12px;
-    border-radius:999px; background:var(--dark-bg); color:#fff; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.25);
-  }
-  html:not(.theme-dark) #theme-toggle{ background:#0e7490; }
-
-  /* --- About page callout: bring back thin left rail + better contrast --- */
-  .about-callout{
-    background:#e8f4fb; border:1px solid #bcdcff; border-left:4px solid var(--brand-accent);
-  }
-  html.theme-dark .about-callout{
-    background:#0f2d3a!important; border:1px solid #1f6b8f!important; border-left-color:#22d3ee!important; color:var(--dark-text)!important;
-  }
-  html.theme-dark .about-callout strong{ color:#fff!important; }
-  html.theme-dark .about-callout em{ color:#cfe8ff!important; }
-  html.theme-dark .about-callout a{ color:#7dc9ff!important; }
-  html.theme-dark .about-callout:before{ color:#7dc9ff!important; opacity:1!important; }
-
-  /* --- Publication/Patent "pills" --- */
-  .link-pills{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0 0; }
-  .link-pill{
-    display:inline-flex; align-items:center; gap:.45rem; padding:.28rem .75rem;
-    border-radius:999px; font-weight:700; border:1px solid var(--brand-accent);
-    text-decoration:none; background:transparent; transition:.15s ease; line-height:1.2;
-  }
-  .link-pill:hover{ background:var(--brand-accent); color:#fff; }
-  .pill--pdf{ border-color:#ef4444; } .pill--pdf:hover{ background:#ef4444; }
-  .pill--code{ border-color:#16a34a; } .pill--code:hover{ background:#16a34a; }
-  .pill--uspto{ border-color:#8b5cf6; } .pill--uspto:hover{ background:#8b5cf6; }
-  .pill--copy{ cursor:pointer; }
-
-  /* list spacing & year headings */
-  .year-head{ margin:1.25rem 0 .25rem; font-weight:800; }
-  .pub-item, .pat-item{ padding:.6rem .8rem; border-radius:.75rem; }
-  .pub-item:hover, .pat-item:hover{ background:rgba(14,165,233,.08); }
-  html.theme-dark .pub-item:hover, html.theme-dark .pat-item:hover{ background:#0b1220; }
+  html.theme-dark ::placeholder{ color:#9aa4b2!important; opacity:1!important; }
 </style>
 
 <style>
@@ -326,6 +257,32 @@ document.addEventListener('click', e=>{
     setTimeout(()=>{ b.textContent = b.dataset.label || 'BibTeX'; }, 900);
   });
 });
+
+/* === THEME TOGGLE (masthead) ============================================== */
+(function(){
+  // create once and park it in the masthead near the search icon
+  const btn = document.createElement('button');
+  btn.id = 'theme-toggle';
+  btn.type = 'button';
+  btn.style.cssText = 'border:1px solid transparent;background:transparent;color:currentColor;border-radius:999px;padding:.25rem .45rem;margin-left:.4rem;line-height:1;cursor:pointer;';
+  const setIcon = () => btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙';
+  setIcon();
+  btn.addEventListener('click', ()=>{
+    const dark = document.documentElement.classList.toggle('theme-dark');
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
+    setIcon();
+  });
+
+  function place(){
+    const nav = document.querySelector('.masthead .greedy-nav');
+    if(!nav) return false;
+    const search = nav.querySelector('.search__toggle') || nav.querySelector('.site-search');
+    if (search && search.parentNode) { search.parentNode.insertBefore(btn, search.nextSibling); return true; }
+    const links = nav.querySelector('.visible-links') || nav;
+    links.appendChild(btn); return true;
+  }
+  if (!place()) window.addEventListener('load', place);
+})();
 </script>
 
 <!-- Google Analytics -->
