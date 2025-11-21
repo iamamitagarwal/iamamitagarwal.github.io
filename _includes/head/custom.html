@@ -1,66 +1,337 @@
-{%- comment -%} Theme toggle + global widgets {%- endcomment -%}
+<!-- FAVICONS -->
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<!-- Google Fonts (fast, readable, techy) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<!-- Your brand overrides -->
+<link rel="stylesheet" href="{{ '/assets/css/brand.css' | relative_url }}">
+
+<!-- Prevent FOUC: apply saved theme ASAP -->
+<script>
+  (function() {
+    try { if (localStorage.getItem('theme') === 'dark')
+      document.documentElement.classList.add('theme-dark');
+    } catch(e){}
+  })();
+</script>
+
 <style>
-  /* Fallback (only if we can't place the toggle into the masthead):
-     keep it on the LEFT so it never overlaps the contact FAB on the right. */
-  #theme-toggle.floating{
-    position: fixed; left: 16px; bottom: 16px; z-index: 9999;
-    border: 1px solid #cbd5e1; background: #fff; color: #111827;
-    border-radius: 999px; padding: .45rem .6rem; line-height: 1;
-    box-shadow: 0 6px 16px rgba(0,0,0,.12); cursor: pointer;
+  .author-me{ font-weight:800; color:#0e7490; }
+  html.theme-dark .author-me{ color:#7dc9ff; }
+  /* ===== Bigger author avatar in Minimal Mistakes sidebar ===== */
+  .page__sidebar .author__avatar,
+  .page__sidebar .author__avatar img{
+    width: 300px;
+    height: 300px;
   }
-  html.theme-dark #theme-toggle.floating{
-    background:#0f172a; color:#e5e7eb; border-color:#334155;
+  
+  @media (max-width: 540px){
+    .page__sidebar .author__avatar,
+    .page__sidebar .author__avatar img{
+      width: 128px;
+      height: 128px;
+    }
+  }
+  /* === What's next slide-out + contact modal ================================= */
+.wnx-tab{
+  position:fixed; right:0; top:35vh; z-index:1000;
+  transform:translateX(0);
+  background:var(--mm-accent, #0ea5e9);
+  color:#fff; border:none; border-radius:12px 0 0 12px;
+  padding:.55rem .75rem; font-weight:900; letter-spacing:.02em;
+  box-shadow:0 8px 16px rgba(0,0,0,.15);
+}
+.wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); }
+
+/* Panel */
+.wnx-panel{
+  position:fixed; top:80px; right:-360px; width:340px; bottom:24px; z-index:1000;
+  background:var(--background, #fff);
+  border:1.5px solid var(--mm-border, #e5e7eb);
+  border-radius:16px 0 0 16px;
+  box-shadow:0 12px 24px rgba(0,0,0,.18);
+  transition:right .18s ease;
+  display:flex; flex-direction:column;
+  background:var(--mm-card-bg, #fff);
+}
+html.theme-dark .wnx-panel{
+  background:#0b1220; border-color:#263244; box-shadow:none;
+}
+.wnx-panel.open{ right:0; }
+.wnx-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.7rem .8rem; font-weight:900; border-bottom:1px solid var(--mm-border, #e5e7eb);
+}
+.wnx-close{ border:none; background:transparent; font-size:1.4rem; line-height:1; color:inherit; cursor:pointer; }
+.wnx-body{ overflow:auto; padding:.6rem .8rem; }
+.wnx-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.6rem; }
+.wnx-item{ display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:.5rem; }
+.wnx-tag{
+  font-size:.75rem; font-weight:800; padding:.18rem .45rem; border-radius:999px;
+  border:1px solid var(--mm-border, #e5e7eb);
+}
+.wnx-link{ font-weight:800; text-decoration:none; }
+.wnx-link:hover{ text-decoration:underline; }
+.wnx-when{ color:var(--mm-muted, #6b7280); font-size:.85rem; }
+
+/* Floating contact button */
+.contact-fab{
+  position:fixed; right:18px; bottom:20px; z-index:1000;
+  width:54px; height:54px; border-radius:999px; border:none; cursor:pointer;
+  box-shadow:0 12px 22px rgba(0,0,0,.18);
+  background:var(--mm-accent, #0ea5e9); color:#fff; font-size:22px;
+}
+html.theme-dark .contact-fab{ box-shadow:none; }
+
+/* Modal */
+.contact-modal{
+  position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:1001;
+  display:flex; align-items:center; justify-content:center;
+  padding:1rem;
+}
+.contact-card{
+  width:min(640px, 96vw); background:var(--mm-card-bg, #fff);
+  border:1.5px solid var(--mm-border, #e5e7eb);
+  border-radius:16px; box-shadow:0 18px 30px rgba(0,0,0,.25); overflow:hidden;
+}
+html.theme-dark .contact-card{ background:#0b1220; border-color:#263244; box-shadow:none; }
+.contact-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.8rem 1rem; font-weight:900; border-bottom:1px solid var(--mm-border, #e5e7eb);
+}
+.contact-close{ border:none; background:transparent; font-size:1.4rem; cursor:pointer; color:inherit; }
+.contact-form{ padding:1rem; display:flex; flex-direction:column; gap:.8rem; }
+.contact-form .row{ display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
+@media (max-width:640px){ .contact-form .row{ grid-template-columns:1fr; } }
+.contact-form label span{ display:block; font-weight:800; margin-bottom:.25rem; }
+.contact-form input, .contact-form textarea{
+  width:100%; border:1px solid var(--mm-border, #e5e7eb); border-radius:10px;
+  padding:.6rem .7rem; background:transparent; color:inherit;
+}
+.contact-form .actions{ display:flex; gap:.6rem; margin-top:.3rem; }
+.contact-note{ color:var(--mm-muted, #6b7280); font-size:.85rem; }
+
+/* Mobile adjustments: convert what's-next into bottom drawer */
+@media (max-width:1100px){
+  .wnx-tab{ top:auto; bottom:90px; right:14px; border-radius:999px; padding:.55rem .7rem; }
+  .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
+  .wnx-panel{
+    right:14px; left:14px; width:auto; bottom:90px; top:auto; border-radius:16px;
+    transform:translateY(110%); transition:transform .18s ease;
+  }
+  .wnx-panel.open{ transform:translateY(0); }
+}
+  
+</style>
+
+<!-- Brand tokens, dark-mode styling, sticky header, pills, callout -->
+<style>
+  :root{
+    --brand-accent:#0ea5e9;
+
+    /* dark tokens */
+    --dark-bg:#0d1117; --dark-text:#e6edf3; --dark-heading:#f3f4f6;
+    --dark-link:#58a6ff; --dark-link-hov:#8ab4ff;
+    --dark-panel:#0b1220; --dark-panel-brdr:#1f2937;
+
+    /* footer in dark */
+    --dark-footer-bg:#0B2738; --dark-footer-text:#9ec1d9;
+    --dark-footer-link:#58a6ff; --dark-footer-brdr:#0f3a52;
   }
 
-  /* When inserted into the masthead, inherit nav look */
-  .masthead .greedy-nav #theme-toggle{
-    border: 0; background: transparent; color: currentColor;
-    border-radius: 999px; padding: .25rem .45rem; margin-left: .35rem; line-height: 1;
-    cursor: pointer;
+  /* subtle brand line */
+  .masthead{ border-bottom:4px solid var(--brand-accent); }
+
+  /* sticky masthead — solid background (no glass), readable in both themes */
+  .masthead{ position:sticky; top:0; z-index:2000; background:#ffffff; }
+  .greedy-nav{ background:inherit; }              /* keep nav same as masthead */
+  .greedy-nav a, .site-title{ color:#0f172a; }    /* readable links in light */
+
+  /* tiny shadow only after scrolling a bit */
+  .masthead.is-stuck{ box-shadow:0 2px 6px rgba(0,0,0,.06); }
+
+  <style>
+  .masthead__inner-wrap { padding-block: 10px; }
+
+  .site-title {
+    display: inline-flex; align-items: center; gap: .5rem;
+    text-decoration: none;
   }
-  .masthead .greedy-nav .hidden-links #theme-toggle,
-  .masthead .greedy-nav .visible-links #theme-toggle{ padding:.5rem .6rem; }
+  .site-logo img { height: 22px; width: auto; display: block; }
+
+  .brand-text {
+    font-weight: 800; font-size: 1.06rem; letter-spacing: .2px;
+    color: var(--mm-text, #0b1320);
+  }
+
+  /* tagline chip */
+  .brand-sub {
+    display: inline-flex; align-items: center;
+    padding: .18rem .5rem; margin-left: .15rem;
+    border-radius: 999px; font-weight: 700; font-size: .72rem;
+    color: #0b3a46; background: #eaf6f8; border: 1px solid #cfe9ee;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 820px){ .brand-sub { display: none; } }
+
+  /* subtle header underline tweak */
+  .greedy-nav { border-bottom: 2px solid #52b3cf20; }
+
+  /* Make the masthead logo readable in dark mode */
+  html.theme-dark .site-logo img{
+  filter: invert(1) hue-rotate(180deg) saturate(.8) brightness(.95);
+  }
+  
+  /* dark mode */
+  html.theme-dark .brand-text { color: #e6edf3; }
+  html.theme-dark .brand-sub { color:#cce9ef; background:#0d2a31; border-color:#1f5b68; }
+
+  /* dark theme header */
+  html.theme-dark .masthead,
+  html.theme-dark .greedy-nav{ background:var(--dark-bg) !important; }
+  html.theme-dark .greedy-nav a,
+  html.theme-dark .site-title{ color:var(--dark-text) !important; }
+  html.theme-dark .masthead{ border-bottom-color:#22d3ee; }
+
+  /* body copy */
+  .page__content p, .page__content li{ text-align:justify; text-justify:inter-word; }
+
+  /* DARK MODE — sitewide */
+  html.theme-dark, html.theme-dark body{ background:var(--dark-bg)!important; color:var(--dark-text)!important; }
+  html.theme-dark .page, html.theme-dark .page__inner-wrap, html.theme-dark .page__content,
+  html.theme-dark .sidebar, html.theme-dark .archive__item, html.theme-dark .archive__item-excerpt{
+    background:transparent!important; color:var(--dark-text)!important;
+  }
+  html.theme-dark h1, html.theme-dark h2, html.theme-dark h3, html.theme-dark h4,
+  html.theme-dark h5, html.theme-dark h6, html.theme-dark .page__title{ color:var(--dark-heading)!important; }
+  html.theme-dark a{ color:var(--dark-link)!important; }
+  html.theme-dark a:hover{ color:var(--dark-link-hov)!important; }
+
+  html.theme-dark pre, html.theme-dark code, html.theme-dark .highlighter-rouge{
+    background:var(--dark-panel)!important; color:var(--dark-text)!important; border-color:var(--dark-panel-brdr)!important;
+  }
+  html.theme-dark .notice, html.theme-dark .toc, html.theme-dark .btn, html.theme-dark .btn--primary{
+    background:#0f172a!important; color:var(--dark-text)!important; border-color:var(--brand-accent)!important;
+  }
+
+  /* footer overrides in dark */
+  html.theme-dark .page__footer{
+    background:var(--dark-footer-bg)!important; color:var(--dark-footer-text)!important;
+    border-top:1px solid var(--dark-footer-brdr)!important;
+  }
+  html.theme-dark .page__footer a, html.theme-dark .page__footer .fa, html.theme-dark .page__footer .fab{
+    color:var(--dark-footer-link)!important;
+  }
+
+  /* author/meta icons brighter in dark */
+  html.theme-dark .author__urls i, html.theme-dark .social-icons .fa, html.theme-dark .page__meta .fa{ color:#9ecbff!important; }
+
+  /* search inputs in dark */
+  html.theme-dark input[type="search"], html.theme-dark .search-input,
+  html.theme-dark .search-content__input, html.theme-dark .search-content input{
+    background:var(--dark-panel)!important; color:var(--dark-text)!important; border-color:var(--dark-panel-brdr)!important;
+  }
+  html.theme-dark ::placeholder{ color:#9aa4b2!important; opacity:1; }
+
+  /* theme toggle button (HTML lives in footer) */
+  #theme-toggle{
+    position:fixed; right:16px; bottom:16px; z-index:9999; border:0; padding:10px 12px;
+    border-radius:999px; background:var(--dark-bg); color:#fff; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.25);
+  }
+  html:not(.theme-dark) #theme-toggle{ background:#0e7490; }
+
+  /* --- About page callout: bring back thin left rail + better contrast --- */
+  .about-callout{
+    background:#e8f4fb; border:1px solid #bcdcff; border-left:4px solid var(--brand-accent);
+  }
+  html.theme-dark .about-callout{
+    background:#0f2d3a!important; border:1px solid #1f6b8f!important; border-left-color:#22d3ee!important; color:var(--dark-text)!important;
+  }
+  html.theme-dark .about-callout strong{ color:#fff!important; }
+  html.theme-dark .about-callout em{ color:#cfe8ff!important; }
+  html.theme-dark .about-callout a{ color:#7dc9ff!important; }
+  html.theme-dark .about-callout:before{ color:#7dc9ff!important; opacity:1!important; }
+
+  /* --- Publication/Patent "pills" --- */
+  .link-pills{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0 0; }
+  .link-pill{
+    display:inline-flex; align-items:center; gap:.45rem; padding:.28rem .75rem;
+    border-radius:999px; font-weight:700; border:1px solid var(--brand-accent);
+    text-decoration:none; background:transparent; transition:.15s ease; line-height:1.2;
+  }
+  .link-pill:hover{ background:var(--brand-accent); color:#fff; }
+  .pill--pdf{ border-color:#ef4444; } .pill--pdf:hover{ background:#ef4444; }
+  .pill--code{ border-color:#16a34a; } .pill--code:hover{ background:#16a34a; }
+  .pill--uspto{ border-color:#8b5cf6; } .pill--uspto:hover{ background:#8b5cf6; }
+  .pill--copy{ cursor:pointer; }
+
+  /* list spacing & year headings */
+  .year-head{ margin:1.25rem 0 .25rem; font-weight:800; }
+  .pub-item, .pat-item{ padding:.6rem .8rem; border-radius:.75rem; }
+  .pub-item:hover, .pat-item:hover{ background:rgba(14,165,233,.08); }
+  html.theme-dark .pub-item:hover, html.theme-dark .pat-item:hover{ background:#0b1220; }
+</style>
+
+<style>
+  /* Dark-mode fixes for the mobile nav (greedy-nav hidden links) */
+  html.theme-dark .greedy-nav .hidden-links{
+    background:#0b1220;                /* dark panel */
+    border:1px solid #374151;          /* subtle border */
+    box-shadow:0 12px 24px rgba(0,0,0,.35);
+  }
+  html.theme-dark .greedy-nav .hidden-links:before{ /* little caret */
+    border-color:transparent transparent #374151 transparent;
+  }
+  html.theme-dark .greedy-nav .hidden-links li{
+    border-color:#374151;              /* item separators */
+  }
+  html.theme-dark .greedy-nav .hidden-links a{
+    color:#e5e7eb !important;          /* readable links */
+  }
+  html.theme-dark .greedy-nav .hidden-links a:hover{
+    background:#1f2937;
+    color:#fff !important;
+  }
+  
+  /* Make the toggle and visible links readable too */
+  html.theme-dark .greedy-nav__toggle,
+  html.theme-dark .greedy-nav a,
+  html.theme-dark .masthead a.site-title {
+    color:#e5e7eb;
+  }
+  html.theme-dark .greedy-nav__toggle:hover{ background:#1f2937; }
 </style>
 
 <script>
+/* Solid sticky masthead with shadow after scroll */
 (function(){
-  /* Apply saved theme early */
-  try {
-    var saved = localStorage.getItem('theme');
-    if (saved === 'dark') document.documentElement.classList.add('theme-dark');
-  } catch(e){}
-
-  /* Create/reuse button */
-  var btn = document.getElementById('theme-toggle') || document.createElement('button');
-  btn.id = 'theme-toggle';
-  btn.type = 'button';
-  btn.setAttribute('aria-label','Toggle theme');
-  btn.setAttribute('title','Toggle theme');
-  function setIcon(){ btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙'; }
-  setIcon();
-  btn.addEventListener('click', function(){
-    var dark = document.documentElement.classList.toggle('theme-dark');
-    try{ localStorage.setItem('theme', dark ? 'dark' : 'light'); }catch(e){}
-    setIcon();
-  });
-
-  /* Try to place in masthead (right side, after search) */
-  function tryPlace(){
-    var greedy = document.querySelector('.masthead .greedy-nav');
-    if (!greedy) return false;
-    var anchor = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
-    if (anchor && anchor.parentNode){ anchor.parentNode.insertBefore(btn, anchor.nextSibling); return true; }
-    var right = greedy.querySelector('.visible-links'); if (right){ right.appendChild(btn); return true; }
-    greedy.appendChild(btn); return true;
-  }
-
-  if (!tryPlace()){
-    btn.classList.add('floating');
-    document.body.appendChild(btn);
-    window.addEventListener('load', function(){ if (tryPlace()) btn.classList.remove('floating'); });
-  }
+  var h = document.querySelector('.masthead');
+  if(!h) return;
+  var on = () => h.classList.toggle('is-stuck', window.scrollY > 8);
+  on(); window.addEventListener('scroll', on, {passive:true});
 })();
+
+/* Copy BibTeX pill */
+document.addEventListener('click', e=>{
+  const b = e.target.closest('.pill--copy');
+  if(!b) return;
+  const txt = b.dataset.bib || '';
+  navigator.clipboard.writeText(txt).then(()=>{
+    b.dataset.label = b.textContent;
+    b.textContent = 'Copied!';
+    setTimeout(()=>{ b.textContent = b.dataset.label || 'BibTeX'; }, 900);
+  });
+});
 </script>
 
-{%- comment -%} What’s next rail + Contact FAB (site-wide) {%- endcomment -%}
-{% include whatsnext_and_contact.html %}
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-351QZEBS4T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date()); gtag('config', 'G-351QZEBS4T');
+</script>
