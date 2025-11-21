@@ -237,6 +237,49 @@
   html.theme-dark .greedy-nav .hidden-links a:hover{ background:#1f2937; color:#fff !important; }
 </style>
 
+<!-- ***** ADDED: mobile masthead + avatar fixes (only change) ***** -->
+<style>
+  /* Keep mobile masthead tidy without hiding links */
+  @media (max-width: 900px){
+    .masthead .greedy-nav{
+      display:flex;
+      align-items:center;
+    }
+    .masthead .greedy-nav .site-title{
+      flex:1 1 auto;
+      min-width:0;
+      max-width:calc(100% - 140px); /* room for search/theme/hamburger */
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .masthead #theme-toggle{
+      width:30px; height:30px; font-size:16px; margin-left:.35rem;
+    }
+  }
+
+  /* Clamp avatar size on phones and prevent overflow */
+  @media (max-width: 600px){
+    .page__sidebar .author__avatar img,
+    .sidebar .author__avatar img,
+    .author__avatar img{
+      width:108px !important;
+      height:108px !important;
+      min-width:108px !important;
+      max-width:none !important;
+      border-radius:50%;
+      object-fit:cover;
+      display:block;
+    }
+    .page__sidebar .author__avatar,
+    .sidebar .author__avatar{
+      display:inline-flex;
+      align-items:center;
+    }
+  }
+</style>
+<!-- ***** END added block ***** -->
+
 <script>
   /* Solid sticky masthead with shadow after scroll */
   (function(){
