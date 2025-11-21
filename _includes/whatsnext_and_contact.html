@@ -1,167 +1,121 @@
-<!-- Isolated styles + markup; no global selectors -->
-<style>
-  :root{
-    --wnx-bg:#ffffff; --wnx-fg:#111827; --wnx-sub:#475569; --wnx-br:#e5e7eb;
-    --wnx-card:#ffffff; --wnx-badge:#0ea5e9; --wnx-shadow:0 10px 30px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
-    --fab-bg:#10b981; --fab-fg:#ffffff; --fab-shadow:0 10px 30px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.08);
-  }
-  html.theme-dark{
-    --wnx-bg:#0b1220; --wnx-fg:#e5e7eb; --wnx-sub:#94a3b8; --wnx-br:#1f2a44;
-    --wnx-card:#0f172a; --wnx-badge:#38bdf8; --wnx-shadow:0 12px 32px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.25);
-    --fab-bg:#0ea5e9; --fab-fg:#0b1220; --fab-shadow:0 12px 32px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.3);
-  }
-
-  /* ---------- launcher tab ---------- */
-  .wnx-tab{
-    position:fixed; right:0; top:35vh; z-index:1000;
-    background:var(--wnx-badge); color:#fff; border:none;
-    border-radius:12px 0 0 12px; padding:.55rem .75rem; font-weight:900;
-    box-shadow:0 8px 16px rgba(0,0,0,.15); cursor:pointer;
-  }
-  .wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); }
-
-  /* ---------- panel ---------- */
-  .wnx-panel{
-    position:fixed; top:80px; right:-360px; width:340px; bottom:24px; z-index:1000;
-    background:var(--wnx-bg); color:var(--wnx-fg);
-    border:1.5px solid var(--wnx-br); border-radius:16px 0 0 16px;
-    box-shadow:var(--wnx-shadow); transition:right .18s ease; display:flex; flex-direction:column;
-  }
-  .wnx-panel.open{ right:0; }
-  .wnx-head{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:.7rem .8rem; font-weight:900; border-bottom:1px solid var(--wnx-br);
-  }
-  .wnx-close{ border:none; background:transparent; font-size:1.1rem; line-height:1; color:inherit; cursor:pointer; }
-  .wnx-body{ overflow:auto; padding:.6rem .8rem; }
-  .wnx-list{ display:flex; flex-direction:column; gap:.6rem; }
-  .wnx-card{
-    background:var(--wnx-card); color:var(--wnx-fg);
-    border:1px solid var(--wnx-br); border-radius:14px; padding:.75rem .85rem; box-shadow:var(--wnx-shadow);
-  }
-  .wnx-title{ font-weight:900; margin:0 0 .25rem; display:flex; align-items:center; gap:.5rem; }
-  /* Slim bullet (the one you liked) */
-  .wnx-dot{ width:3px; height:14px; border-radius:2px; background:var(--wnx-badge); display:inline-block; }
-  .wnx-meta{ color:var(--wnx-sub); font-weight:600; font-size:.95rem; }
-
-  /* ---------- contact FAB & drawer ---------- */
-  .contact-fab{
-    position:fixed; right:16px; bottom:16px; width:56px; height:56px; z-index:9998;
-    border-radius:999px; display:grid; place-items:center;
-    background:var(--fab-bg); color:var(--fab-fg); box-shadow:var(--fab-shadow); cursor:pointer; border:0;
-  }
-  .contact-fab svg{ width:26px; height:26px; }
-  .contact-drawer{
-    position:fixed; right:16px; bottom:84px; width:320px; max-width:90vw; max-height:80vh; z-index:9997;
-    background:var(--wnx-bg); color:var(--wnx-fg); border:1px solid var(--wnx-br); border-radius:12px;
-    box-shadow:var(--wnx-shadow); transform:translateY(12px); opacity:0; pointer-events:none;
-    transition:transform .16s ease, opacity .16s ease; display:flex; flex-direction:column;
-  }
-  .contact-drawer.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
-  .cd-head{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-bottom:1px solid var(--wnx-br); font-weight:800; }
-  .cd-body{ padding:12px; display:grid; gap:10px; }
-  .cd-row label{ display:block; font-weight:700; margin-bottom:4px; color:var(--wnx-sub); }
-  .cd-row input,.cd-row textarea{ width:100%; border:1px solid var(--wnx-br); background:var(--wnx-card); color:var(--wnx-fg); border-radius:10px; padding:10px; font:inherit; }
-  .cd-actions{ display:flex; justify-content:flex-end; gap:8px; padding:10px 12px 12px; }
-  .btn-pill{ border:1px solid var(--wnx-br); background:transparent; color:var(--wnx-fg); border-radius:999px; padding:.45rem .9rem; font-weight:800; cursor:pointer; }
-  .btn-cta{ background:var(--fab-bg); color:var(--fab-fg); border-color:transparent; }
-
-  /* Mobile: panel becomes bottom drawer; keep tab visible */
-  @media (max-width:1100px){
-    .wnx-tab{ top:auto; bottom:90px; right:14px; border-radius:999px; padding:.55rem .7rem; }
-    .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
-    .wnx-panel{ right:14px; left:14px; width:auto; bottom:90px; top:auto; border-radius:16px; transform:translateY(110%); transition:transform .18s ease; }
-    .wnx-panel.open{ transform:translateY(0); }
-  }
-</style>
-
-<!-- launcher tab -->
-<button class="wnx-tab" id="wnxTab" type="button" aria-controls="wnxPanel"><span>What’s next</span></button>
-
-<!-- panel -->
-<aside id="wnxPanel" class="wnx-panel" aria-label="What’s next">
-  <div class="wnx-head">
-    <span>What’s next</span>
-    <button class="wnx-close" id="wnxClose" type="button">Close</button>
-  </div>
-  <div class="wnx-body">
-    <div class="wnx-list">
-      {% assign feed = site.data.whats_next %}
-      {% if feed and feed.size > 0 %}
-        {% for it in feed %}
-          <div class="wnx-card">
-            <div class="wnx-title">
-              <span class="wnx-dot"></span>
-              {% if it.link %}<a class="wnx-link" href="{{ it.link }}" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">{{ it.title }}</a>
-              {% else %}{{ it.title }}{% endif %}
-            </div>
-            <div class="wnx-meta">{{ it.tag | default: "" }}{% if it.when %} • {{ it.when }}{% endif %}</div>
-            {% if it.desc and it.desc != "" %}<div style="margin-top:6px; color:var(--wnx-sub);">{{ it.desc }}</div>{% endif %}
-          </div>
-        {% endfor %}
-      {% else %}
-        <div class="wnx-card"><div class="wnx-title">Nothing queued yet.</div></div>
-      {% endif %}
-    </div>
-  </div>
-</aside>
-
-<!-- contact FAB + drawer -->
-<button class="contact-fab" id="contactFab" aria-label="Contact">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
-  </svg>
-</button>
-
-<form class="contact-drawer" id="contactDrawer" action="https://formspree.io/f/mwpydbpb" method="POST">
-  <div class="cd-head">
-    <span>Say hi</span>
-    <button class="btn-pill" type="button" id="contactClose">Close</button>
-  </div>
-  <div class="cd-body">
-    <div class="cd-row">
-      <label for="cname">Name</label>
-      <input id="cname" name="name" autocomplete="name" />
-    </div>
-    <div class="cd-row">
-      <label for="cemail">Email</label>
-      <input id="cemail" type="email" name="email" autocomplete="email" required />
-    </div>
-    <div class="cd-row">
-      <label for="csubject">Subject</label>
-      <input id="csubject" name="subject" />
-    </div>
-    <div class="cd-row">
-      <label for="cmsg">Message</label>
-      <textarea id="cmsg" name="message" rows="5" required></textarea>
-    </div>
-  </div>
-  <div class="cd-actions">
-    <button class="btn-pill" type="button" id="contactCancel">Cancel</button>
-    <button class="btn-pill btn-cta" type="submit">Send</button>
-  </div>
-</form>
-
+<!-- _includes/whatsnext_and_contact.html -->
 <script>
-  (function(){
-    // default collapsed
-    const tab   = document.getElementById('wnxTab');
-    const panel = document.getElementById('wnxPanel');
-    const close = document.getElementById('wnxClose');
-    function open(){ panel.classList.add('open'); }
-    function shut(){ panel.classList.remove('open'); }
-    tab.addEventListener('click', open);
-    close.addEventListener('click', shut);
+(function(){
+  /* Compute a safe top offset for the panel so it never clips behind masthead */
+  function mastheadTop(){
+    const m = document.querySelector('.masthead');
+    const h = m ? m.getBoundingClientRect().height : 72;   // default ~72px
+    return Math.round(h + 12); // 12px breathing room
+  }
 
-    // contact drawer
-    const fab    = document.getElementById('contactFab');
-    const drawer = document.getElementById('contactDrawer');
-    const x1     = document.getElementById('contactClose');
-    const x2     = document.getElementById('contactCancel');
-    function openD(){ drawer.classList.add('open'); }
-    function closeD(){ drawer.classList.remove('open'); }
-    fab.addEventListener('click', openD);
-    x1.addEventListener('click', closeD);
-    x2.addEventListener('click', closeD);
-  })();
+  // Build the tab + panel markup
+  const tab = document.createElement('button');
+  tab.className = 'wnx-tab';
+  tab.type = 'button';
+  tab.innerHTML = '<span>What’s next</span>';
+
+  const panel = document.createElement('div');
+  panel.className = 'wnx-panel';
+  panel.style.top = mastheadTop() + 'px';
+
+  panel.innerHTML = `
+    <div class="wnx-head">
+      <span>What’s next</span>
+      <button type="button" class="wnx-close">Close</button>
+    </div>
+    <div class="wnx-body">
+      <div class="wnx-list">
+        {% assign feed = site.data.whats_next %}
+        {% if feed and feed.size > 0 %}
+          {% for it in feed %}
+          <div class="wnx-card">
+            <div class="wnx-title">{{ it.title }}</div>
+            <div class="wnx-meta">
+              {{ it.tag | default: "" }}{% if it.when %} • {{ it.when }}{% endif %}
+            </div>
+            {% if it.desc and it.desc != "" %}
+              <div class="wnx-text" style="margin-top:6px;color:#64748b;">{{ it.desc }}</div>
+            {% endif %}
+            {% if it.link %}
+              <div style="margin-top:8px;">
+                <a href="{{ it.link }}" target="_blank" rel="noopener" class="link-pill" style="text-decoration:none;padding:.28rem .65rem;border-radius:999px;border:1px solid #0ea5e9;">Open</a>
+              </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        {% else %}
+          <div class="wnx-card"><div class="wnx-title">No items yet.</div></div>
+        {% endif %}
+      </div>
+    </div>
+  `;
+
+  // Default: collapsed
+  document.body.appendChild(tab);
+  document.body.appendChild(panel);
+
+  const open = () => panel.classList.add('open');
+  const close = () => panel.classList.remove('open');
+  tab.addEventListener('click', open);
+  panel.querySelector('.wnx-close').addEventListener('click', close);
+
+  // Recompute top on resize (avoids clipping if header height changes)
+  let rAF = null;
+  window.addEventListener('resize', function(){
+    if (rAF) cancelAnimationFrame(rAF);
+    rAF = requestAnimationFrame(()=>{ panel.style.top = mastheadTop() + 'px'; });
+  });
+
+  /* ---- Contact FAB + Drawer (Formspree) ---------------------------------- */
+  const fab = document.createElement('button');
+  fab.className = 'contact-fab';
+  fab.type = 'button';
+  fab.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="26" height="26">
+      <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
+    </svg>
+  `;
+  document.body.appendChild(fab);
+
+  const drawer = document.createElement('form');
+  drawer.className = 'contact-drawer';
+  drawer.action = 'https://formspree.io/f/mwpydbpb';
+  drawer.method = 'POST';
+  drawer.style.cssText = 'position:fixed;right:16px;bottom:84px;width:320px;max-width:90vw;max-height:80vh;background:var(--mm-card-bg,#fff);color:inherit;border:1px solid var(--mm-border,#e5e7eb);border-radius:12px;box-shadow:0 12px 24px rgba(0,0,0,.18);transform:translateY(12px);opacity:0;pointer-events:none;transition:transform .16s ease,opacity .16s ease;z-index:998;display:flex;flex-direction:column;';
+  drawer.innerHTML = `
+    <div class="cd-head" style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--mm-border,#e5e7eb);font-weight:800;">
+      <span>Say hi</span>
+      <button class="btn-pill" type="button" id="contactClose" style="border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:999px;padding:.35rem .8rem;font-weight:800;cursor:pointer;">Close</button>
+    </div>
+    <div class="cd-body" style="padding:12px;display:grid;gap:10px;">
+      <label style="display:block;">
+        <span style="display:block;font-weight:800;margin-bottom:4px;color:#64748b;">Name</span>
+        <input name="name" autocomplete="name" style="width:100%;border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:10px;padding:10px;"/>
+      </label>
+      <label style="display:block;">
+        <span style="display:block;font-weight:800;margin-bottom:4px;color:#64748b;">Email</span>
+        <input type="email" name="email" autocomplete="email" required style="width:100%;border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:10px;padding:10px;"/>
+      </label>
+      <label style="display:block;">
+        <span style="display:block;font-weight:800;margin-bottom:4px;color:#64748b;">Subject</span>
+        <input name="subject" style="width:100%;border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:10px;padding:10px;"/>
+      </label>
+      <label style="display:block;">
+        <span style="display:block;font-weight:800;margin-bottom:4px;color:#64748b;">Message</span>
+        <textarea name="message" rows="5" required style="width:100%;border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:10px;padding:10px;"></textarea>
+      </label>
+    </div>
+    <div class="cd-actions" style="display:flex;justify-content:flex-end;gap:8px;padding:10px 12px 12px;">
+      <button class="btn-pill" type="button" id="contactCancel" style="border:1px solid var(--mm-border,#e5e7eb);background:transparent;border-radius:999px;padding:.45rem .9rem;font-weight:800;cursor:pointer;">Cancel</button>
+      <button class="btn-pill" type="submit" style="border:1px solid transparent;background:#0ea5e9;color:#fff;border-radius:999px;padding:.45rem .9rem;font-weight:800;cursor:pointer;">Send</button>
+    </div>
+  `;
+  document.body.appendChild(drawer);
+
+  function openDrawer(){ drawer.style.transform='translateY(0)'; drawer.style.opacity='1'; drawer.style.pointerEvents='auto'; }
+  function closeDrawer(){ drawer.style.transform='translateY(12px)'; drawer.style.opacity='0'; drawer.style.pointerEvents='none'; }
+  fab.addEventListener('click', openDrawer);
+  drawer.querySelector('#contactClose').addEventListener('click', closeDrawer);
+  drawer.querySelector('#contactCancel').addEventListener('click', closeDrawer);
+})();
 </script>
