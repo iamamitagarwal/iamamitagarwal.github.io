@@ -1,0 +1,55 @@
+# _data/projects.yml
+- title: "GenAI Evaluation Platform (LLM/RAG)"
+  company: "Oracle Cloud Infrastructure"
+  role: "Principal Applied Scientist"
+  year: 2025
+  tags: ["LLM", "Retrieval", "Evaluation", "Safety"]
+  bullets:
+    - "Shipped an evaluation harness (unit + scenario) and dashboards used across orgs."
+    - "Regression-proofed ranking/retrieval with measurable quality bars and alerts."
+    - "Reduced serving cost ~20–30% via ranking/latency trade‑offs without quality loss."
+  links:
+    - { label: "Notes", url: "https://substack.com/@reachsumit/p-164776541" }
+
+- title: "Accesseval — Benchmarking disability bias in LLMs"
+  company: "Oracle Cloud Infrastructure"
+  role: "Lead Author"
+  year: 2025
+  tags: ["LLM", "Safety", "Evaluation"]
+  bullets:
+    - "Built bias measurement slices and procedures; drove Best Paper – Social Impact at EMNLP 2025."
+    - "Open, extensible task templates for continuous fairness monitoring."
+  links:
+    - { label: "Publication", url: "https://aclanthology.org/" }
+
+- title: "LLM Retrieval + Ranking Optimization"
+  company: "Oracle Cloud Infrastructure"
+  role: "Tech Lead"
+  year: 2024
+  tags: ["Retrieval", "Ranking", "Systems"]
+  bullets:
+    - "Improved retrieval robustness with hybrid search and query reformulation."
+    - "Set up golden sets and auto‑eval for releases; reduced regressions and outages."
+    - "End‑to‑end latency tuning for enterprise workloads."
+  links: []
+
+- title: "Document AI — Key‑Value Extraction for business docs"
+  company: "Abzooba"
+  role: "Applied Scientist"
+  year: 2019
+  tags: ["Document-AI", "ML"]
+  bullets:
+    - "Production KV extraction for invoices/forms; training data bootstrapping and QA."
+    - "Evaluation harness and error taxonomy adopted across teams."
+  links:
+    - { label: "US Patent", url: "https://patents.google.com/patent/US11823478B2/en" }
+
+- title: "Safety & Guardrails for GenAI Features"
+  company: "Oracle Cloud Infrastructure"
+  role: "Owner"
+  year: 2024
+  tags: ["Safety", "Systems"]
+  bullets:
+    - "Policy checks, rate‑limits and content filters for user‑facing surfaces."
+    - "Incident review templates and release gates tied to evaluation metrics."
+  links: []
