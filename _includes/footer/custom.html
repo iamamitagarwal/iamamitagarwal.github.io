@@ -1,66 +1,72 @@
-{%- comment -%} Theme toggle + site-wide widgets {%- endcomment -%}
+{%- comment -%} Theme toggle + widgets injected site-wide {%- endcomment -%}
 <style>
-  /* If we must float the theme toggle (before we can insert it in the masthead),
-     keep it away from the contact FAB. */
+  /* When the toggle has to float, keep it clear of the contact FAB */
   #theme-toggle.floating{
-    position:fixed; right:88px; bottom:18px; z-index:9999;
+    position:fixed;
+    right: 88px !important;   /* <-- move a bit further right than before */
+    bottom:16px !important;
+    z-index:9999;
     border:1px solid var(--mm-toggle-border, #cbd5e1);
     background:var(--mm-toggle-bg, #fff);
     color:var(--mm-toggle-fg, #111827);
-    border-radius:999px; padding:.45rem .6rem; line-height:1;
+    border-radius:999px; padding:.45rem .6rem;
     box-shadow:0 6px 16px rgba(0,0,0,.12); cursor:pointer;
   }
   html.theme-dark #theme-toggle.floating{
     --mm-toggle-bg:#0f172a; --mm-toggle-fg:#e5e7eb; --mm-toggle-border:#334155;
   }
-  /* When placed inside the masthead */
+
+  /* When inserted into the masthead, inherit nav look */
   .masthead .greedy-nav #theme-toggle{
     border:1px solid transparent; background:transparent; color:currentColor;
-    border-radius:999px; padding:.25rem .45rem; margin-left:.4rem; line-height:1;
+    border-radius:999px; padding:.25rem .4rem; margin-left:.35rem; line-height:1;
     cursor:pointer;
+  }
+  .masthead .greedy-nav .hidden-links #theme-toggle,
+  .masthead .greedy-nav .visible-links #theme-toggle{
+    padding:.5rem .6rem;
   }
 </style>
 
 <script>
 (function(){
-  /* 1) Apply saved theme ASAP */
   try {
     var saved = localStorage.getItem('theme');
     if (saved === 'dark') document.documentElement.classList.add('theme-dark');
   } catch(e){}
 
-  /* 2) Create / reuse toggle button */
-  var btn = document.getElementById('theme-toggle') || document.createElement('button');
-  btn.id='theme-toggle'; btn.type='button';
-  btn.setAttribute('aria-label','Toggle theme'); btn.setAttribute('title','Toggle theme');
-  function setIcon(){ btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙'; }
+  var existing = document.getElementById('theme-toggle');
+  var btn = existing || document.createElement('button');
+  btn.id = 'theme-toggle';
+  btn.type = 'button';
+  btn.setAttribute('aria-label','Toggle theme');
+  btn.setAttribute('title','Toggle theme');
+  function setIcon(){
+    btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙';
+  }
   setIcon();
+
   btn.addEventListener('click', function(){
     var dark = document.documentElement.classList.toggle('theme-dark');
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
     setIcon();
   });
 
-  /* 3) Try hard to place in the masthead (next to search); otherwise float */
   function tryPlace(){
     var greedy = document.querySelector('.masthead .greedy-nav');
     if (!greedy) return false;
-    var anchor = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search') || greedy.querySelector('.visible-links');
-    if (!anchor) { greedy.appendChild(btn); return true; }
-    anchor.parentNode.insertBefore(btn, anchor.nextSibling);
-    btn.classList.remove('floating');
-    return true;
+    var anchor = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
+    if (anchor && anchor.parentNode){ anchor.parentNode.insertBefore(btn, anchor.nextSibling); return true; }
+    var vis = greedy.querySelector('.visible-links'); if (vis){ vis.appendChild(btn); return true; }
+    greedy.appendChild(btn); return true;
   }
 
   if (!tryPlace()){
     btn.classList.add('floating');
     document.body.appendChild(btn);
-    // Try again after DOM loaded and if the masthead mutates
-    window.addEventListener('load', tryPlace, { once:true });
-    new MutationObserver(tryPlace).observe(document.body, { childList:true, subtree:true });
+    window.addEventListener('load', function(){ if (tryPlace()) btn.classList.remove('floating'); });
   }
 })();
 </script>
 
-{%- comment -%} Inject the “What’s next” rail + Contact FAB across the site {%- endcomment -%}
 {% include whatsnext_and_contact.html %}
