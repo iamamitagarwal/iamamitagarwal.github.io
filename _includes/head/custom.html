@@ -21,18 +21,17 @@
 <style>
   .author-me{ font-weight:800; color:#0e7490; }
   html.theme-dark .author-me{ color:#7dc9ff; }
-  /* ===== Bigger author avatar in Minimal Mistakes sidebar ===== */
+  /* Bigger author avatar (desktop) + responsive fallback */
   .page__sidebar .author__avatar,
   .page__sidebar .author__avatar img{
-    width: 300px;
-    height: 300px;
+    width: 240px !important;
+    height: 240px !important;
   }
-  
   @media (max-width: 540px){
     .page__sidebar .author__avatar,
     .page__sidebar .author__avatar img{
-      width: 128px;
-      height: 128px;
+      width: 128px !important;
+      height: 128px !important;
     }
   }
 
@@ -272,6 +271,21 @@ document.addEventListener('click', e=>{
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
     setIcon();
   });
+
+  /* Bubble button look when the toggle sits in the masthead */
+  .masthead #theme-toggle{
+    position: static !important;     /* override any old fixed rule */
+    display:inline-flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:999px;
+    margin-left:.5rem; font-size:18px; line-height:1;
+    border:1px solid rgba(0,0,0,.12);
+    background:#0e7490; color:#fff;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+  }
+  html.theme-dark .masthead #theme-toggle{
+    background:#0b1220; color:#e6edf3; border-color:#263244;
+    box-shadow:0 3px 10px rgba(0,0,0,.35);
+  }
 
   function place(){
     const nav = document.querySelector('.masthead .greedy-nav');
