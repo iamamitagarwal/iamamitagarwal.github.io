@@ -1,15 +1,102 @@
-<button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+{%- comment -%} Theme toggle injected site-wide {%- endcomment -%}
+<style>
+  /* fallback floating position (if masthead not found) */
+  #theme-toggle.floating {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 9999;
+    border: 1px solid var(--mm-toggle-border, #cbd5e1);
+    background: var(--mm-toggle-bg, #fff);
+    color: var(--mm-toggle-fg, #111827);
+    border-radius: 999px;
+    padding: .45rem .6rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,.12);
+    cursor: pointer;
+  }
+  html.theme-dark #theme-toggle.floating{
+    --mm-toggle-bg:#0f172a; --mm-toggle-fg:#e5e7eb; --mm-toggle-border:#334155;
+  }
+
+  /* when we manage to place it into the masthead */
+  .greedy-nav #theme-toggle {
+    border: 1px solid transparent;
+    background: transparent;
+    color: currentColor;
+    border-radius: 999px;
+    padding: .25rem .4rem;
+    margin-left: .35rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  /* make it look tappable in mobile menu too */
+  .visible-links #theme-toggle,
+  .hidden-links #theme-toggle {
+    padding: .5rem .6rem;
+  }
+</style>
+
 <script>
-  (function(){
-    const html = document.documentElement;
-    const btn  = document.getElementById('theme-toggle');
-    if(!btn) return;
-    const setIcon = () => { btn.textContent = html.classList.contains('theme-dark') ? '☀️' : '🌙'; };
+(function(){
+  // 1) Apply saved theme ASAP
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.documentElement.classList.add('theme-dark');
+  } catch(e){}
+
+  // 2) Create (or reuse) a single button
+  var existing = document.getElementById('theme-toggle');
+  var btn = existing || document.createElement('button');
+  btn.id = 'theme-toggle';
+  btn.type = 'button';
+  btn.setAttribute('aria-label','Toggle theme');
+  btn.setAttribute('title','Toggle theme');
+  var setIcon = function(){
+    btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙';
+  };
+  setIcon();
+
+  // 3) Toggle behavior
+  btn.addEventListener('click', function(){
+    var dark = document.documentElement.classList.toggle('theme-dark');
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
     setIcon();
-    btn.addEventListener('click', ()=>{
-      const dark = html.classList.toggle('theme-dark');
-      try{ localStorage.setItem('theme', dark ? 'dark' : 'light'); }catch(e){}
-      setIcon();
+  });
+
+  // 4) Try to place the button in the masthead near the search icon
+  var placed = false;
+  var tryPlace = function(){
+    if (placed) return;
+    var greedy = document.querySelector('.masthead .greedy-nav');
+    if (!greedy) return false;
+
+    // Prefer to put it right after the search toggle if present
+    var search = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
+    if (search && search.parentNode) {
+      search.parentNode.insertBefore(btn, search.nextSibling);
+      placed = true;
+      return true;
+    }
+
+    // Otherwise append to the right side of the nav
+    var links = greedy.querySelector('.visible-links') || greedy;
+    if (links) {
+      links.appendChild(btn);
+      placed = true;
+      return true;
+    }
+    return false;
+  };
+
+  // Place now or fall back to floating
+  if (!tryPlace()) {
+    // if we couldn’t find the masthead, use floating button
+    btn.classList.add('floating');
+    document.body.appendChild(btn);
+    // attempt again after load (some themes inject late)
+    window.addEventListener('load', function(){
+      if (tryPlace()) btn.classList.remove('floating');
     });
-  })();
+  }
+})();
 </script>
