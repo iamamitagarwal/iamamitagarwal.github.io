@@ -1,145 +1,227 @@
+<!-- _includes/whatsnext_and_contact.html -->
 <style>
-  /* ---------- “What’s next” bulletin ---------- */
-  .whatsnext-wrap{
-    position:fixed; top:88px; right:16px; width:320px; z-index:800;
-    display:flex; flex-direction:column; gap:.6rem;
+  /* ---------- COLOR TOKENS ---------- */
+  :root{
+    --wnx-bg:#ffffff;
+    --wnx-fg:#111827;
+    --wnx-sub:#475569;
+    --wnx-line:#e5e7eb;
+    --wnx-card:#ffffff;
+    --wnx-badge:#0ea5e9;
+    --wnx-shadow:0 10px 30px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
+
+    --fab-bg:#10b981;
+    --fab-fg:#ffffff;
+    --fab-shadow:0 10px 30px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.08);
   }
-  .whatsnext-card{
-    background:var(--wn-bg,#fff); border:1px solid var(--wn-border,#e5e7eb);
-    border-radius:16px; box-shadow:0 8px 22px rgba(0,0,0,.08);
+  html.theme-dark{
+    --wnx-bg:#0b1220;
+    --wnx-fg:#e5e7eb;
+    --wnx-sub:#94a3b8;
+    --wnx-line:#1f2a44;
+    --wnx-card:#0f172a;
+    --wnx-badge:#38bdf8;
+    --wnx-shadow:0 12px 32px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.25);
+
+    --fab-bg:#0ea5e9;
+    --fab-fg:#0b1220;
+    --fab-shadow:0 12px 32px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.3);
   }
-  .whatsnext-head{
+
+  /* ---------- WHAT’S NEXT RAIL ---------- */
+  .wnx-rail{
+    position: fixed;
+    top: 110px; /* clear the masthead */
+    right: 0;
+    width: 320px;
+    max-height: calc(100vh - 140px);
+    overflow: auto;
+    background: var(--wnx-bg);
+    color: var(--wnx-fg);
+    border-left: 1px solid var(--wnx-line);
+    box-shadow: var(--wnx-shadow);
+    padding: 14px 14px 18px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    z-index: 9996;
+    transform: translateX(100%);     /* collapsed by default */
+    transition: transform .18s ease;
+  }
+  .wnx-rail.open{ transform: translateX(0); }
+  .wnx-header{
     display:flex; align-items:center; justify-content:space-between;
-    padding:.8rem 1rem .6rem; border-bottom:1px solid var(--wn-border,#e5e7eb);
+    font-weight:800; font-size:1.05rem; margin:2px 4px 10px;
   }
-  .whatsnext-title{ font-weight:800; font-size:1.15rem; }
-  .wn-list{ list-style:none; margin:0; padding:1rem; display:flex; flex-direction:column; gap:.75rem; }
-  .wn-item{ background:var(--wn-tile,#fff); border:1px solid var(--wn-border,#e5e7eb);
-           border-radius:12px; padding:.9rem 1rem; }
-  .wn-item h4{ margin:.1rem 0 .25rem; font-size:1.05rem; }
-  .wn-item p{ margin:0; color:var(--wn-muted,#4b5563); }
-  .wn-dot{ display:inline-block; width:7px; height:10px; border-radius:3px; margin-right:.35rem;
-           background:linear-gradient(180deg,#3b82f6,#22c55e); vertical-align:baseline; }
+  .wnx-btn{
+    border:1px solid var(--wnx-line); background:transparent; color:var(--wnx-fg);
+    padding:.25rem .55rem; border-radius:999px; cursor:pointer; font-weight:700;
+  }
+  .wnx-list{ display:grid; gap:12px; }
+  .wnx-card{
+    background: var(--wnx-card);
+    color: var(--wnx-fg);
+    border:1px solid var(--wnx-line);
+    border-radius:14px;
+    box-shadow: var(--wnx-shadow);
+    padding:12px 14px;
+  }
+  .wnx-title{ font-weight:900; margin:0 0 4px; }
+  .wnx-meta{ color:var(--wnx-sub); font-weight:600; font-size:.95rem; }
 
-  /* collapsed state */
-  .whatsnext-card[data-collapsed="true"] .wn-list{ display:none; }
-  .whatsnext-card[data-collapsed="true"] .wn-toggle::after{ content:"Expand"; }
-  .wn-toggle{ border:1px solid #cbd5e1; background:#f8fafc; border-radius:10px; padding:.25rem .6rem; cursor:pointer; }
-  .wn-toggle::after{ content:"Collapse"; }
+  .wnx-dot{
+    display:inline-block; width:6px; height:6px; border-radius:999px;
+    background: var(--wnx-badge); margin-right:.4rem;
+  }
 
-  html.theme-dark .whatsnext-card{ --wn-bg:#0b1220; --wn-border:#1f2937; }
-  html.theme-dark .wn-item{ --wn-tile:#0b1220; --wn-border:#1f2937; }
-  html.theme-dark .wn-item p{ --wn-muted:#9ca3af; }
-
-  /* ---------- Contact FAB + Drawer ---------- */
+  /* ---------- FAB (contact) ---------- */
   .contact-fab{
-    position:fixed; right:16px; bottom:16px; width:56px; height:56px; border-radius:50%;
-    background:#0ea5e9; color:#fff; display:grid; place-items:center; font-size:22px;
-    box-shadow:0 10px 24px rgba(2,132,199,.35); z-index:950; cursor:pointer;
+    position: fixed;
+    right: 16px;                /* leaves room for theme toggle to sit at 76px */
+    bottom: 16px;
+    width: 56px; height: 56px; border-radius:999px;
+    display:grid; place-items:center;
+    background: var(--fab-bg); color: var(--fab-fg);
+    box-shadow: var(--fab-shadow);
+    cursor:pointer; z-index: 9998;
   }
+  .contact-fab svg{ width:26px; height:26px; }
+
+  /* Drawer */
   .contact-drawer{
-    position:fixed; top:0; right:0; width:360px; max-width:90vw; height:100vh; z-index:940;
-    transform:translateX(100%); transition:transform .22s ease;
-    background:var(--cd-bg,#fff); border-left:1px solid var(--cd-border,#e5e7eb);
-    box-shadow:-12px 0 30px rgba(0,0,0,.18);
+    position: fixed;
+    right: 16px; bottom: 84px;   /* sit above the FAB */
+    width: 320px; max-width: 90vw; max-height: 80vh;
+    background: var(--wnx-bg); color:var(--wnx-fg);
+    border:1px solid var(--wnx-line);
+    border-radius: 12px;
+    box-shadow: var(--wnx-shadow);
+    transform: translateY(12px); opacity:0; pointer-events:none;
+    transition: transform .16s ease, opacity .16s ease;
+    z-index: 9997;               /* under the FAB, above page */
     display:flex; flex-direction:column;
   }
-  .contact-drawer.open{ transform:none; }
-  .cd-head{ display:flex; align-items:center; justify-content:space-between; padding:.9rem 1rem; border-bottom:1px solid var(--cd-border,#e5e7eb); }
-  .cd-body{ padding:1rem; gap:.75rem; display:flex; flex-direction:column; }
-  .cd-body label{ font-weight:700; font-size:.9rem; }
-  .cd-body input,.cd-body textarea{
-    width:100%; border:1px solid var(--cd-field,#cbd5e1); border-radius:10px; padding:.55rem .7rem; font:inherit;
-    background:var(--cd-input-bg,#fff); color:inherit;
+  .contact-drawer.open{ transform: translateY(0); opacity:1; pointer-events:auto; }
+  .cd-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 12px; border-bottom:1px solid var(--wnx-line); font-weight:800;
   }
-  .cd-body textarea{ min-height:120px; resize:vertical; }
-  .cd-actions{ display:flex; justify-content:flex-end; gap:.5rem; padding:0 1rem 1rem; }
-  .cd-btn{ border:1px solid #cbd5e1; border-radius:10px; padding:.45rem .8rem; background:#f8fafc; cursor:pointer; }
-  .cd-btn--primary{ background:#22c55e; border-color:#22c55e; color:#fff; }
+  .cd-body{ padding:12px; display:grid; gap:10px; }
+  .cd-row label{ display:block; font-weight:700; margin-bottom:4px; color:var(--wnx-sub); }
+  .cd-row input, .cd-row textarea{
+    width:100%; border:1px solid var(--wnx-line); background:var(--wnx-card); color:var(--wnx-fg);
+    border-radius:10px; padding:10px; font:inherit;
+  }
+  .cd-actions{ display:flex; justify-content:flex-end; gap:8px; padding:10px 12px 12px; }
+  .btn-pill{
+    border:1px solid var(--wnx-line); background:transparent; color:var(--wnx-fg);
+    border-radius:999px; padding:.45rem .9rem; font-weight:800; cursor:pointer;
+  }
+  .btn-cta{ background:var(--fab-bg); color:var(--fab-fg); border-color:transparent; }
 
-  html.theme-dark .contact-drawer{ --cd-bg:#0b1220; --cd-border:#1f2937; --cd-field:#334155; --cd-input-bg:#0b1220; }
-  @media (max-width: 1024px){
-    .whatsnext-wrap{ position:static; width:auto; margin:1rem 0; }
+  /* Mobile: rail becomes bottom sheet */
+  @media (max-width: 980px){
+    .wnx-rail{
+      width: 100vw; right:0; left:0; bottom:0; top:auto;
+      border-left:none; border-top:1px solid var(--wnx-line);
+      border-radius: 16px 16px 0 0;
+      transform: translateY(100%);    /* collapsed by default */
+    }
+    .wnx-rail.open{ transform: translateY(0); }
   }
 </style>
 
-<div class="whatsnext-wrap">
-  <div class="whatsnext-card" id="wn-card" data-collapsed="true">
-    <div class="whatsnext-head">
-      <div class="whatsnext-title">What’s next</div>
-      <button type="button" class="wn-toggle" id="wn-toggle"></button>
-    </div>
-    <ul class="wn-list">
-      {%- assign items = site.data.whats_next | default: site.data.whatsnext -%}
-      {%- for it in items -%}
-        <li class="wn-item">
-          <h4><span class="wn-dot"></span>
-            {%- if it.link and it.link != "" -%}
-              <a href="{{ it.link }}" target="_blank" rel="noopener">{{ it.title }}</a>
-            {%- else -%}
-              {{ it.title }}
-            {%- endif -%}
-          </h4>
-          {%- if it.desc and it.desc != "" -%}<p>{{ it.desc }}</p>{%- endif -%}
-          {%- if it.when or it.tag -%}
-            <p style="font-size:.85rem; opacity:.8">
-              {%- if it.tag -%}<em>{{ it.tag }}</em>{% if it.when %} • {% endif %}{%- endif -%}
-              {%- if it.when -%}{{ it.when }}{%- endif -%}
-            </p>
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
-    </ul>
+<div id="wnx" class="wnx-rail" aria-label="What's next">
+  <div class="wnx-header">
+    <span>What’s next</span>
+    <button class="wnx-btn" id="wnxToggleBtn">Collapse</button>
+  </div>
+  <div class="wnx-list">
+    {% assign feed = site.data.whats_next %}
+    {% if feed and feed.size > 0 %}
+      {% for it in feed %}
+        <div class="wnx-card">
+          <div class="wnx-title">
+            <span class="wnx-dot"></span>
+            {% if it.link %}<a href="{{ it.link }}" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">{{ it.title }}</a>
+            {% else %}{{ it.title }}{% endif %}
+          </div>
+          <div class="wnx-meta">
+            {{ it.tag | default: "" }}{% if it.when %} • {{ it.when }}{% endif %}
+          </div>
+          {% if it.desc and it.desc != "" %}<div class="wnx-text" style="margin-top:6px; color:var(--wnx-sub);">{{ it.desc }}</div>{% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="wnx-card"><div class="wnx-title">No items yet.</div></div>
+    {% endif %}
   </div>
 </div>
 
-<button class="contact-fab" id="contact-fab" aria-label="Open contact">✉️</button>
-<div class="contact-drawer" id="contact-drawer" aria-hidden="true">
+<!-- Contact FAB and drawer -->
+<button class="contact-fab" id="contactFab" aria-label="Contact">
+  <!-- envelope + moon (just a fun accent) -->
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
+  </svg>
+</button>
+
+<form class="contact-drawer" id="contactDrawer" action="https://formspree.io/f/mwpydbpb" method="POST">
   <div class="cd-head">
-    <strong>Say hello</strong>
-    <button class="cd-btn" id="cd-close" aria-label="Close">Close</button>
+    <span>Say hi</span>
+    <button class="btn-pill" type="button" id="contactClose">Close</button>
   </div>
-  <form class="cd-body" action="https://formspree.io/f/mwpydbpb" method="POST">
-    <label for="cd-name">Name</label>
-    <input id="cd-name" name="name" type="text" autocomplete="name" />
-    <label for="cd-email">Email</label>
-    <input id="cd-email" name="email" type="email" autocomplete="email" required />
-    <label for="cd-subj">Subject</label>
-    <input id="cd-subj" name="subject" type="text" />
-    <label for="cd-msg">Message</label>
-    <textarea id="cd-msg" name="message" required></textarea>
-    <div class="cd-actions">
-      <button type="button" class="cd-btn" id="cd-cancel">Cancel</button>
-      <button type="submit" class="cd-btn cd-btn--primary">Send</button>
+  <div class="cd-body">
+    <div class="cd-row">
+      <label for="cname">Name</label>
+      <input id="cname" name="name" autocomplete="name" />
     </div>
-  </form>
-</div>
+    <div class="cd-row">
+      <label for="cemail">Email</label>
+      <input id="cemail" type="email" name="email" autocomplete="email" required />
+    </div>
+    <div class="cd-row">
+      <label for="csubject">Subject</label>
+      <input id="csubject" name="subject" />
+    </div>
+    <div class="cd-row">
+      <label for="cmsg">Message</label>
+      <textarea id="cmsg" name="message" rows="5" required></textarea>
+    </div>
+  </div>
+  <div class="cd-actions">
+    <button class="btn-pill" type="button" id="contactCancel">Cancel</button>
+    <button class="btn-pill btn-cta" type="submit">Send</button>
+  </div>
+</form>
 
 <script>
 (function(){
-  /* “What’s next” collapse */
-  var card = document.getElementById('wn-card');
-  var tog  = document.getElementById('wn-toggle');
-  if (card && tog){
-    tog.addEventListener('click', function(){
-      var c = card.getAttribute('data-collapsed') === 'true';
-      card.setAttribute('data-collapsed', c ? 'false' : 'true');
-      try { localStorage.setItem('wn-collapsed', card.getAttribute('data-collapsed')); } catch(e){}
-    });
-    try {
-      var saved = localStorage.getItem('wn-collapsed');
-      if (saved) card.setAttribute('data-collapsed', saved);
-    } catch(e){}
-  }
+  /* --- What's next: collapsed by default --- */
+  const rail = document.getElementById('wnx');
+  const btn  = document.getElementById('wnxToggleBtn');
+  const LS_K = 'wnx-open';
+  const saved = (function(){ try { return localStorage.getItem(LS_K) === '1'; } catch(e){ return false; } })();
 
-  /* Contact drawer */
-  var fab   = document.getElementById('contact-fab');
-  var draw  = document.getElementById('contact-drawer');
-  var close = document.getElementById('cd-close');
-  var cancel= document.getElementById('cd-cancel');
-  function open(){ draw.classList.add('open'); draw.setAttribute('aria-hidden','false'); }
-  function shut(){ draw.classList.remove('open'); draw.setAttribute('aria-hidden','true'); }
-  if (fab) fab.addEventListener('click', open);
-  [close,cancel].forEach(function(b){ if (b) b.addEventListener('click', shut); });
+  function setOpen(v){
+    rail.classList.toggle('open', !!v);
+    btn.textContent = v ? 'Collapse' : 'Expand';
+    try { localStorage.setItem(LS_K, v ? '1' : '0'); } catch(e){}
+  }
+  setOpen(saved && window.innerWidth > 980); // desktop keeps last state; mobile starts collapsed
+
+  btn.addEventListener('click', ()=> setOpen(!rail.classList.contains('open')));
+
+  /* --- Contact FAB + drawer --- */
+  const fab     = document.getElementById('contactFab');
+  const drawer  = document.getElementById('contactDrawer');
+  const close   = document.getElementById('contactClose');
+  const cancel  = document.getElementById('contactCancel');
+
+  function openDrawer(){ drawer.classList.add('open'); }
+  function closeDrawer(){ drawer.classList.remove('open'); }
+
+  fab.addEventListener('click', openDrawer);
+  close.addEventListener('click', closeDrawer);
+  cancel.addEventListener('click', closeDrawer);
 })();
 </script>
