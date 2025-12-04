@@ -11,6 +11,25 @@ search: true
 /* Make dense lists a bit lighter */
 .pat-list li{ font-size:.95rem; line-height:1.35; }
 .year-head{ font-size:1.55rem; }
+.pat-title{
+  text-decoration:none;
+  font-weight:600;
+}
+.pat-title:hover{ text-decoration:underline; }
+.pat-badge{
+  display:inline-flex; align-items:center;
+  padding:.24rem .65rem;
+  border-radius:999px;
+  font-weight:700; font-size:.92rem;
+  border:1px solid #0ea5e9;
+  background:#0ea5e9; color:#0b1320;
+  margin-left:.5rem;
+}
+html.theme-dark .pat-badge{
+  border-color:#22d3ee;
+  background:#22d3ee;
+  color:#0b1220;
+}
 </style>
 
 {%- comment -%}
@@ -72,15 +91,15 @@ Works whether `tags` is an array or a string (comma/space separated).
         {% endif %}
 
         <li class="pat-item" data-tags="{{ tags_attr }}">
-          <strong>{{ p.title }}</strong><br/>
+          {% assign main_link = p.uspto_url | default: p.google_patents_url | default: p.google_patent_url | default: p.patent_url | default: p.url %}
+          <a class="pat-title" {% if main_link %}href="{{ main_link }}" target="_blank" rel="noopener"{% else %}href="#" aria-disabled="true"{% endif %}>{{ p.title }}</a><br/>
           {% assign inv_str = p.inventors | default: "" %}
           {% assign inv_html = inv_str | markdownify | remove: '<p>' | remove: '</p>' %}
           {% assign inv_hl = inv_html
             | replace: "<strong>Agarwal, Amit</strong>", "<span class='author-me'>Agarwal, Amit</span>"
             | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>"
             | replace: "Amit Agarwal", "<span class='author-me'>Amit Agarwal</span>" %}
-          <em>{{ inv_hl }}</em>{% if p.assignee %}. {{ p.assignee }}{% endif %}{% if p.status %} — {{ p.status }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
-          {% assign main_link = p.uspto_url | default: p.google_patents_url | default: p.google_patent_url | default: p.patent_url | default: p.url %}
+          <em>{{ inv_hl }}</em>{% if p.assignee %}. {{ p.assignee }}{% endif %}{% if p.status %} — {{ p.status }}{% endif %}.
           <div class="link-pills">
             {% if main_link %}
               <a class="link-pill pill--uspto" href="{{ main_link }}" target="_blank" rel="noopener">Patent</a>

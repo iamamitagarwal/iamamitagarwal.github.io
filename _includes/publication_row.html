@@ -69,13 +69,13 @@
 
 <li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
   <strong><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></strong>
-  {%- if tok != "" or yr2 != "" -%}
-    <span class="venue-badge badge-{{ tok }}">{{ tok | upcase }}{% if tok != "" and yr2 != "" %} '{{ yr2 }}{% elsif yr2 != "" %}{{ yr2 }}{% endif %}</span>
-  {%- endif -%}
   <br/>
   <em>{{ authors_html }}</em>.
 
   <div class="link-pills">
+    {%- if tok != "" or yr2 != "" -%}
+      <span class="link-pill pill--venue badge-{{ tok }}">{{ tok | upcase }}{% if tok != "" and yr2 != "" %} '{{ yr2 }}{% elsif yr2 != "" %}{{ yr2 }}{% endif %}</span>
+    {%- endif -%}
     {%- if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}" target="_blank" rel="noopener">📄 Paper</a>{% endif -%}
     {%- if pdf %}<a class="link-pill pill--pdf" href="{{ pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
     {%- if p.code_url %}<a class="link-pill pill--code" href="{{ p.code_url }}" target="_blank" rel="noopener">Code</a>{% endif -%}

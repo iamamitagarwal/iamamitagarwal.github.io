@@ -195,6 +195,20 @@
     color:#0b1220;
   }
 
+  /* Venue pill variant */
+  .pill--venue{
+    background:#0ea5e9;
+    color:#0b1320;
+    border-color:#0ea5e9;
+    font-weight:800;
+    letter-spacing:.01em;
+  }
+  html.theme-dark .pill--venue{
+    background:#22d3ee;
+    color:#0b1220;
+    border-color:#22d3ee;
+  }
+
   /* Publication titles: remove default underline, add hover only */
   .pub-title{
     text-decoration:none;
@@ -701,7 +715,11 @@ html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4
 <div id="pub-filters" style="margin:.5rem 0 1rem 0;">
   <button class="btn btn--primary" data-tag="all">All</button>
   
+    <button class="btn" data-tag="Continual">Continual</button>
+  
     <button class="btn" data-tag="Document-AI">Document-AI</button>
+  
+    <button class="btn" data-tag="Domain-Generalization">Domain-Generalization</button>
   
     <button class="btn" data-tag="Eval">Eval</button>
   
@@ -713,13 +731,17 @@ html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4
   
     <button class="btn" data-tag="Legal">Legal</button>
   
-    <button class="btn" data-tag="ML">ML</button>
-  
     <button class="btn" data-tag="Multilingual">Multilingual</button>
   
     <button class="btn" data-tag="Retrieval">Retrieval</button>
   
+    <button class="btn" data-tag="Robustness">Robustness</button>
+  
     <button class="btn" data-tag="Safety">Safety</button>
+  
+    <button class="btn" data-tag="TTA">TTA</button>
+  
+    <button class="btn" data-tag="Vision">Vision</button>
   
     <button class="btn" data-tag="Vision-Language">Vision-Language</button>
   
@@ -730,146 +752,191 @@ html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4
     <ul class="pub-list">
       
         <li class="pub-item" data-tags="Document-AI Graph">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.coling-industry.9/">FS-DAG: Few Shot Domain Adapting Graph Networks for Visually Rich Document Understanding</a></strong><span class="venue-badge badge-acl">ACL '25</span><br />
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.coling-industry.9/">FS-DAG: Few Shot Domain Adapting Graph Networks for Visually Rich Document Understanding</a></strong>
+  <br />
   <em><span class="author-me">Amit Agarwal</span>; Srikant Panda; Kulbhushan Pachauri</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.coling-industry.9/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.coling-industry.9.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-fs-dag-few-shot-domain-adapting-graph-networks-for-visually-rich-document-unders/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-acl">ACL '25</span><a class="link-pill" href="https://aclanthology.org/2025.coling-industry.9/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.coling-industry.9.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-fs-dag-few-shot-domain-adapting-graph-networks-for-visually-rich-document-unders/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Safety Multilingual LLM Retrieval">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.9/">Aligning LLMs for Multilingual Consistency in Enterprise Applications</a></strong><span class="venue-badge badge-emnlp">EMNLP '25</span><br />
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.9/">Aligning LLMs for Multilingual Consistency in Enterprise Applications</a></strong>
+  <br />
   <em><span class="author-me">Amit Agarwal</span>; Hansa Meghwani; Hitesh Laxmichand Patel; Tao Sheng; Sujith Ravi; Dan Roth</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.9/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.9.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-emnlp">EMNLP '25</span><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.9/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.9.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="LLM Retrieval Eval Vision-Language Safety">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.10/">RCI: A Score for Evaluating Global and Local Reasoning in Multimodal Benchmarks</a></strong><span class="venue-badge badge-emnlp">EMNLP '25</span><br />
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.10/">RCI: A Score for Evaluating Global and Local Reasoning in Multimodal Benchmarks</a></strong>
+  <br />
   <em><span class="author-me">Amit Agarwal</span>; Hitesh Laxmichand Patel; Srikant Panda; Hansa Meghwani; Jyotika Singh; Karan Dua; Paul Li; Tao Sheng; Sujith Ravi; Dan Roth</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.10/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.10.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-rci-a-score-for-evaluating-global-and-local-reasoning-in-multimodal-benchmarks/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="Eval Multilingual Retrieval">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2510.04230">Pushing on Multilingual Reasoning Models With Language-Mixed Chain-of-Thought</a></strong><span class="venue-badge badge-arxiv">ARXIV '25</span><br />
-  <em>Guijin Son; Donghun Yang; Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span>; Hyunwoo Ko; Chanuk Lim; Srikant Panda; Minhyuk Kim; Nikunj Drolia; Dasol Choi</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2510.04230" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2510.04230.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-pushing-on-multilingual-reasoning-models-with-language-mixed-chain-of-thought/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="Retrieval">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.0.pdf">Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: Industry Track</a></strong><span class="venue-badge badge-emnlp">EMNLP '25</span><br />
-  <em>Saloni Potdar; Lina M Rojas Barahona; Sebastien Montella</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.0.pdf" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.0.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-proceedings-of-the-2025-conference-on-empirical-methods-in-natural-language-proc/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="Eval Vision-Language LLM Retrieval">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.14/">PCRI: Measuring Context Robustness in Multimodal Models for Enterprise Applications</a></strong><span class="venue-badge badge-emnlp">EMNLP '25</span><br />
-  <em>Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span>; Srikant Panda; Hansa Meghwani; Karan Dua; Paul Li; Tao Sheng; Sujith Ravi; Dan Roth</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.14/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.14.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-pcri-measuring-context-robustness-in-multimodal-models-for-enterprise-applicatio/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="Document-AI Legal Retrieval">
-  <strong><a class="pub-title" href="https://dl.acm.org/doi/abs/10.1145/3715070.3749262">LegalMind: An Intelligent Solution for Legal Document Analysis With User-Centric UI and AI-Driven Capabilities in Mobile Devices</a></strong><span class="venue-badge badge-acm">ACM '25</span><br />
-  <em>Azmine Toushik Wasi; Mst Rafia Islam; Abdur Rahman; Tawfia Yeasmin; <span class="author-me">Amit Agarwal</span>; Hitesh Laxmichand Patel; Taki Hasan Rafi; Dong-Kyu Chae</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://dl.acm.org/doi/abs/10.1145/3715070.3749262" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-legalmind-an-intelligent-solution-for-legal-document-analysis-with-user-centric-/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="Health Retrieval">
-  <strong><a class="pub-title" href="https://ui.adsabs.harvard.edu/abs/2025arXiv250213108P/abstract">Improving Clinical Question Answering With Multi-Task Learning: A Joint Approach for Answer Extraction and Medical Categorization</a></strong><span class="venue-badge badge-arxiv">ARXIV '25</span><br />
-  <em>Priyaranjan Pattnayak; Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span>; Bhargava Kumar; Srikant Panda; Tejaswini Kumar</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://ui.adsabs.harvard.edu/abs/2025arXiv250213108P/abstract" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-improving-clinical-question-answering-with-multi-task-learning-a-joint-approach/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="LLM Retrieval">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.knowledgenlp-1.20/">Hybrid AI for Responsive Multi-Turn Online Conversations With Novel Dynamic Routing and Feedback Adaptation</a></strong><span class="venue-badge badge-naacl">NAACL '25</span><br />
-  <em>Priyaranjan Pattnayak; <span class="author-me">Amit Agarwal</span>; Hansa Meghwani; Hitesh Laxmichand Patel; Srikant Panda</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.knowledgenlp-1.20/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.knowledgenlp-1.20.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-hybrid-ai-for-responsive-multi-turn-online-conversations-with-novel-dynamic-rout/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-emnlp">EMNLP '25</span><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.10/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.10.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-rci-a-score-for-evaluating-global-and-local-reasoning-in-multimodal-benchmarks/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Document-AI Eval Retrieval">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.acl-industry.72/">Hard Negative Mining for Domain-Specific Retrieval in Enterprise Systems</a></strong><span class="venue-badge badge-acl">ACL '25</span><br />
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.acl-industry.72/">Hard Negative Mining for Domain-Specific Retrieval in Enterprise Systems</a></strong>
+  <br />
   <em>Hansa Meghwani; <span class="author-me">Amit Agarwal</span>; Priyaranjan Pattnayak; Hitesh Laxmichand Patel; Srikant Panda</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.acl-industry.72/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.acl-industry.72.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-acl">ACL '25</span><a class="link-pill" href="https://aclanthology.org/2025.acl-industry.72/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.acl-industry.72.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Document-AI Multilingual Legal">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.105/">FlexDoc: Parameterized Sampling for Diverse Multilingual Synthetic Documents for Training Document Understanding Models</a></strong><span class="venue-badge badge-emnlp">EMNLP '25</span><br />
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.105/">FlexDoc: Parameterized Sampling for Diverse Multilingual Synthetic Documents for Training Document Understanding Models</a></strong>
+  <br />
   <em>Karan Dua; Hitesh Laxmichand Patel; Puneet Mittal; Ranjeet Gupta; <span class="author-me">Amit Agarwal</span>; Praneet Pabolu; Srikant Panda; Hansa Meghwani; Graham Horwood; Fahad Shah</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.105/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.105.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-flexdoc-parameterized-sampling-for-diverse-multilingual-synthetic-documents-for-/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-emnlp">EMNLP '25</span><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.105/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.105.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-flexdoc-parameterized-sampling-for-diverse-multilingual-synthetic-documents-for-/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Graph LLM Safety">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2508.15830">DAIQ: Auditing Demographic Attribute Inference from Question in LLMs</a></strong><span class="venue-badge badge-arxiv">ARXIV '25</span><br />
+  <strong><a class="pub-title" href="https://arxiv.org/abs/2508.15830">DAIQ: Auditing Demographic Attribute Inference from Question in LLMs</a></strong>
+  <br />
   <em>Srikant Panda; Hitesh Laxmichand Patel; Shahad Al-Khalifa; <span class="author-me">Amit Agarwal</span>; Hend Al-Khalifa; Sharefah Al-Ghamdi</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2508.15830" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2508.15830.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-daiq-auditing-demographic-attribute-inference-from-question-in-llms/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-arxiv">ARXIV '25</span><a class="link-pill" href="https://arxiv.org/abs/2508.15830" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2508.15830.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-daiq-auditing-demographic-attribute-inference-from-question-in-llms/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Vision-Language Retrieval">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.acl-long.916/">Crowdsource, Crawl, or Generate? Creating SEA-VL, a Multicultural Vision-Language Dataset for Southeast Asia</a></strong><span class="venue-badge badge-acl">ACL '25</span><br />
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.acl-long.916/">Crowdsource, Crawl, or Generate? Creating SEA-VL, a Multicultural Vision-Language Dataset for Southeast Asia</a></strong>
+  <br />
   <em>Samuel Cahyawijaya; Holy Lovenia; Joel Ruben Antony Moniz; Tack Hwa Wong; Mohammad Rifqi Farhansyah; Thant Thiri Maung; Frederikus Hudi; David Anugraha; Muhammad Ravi Shulthan Habibi; Muhammad Reza Qorib</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.acl-long.916/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.acl-long.916.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-crowdsource-crawl-or-generate-creating-sea-vl-a-multicultural-vision-language-da/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-acl">ACL '25</span><a class="link-pill" href="https://aclanthology.org/2025.acl-long.916/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.acl-long.916.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-crowdsource-crawl-or-generate-creating-sea-vl-a-multicultural-vision-language-da/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Health Retrieval">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2502.13108">Clinical QA 2.0: Multi-Task Learning for Answer Extraction and Categorization</a></strong><span class="venue-badge badge-arxiv">ARXIV '25</span><br />
+  <strong><a class="pub-title" href="https://arxiv.org/abs/2502.13108">Clinical QA 2.0: Multi-Task Learning for Answer Extraction and Categorization</a></strong>
+  <br />
   <em>Priyaranjan Pattnayak; Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span>; Bhargava Kumar; Srikant Panda; Tejaswini Kumar</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2502.13108" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2502.13108.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-clinical-qa-2-0-multi-task-learning-for-answer-extraction-and-categorization/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-arxiv">ARXIV '25</span><a class="link-pill" href="https://arxiv.org/abs/2502.13108" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2502.13108.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-clinical-qa-2-0-multi-task-learning-for-answer-extraction-and-categorization/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Eval LLM Retrieval">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2506.00482">BenchHub: A Unified Benchmark Suite for Holistic and Customizable LLM Evaluation</a></strong><span class="venue-badge badge-arxiv">ARXIV '25</span><br />
+  <strong><a class="pub-title" href="https://arxiv.org/abs/2506.00482">BenchHub: A Unified Benchmark Suite for Holistic and Customizable LLM Evaluation</a></strong>
+  <br />
   <em>Eunsu Kim; Haneul Yoo; Guijin Son; Hitesh Patel; <span class="author-me">Amit Agarwal</span>; Alice Oh</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2506.00482" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2506.00482.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-benchhub-a-unified-benchmark-suite-for-holistic-and-customizable-llm-evaluation/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-arxiv">ARXIV '25</span><a class="link-pill" href="https://arxiv.org/abs/2506.00482" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2506.00482.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-benchhub-a-unified-benchmark-suite-for-holistic-and-customizable-llm-evaluation/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Eval LLM Safety">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-main.1653/">Accesseval: Benchmarking Disability Bias in Large Language Models</a></strong><span class="venue-badge badge-emnlp">EMNLP '25</span><br />
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-main.1653/">Accesseval: Benchmarking Disability Bias in Large Language Models</a></strong>
+  <br />
   <em>Srikant Panda; <span class="author-me">Amit Agarwal</span>; Hitesh Laxmichand Patel</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.emnlp-main.1653/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-main.1653.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-emnlp">EMNLP '25</span><a class="link-pill" href="https://aclanthology.org/2025.emnlp-main.1653/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-main.1653.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Graph Eval LLM Safety">
-  <strong><a class="pub-title" href="https://openaccess.thecvf.com/content/ICCV2025W/CV4A11y/html/Hari_Whos_Asking_Investigating_Bias_Through_the_Lens_of_Disability-Framed_Queries_ICCVW_2025_paper.html">Who's Asking? Investigating Bias Through the Lens of Disability-Framed Queries in LLMs</a></strong><span class="venue-badge badge-iccv">ICCV '25</span><br />
+  <strong><a class="pub-title" href="https://openaccess.thecvf.com/content/ICCV2025W/CV4A11y/html/Hari_Whos_Asking_Investigating_Bias_Through_the_Lens_of_Disability-Framed_Queries_ICCVW_2025_paper.html">Who's Asking? Investigating Bias Through the Lens of Disability-Framed Queries in LLMs</a></strong>
+  <br />
   <em>Vishnu Hari; Kalpana Panda; Srikant Panda; <span class="author-me">Amit Agarwal</span>; Hitesh Laxmichand Patel</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://openaccess.thecvf.com/content/ICCV2025W/CV4A11y/html/Hari_Whos_Asking_Investigating_Bias_Through_the_Lens_of_Disability-Framed_Queries_ICCVW_2025_paper.html" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-who-s-asking-investigating-bias-through-the-lens-of-disability-framed-queries-in/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-iccv">ICCV '25</span><a class="link-pill" href="https://openaccess.thecvf.com/content/ICCV2025W/CV4A11y/html/Hari_Whos_Asking_Investigating_Bias_Through_the_Lens_of_Disability-Framed_Queries_ICCVW_2025_paper.html" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-who-s-asking-investigating-bias-through-the-lens-of-disability-framed-queries-in/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="TTA Continual Robustness">
+  <strong><a class="pub-title" href="">Towards Robust Continual Test-Time Adaptation via Neighbor Filtration</a></strong>
+  <br />
+  <em>Taki Hasan Rafi; <span class="author-me">Amit Agarwal</span>; Hitesh Laxmichand Patel; Dong-Kyu Chae</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-">25</span><a class="link-pill" href="" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-towards-robust-continual-test-time-adaptation-via-neighbor-filtration/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Multilingual">
-  <strong><a class="pub-title" href="https://ieeexplore.ieee.org/abstract/document/11103625">Tokenization Matters: Improving Zero-Shot NER for Indic Languages</a></strong><span class="venue-badge badge-ieee">IEEE '25</span><br />
+  <strong><a class="pub-title" href="https://ieeexplore.ieee.org/abstract/document/11103625">Tokenization Matters: Improving Zero-Shot NER for Indic Languages</a></strong>
+  <br />
   <em>Priyaranjan Pattnayak; Hitesh Patel; <span class="author-me">Amit Agarwal</span></em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://ieeexplore.ieee.org/abstract/document/11103625" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-tokenization-matters-improving-zero-shot-ner-for-indic-languages/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-ieee">IEEE '25</span><a class="link-pill" href="https://ieeexplore.ieee.org/abstract/document/11103625" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-tokenization-matters-improving-zero-shot-ner-for-indic-languages/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="Eval Multilingual Retrieval">
+  <strong><a class="pub-title" href="https://arxiv.org/abs/2510.04230">Pushing on Multilingual Reasoning Models With Language-Mixed Chain-of-Thought</a></strong>
+  <br />
+  <em>Guijin Son; Donghun Yang; Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span>; Hyunwoo Ko; Chanuk Lim; Srikant Panda; Minhyuk Kim; Nikunj Drolia; Dasol Choi</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-arxiv">ARXIV '25</span><a class="link-pill" href="https://arxiv.org/abs/2510.04230" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2510.04230.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-pushing-on-multilingual-reasoning-models-with-language-mixed-chain-of-thought/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="Retrieval">
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.0.pdf">Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: Industry Track</a></strong>
+  <br />
+  <em>Saloni Potdar; Lina M Rojas Barahona; Sebastien Montella</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-emnlp">EMNLP '25</span><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.0.pdf" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.0.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-proceedings-of-the-2025-conference-on-empirical-methods-in-natural-language-proc/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="Eval Vision-Language LLM Retrieval">
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.emnlp-industry.14/">PCRI: Measuring Context Robustness in Multimodal Models for Enterprise Applications</a></strong>
+  <br />
+  <em>Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span>; Srikant Panda; Hansa Meghwani; Karan Dua; Paul Li; Tao Sheng; Sujith Ravi; Dan Roth</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-emnlp">EMNLP '25</span><a class="link-pill" href="https://aclanthology.org/2025.emnlp-industry.14/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.emnlp-industry.14.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-pcri-measuring-context-robustness-in-multimodal-models-for-enterprise-applicatio/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="Document-AI Legal Retrieval">
+  <strong><a class="pub-title" href="https://dl.acm.org/doi/abs/10.1145/3715070.3749262">LegalMind: An Intelligent Solution for Legal Document Analysis With User-Centric UI and AI-Driven Capabilities in Mobile Devices</a></strong>
+  <br />
+  <em>Azmine Toushik Wasi; Mst Rafia Islam; Abdur Rahman; Tawfia Yeasmin; <span class="author-me">Amit Agarwal</span>; Hitesh Laxmichand Patel; Taki Hasan Rafi; Dong-Kyu Chae</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-acm">ACM '25</span><a class="link-pill" href="https://dl.acm.org/doi/abs/10.1145/3715070.3749262" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-legalmind-an-intelligent-solution-for-legal-document-analysis-with-user-centric-/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="TTA Robustness Vision">
+  <strong><a class="pub-title" href="">Learning from Unknown for Open-Set Test-Time Adaptation</a></strong>
+  <br />
+  <em>Taki Hasan Rafi; <span class="author-me">Amit Agarwal</span>; Hitesh Laxmichand Patel; Dong-Kyu Chae</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-">25</span><a class="link-pill" href="" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-learning-from-unknown-for-open-set-test-time-adaptation/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="TTA Domain-Generalization">
+  <strong><a class="pub-title" href="">Instance-Aware Test-Time Adaptation for Domain Generalization</a></strong>
+  <br />
+  <em>Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span>; Taki Hasan Rafi; Dong-Kyu Chae</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-">25</span><a class="link-pill" href="" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-instance-aware-test-time-adaptation-for-domain-generalization/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="Health Retrieval">
+  <strong><a class="pub-title" href="https://ui.adsabs.harvard.edu/abs/2025arXiv250213108P/abstract">Improving Clinical Question Answering With Multi-Task Learning: A Joint Approach for Answer Extraction and Medical Categorization</a></strong>
+  <br />
+  <em>Priyaranjan Pattnayak; Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span>; Bhargava Kumar; Srikant Panda; Tejaswini Kumar</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-arxiv">ARXIV '25</span><a class="link-pill" href="https://ui.adsabs.harvard.edu/abs/2025arXiv250213108P/abstract" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2025-improving-clinical-question-answering-with-multi-task-learning-a-joint-approach/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="LLM Retrieval">
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.knowledgenlp-1.20/">Hybrid AI for Responsive Multi-Turn Online Conversations With Novel Dynamic Routing and Feedback Adaptation</a></strong>
+  <br />
+  <em>Priyaranjan Pattnayak; <span class="author-me">Amit Agarwal</span>; Hansa Meghwani; Hitesh Laxmichand Patel; Srikant Panda</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-naacl">NAACL '25</span><a class="link-pill" href="https://aclanthology.org/2025.knowledgenlp-1.20/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.knowledgenlp-1.20.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2025-hybrid-ai-for-responsive-multi-turn-online-conversations-with-novel-dynamic-rout/">Details</a></div>
 </li>
 
       
@@ -881,98 +948,83 @@ html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4
     <ul class="pub-list">
       
         <li class="pub-item" data-tags="Document-AI Graph">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2412.03590">Enhancing Document AI Data Generation Through Graph-Based Synthetic Layouts</a></strong><span class="venue-badge badge-arxiv">ARXIV '24</span><br />
+  <strong><a class="pub-title" href="https://arxiv.org/abs/2412.03590">Enhancing Document AI Data Generation Through Graph-Based Synthetic Layouts</a></strong>
+  <br />
   <em><span class="author-me">Amit Agarwal</span>; Hitesh Patel; Priyaranjan Pattnayak; Srikant Panda; Bhargava Kumar; Tejaswini Kumar</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2412.03590" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2412.03590.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-enhancing-document-ai-data-generation-through-graph-based-synthetic-layouts/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="LLM Retrieval Eval Vision-Language Safety">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.findings-acl.963/">MVTamperBench: Evaluating Robustness of Vision-Language Models</a></strong><span class="venue-badge badge-acl">ACL '24</span><br />
-  <em><span class="author-me">Amit Agarwal</span>; Srikant Panda; Angeline Charles; Bhargava Kumar; Hitesh Patel; Priyaranjan Pattnayak; Taki Hasan Rafi; Tejaswini Kumar; Dong-Kyu Chae</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.findings-acl.963/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.findings-acl.963.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-mvtamperbench-evaluating-robustness-of-vision-language-models/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-arxiv">ARXIV '24</span><a class="link-pill" href="https://arxiv.org/abs/2412.03590" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2412.03590.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-enhancing-document-ai-data-generation-through-graph-based-synthetic-layouts/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Document-AI Graph">
-  <strong><a class="pub-title" href="https://patents.google.com/patent/US20240289551A1/en">Domain Adapting Graph Networks for Visually Rich Documents</a></strong><span class="venue-badge badge-">24</span><br />
+  <strong><a class="pub-title" href="https://patents.google.com/patent/US20240289551A1/en">Domain Adapting Graph Networks for Visually Rich Documents</a></strong>
+  <br />
   <em><span class="author-me">Amit Agarwal</span>; Srikant Panda; Deepak Karmakar; Kulbhushan Pachauri</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://patents.google.com/patent/US20240289551A1/en" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2024-domain-adapting-graph-networks-for-visually-rich-documents/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-">24</span><a class="link-pill" href="https://patents.google.com/patent/US20240289551A1/en" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2024-domain-adapting-graph-networks-for-visually-rich-documents/">Details</a></div>
 </li>
 
       
-        <li class="pub-item" data-tags="LLM">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2407.04721">AgriLLM: Harnessing Transformers for Farmer Queries</a></strong><span class="venue-badge badge-arxiv">ARXIV '24</span><br />
-  <em>Krish Didwania; Pratinav Seth; Aditya Kasliwal; <span class="author-me">Amit Agarwal</span></em>.
+        <li class="pub-item" data-tags="LLM Retrieval Eval Vision-Language Safety">
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.findings-acl.963/">MVTamperBench: Evaluating Robustness of Vision-Language Models</a></strong>
+  <br />
+  <em><span class="author-me">Amit Agarwal</span>; Srikant Panda; Angeline Charles; Bhargava Kumar; Hitesh Patel; Priyaranjan Pattnayak; Taki Hasan Rafi; Tejaswini Kumar; Dong-Kyu Chae</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2407.04721" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2407.04721.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-agrillm-harnessing-transformers-for-farmer-queries/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="ML">
-  <strong><a class="pub-title" href="https://www.sciencedirect.com/science/article/pii/S2772662224000638">A Machine Learning Approach for Unraveling the Influence of Air Quality Awareness on Travel Behavior</a></strong><span class="venue-badge badge-">24</span><br />
-  <em>Kapil Kumar Meena; Deepak Bairwa; <span class="author-me">Amit Agarwal</span></em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://www.sciencedirect.com/science/article/pii/S2772662224000638" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2024-a-machine-learning-approach-for-unraveling-the-influence-of-air-quality-awarenes/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="Document-AI Vision-Language">
-  <strong><a class="pub-title" href="https://doi.org/10.1145/3664647.3685520">Vlmevalkit: An Open-Source Toolkit for Evaluating Large Multi-Modality Models</a></strong><span class="venue-badge badge-acm">ACM '24</span><br />
-  <em>Haodong Duan; Junming Yang; Yuxuan Qiao; Xinyu Fang; Lin Chen; Yuan Liu; Xiaoyi Dong; Yuhang Zang; Pan Zhang; Jiaqi Wang; <span class="author-me">Amit Agarwal</span></em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://doi.org/10.1145/3664647.3685520" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2024-vlmevalkit-an-open-source-toolkit-for-evaluating-large-multi-modality-models/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-acl">ACL '24</span><a class="link-pill" href="https://aclanthology.org/2025.findings-acl.963/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.findings-acl.963.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-mvtamperbench-evaluating-robustness-of-vision-language-models/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Document-AI Legal">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2406.00040">Unveiling Themes in Judicial Proceedings: A Cross-Country Study Using Topic Modeling on Legal Documents from India and the UK</a></strong><span class="venue-badge badge-arxiv">ARXIV '24</span><br />
+  <strong><a class="pub-title" href="https://arxiv.org/abs/2406.00040">Unveiling Themes in Judicial Proceedings: A Cross-Country Study Using Topic Modeling on Legal Documents from India and the UK</a></strong>
+  <br />
   <em>Krish Didwania; Durga Toshniwal; <span class="author-me">Amit Agarwal</span></em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2406.00040" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2406.00040.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-unveiling-themes-in-judicial-proceedings-a-cross-country-study-using-topic-model/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-arxiv">ARXIV '24</span><a class="link-pill" href="https://arxiv.org/abs/2406.00040" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2406.00040.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-unveiling-themes-in-judicial-proceedings-a-cross-country-study-using-topic-model/">Details</a></div>
 </li>
 
       
-        <li class="pub-item" data-tags="Eval LLM Safety">
-  <strong><a class="pub-title" href="https://aclanthology.org/2025.naacl-industry.46/">SweEval: Do LLMs Really Swear? A Safety Benchmark for Testing Limits for Enterprise Use</a></strong><span class="venue-badge badge-naacl">NAACL '24</span><br />
-  <em>Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span></em>.
+        <li class="pub-item" data-tags="Document-AI Vision-Language">
+  <strong><a class="pub-title" href="https://doi.org/10.1145/3664647.3685520">Vlmevalkit: An Open-Source Toolkit for Evaluating Large Multi-Modality Models</a></strong>
+  <br />
+  <em>Haodong Duan; Junming Yang; Yuxuan Qiao; Xinyu Fang; Lin Chen; Yuan Liu; Xiaoyi Dong; Yuhang Zang; Pan Zhang; Jiaqi Wang; <span class="author-me">Amit Agarwal</span></em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://aclanthology.org/2025.naacl-industry.46/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.naacl-industry.46.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-sweeval-do-llms-really-swear-a-safety-benchmark-for-testing-limits-for-enterpris/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="Eval Vision-Language Retrieval">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2412.17759">Survey of Large Multimodal Model Datasets, Application Categories and Taxonomy</a></strong><span class="venue-badge badge-arxiv">ARXIV '24</span><br />
-  <em>Priyaranjan Pattnayak; Hitesh Laxmichand Patel; Bhargava Kumar; <span class="author-me">Amit Agarwal</span>; Ishan Banerjee; Srikant Panda; Tejaswini Kumar</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2412.17759" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2412.17759.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-survey-of-large-multimodal-model-datasets-application-categories-and-taxonomy/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="Safety">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2406.13473">Snowy Scenes, Clear Detections: A Robust Model for Traffic Light Detection in Adverse Weather Conditions</a></strong><span class="venue-badge badge-arxiv">ARXIV '24</span><br />
-  <em>Shivank Garg; Abhishek Baghel; <span class="author-me">Amit Agarwal</span>; Durga Toshniwal</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2406.13473" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2406.13473.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-snowy-scenes-clear-detections-a-robust-model-for-traffic-light-detection-in-adve/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="LLM Retrieval Legal Eval Vision-Language Safety">
-  <strong><a class="pub-title" href="https://openreview.net/pdf?id=eB87ISzlL1">Review of Reference Generation Methods in Large Language Models</a></strong><span class="venue-badge badge-">24</span><br />
-  <em>Priyaranjan Pattnayak; <span class="author-me">Amit Agarwal</span>; Bhargava Kumar; Yeshil Bangera; Srikant Panda; Tejaswini Kumar; Hitesh Laxmichand Patel</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://openreview.net/pdf?id=eB87ISzlL1" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2024-review-of-reference-generation-methods-in-large-language-models/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-acm">ACM '24</span><a class="link-pill" href="https://doi.org/10.1145/3664647.3685520" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2024-vlmevalkit-an-open-source-toolkit-for-evaluating-large-multi-modality-models/">Details</a></div>
 </li>
 
       
         <li class="pub-item" data-tags="Document-AI LLM">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2411.14962">LLM for Barcodes: Generating Diverse Synthetic Data for Identity Documents</a></strong><span class="venue-badge badge-arxiv">ARXIV '24</span><br />
+  <strong><a class="pub-title" href="https://arxiv.org/abs/2411.14962">LLM for Barcodes: Generating Diverse Synthetic Data for Identity Documents</a></strong>
+  <br />
   <em>Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span>; Bhargava Kumar; Karan Gupta; Priyaranjan Pattnayak</em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2411.14962" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2411.14962.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-llm-for-barcodes-generating-diverse-synthetic-data-for-identity-documents/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-arxiv">ARXIV '24</span><a class="link-pill" href="https://arxiv.org/abs/2411.14962" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2411.14962.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-llm-for-barcodes-generating-diverse-synthetic-data-for-identity-documents/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="Eval LLM Safety">
+  <strong><a class="pub-title" href="https://aclanthology.org/2025.naacl-industry.46/">SweEval: Do LLMs Really Swear? A Safety Benchmark for Testing Limits for Enterprise Use</a></strong>
+  <br />
+  <em>Hitesh Laxmichand Patel; <span class="author-me">Amit Agarwal</span></em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-naacl">NAACL '24</span><a class="link-pill" href="https://aclanthology.org/2025.naacl-industry.46/" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://aclanthology.org/2025.naacl-industry.46.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-sweeval-do-llms-really-swear-a-safety-benchmark-for-testing-limits-for-enterpris/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="Eval Vision-Language Retrieval">
+  <strong><a class="pub-title" href="https://arxiv.org/abs/2412.17759">Survey of Large Multimodal Model Datasets, Application Categories and Taxonomy</a></strong>
+  <br />
+  <em>Priyaranjan Pattnayak; Hitesh Laxmichand Patel; Bhargava Kumar; <span class="author-me">Amit Agarwal</span>; Ishan Banerjee; Srikant Panda; Tejaswini Kumar</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-arxiv">ARXIV '24</span><a class="link-pill" href="https://arxiv.org/abs/2412.17759" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2412.17759.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2024-survey-of-large-multimodal-model-datasets-application-categories-and-taxonomy/">Details</a></div>
+</li>
+
+      
+        <li class="pub-item" data-tags="LLM Retrieval Legal Eval Vision-Language Safety">
+  <strong><a class="pub-title" href="https://openreview.net/pdf?id=eB87ISzlL1">Review of Reference Generation Methods in Large Language Models</a></strong>
+  <br />
+  <em>Priyaranjan Pattnayak; <span class="author-me">Amit Agarwal</span>; Bhargava Kumar; Yeshil Bangera; Srikant Panda; Tejaswini Kumar; Hitesh Laxmichand Patel</em>.
+
+  <div class="link-pills"><span class="link-pill pill--venue badge-">24</span><a class="link-pill" href="https://openreview.net/pdf?id=eB87ISzlL1" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2024-review-of-reference-generation-methods-in-large-language-models/">Details</a></div>
 </li>
 
       
@@ -984,41 +1036,11 @@ html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4
     <ul class="pub-list">
       
         <li class="pub-item" data-tags="Retrieval">
-  <strong><a class="pub-title" href="https://www.researchgate.net/profile/Amit-Agarwal-62/publication/363539287_Evaluate_Generalisation_Robustness_of_Visual_Features_from_Images_to_Video/links/6321e7f8071ea12e3632736c/Evaluate-Generalisation-Robustness-of-Visual-Features-from-Images-to-Video.pdf">Evaluate Generalisation &amp; Robustness of Visual Features from Images to Video</a></strong><span class="venue-badge badge-">21</span><br />
+  <strong><a class="pub-title" href="https://www.researchgate.net/profile/Amit-Agarwal-62/publication/363539287_Evaluate_Generalisation_Robustness_of_Visual_Features_from_Images_to_Video/links/6321e7f8071ea12e3632736c/Evaluate-Generalisation-Robustness-of-Visual-Features-from-Images-to-Video.pdf">Evaluate Generalisation &amp; Robustness of Visual Features from Images to Video</a></strong>
+  <br />
   <em><span class="author-me">Amit Agarwal</span></em>.
 
-  <div class="link-pills"><a class="link-pill" href="https://www.researchgate.net/profile/Amit-Agarwal-62/publication/363539287_Evaluate_Generalisation_Robustness_of_Visual_Features_from_Images_to_Video/links/6321e7f8071ea12e3632736c/Evaluate-Generalisation-Robustness-of-Visual-Features-from-Images-to-Video.pdf" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://www.researchgate.net/profile/Amit-Agarwal-62/publication/363539287_Evaluate_Generalisation_Robustness_of_Visual_Features_from_Images_to_Video/links/6321e7f8071ea12e3632736c/Evaluate-Generalisation-Robustness-of-Visual-Features-from-Images-to-Video.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2021-evaluate-generalisation-robustness-of-visual-features-from-images-to-video/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="ML">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/2107.10456">CogSense: A Cognitively Inspired Framework for Perception Adaptation</a></strong><span class="venue-badge badge-arxiv">ARXIV '21</span><br />
-  <em>Hyukseong Kwon; Amir Rahimi; Kevin G Lee; <span class="author-me">Amit Agarwal</span>; Rajan Bhattacharyya</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/2107.10456" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/2107.10456.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2021-cogsense-a-cognitively-inspired-framework-for-perception-adaptation/">Details</a></div>
-</li>
-
-      
-        <li class="pub-item" data-tags="Multilingual Retrieval">
-  <strong><a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-3-030-93733-1_22">IRLCov19: A Large COVID-19 Multilingual Twitter Dataset of Indian Regional Languages</a></strong><span class="venue-badge badge-">21</span><br />
-  <em>Deepak Uniyal; <span class="author-me">Amit Agarwal</span></em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://link.springer.com/chapter/10.1007/978-3-030-93733-1_22" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill" href="/publications/2021-irlcov19-a-large-covid-19-multilingual-twitter-dataset-of-indian-regional-langua/">Details</a></div>
-</li>
-
-      
-    </ul>
-  </section>
-
-<section class="year-block" data-year="2019">
-    <h3 class="year-head">2019</h3>
-    <ul class="pub-list">
-      
-        <li class="pub-item" data-tags="ML">
-  <strong><a class="pub-title" href="https://arxiv.org/abs/1910.00178">Ngemm: Optimizing Gemm for Deep Learning via Compiler-Based Techniques</a></strong><span class="venue-badge badge-arxiv">ARXIV '19</span><br />
-  <em>Wenlei Bao; Li-Wen Chang; Yang Chen; Ke Deng; <span class="author-me">Amit Agarwal</span>; Emad Barsoum; Abe Taha</em>.
-
-  <div class="link-pills"><a class="link-pill" href="https://arxiv.org/abs/1910.00178" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://arxiv.org/pdf/1910.00178.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2019-ngemm-optimizing-gemm-for-deep-learning-via-compiler-based-techniques/">Details</a></div>
+  <div class="link-pills"><span class="link-pill pill--venue badge-">21</span><a class="link-pill" href="https://www.researchgate.net/profile/Amit-Agarwal-62/publication/363539287_Evaluate_Generalisation_Robustness_of_Visual_Features_from_Images_to_Video/links/6321e7f8071ea12e3632736c/Evaluate-Generalisation-Robustness-of-Visual-Features-from-Images-to-Video.pdf" target="_blank" rel="noopener">📄 Paper</a><a class="link-pill pill--pdf" href="https://www.researchgate.net/profile/Amit-Agarwal-62/publication/363539287_Evaluate_Generalisation_Robustness_of_Visual_Features_from_Images_to_Video/links/6321e7f8071ea12e3632736c/Evaluate-Generalisation-Robustness-of-Visual-Features-from-Images-to-Video.pdf" target="_blank" rel="noopener">PDF</a><a class="link-pill" href="/publications/2021-evaluate-generalisation-robustness-of-visual-features-from-images-to-video/">Details</a></div>
 </li>
 
       
