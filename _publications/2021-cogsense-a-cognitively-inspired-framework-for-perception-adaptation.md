@@ -1,8 +1,7 @@
 ---
 layout: paper
-title: 'CogSense: A Cognitively Inspired Framework for Perception Adaptation'
-authors: 'Kwon, Hyukseong; Rahimi, Amir; Lee, Kevin G; Agarwal, Amit; Bhattacharyya,
-  Rajan; '
+title: "CogSense: A Cognitively Inspired Framework for Perception Adaptation"
+authors: 'Hyukseong Kwon; Amir Rahimi; Kevin G Lee; Amit Agarwal; Rajan Bhattacharyya'
 year: 2021
 venue: arXiv
 tags:

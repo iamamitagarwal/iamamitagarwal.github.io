@@ -1,9 +1,7 @@
 ---
 layout: paper
-title: Who's Asking? Investigating Bias Through the Lens of Disability-Framed Queries
-  in LLMs
-authors: 'Hari, Vishnu; Panda, Kalpana; Panda, Srikant; Agarwal, Amit; Patel,
-  Hitesh Laxmichand; '
+title: "Who's Asking? Investigating Bias Through the Lens of Disability-Framed Queries in LLMs"
+authors: 'Vishnu Hari; Kalpana Panda; Srikant Panda; Amit Agarwal; Hitesh Laxmichand Patel'
 year: 2025
 venue: IEEE
 tags:

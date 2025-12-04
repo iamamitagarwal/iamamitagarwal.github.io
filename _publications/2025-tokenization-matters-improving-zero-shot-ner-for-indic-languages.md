@@ -1,7 +1,7 @@
 ---
 layout: paper
-title: 'Tokenization matters: Improving zero-shot ner for indic languages'
-authors: 'Pattnayak, Priyaranjan; Patel, Hitesh; Agarwal, Amit; '
+title: "Tokenization Matters: Improving Zero-Shot NER for Indic Languages"
+authors: 'Priyaranjan Pattnayak; Hitesh Patel; Amit Agarwal'
 year: 2025
 venue: IEEE
 tags:

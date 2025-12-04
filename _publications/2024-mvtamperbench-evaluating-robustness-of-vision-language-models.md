@@ -1,8 +1,7 @@
 ---
 layout: paper
-title: 'MVTamperBench: Evaluating Robustness of Vision-Language Models'
-authors: 'Agarwal, Amit; Panda, Srikant; Charles, Angeline; Kumar, Bhargava; Patel,
-  Hitesh; Pattnayak, Priyaranjan; Rafi, Taki Hasan; Kumar, Tejaswini; Chae, Dong-Kyu; '
+title: "MVTamperBench: Evaluating Robustness of Vision-Language Models"
+authors: 'Amit Agarwal; Srikant Panda; Angeline Charles; Bhargava Kumar; Hitesh Patel; Priyaranjan Pattnayak; Taki Hasan Rafi; Tejaswini Kumar; Dong-Kyu Chae'
 year: 2024
 venue: ACL
 tags:

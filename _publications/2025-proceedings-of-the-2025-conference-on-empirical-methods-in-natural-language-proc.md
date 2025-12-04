@@ -1,8 +1,7 @@
 ---
 layout: paper
-title: 'Proceedings of the 2025 Conference on Empirical Methods in Natural Language
-  Processing: Industry Track'
-authors: 'Potdar, Saloni; Barahona, Lina M Rojas; Montella, Sebastien; '
+title: "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: Industry Track"
+authors: 'Saloni Potdar; Lina M Rojas Barahona; Sebastien Montella'
 year: 2025
 venue: EMNLP
 tags:

@@ -77,7 +77,8 @@ Works whether `tags` is an array or a string (comma/space separated).
           {% assign inv_html = inv_str | markdownify | remove: '<p>' | remove: '</p>' %}
           {% assign inv_hl = inv_html
             | replace: "<strong>Agarwal, Amit</strong>", "<span class='author-me'>Agarwal, Amit</span>"
-            | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>" %}
+            | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>"
+            | replace: "Amit Agarwal", "<span class='author-me'>Amit Agarwal</span>" %}
           <em>{{ inv_hl }}</em>{% if p.assignee %}. {{ p.assignee }}{% endif %}{% if p.status %} — {{ p.status }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
           {% assign main_link = p.uspto_url | default: p.google_patents_url | default: p.google_patent_url | default: p.patent_url | default: p.url %}
           <div class="link-pills">

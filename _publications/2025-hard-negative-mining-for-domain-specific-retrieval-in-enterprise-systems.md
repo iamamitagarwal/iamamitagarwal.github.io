@@ -1,15 +1,14 @@
 ---
 layout: paper
-title: Hard Negative Mining for Domain-Specific Retrieval in Enterprise Systems
-authors: 'Meghwani, Hansa; Agarwal, Amit; Pattnayak, Priyaranjan; Patel, Hitesh
-  Laxmichand; Panda, Srikant; '
+title: "Hard Negative Mining for Domain-Specific Retrieval in Enterprise Systems"
+authors: 'Hansa Meghwani; Amit Agarwal; Priyaranjan Pattnayak; Hitesh Laxmichand Patel; Srikant Panda'
 year: 2025
 venue: ACL
 tags:
 - Document-AI
 - Eval
 - Retrieval
-paper_url: https://arxiv.org/abs/2505.18366
+paper_url: https://aclanthology.org/2025.acl-industry.72/
 search: true
 ---
 

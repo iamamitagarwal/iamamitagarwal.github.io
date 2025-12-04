@@ -1,10 +1,10 @@
 ---
 layout: "single"
-title: "Out of distribution element detection for information extraction"
-inventors: "Panda, Srikant; Agarwal, Amit; Nambirajan, Gouttham; Pachauri, Kulbhushan;"
-year: 2025
+title: "Out of Distribution Element Detection for Information Extraction"
+inventors: 'Srikant Panda; Amit Agarwal; Gouttham Nambirajan; Kulbhushan Pachauri'
+year: 2023
 patent_url: "https://patents.google.com/patent/US20250014374A1/en"
-tags: [Document-AI]
+tags: [Document-AI,Vision-Language]
 search: true
 ---
 

@@ -1,9 +1,7 @@
 ---
 layout: paper
-title: Hybrid ai for responsive multi-turn online conversations with novel dynamic
-  routing and feedback adaptation
-authors: 'Pattnayak, Priyaranjan; Agarwal, Amit; Meghwani, Hansa; Patel, Hitesh
-  Laxmichand; Panda, Srikant; '
+title: "Hybrid AI for Responsive Multi-Turn Online Conversations With Novel Dynamic Routing and Feedback Adaptation"
+authors: 'Priyaranjan Pattnayak; Amit Agarwal; Hansa Meghwani; Hitesh Laxmichand Patel; Srikant Panda'
 year: 2025
 venue: NAACL
 tags:

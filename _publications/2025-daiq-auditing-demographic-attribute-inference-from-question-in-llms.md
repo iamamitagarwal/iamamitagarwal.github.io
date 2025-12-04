@@ -1,8 +1,7 @@
 ---
 layout: paper
-title: 'DAIQ: Auditing Demographic Attribute Inference from Question in LLMs'
-authors: 'Panda, Srikant; Patel, Hitesh Laxmichand; Al-Khalifa, Shahad; Agarwal,
-  Amit; Al-Khalifa, Hend; Al-Ghamdi, Sharefah; '
+title: "DAIQ: Auditing Demographic Attribute Inference from Question in LLMs"
+authors: 'Srikant Panda; Hitesh Laxmichand Patel; Shahad Al-Khalifa; Amit Agarwal; Hend Al-Khalifa; Sharefah Al-Ghamdi'
 year: 2025
 venue: arXiv
 tags:

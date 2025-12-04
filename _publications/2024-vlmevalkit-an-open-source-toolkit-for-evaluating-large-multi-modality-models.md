@@ -1,14 +1,13 @@
 ---
 layout: paper
-title: 'Vlmevalkit: An open-source toolkit for evaluating large multi-modality models'
-authors: 'Duan, Haodong; Yang, Junming; Qiao, Yuxuan; Fang, Xinyu; Chen, Lin; Liu,
-  Yuan; Dong, Xiaoyi; Zang, Yuhang; Zhang, Pan; Wang, Jiaqi; Agarwal, Amit;'
+title: "Vlmevalkit: An Open-Source Toolkit for Evaluating Large Multi-Modality Models"
+authors: 'Haodong Duan; Junming Yang; Yuxuan Qiao; Xinyu Fang; Lin Chen; Yuan Liu; Xiaoyi Dong; Yuhang Zang; Pan Zhang; Jiaqi Wang; Amit Agarwal'
 year: 2024
 venue: ACM
 tags:
 - Document-AI
 - Vision-Language
-paper_url: https://dl.acm.org/doi/abs/10.1145/3664647.3685520
+paper_url: https://doi.org/10.1145/3664647.3685520
 search: true
 ---
 

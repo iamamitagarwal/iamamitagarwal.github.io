@@ -1,7 +1,7 @@
 ---
 layout: paper
-title: 'Accesseval: Benchmarking disability bias in large language models'
-authors: 'Panda, Srikant; Agarwal, Amit; Patel, Hitesh Laxmichand; '
+title: "Accesseval: Benchmarking Disability Bias in Large Language Models"
+authors: 'Srikant Panda; Amit Agarwal; Hitesh Laxmichand Patel'
 year: 2025
 venue: EMNLP
 tags:

@@ -1,9 +1,7 @@
 ---
 layout: paper
-title: 'LegalMind: An Intelligent Solution for Legal Document Analysis with User-Centric
-  UI and AI-Driven Capabilities in Mobile Devices'
-authors: 'Wasi, Azmine Toushik; Islam, Mst Rafia; Rahman, Abdur; Yeasmin, Tawfia;
-  Agarwal, Amit; Patel, Hitesh Laxmichand; Rafi, Taki Hasan; Chae, Dong-Kyu; '
+title: "LegalMind: An Intelligent Solution for Legal Document Analysis With User-Centric UI and AI-Driven Capabilities in Mobile Devices"
+authors: 'Azmine Toushik Wasi; Mst Rafia Islam; Abdur Rahman; Tawfia Yeasmin; Amit Agarwal; Hitesh Laxmichand Patel; Taki Hasan Rafi; Dong-Kyu Chae'
 year: 2025
 venue: ACM
 tags:

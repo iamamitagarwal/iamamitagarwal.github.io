@@ -1,8 +1,7 @@
 ---
 layout: paper
-title: Enhancing Document AI Data Generation Through Graph-Based Synthetic Layouts
-authors: 'Agarwal, Amit; Patel, Hitesh; Pattnayak, Priyaranjan; Panda, Srikant;
-  Kumar, Bhargava; Kumar, Tejaswini; '
+title: "Enhancing Document AI Data Generation Through Graph-Based Synthetic Layouts"
+authors: 'Amit Agarwal; Hitesh Patel; Priyaranjan Pattnayak; Srikant Panda; Bhargava Kumar; Tejaswini Kumar'
 year: 2024
 venue: arXiv
 tags:

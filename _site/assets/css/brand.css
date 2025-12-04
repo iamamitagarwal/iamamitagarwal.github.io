@@ -1,0 +1,43 @@
+:root{
+  --brand-font: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto,
+                "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --brand-weight: 800;
+}
+
+/* Title next to the logo */
+.masthead .site-title{
+  font-family: var(--brand-font);
+  font-weight: var(--brand-weight);
+  letter-spacing: .2px;
+  line-height: 1.05;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  /* scale nicely from phones to desktop */
+  font-size: clamp(10px, 2.1vw, 20px);
+  margin: 0;
+}
+
+.masthead .site-title a{
+  text-decoration: none;
+}
+
+/* Slight hover feedback without looking “linky” */
+.masthead .site-title a:hover{ opacity: .92; }
+
+/* Make the logo a bit larger + align nicely */
+.masthead .site-logo{ margin-right: .35rem; }
+.masthead .site-logo img{
+  height: 30px;               /* tweak this number to taste */
+  vertical-align: middle;
+}
+
+@media (min-width: 768px){
+  .masthead .site-logo img{ height: 36px; }
+}
+@media (min-width: 1200px){
+  .masthead .site-logo img{ height: 40px; } /* final desktop size */
+}
+
+/* Optional: tighten the header’s vertical space a touch */
+.masthead { padding-top: .35rem; padding-bottom: .35rem; }

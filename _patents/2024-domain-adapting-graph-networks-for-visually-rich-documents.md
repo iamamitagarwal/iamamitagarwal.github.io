@@ -1,10 +1,10 @@
 ---
 layout: "single"
-title: "DOMAIN ADAPTING GRAPH NETWORKS FOR VISUALLY RICH DOCUMENTS"
-inventors: "Agarwal, Amit; Panda, Srikant; Karmakar, Deepak; Pachauri, Kulbhushan;"
-year: 2024
+title: "Domain Adapting Graph Networks for Visually Rich Documents"
+inventors: 'Amit Agarwal; Srikant Panda; Deepak Karmakar; Kulbhushan Pachauri'
+year: 2023
 patent_url: "https://patents.google.com/patent/US20240289551A1/en"
-tags: [Document-AI]
+tags: [Document-AI,Vision-Language]
 search: true
 ---
 

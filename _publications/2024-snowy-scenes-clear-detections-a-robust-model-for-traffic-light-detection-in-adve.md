@@ -1,8 +1,7 @@
 ---
 layout: paper
-title: 'Snowy Scenes, Clear Detections: A Robust Model for Traffic Light Detection
-  in Adverse Weather Conditions'
-authors: 'Garg, Shivank; Baghel, Abhishek; Agarwal, Amit; Toshniwal, Durga; '
+title: "Snowy Scenes, Clear Detections: A Robust Model for Traffic Light Detection in Adverse Weather Conditions"
+authors: 'Shivank Garg; Abhishek Baghel; Amit Agarwal; Durga Toshniwal'
 year: 2024
 venue: arXiv
 tags:

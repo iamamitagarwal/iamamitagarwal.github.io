@@ -84,7 +84,8 @@ Handles tags stored as arrays or strings (single or comma/space separated).
   {% assign others = "" | split: "" %}
   {% for p in in_year %}
     {% assign first_author = p.authors | split: ";" | first | strip %}
-    {% if first_author contains "Agarwal, Amit" %}
+    {% assign fa_lower = first_author | downcase %}
+    {% if first_author contains "Agarwal, Amit" or first_author contains "Amit Agarwal" or (fa_lower contains "amit" and fa_lower contains "agarwal") %}
       {% assign agarwal_first = agarwal_first | push: p %}
     {% else %}
       {% assign others = others | push: p %}

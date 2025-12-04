@@ -1,10 +1,10 @@
 ---
 layout: "single"
-title: "Model augmentation framework for domain assisted continual learning in deep learning"
-inventors: "Thomas, Edwin; Agarwal, Amit; Pachauri, Kulbhushan;"
-year: 2025
+title: "Model Augmentation Framework for Domain Assisted Continual Learning in Deep Learning"
+inventors: 'Edwin Thomas; Amit Agarwal; Kulbhushan Pachauri'
+year: 2024
 patent_url: "https://patents.google.com/patent/US20250036962A1/en"
-tags: [ML]
+tags: [Vision-Language]
 search: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: paper
-title: 'AgriLLM: Harnessing Transformers for Farmer Queries'
-authors: 'Didwania, Krish; Seth, Pratinav; Kasliwal, Aditya; Agarwal, Amit; '
+title: "AgriLLM: Harnessing Transformers for Farmer Queries"
+authors: 'Krish Didwania; Pratinav Seth; Aditya Kasliwal; Amit Agarwal'
 year: 2024
 venue: arXiv
 tags:

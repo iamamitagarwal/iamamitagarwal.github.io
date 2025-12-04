@@ -1,10 +1,10 @@
 ---
 layout: "single"
-title: "Synthetic document generation pipeline for training artificial intelligence models"
-inventors: "Agarwal, Amit; Panda, Srikant; Pachauri, Kulbhushan;"
-year: 2024
+title: "Synthetic Document Generation Pipeline for Training Artificial Intelligence Models"
+inventors: 'Amit Agarwal; Srikant Panda; Kulbhushan Pachauri'
+year: 2022
 patent_url: "https://patents.google.com/patent/US20240005640A1/en"
-tags: [Safety, Document-AI]
+tags: [Document-AI,Vision-Language]
 search: true
 ---
 

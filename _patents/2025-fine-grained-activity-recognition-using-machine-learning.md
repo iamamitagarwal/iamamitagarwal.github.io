@@ -1,10 +1,10 @@
 ---
 layout: "single"
-title: "Fine-grained activity recognition using machine learning"
-inventors: "Yadav, Sourabh; Agarwal, Amit; Pachauri, Kulbhushan;"
-year: 2025
+title: "Fine-Grained Activity Recognition Using Machine Learning"
+inventors: 'Sourabh Yadav; Amit Agarwal; Kulbhushan Pachauri'
+year: 2024
 patent_url: "https://patents.google.com/patent/US20250232584A1/en"
-tags: [Document-AI]
+tags: [Vision-Language]
 search: true
 ---
 

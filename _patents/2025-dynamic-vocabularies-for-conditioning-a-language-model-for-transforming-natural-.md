@@ -1,10 +1,10 @@
 ---
 layout: "single"
-title: "Dynamic vocabularies for conditioning a language model for transforming natural language to a logical form"
-inventors: "Panda, Srikant; Agarwal, Amit; Pachauri, Kulbhushan;"
-year: 2025
+title: "Dynamic Vocabularies for Conditioning a Language Model for Transforming Natural Language to a Logical Form"
+inventors: 'Srikant Panda; Amit Agarwal; Kulbhushan Pachauri'
+year: 2024
 patent_url: "https://patents.google.com/patent/US20250238614A1/en"
-tags: [LLM, Document-AI]
+tags: [LLM,NL2SQL]
 search: true
 ---
 

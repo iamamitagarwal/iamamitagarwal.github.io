@@ -29,8 +29,18 @@
   {%- endif -%}
 {%- endif -%}
 
-{%- comment -%} Highlight your name {%- endcomment -%}
-{%- assign authors_html = p.authors | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>" -%}
+{%- comment -%} Short year for badge {%- endcomment -%}
+{%- if p.year -%}
+  {%- assign yr2 = p.year | slice: -2, 2 -%}
+{%- else -%}
+  {%- assign yr2 = "" -%}
+{%- endif -%}
+
+{%- comment -%} Highlight your name (handles both Last, First and First Last) {%- endcomment -%}
+{%- assign authors_html = p.authors
+  | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>"
+  | replace: "Amit Agarwal", "<span class='author-me'>Amit Agarwal</span>"
+-%}
 
 {%- comment -%} Best-effort PDF discovery {%- endcomment -%}
 {%- assign pdf = p.pdf_url | default: p.pdf -%}
@@ -59,9 +69,11 @@
 
 <li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
   <strong><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></strong>
-  {%- if tok != "" -%}<span class="venue-badge badge-{{ tok }}">{{ tok }}</span>{%- endif -%}
+  {%- if tok != "" or yr2 != "" -%}
+    <span class="venue-badge badge-{{ tok }}">{{ tok | upcase }}{% if tok != "" and yr2 != "" %} '{{ yr2 }}{% elsif yr2 != "" %}{{ yr2 }}{% endif %}</span>
+  {%- endif -%}
   <br/>
-  <em>{{ authors_html }}</em>.{%- if p.venue %} {{ p.venue }}{% endif %}{% if p.year %} ({{ p.year }}){% endif %}.
+  <em>{{ authors_html }}</em>.
 
   <div class="link-pills">
     {%- if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}" target="_blank" rel="noopener">📄 Paper</a>{% endif -%}

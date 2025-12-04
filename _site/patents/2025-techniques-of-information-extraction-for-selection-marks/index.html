@@ -1,0 +1,1066 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Techniques of Information Extraction for Selection Marks  |  Amit Agarwal’s site</title>
+<meta name="description" content="Abstract. A method may include detecting one or more selection boxes and one or more text lines in a primary document. The method may include determining respective vectors associated with the selection box and adjacent text lines to the selection box in a plurality of directions. The method may include determining a set of respective vectors associated with a unique selection box. The method may include determining a variance between respective vectors in the set of respective vectors and identifying a particular direction corresponding to a minimal variance between the respective vectors in the set of respective vectors as compared to a variance of other sets of respective vectors. The method may include generating a key-value pair based on the set of respective vectors characterized by the minimal variance. The method may include generating a document model, including the key-value pair, and extracting data according to the document model.">
+
+
+  <meta name="author" content="Amit Agarwal">
+  
+  <meta property="article:author" content="Amit Agarwal">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Amit Agarwal's site">
+<meta property="og:title" content="Techniques of Information Extraction for Selection Marks">
+<meta property="og:url" content="http://localhost:4000/patents/2025-techniques-of-information-extraction-for-selection-marks/">
+
+
+  <meta property="og:description" content="Abstract. A method may include detecting one or more selection boxes and one or more text lines in a primary document. The method may include determining respective vectors associated with the selection box and adjacent text lines to the selection box in a plurality of directions. The method may include determining a set of respective vectors associated with a unique selection box. The method may include determining a variance between respective vectors in the set of respective vectors and identifying a particular direction corresponding to a minimal variance between the respective vectors in the set of respective vectors as compared to a variance of other sets of respective vectors. The method may include generating a key-value pair based on the set of respective vectors characterized by the minimal variance. The method may include generating a document model, including the key-value pair, and extracting data according to the document model.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/images/og-card.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2025-12-04T11:19:21-08:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/patents/2025-techniques-of-information-extraction-for-selection-marks/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Amit Agarwal",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Amit Agarwal's site Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- FAVICONS -->
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<!-- Your brand overrides -->
+<link rel="stylesheet" href="/assets/css/brand.css">
+
+<!-- Prevent FOUC: apply saved theme ASAP -->
+<script>
+  (function() {
+    try {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      }
+    } catch(e){}
+  })();
+</script>
+
+<style>
+  .author-me{ font-weight:800; color:#0e7490; }
+  html.theme-dark .author-me{ color:#7dc9ff; }
+
+  /* Bigger author avatar (desktop) + responsive fallback) */
+  .sidebar .author__avatar img{
+    width: 200px !important;      /* pick 180–220px to taste */
+    height: 200px !important;
+    max-width: none !important;   /* override theme cap */
+    border-radius: 50%;
+    object-fit: cover;            /* crop nicely inside the circle */
+    display: block;
+  }
+  .sidebar .author__avatar{
+    display: flex;                /* avoids odd centering */
+    align-items: center;
+  }
+
+   /* Mobile avatar clamp + spacing so it never overlaps the title/bar */
+  @media (max-width: 640px){
+    /* keep the masthead above everything */
+    .masthead{ z-index: 2000; }
+  
+    /* a little breathing room under the hero */
+    .page__sidebar{ margin-top: 10px !important; overflow: hidden; }
+  
+    /* clamp the avatar wrapper (the theme sizes this too) */
+    .author__avatar,
+    .page__sidebar .author__avatar,
+    .sidebar .author__avatar{
+      width:112px !important;
+      height:112px !important;
+      flex:0 0 112px !important;   /* prevents row stretch */
+      margin:.25rem 0 .5rem 0 !important;
+    }
+  
+    /* fill the wrapper, crop nicely */
+    .author__avatar img,
+    .page__sidebar .author__avatar img,
+    .sidebar .author__avatar img{
+      width:100% !important;
+      height:100% !important;
+      object-fit:cover !important;
+      border-radius:50%;
+      display:block;
+    }
+  
+    /* remove any leftover left offset next to the avatar */
+    .page__lead{ margin-left:0 !important; }
+  }
+  
+  /* --- Publication / Patent link pills ------------------------------------ */
+  .link-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem;
+    margin:.5rem 0 0;
+  }
+  .link-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    padding:.24rem .65rem;
+    border-radius:999px;
+    font-weight:700;
+    font-size:.92rem;
+    border:1px solid var(--brand-accent, #0ea5e9);
+    text-decoration:none;
+    background:transparent;
+    line-height:1.2;
+    white-space:nowrap;
+  }
+  .link-pill:hover{ background:var(--brand-accent, #0ea5e9); color:#fff; }
+  
+  /* variants */
+  .pill--pdf   { border-color:#ef4444; } .pill--pdf:hover{ background:#ef4444; }
+  .pill--code  { border-color:#16a34a; } .pill--code:hover{ background:#16a34a; }
+  .pill--uspto { border-color:#8b5cf6; } .pill--uspto:hover{ background:#8b5cf6; }
+  .pill--copy  { cursor:pointer; }
+  
+  /* Dark mode tweaks */
+  html.theme-dark .link-pill{
+    color:var(--dark-text, #e6edf3);
+    border-color:#22d3ee;
+  }
+  html.theme-dark .link-pill:hover{
+    background:#22d3ee;
+    color:#0b1220;
+  }
+
+  /* Publication titles: remove default underline, add hover only */
+  .pub-title{
+    text-decoration:none;
+  }
+  .pub-title:hover{
+    text-decoration:underline;
+  }
+
+  /* === What's next (tab + panel only) === */
+  .wnx-tab{
+    position:fixed; right:0; top:35vh; z-index:1000;
+    background:var(--mm-accent, #0ea5e9);
+    color:#fff; border:none; border-radius:12px 0 0 12px;
+    padding:.55rem .75rem; font-weight:900; letter-spacing:.02em;
+    box-shadow:0 8px 16px rgba(0,0,0,.15);
+  }
+  .wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); }
+
+  .wnx-panel{
+    position:fixed; right:-360px; width:340px; bottom:24px; z-index:1000;
+    /* top is set in the include so it doesn't clip under the masthead */
+    background:var(--mm-card-bg, #fff);
+    border:1.5px solid var(--mm-border, #e5e7eb);
+    border-radius:16px 0 0 16px;
+    box-shadow:0 12px 24px rgba(0,0,0,.18);
+    transition:right .18s ease;
+    display:flex; flex-direction:column;
+  }
+  .wnx-panel.open{ right:0; }
+  .wnx-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.7rem .8rem; font-weight:900; border-bottom:1px solid var(--mm-border, #e5e7eb);
+  }
+  .wnx-close{ border:none; background:transparent; font-size:1.1rem; line-height:1; color:inherit; cursor:pointer; }
+  .wnx-body{ overflow:auto; padding:.6rem .8rem; }
+  .wnx-list{ display:flex; flex-direction:column; gap:.75rem; }
+  .wnx-card{
+    background:var(--mm-card-bg, #fff);
+    border:1px solid var(--mm-border, #e5e7eb);
+    border-radius:14px; padding:12px 14px; box-shadow:0 6px 14px rgba(0,0,0,.08);
+  }
+  .wnx-title{ font-weight:900; margin:0 0 4px; display:flex; gap:.5rem; align-items:flex-start; }
+  .wnx-title::before{ content:""; width:3px; height:14px; border-radius:2px; background:#0ea5e9; margin-top:3px; }
+  .wnx-meta{ color:#64748b; font-weight:700; font-size:.95rem; }
+
+  /* Floating contact button (mail FAB). Toggle will be in masthead. */
+  .contact-fab{
+    position:fixed; right:16px; bottom:16px; z-index:999;
+    width:56px; height:56px; border-radius:999px; border:none; cursor:pointer;
+    box-shadow:0 12px 22px rgba(0,0,0,.18);
+    background:var(--mm-accent, #0ea5e9); color:#fff; font-size:22px;
+  }
+  html.theme-dark .contact-fab{ box-shadow:none; }
+
+  /* Mobile: convert panel to bottom sheet */
+  @media (max-width:1100px){
+    .wnx-tab{ top:auto; bottom:90px; right:14px; border-radius:999px; padding:.55rem .7rem; }
+    .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
+    .wnx-panel{
+      right:14px; left:14px; width:auto; bottom:90px; top:auto; border-radius:16px;
+      transform:translateY(110%); transition:transform .18s ease;
+    }
+    .wnx-panel.open{ transform:translateY(0); right:14px; }
+  }
+</style>
+
+<!-- Brand tokens, dark-mode styling, sticky header, pills, callout -->
+<style>
+  :root{
+    --brand-accent:#0ea5e9;
+    --dark-bg:#0d1117; --dark-text:#e6edf3; --dark-heading:#f3f4f6;
+    --dark-link:#58a6ff; --dark-link-hov:#8ab4ff;
+    --dark-panel:#0b1220; --dark-panel-brdr:#1f2937;
+    --dark-footer-bg:#0B2738; --dark-footer-text:#9ec1d9;
+    --dark-footer-link:#58a6ff; --dark-footer-brdr:#0f3a52;
+  }
+
+  .masthead{ border-bottom:4px solid var(--brand-accent); }
+  .masthead{ position:sticky; top:0; z-index:2000; background:#ffffff; }
+  .greedy-nav{ background:inherit; }
+  .greedy-nav a, .site-title{ color:#0f172a; }
+  .masthead.is-stuck{ box-shadow:0 2px 6px rgba(0,0,0,.06); }
+
+  .masthead__inner-wrap { padding-block: 10px; }
+  .site-title { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; }
+  .site-logo img { height: 22px; width: auto; display: block; }
+  .brand-text { font-weight: 800; font-size: 1.06rem; letter-spacing: .2px; color: var(--mm-text, #0b1320); }
+  .brand-sub {
+    display:inline-flex; align-items:center; padding:.18rem .5rem; margin-left:.15rem;
+    border-radius:999px; font-weight:700; font-size:.72rem;
+    color:#0b3a46; background:#eaf6f8; border:1px solid #cfe9ee; white-space:nowrap;
+  }
+  @media (max-width: 820px){ .brand-sub { display:none; } }
+  .greedy-nav { border-bottom: 2px solid #52b3cf20; }
+
+  html.theme-dark .site-logo img{ filter: invert(1) hue-rotate(180deg) saturate(.8) brightness(.95); }
+  html.theme-dark .brand-text { color: #e6edf3; }
+  html.theme-dark .brand-sub { color:#cce9ef; background:#0d2a31; border-color:#1f5b68; }
+  html.theme-dark .masthead, html.theme-dark .greedy-nav{ background:var(--dark-bg) !important; }
+  html.theme-dark .greedy-nav a, html.theme-dark .site-title{ color:var(--dark-text) !important; }
+  html.theme-dark .masthead{ border-bottom-color:#22d3ee; }
+
+  .page__content p, .page__content li{ text-align:justify; text-justify:inter-word; }
+
+  html.theme-dark, html.theme-dark body{ background:var(--dark-bg)!important; color:var(--dark-text)!important; }
+  html.theme-dark .page, html.theme-dark .page__inner-wrap, html.theme-dark .page__content,
+  html.theme-dark .sidebar, html.theme-dark .archive__item, html.theme-dark .archive__item-excerpt{
+    background:transparent!important; color:var(--dark-text)!important;
+  }
+  html.theme-dark h1, html.theme-dark h2, html.theme-dark h3, html.theme-dark h4,
+  html.theme-dark h5, html.theme-dark h6, html.theme-dark .page__title{ color:var(--dark-heading)!important; }
+  html.theme-dark a{ color:var(--dark-link)!important; }
+  html.theme-dark a:hover{ color:var(--dark-link-hov)!important; }
+  html.theme-dark pre, html.theme-dark code, html.theme-dark .highlighter-rouge{
+    background:var(--dark-panel)!important; color:var(--dark-text)!important; border-color:var(--dark-panel-brdr)!important;
+  }
+  html.theme-dark .notice, html.theme-dark .toc, html.theme-dark .btn, html.theme-dark .btn--primary{
+    background:#0f172a!important; color:var(--dark-text)!important; border-color:var(--brand-accent)!important;
+  }
+  html.theme-dark .page__footer{
+    background:var(--dark-footer-bg)!important; color:var(--dark-footer-text)!important;
+    border-top:1px solid var(--dark-footer-brdr)!important;
+  }
+  html.theme-dark .page__footer a, html.theme-dark .page__footer .fa, html.theme-dark .page__footer .fab{
+    color:var(--dark-footer-link)!important;
+  }
+  html.theme-dark .author__urls i, html.theme-dark .social-icons .fa, html.theme-dark .page__meta .fa{ color:#9ecbff!important; }
+  html.theme-dark input[type="search"], html.theme-dark .search-input,
+  html.theme-dark .search-content__input, html.theme-dark .search-content input{
+    background:var(--dark-panel)!important; color:var(--dark-text)!important; border-color:var(--dark-panel-brdr)!important;
+  }
+  html.theme-dark ::placeholder{ color:#9aa4b2!important; opacity:1!important; }
+
+  /* Bubble theme toggle when placed in masthead */
+  .masthead #theme-toggle{
+    position:static !important;
+    display:inline-flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:999px;
+    margin-left:.5rem; font-size:18px; line-height:1;
+    border:1px solid rgba(0,0,0,.12);
+    background:#0e7490; color:#fff;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+  }
+  html.theme-dark .masthead #theme-toggle{
+    background:#0b1220; color:#e6edf3; border-color:#263244;
+    box-shadow:0 3px 10px rgba(0,0,0,.35);
+  }
+</style>
+
+<style>
+  /* Dark-mode fixes for mobile nav hidden links */
+  html.theme-dark .greedy-nav .hidden-links{
+    background:#0b1220; border:1px solid #374151; box-shadow:0 12px 24px rgba(0,0,0,.35);
+  }
+  html.theme-dark .greedy-nav .hidden-links:before{ border-color:transparent transparent #374151 transparent; }
+  html.theme-dark .greedy-nav .hidden-links li{ border-color:#374151; }
+  html.theme-dark .greedy-nav .hidden-links a{ color:#e5e7eb !important; }
+  html.theme-dark .greedy-nav .hidden-links a:hover{ background:#1f2937; color:#fff !important; }
+</style>
+
+<!-- ***** ADDED: mobile masthead + avatar fixes (only change) ***** -->
+<style>
+  /* Keep mobile masthead tidy without hiding links */
+  @media (max-width: 900px){
+    .masthead .greedy-nav{
+      display:flex;
+      align-items:center;
+    }
+    .masthead .greedy-nav .site-title{
+      flex:1 1 auto;
+      min-width:0;
+      max-width:calc(100% - 140px); /* room for search/theme/hamburger */
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .masthead #theme-toggle{
+      width:30px; height:30px; font-size:16px; margin-left:.35rem;
+    }
+  }
+
+  /* Clamp avatar size on phones and prevent overflow */
+  @media (max-width: 600px){
+    .page__sidebar .author__avatar img,
+    .sidebar .author__avatar img,
+    .author__avatar img{
+      width:108px !important;
+      height:108px !important;
+      min-width:108px !important;
+      max-width:none !important;
+      border-radius:50%;
+      object-fit:cover;
+      display:block;
+    }
+    .page__sidebar .author__avatar,
+    .sidebar .author__avatar{
+      display:inline-flex;
+      align-items:center;
+    }
+  }
+</style>
+<!-- ***** END added block ***** -->
+
+<script>
+  /* Solid sticky masthead with shadow after scroll */
+  (function(){
+    var h = document.querySelector('.masthead');
+    if(!h) return;
+    var on = () => h.classList.toggle('is-stuck', window.scrollY > 8);
+    on(); window.addEventListener('scroll', on, {passive:true});
+  })();
+
+  /* Copy BibTeX pill */
+  document.addEventListener('click', e=>{
+    const b = e.target.closest('.pill--copy');
+    if(!b) return;
+    const txt = b.dataset.bib || '';
+    navigator.clipboard.writeText(txt).then(()=>{
+      b.dataset.label = b.textContent;
+      b.textContent = 'Copied!';
+      setTimeout(()=>{ b.textContent = b.dataset.label || 'BibTeX'; }, 900);
+    });
+  });
+
+  /* Theme toggle: create if missing, then place it in masthead next to search */
+  (function(){
+    let btn = document.getElementById('theme-toggle');
+    if(!btn){
+      btn = document.createElement('button');
+      btn.id = 'theme-toggle';
+      btn.type = 'button';
+      btn.textContent = '🌙';
+    }
+    const setIcon = () => {
+      btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙';
+    };
+    btn.addEventListener('click', ()=>{
+      const dark = document.documentElement.classList.toggle('theme-dark');
+      try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e){}
+      setIcon();
+    });
+    setIcon();
+
+    function place(){
+      const nav = document.querySelector('.masthead .greedy-nav');
+      if(!nav) return false;
+      const anchor = nav.querySelector('.search__toggle') || nav.querySelector('.site-search');
+      if (anchor && anchor.parentNode){
+        anchor.parentNode.insertBefore(btn, anchor.nextSibling);
+      } else {
+        (nav.querySelector('.visible-links') || nav).appendChild(btn);
+      }
+      return true;
+    }
+    if (!place()) window.addEventListener('load', place);
+  })();
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-351QZEBS4T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date()); gtag('config', 'G-351QZEBS4T');
+</script>
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/images/logo.png" alt="Amit Agarwal's site"></a>
+        
+        <a class="site-title" href="/">
+          Amit Agarwal's site
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/patents/">Patents</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/talks/">Talks</a>
+            </li><li class="masthead__menu-item">
+              <a href="/media/">Media</a>
+            </li><li class="masthead__menu-item">
+              <a href="/awards/">Awards</a>
+            </li><li class="masthead__menu-item">
+              <a href="/cv/">CV</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/images/profile.jpeg" alt="Amit Agarwal" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Amit Agarwal</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Principal Applied Scientist at Oracle Cloud Infrastructure (OCI). Applied ML/LLMs and cloud-scale systems.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seattle, WA</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://www.oracle.com/cloud/" rel="nofollow noopener noreferrer"><i class="fas fa-building" aria-hidden="true"></i><span class="label">Oracle Cloud Infrastructure</span></a></li>
+          
+        
+          
+            <li><a href="mailto:amit.pinaki@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&hl=en" rel="nofollow noopener noreferrer"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span class="label">Google Scholar</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/amitagarwal6/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/iamamitagarwal" rel="nofollow noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Techniques of Information Extraction for Selection Marks">
+    <meta itemprop="description" content="Abstract. A method may include detecting one or more selection boxes and one or more text lines in a primary document. The method may include determining respective vectors associated with the selection box and adjacent text lines to the selection box in a plurality of directions. The method may include determining a set of respective vectors associated with a unique selection box. The method may include determining a variance between respective vectors in the set of respective vectors and identifying a particular direction corresponding to a minimal variance between the respective vectors in the set of respective vectors as compared to a variance of other sets of respective vectors. The method may include generating a key-value pair based on the set of respective vectors characterized by the minimal variance. The method may include generating a document model, including the key-value pair, and extracting data according to the document model.">
+    <meta itemprop="datePublished" content="2025-12-04T11:19:21-08:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Techniques of Information Extraction for Selection Marks
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><strong>Abstract.</strong> A method may include detecting one or more selection boxes and one or more text lines in a primary document. The method may include determining respective vectors associated with the selection box and adjacent text lines to the selection box in a plurality of directions. The method may include determining a set of respective vectors associated with a unique selection box. The method may include determining a variance between respective vectors in the set of respective vectors and identifying a particular direction corresponding to a minimal variance between the respective vectors in the set of respective vectors as compared to a variance of other sets of respective vectors. The method may include generating a key-value pair based on the set of respective vectors characterized by the minimal variance. The method may include generating a document model, including the key-value pair, and extracting data according to the document model.</p>
+
+<p><strong>Links:</strong> <a href="https://patents.google.com/patent/US20250078556A1/en">Patent</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2025-12-04T11:19:21-08:00">December 4, 2025</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/patents/2025-out-of-distribution-element-detection-for-information-extraction/" class="pagination--pager" title="Out of Distribution Element Detection for Information Extraction
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- _includes/whatsnext_and_contact.html -->
+<style>
+  /* ---------- TOKENS ---------- */
+  :root{
+    --wnx-bg:#ffffff;
+    --wnx-fg:#0b1320;
+    --wnx-title:#0b1320;
+    --wnx-sub:#475569;
+    --wnx-line:#e5e7eb;
+    --wnx-card:#ffffff;
+    --wnx-accent:#22d3ee;         /* cyan accent */
+    --wnx-shadow:0 10px 30px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
+
+    --fab-bg:#10b981;
+    --fab-fg:#ffffff;
+    --fab-shadow:0 10px 30px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.08);
+  }
+  html.theme-dark{
+    --wnx-bg:#0b1220;
+    --wnx-fg:#e6edf3;
+    --wnx-title:#e6edf3;
+    --wnx-sub:#9fb4cc;
+    --wnx-line:#203048;
+    --wnx-card:#0f172a;
+    --wnx-accent:#22d3ee;
+    --wnx-shadow:0 12px 32px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.30);
+
+    --fab-bg:#0ea5e9;
+    --fab-fg:#0b1220;
+    --fab-shadow:0 12px 32px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.30);
+  }
+
+  /* ---------- WHAT’S NEXT (collapsed by default) ---------- */
+  .wnx-tab{
+    position:fixed; right:0; top:45vh; z-index:1100;   /* moved lower */
+    background:#1fb6ff; color:#fff; border:none;
+    border-radius:12px 0 0 12px; padding:.6rem .7rem; font-weight:900;
+    box-shadow:0 8px 16px rgba(0,0,0,.18);
+  }
+  .wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); letter-spacing:.4px; }
+
+  .wnx-panel{
+    position:fixed; right:-360px; top:96px; width:340px; bottom:24px; z-index:1100;
+    background:var(--wnx-bg); color:var(--wnx-fg);
+    border:1px solid var(--wnx-line); border-radius:16px 0 0 16px;
+    box-shadow:var(--wnx-shadow);
+    transition:right .18s ease; display:flex; flex-direction:column;
+  }
+  .wnx-panel.open{ right:0; }
+  .wnx-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.75rem .85rem; font-weight:900; color:var(--wnx-title);
+    border-bottom:1px solid var(--wnx-line);
+  }
+  .wnx-close{ background:transparent; border:0; color:inherit; font-weight:800; cursor:pointer; }
+  .wnx-body{ overflow:auto; padding:.7rem .85rem; display:grid; gap:.75rem; }
+
+  .wnx-card{
+    background:var(--wnx-card); color:var(--wnx-fg);
+    border:1px solid var(--wnx-line); border-radius:14px; padding:12px 14px 12px 22px;
+    box-shadow:var(--wnx-shadow); position:relative;
+    /* slim cyan bullet */
+    background-image:linear-gradient(var(--wnx-accent),var(--wnx-accent));
+    background-repeat:no-repeat; background-size:3px 14px; background-position:12px 14px;
+  }
+  .wnx-title{ font-weight:900; color:var(--wnx-title); margin:0 0 4px; }
+  .wnx-meta{ color:var(--wnx-sub); font-weight:600; }
+
+  /* ---------- CONTACT (right-side drawer) ---------- */
+  .contact-fab{
+    position:fixed; right:16px; bottom:16px; z-index:1090;
+    width:56px; height:56px; border-radius:999px; display:grid; place-items:center;
+    background:var(--fab-bg); color:var(--fab-fg); box-shadow:var(--fab-shadow);
+    border:0; cursor:pointer;
+  }
+  .contact-fab svg{ width:26px; height:26px; }
+
+  .contact-drawer{
+    position: fixed;
+    right: 16px;
+    bottom: 84px;                      /* sits above FAB */
+    top: auto;                         /* not centered */
+    width: 360px;
+    max-width: 92vw;
+    max-height: calc(100vh - 160px);   /* never clips under header */
+    overflow: auto;
+    background: var(--wnx-bg);
+    color: var(--wnx-fg);
+    border: 1px solid var(--wnx-line);
+    border-radius: 12px;
+    box-shadow: var(--wnx-shadow);
+    transform: translateY(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .16s ease, opacity .16s ease;
+    z-index: 1095;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-drawer.open{
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .cd-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.9rem 1rem; border-bottom:1px solid var(--wnx-line);
+    font-weight:900; color:var(--wnx-title);
+  }
+  .cd-title{ font-weight:900; }
+  .cd-close{ background:transparent; border:0; font-weight:800; color:inherit; cursor:pointer; }
+
+  .cd-body{ padding:1rem; display:grid; gap:.75rem; }
+  .cd-row label{ display:block; font-weight:800; margin-bottom:.28rem; color:var(--wnx-sub); }
+  .cd-row input, .cd-row textarea{
+    width:100%; border:1px solid var(--wnx-line); background:var(--wnx-card); color:var(--wnx-fg);
+    border-radius:10px; padding:.7rem .8rem; font:inherit;
+  }
+  .cd-actions{ display:flex; justify-content:flex-end; gap:.6rem; padding:0 1rem 1rem; }
+  .btn-pill{
+    border:1px solid var(--wnx-line); background:transparent; color:var(--wnx-fg);
+    border-radius:999px; padding:.5rem 1rem; font-weight:900; cursor:pointer;
+  }
+  .btn-cta{ background:var(--fab-bg); color:var(--fab-fg); border-color:transparent; }
+
+  /* Mobile: panel becomes bottom drawer */
+  @media (max-width: 980px){
+    .wnx-tab{ top:auto; bottom:96px; right:14px; border-radius:999px; }
+    .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
+    .wnx-panel{
+      right:14px; left:14px; width:auto; bottom:96px; top:auto; border-radius:16px;
+      transform:translateY(110%); transition:transform .18s ease;
+    }
+    .wnx-panel.open{ transform:translateY(0); right:14px; }
+  }
+</style>
+
+<button class="wnx-tab" id="wnxTab" aria-controls="wnxPanel"><span>What’s next</span></button>
+<aside class="wnx-panel" id="wnxPanel" aria-label="What’s next">
+  <div class="wnx-head">
+    <span>What’s next</span>
+    <button class="wnx-close" id="wnxClose">Close</button>
+  </div>
+  <div class="wnx-body">
+    
+    
+      
+        <article class="wnx-card">
+          <h4 class="wnx-title">
+            
+              <a href="https://2026.aclweb.org/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
+                Hosting workshop at ACL
+              </a>
+            
+          </h4>
+          <div class="wnx-meta">
+            Workshop • July, 2026
+          </div>
+        </article>
+      
+        <article class="wnx-card">
+          <h4 class="wnx-title">
+            
+              <a href="https://iclr.cc/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
+                Under Review papers at ICLR
+              </a>
+            
+          </h4>
+          <div class="wnx-meta">
+            Publication • April, 2026
+          </div>
+        </article>
+      
+        <article class="wnx-card">
+          <h4 class="wnx-title">
+            
+              <a href="https://wacv.thecvf.com/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
+                Oral Presentation in WACV
+              </a>
+            
+          </h4>
+          <div class="wnx-meta">
+            Presentation • March, 2026
+          </div>
+        </article>
+      
+        <article class="wnx-card">
+          <h4 class="wnx-title">
+            
+              <a href="" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
+                6 Patent in Draft
+              </a>
+            
+          </h4>
+          <div class="wnx-meta">
+            Patent • Open
+          </div>
+        </article>
+      
+    
+  </div>
+</aside>
+
+<!-- Contact FAB + right-side drawer -->
+<button class="contact-fab" id="contactFab" aria-label="Contact">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20 4H4a2 2 0 0 0-2 2v.35l10 6.25L22 6.35V6a2 2 0 0 0-2-2Zm0 4.88-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.88Z"/>
+  </svg>
+</button>
+
+<form class="contact-drawer" id="contactDrawer" action="https://formspree.io/f/mwpydbpb" method="POST">
+  <div class="cd-head">
+    <span class="cd-title" id="cdTitle">Say hi</span>
+    <button class="cd-close" type="button" id="contactClose">Close</button>
+  </div>
+  <div class="cd-body">
+    <div class="cd-row">
+      <label for="cname">Name</label>
+      <input id="cname" name="name" autocomplete="name"/>
+    </div>
+    <div class="cd-row">
+      <label for="cemail">Email</label>
+      <input id="cemail" type="email" name="email" autocomplete="email" required/>
+    </div>
+    <div class="cd-row">
+      <label for="csubject">Subject</label>
+      <input id="csubject" name="subject"/>
+    </div>
+    <div class="cd-row">
+      <label for="cmsg">Message</label>
+      <textarea id="cmsg" name="message" rows="3" required></textarea>
+    </div>
+  </div>
+  <div class="cd-actions">
+    <button class="btn-pill" type="button" id="contactCancel">Cancel</button>
+    <button class="btn-pill btn-cta" type="submit">Send</button>
+  </div>
+</form>
+
+<script>
+  (function(){
+    /* --- What’s next: collapsed by default, remember last state on desktop --- */
+    const tab   = document.getElementById('wnxTab');
+    const panel = document.getElementById('wnxPanel');
+    const close = document.getElementById('wnxClose');
+    const LS_K  = 'wnx-open';
+
+    function setOpen(v){
+      panel.classList.toggle('open', !!v);
+      try{ localStorage.setItem(LS_K, v ? '1' : '0'); }catch(e){}
+    }
+    const saved = (function(){ try{ return localStorage.getItem(LS_K) === '1'; }catch(e){ return false; }})();
+    setOpen(window.innerWidth > 980 ? saved : false);
+
+    tab.addEventListener('click', ()=> setOpen(true));
+    close.addEventListener('click', ()=> setOpen(false));
+
+    /* keep panel tucked under masthead regardless of height */
+    function adjustWnxTop(){
+      const mast = document.querySelector('.masthead');
+      const px = mast ? mast.offsetHeight + 12 : 96;
+      panel.style.top = px + 'px';
+    }
+    adjustWnxTop();
+    window.addEventListener('resize', adjustWnxTop);
+
+    /* --- Contact drawer (right side) --- */
+    const fab    = document.getElementById('contactFab');
+    const drawer = document.getElementById('contactDrawer');
+    const cClose = document.getElementById('contactClose');
+    const cCanc  = document.getElementById('contactCancel');
+
+    fab.addEventListener('click',   () => drawer.classList.add('open'));
+    cClose.addEventListener('click',() => drawer.classList.remove('open'));
+    cCanc.addEventListener('click', () => drawer.classList.remove('open'));
+  })();
+</script>
+
+<script>
+  /* Move the existing #theme-toggle into the masthead (right of search) */
+  (function(){
+    var btn = document.getElementById('theme-toggle');
+    if(!btn) return;
+    var greedy = document.querySelector('.masthead .greedy-nav');
+    if(!greedy) return;
+
+    var anchor = greedy.querySelector('.search__toggle') || greedy.querySelector('.site-search');
+    if(anchor && anchor.parentNode){
+      anchor.parentNode.insertBefore(btn, anchor.nextSibling);
+    } else {
+      (greedy.querySelector('.visible-links') || greedy).appendChild(btn);
+    }
+  })();
+</script>
+
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Amit Agarwal. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,14 +1,13 @@
 ---
 layout: paper
-title: 'FS-DAG: Few shot domain adapting graph networks for visually rich document
-  understanding'
-authors: 'Agarwal, Amit; Panda, Srikant; Pachauri, Kulbhushan; '
+title: "FS-DAG: Few Shot Domain Adapting Graph Networks for Visually Rich Document Understanding"
+authors: 'Amit Agarwal; Srikant Panda; Kulbhushan Pachauri'
 year: 2025
 venue: arXiv
 tags:
 - Document-AI
 - Graph
-paper_url: https://arxiv.org/abs/2505.17330
+paper_url: https://aclanthology.org/2025.coling-industry.9/
 search: true
 ---
 
