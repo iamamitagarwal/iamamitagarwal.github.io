@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: "Crowdsource, Crawl, or Generate? Creating SEA-VL, a Multicultural Vision-Language Dataset for Southeast Asia"
-authors: 'Samuel Cahyawijaya; Holy Lovenia; Joel Ruben Antony Moniz; Tack Hwa Wong; Mohammad Rifqi Farhansyah; Thant Thiri Maung; Frederikus Hudi; David Anugraha; Muhammad Ravi Shulthan Habibi; Muhammad Reza Qorib'
+authors: 'Samuel Cahyawijaya, Holy Lovenia, Joel Ruben Antony Moniz, Tack Hwa Wong, Mohammad Rifqi Farhansyah, Thant Thiri Maung, Frederikus Hudi, David Anugraha, Muhammad Ravi Shulthan Habibi, Muhammad Reza Qorib'
 year: 2025
 venue: ACL
 tags:

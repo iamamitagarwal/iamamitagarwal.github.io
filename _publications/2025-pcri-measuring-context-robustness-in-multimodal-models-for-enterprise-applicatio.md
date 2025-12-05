@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: "PCRI: Measuring Context Robustness in Multimodal Models for Enterprise Applications"
-authors: 'Hitesh Laxmichand Patel; Amit Agarwal; Srikant Panda; Hansa Meghwani; Karan Dua; Paul Li; Tao Sheng; Sujith Ravi; Dan Roth'
+authors: 'Hitesh Laxmichand Patel, Amit Agarwal, Srikant Panda, Hansa Meghwani, Karan Dua, Paul Li, Tao Sheng, Sujith Ravi, Dan Roth'
 year: 2025
 venue: EMNLP
 tags:

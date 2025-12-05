@@ -9,7 +9,7 @@ search: true
 
 <style>
 /* Slightly smaller list typography so dense years feel lighter */
-.pub-list li{ font-size:.95rem; line-height:1.35; }
+  .pub-list li{ font-size:.93rem; line-height:1.33; }
 .year-head{ font-size:1.55rem; }
 
 /* Venue badge */
@@ -61,13 +61,6 @@ Handles tags stored as arrays or strings (single or comma/space separated).
 {% endfor %}
 {% assign pub_tags = pub_tags | sort %}
 
-<div id="pub-filters" style="margin:.5rem 0 1rem 0;">
-  <button class="btn btn--primary" data-tag="all">All</button>
-  {% for t in pub_tags %}
-    <button class="btn" data-tag="{{ t }}">{{ t }}</button>
-  {% endfor %}
-</div>
-
 {%- comment -%} Build distinct year list {%- endcomment -%}
 {% assign years = "" | split: "" %}
 {% for p in pubs %}
@@ -76,40 +69,77 @@ Handles tags stored as arrays or strings (single or comma/space separated).
   {% endunless %}
 {% endfor %}
 
+<div id="pub-filters" style="margin:.5rem 0 1rem 0;">
+  <button class="btn btn--primary" data-tag="all">All</button>
+  {% for t in pub_tags %}
+    <button class="btn" data-tag="{{ t }}">{{ t }}</button>
+  {% endfor %}
+</div>
+
+<div id="pub-year-filters" style="margin:-.2rem 0 1rem 0;">
+  {% assign years_sorted = years | sort | reverse %}
+  <button class="btn btn--primary" data-year="all">All years</button>
+  {% for y in years_sorted %}
+    <button class="btn" data-year="{{ y }}">{{ y }}</button>
+  {% endfor %}
+</div>
+
+<div markdown="0">
 {% for yr in years %}
   {% assign in_year = pubs | where: "year", yr %}
 
-  {%- comment -%} Agarwal-first ordering within the year {%- endcomment -%}
-  {% assign agarwal_first = "" | split: "" %}
-  {% assign others = "" | split: "" %}
+  {%- comment -%} Order within year by Amit Agarwal position: first, second, third+, none {%- endcomment -%}
+  {% assign pos0 = "" | split: "" %}
+  {% assign pos1 = "" | split: "" %}
+  {% assign pos2 = "" | split: "" %}
+  {% assign pos3 = "" | split: "" %}
+  {% assign posNone = "" | split: "" %}
+
   {% for p in in_year %}
-    {% assign first_author = p.authors | split: ";" | first | strip %}
-    {% assign fa_lower = first_author | downcase %}
-    {% if first_author contains "Agarwal, Amit" or first_author contains "Amit Agarwal" or (fa_lower contains "amit" and fa_lower contains "agarwal") %}
-      {% assign agarwal_first = agarwal_first | push: p %}
+    {% assign alist = p.authors | split: "," %}
+    {% assign amit_idx = 999 %}
+    {% for a in alist %}
+      {% assign a_trim = a | strip | downcase %}
+      {% if a_trim contains "amit" and a_trim contains "agarwal" %}
+        {% assign amit_idx = forloop.index0 %}
+      {% endif %}
+    {% endfor %}
+    {% if amit_idx == 0 %}
+      {% assign pos0 = pos0 | push: p %}
+    {% elsif amit_idx == 1 %}
+      {% assign pos1 = pos1 | push: p %}
+    {% elsif amit_idx == 2 %}
+      {% assign pos2 = pos2 | push: p %}
+    {% elsif amit_idx < 999 %}
+      {% assign pos3 = pos3 | push: p %}
     {% else %}
-      {% assign others = others | push: p %}
+      {% assign posNone = posNone | push: p %}
     {% endif %}
   {% endfor %}
-  {% assign ordered = agarwal_first | concat: others %}
+  {% assign ordered = pos0 | concat: pos1 | concat: pos2 | concat: pos3 | concat: posNone %}
 
   {% if ordered.size > 0 %}
-  <section class="year-block" data-year="{{ yr }}">
-    <h3 class="year-head">{{ yr }}</h3>
-    <ul class="pub-list">
-      {% for p in ordered %}
-        {% include publication_row.html pub=p %}
-      {% endfor %}
-    </ul>
-  </section>
+    <section class="year-block" data-year="{{ yr }}">
+      <h3 class="year-head">{{ yr }}</h3>
+      <ul class="pub-list">
+        {% for p in ordered %}
+          {% include publication_row.html pub=p %}
+        {% endfor %}
+      </ul>
+    </section>
   {% endif %}
 {% endfor %}
+</div>
 
 <script>
   (function(){
-    const btns  = document.querySelectorAll('#pub-filters .btn');
+    const tagBtns  = document.querySelectorAll('#pub-filters .btn');
+    const yearBtns = document.querySelectorAll('#pub-year-filters .btn');
     const items = Array.from(document.querySelectorAll('.pub-item'));
     const blocks= Array.from(document.querySelectorAll('.year-block'));
+
+    let activeTag  = 'all';
+    let activeYear = 'all';
 
     function updateYears(){
       blocks.forEach(b=>{
@@ -118,17 +148,33 @@ Handles tags stored as arrays or strings (single or comma/space separated).
         b.style.display = vis ? '' : 'none';
       });
     }
-    function setActive(tag){
+
+    function applyFilters(){
       items.forEach(li=>{
         const tags = (li.dataset.tags || '').split(/\s+/).filter(Boolean);
-        li.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
+        const yr   = li.closest('.year-block')?.dataset.year || '';
+        const tagOk  = (activeTag === 'all' || tags.includes(activeTag));
+        const yearOk = (activeYear === 'all' || yr === activeYear);
+        li.style.display = (tagOk && yearOk) ? '' : 'none';
       });
-      btns.forEach(x => x.classList.remove('btn--primary'));
-      const active = document.querySelector(`#pub-filters .btn[data-tag="${tag}"]`);
-      if (active) active.classList.add('btn--primary');
       updateYears();
     }
-    btns.forEach(b => b.addEventListener('click', () => setActive(b.dataset.tag)));
+
+    function setTag(tag){
+      activeTag = tag;
+      tagBtns.forEach(x => x.classList.toggle('btn--primary', x.dataset.tag === tag));
+      applyFilters();
+    }
+
+    function setYear(y){
+      activeYear = y;
+      yearBtns.forEach(x => x.classList.toggle('btn--primary', x.dataset.year === y));
+      applyFilters();
+    }
+
+    tagBtns.forEach(b => b.addEventListener('click', () => setTag(b.dataset.tag)));
+    yearBtns.forEach(b => b.addEventListener('click', () => setYear(b.dataset.year)));
+
     updateYears();
   })();
 </script>

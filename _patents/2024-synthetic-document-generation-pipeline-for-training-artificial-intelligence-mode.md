@@ -1,7 +1,7 @@
 ---
 layout: "single"
 title: "Synthetic Document Generation Pipeline for Training Artificial Intelligence Models"
-inventors: 'Amit Agarwal; Srikant Panda; Kulbhushan Pachauri'
+inventors: 'Amit Agarwal, Srikant Panda, Kulbhushan Pachauri'
 year: 2022
 patent_url: "https://patents.google.com/patent/US20240005640A1/en"
 tags: [Document-AI,Vision-Language]

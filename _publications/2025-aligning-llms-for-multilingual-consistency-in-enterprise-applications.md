@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: "Aligning LLMs for Multilingual Consistency in Enterprise Applications"
-authors: 'Amit Agarwal; Hansa Meghwani; Hitesh Laxmichand Patel; Tao Sheng; Sujith Ravi; Dan Roth'
+authors: 'Amit Agarwal, Hansa Meghwani, Hitesh Laxmichand Patel, Tao Sheng, Sujith Ravi, Dan Roth'
 year: 2025
 venue: EMNLP
 tags:

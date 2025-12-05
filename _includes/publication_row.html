@@ -26,6 +26,9 @@
   {%- elsif vtxt contains "ieee" or href contains "ieee" -%}{% assign tok = "ieee" %}
   {%- elsif vtxt contains "acm"  or href contains "acm"  -%}{% assign tok = "acm"  %}
   {%- elsif vtxt contains "arxiv" or href contains "arxiv" -%}{% assign tok = "arxiv" %}
+  {%- elsif vtxt contains "wacv" or href contains "wacv" -%}{% assign tok = "wacv" %}
+  {%- elsif vtxt contains "cikm" or href contains "cikm" -%}{% assign tok = "cikm" %}
+  {%- elsif vtxt contains "dasfaa" or href contains "dasfaa" -%}{% assign tok = "dasfaa" %}
   {%- endif -%}
 {%- endif -%}
 
@@ -70,13 +73,13 @@
 <li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
   <strong><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></strong>
   <br/>
-  <em>{{ authors_html }}</em>.
+  <span class="pub-authors">{{ authors_html }}</span>.
 
   <div class="link-pills">
-    {%- if tok != "" or yr2 != "" -%}
-      <span class="link-pill pill--venue badge-{{ tok }}">{{ tok | upcase }}{% if tok != "" and yr2 != "" %} '{{ yr2 }}{% elsif yr2 != "" %}{{ yr2 }}{% endif %}</span>
-    {%- endif -%}
-    {%- if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}" target="_blank" rel="noopener">📄 Paper</a>{% endif -%}
+  {%- if tok != "" -%}
+    <span class="link-pill pill--venue badge-{{ tok }}">{{ tok | upcase }}</span>
+  {%- endif -%}
+    {%- if p.paper_url %}<a class="link-pill" href="{{ p.paper_url }}" target="_blank" rel="noopener">Paper</a>{% endif -%}
     {%- if pdf %}<a class="link-pill pill--pdf" href="{{ pdf }}" target="_blank" rel="noopener">PDF</a>{% endif -%}
     {%- if p.code_url %}<a class="link-pill pill--code" href="{{ p.code_url }}" target="_blank" rel="noopener">Code</a>{% endif -%}
     {%- if p.url %}<a class="link-pill" href="{{ p.url | relative_url }}">Details</a>{% endif -%}

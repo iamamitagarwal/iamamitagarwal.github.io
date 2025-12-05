@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: "LLM for Barcodes: Generating Diverse Synthetic Data for Identity Documents"
-authors: 'Hitesh Laxmichand Patel; Amit Agarwal; Bhargava Kumar; Karan Gupta; Priyaranjan Pattnayak'
+authors: 'Hitesh Laxmichand Patel, Amit Agarwal, Bhargava Kumar, Karan Gupta, Priyaranjan Pattnayak'
 year: 2024
 venue: arXiv
 tags:

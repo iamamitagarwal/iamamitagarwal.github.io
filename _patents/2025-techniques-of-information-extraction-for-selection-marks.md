@@ -1,7 +1,7 @@
 ---
 layout: "single"
 title: "Techniques of Information Extraction for Selection Marks"
-inventors: 'Srikant Panda; Amit Agarwal; Kulbhushan Pachauri'
+inventors: 'Srikant Panda, Amit Agarwal, Kulbhushan Pachauri'
 year: 2023
 patent_url: "https://patents.google.com/patent/US20250078556A1/en"
 tags: [Document-AI]

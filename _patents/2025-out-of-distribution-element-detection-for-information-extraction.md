@@ -1,7 +1,7 @@
 ---
 layout: "single"
 title: "Out of Distribution Element Detection for Information Extraction"
-inventors: 'Srikant Panda; Amit Agarwal; Gouttham Nambirajan; Kulbhushan Pachauri'
+inventors: 'Srikant Panda, Amit Agarwal, Gouttham Nambirajan, Kulbhushan Pachauri'
 year: 2023
 patent_url: "https://patents.google.com/patent/US20250014374A1/en"
 tags: [Document-AI,Vision-Language]

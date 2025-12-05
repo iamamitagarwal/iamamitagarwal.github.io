@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: "Hard Negative Mining for Domain-Specific Retrieval in Enterprise Systems"
-authors: 'Hansa Meghwani; Amit Agarwal; Priyaranjan Pattnayak; Hitesh Laxmichand Patel; Srikant Panda'
+authors: 'Hansa Meghwani, Amit Agarwal, Priyaranjan Pattnayak, Hitesh Laxmichand Patel, Srikant Panda'
 year: 2025
 venue: ACL
 tags:

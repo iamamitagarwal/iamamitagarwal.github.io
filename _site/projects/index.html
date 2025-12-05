@@ -21,14 +21,14 @@
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Amit Agarwal's site">
 <meta property="og:title" content="Projects">
-<meta property="og:url" content="http://localhost:4000/projects/">
+<meta property="og:url" content="https://iamamitagarwal.github.io/projects/">
 
 
   <meta property="og:description" content="Principal Applied Scientist at Oracle Cloud Infrastructure">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/images/og-card.png">
+  <meta property="og:image" content="https://iamamitagarwal.github.io/images/og-card.png">
 
 
 
@@ -39,7 +39,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/">
+<link rel="canonical" href="https://iamamitagarwal.github.io/projects/">
 
 
 
@@ -50,7 +50,7 @@
     
       "@type": "Person",
       "name": "Amit Agarwal",
-      "url": "http://localhost:4000/"
+      "url": "https://iamamitagarwal.github.io/"
     
   }
 </script>
@@ -127,10 +127,10 @@
   @media (max-width: 640px){
     /* keep the masthead above everything */
     .masthead{ z-index: 2000; }
-  
+
     /* a little breathing room under the hero */
     .page__sidebar{ margin-top: 10px !important; overflow: hidden; }
-  
+
     /* clamp the avatar wrapper (the theme sizes this too) */
     .author__avatar,
     .page__sidebar .author__avatar,
@@ -140,7 +140,7 @@
       flex:0 0 112px !important;   /* prevents row stretch */
       margin:.25rem 0 .5rem 0 !important;
     }
-  
+
     /* fill the wrapper, crop nicely */
     .author__avatar img,
     .page__sidebar .author__avatar img,
@@ -151,11 +151,11 @@
       border-radius:50%;
       display:block;
     }
-  
+
     /* remove any leftover left offset next to the avatar */
     .page__lead{ margin-left:0 !important; }
   }
-  
+
   /* --- Publication / Patent link pills ------------------------------------ */
   .link-pills{
     display:flex;
@@ -167,10 +167,10 @@
     display:inline-flex;
     align-items:center;
     gap:.45rem;
-    padding:.24rem .65rem;
+    padding:.18rem .55rem;
     border-radius:999px;
     font-weight:700;
-    font-size:.92rem;
+    font-size:.85rem;
     border:1px solid var(--brand-accent, #0ea5e9);
     text-decoration:none;
     background:transparent;
@@ -178,13 +178,13 @@
     white-space:nowrap;
   }
   .link-pill:hover{ background:var(--brand-accent, #0ea5e9); color:#fff; }
-  
+
   /* variants */
   .pill--pdf   { border-color:#ef4444; } .pill--pdf:hover{ background:#ef4444; }
   .pill--code  { border-color:#16a34a; } .pill--code:hover{ background:#16a34a; }
   .pill--uspto { border-color:#8b5cf6; } .pill--uspto:hover{ background:#8b5cf6; }
   .pill--copy  { cursor:pointer; }
-  
+
   /* Dark mode tweaks */
   html.theme-dark .link-pill{
     color:var(--dark-text, #e6edf3);
@@ -197,16 +197,16 @@
 
   /* Venue pill variant */
   .pill--venue{
-    background:#0ea5e9;
+    background:rgba(14,165,233,0.08);
     color:#0b1320;
-    border-color:#0ea5e9;
+    border:1px solid rgba(14,165,233,0.45);
     font-weight:800;
     letter-spacing:.01em;
   }
   html.theme-dark .pill--venue{
-    background:#22d3ee;
+    background:rgba(34,211,238,0.12);
     color:#0b1220;
-    border-color:#22d3ee;
+    border:1px solid rgba(34,211,238,0.55);
   }
 
   /* Publication titles: remove default underline, add hover only */
@@ -215,6 +215,11 @@
   }
   .pub-title:hover{
     text-decoration:underline;
+  }
+  .pub-authors, .pat-authors{
+    font-style: normal;
+    font-weight: 500;
+    font-size: .9rem;
   }
 
   /* === What's next (tab + panel only) === */

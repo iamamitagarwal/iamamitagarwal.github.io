@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: "SweEval: Do LLMs Really Swear? A Safety Benchmark for Testing Limits for Enterprise Use"
-authors: 'Hitesh Laxmichand Patel; Amit Agarwal'
+authors: 'Hitesh Laxmichand Patel, Amit Agarwal'
 year: 2024
 venue: arXiv
 tags:

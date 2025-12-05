@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: "Survey of Large Multimodal Model Datasets, Application Categories and Taxonomy"
-authors: 'Priyaranjan Pattnayak; Hitesh Laxmichand Patel; Bhargava Kumar; Amit Agarwal; Ishan Banerjee; Srikant Panda; Tejaswini Kumar'
+authors: 'Priyaranjan Pattnayak, Hitesh Laxmichand Patel, Bhargava Kumar, Amit Agarwal, Ishan Banerjee, Srikant Panda, Tejaswini Kumar'
 year: 2024
 venue: arXiv
 tags:
