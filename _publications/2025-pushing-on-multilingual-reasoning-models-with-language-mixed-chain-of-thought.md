@@ -5,9 +5,7 @@ authors: 'Guijin Son, Donghun Yang, Hitesh Laxmichand Patel, Amit Agarwal, Hyunw
 year: 2025
 venue: arXiv
 tags:
-- Eval
 - Multilingual
-- Retrieval
 paper_url: https://arxiv.org/abs/2510.04230
 search: true
 ---

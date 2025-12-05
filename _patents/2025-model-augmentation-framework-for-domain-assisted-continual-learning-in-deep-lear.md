@@ -4,7 +4,7 @@ title: "Model Augmentation Framework for Domain Assisted Continual Learning in D
 inventors: 'Edwin Thomas, Amit Agarwal, Kulbhushan Pachauri'
 year: 2024
 patent_url: "https://patents.google.com/patent/US20250036962A1/en"
-tags: [Vision-Language]
+tags: [Multimodal]
 search: true
 ---
 

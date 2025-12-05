@@ -4,7 +4,7 @@ title: "Fine-Grained Activity Recognition Using Machine Learning"
 inventors: 'Sourabh Yadav, Amit Agarwal, Kulbhushan Pachauri'
 year: 2024
 patent_url: "https://patents.google.com/patent/US20250232584A1/en"
-tags: [Vision-Language]
+tags: [Multimodal]
 search: true
 ---
 

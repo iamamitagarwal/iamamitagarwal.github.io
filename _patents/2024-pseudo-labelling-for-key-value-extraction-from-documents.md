@@ -4,7 +4,7 @@ title: "Pseudo Labelling for Key-Value Extraction from Documents"
 inventors: 'Amit Agarwal, Pachauri Kulbhushan'
 year: 2023
 patent_url: "https://patents.google.com/patent/US12106595B2/en"
-tags: [Document-AI,Vision-Language]
+tags: [Document-AI,Multimodal]
 search: true
 ---
 

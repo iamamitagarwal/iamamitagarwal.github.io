@@ -6,8 +6,8 @@ year: 2025
 venue: ACM
 tags:
 - Document-AI
-- Legal
-- Retrieval
+- RAG
+- Information-Retrieval
 paper_url: https://dl.acm.org/doi/abs/10.1145/3715070.3749262
 search: true
 ---

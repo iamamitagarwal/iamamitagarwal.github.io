@@ -5,9 +5,8 @@ authors: 'Srikant Panda, Hitesh Laxmichand Patel, Shahad Al-Khalifa, Amit Agarwa
 year: 2025
 venue: arXiv
 tags:
-- Graph
-- LLM
-- Safety
+- Responsible-AI
+- Eval
 paper_url: https://arxiv.org/abs/2508.15830
 search: true
 ---

@@ -5,8 +5,8 @@ authors: 'Samuel Cahyawijaya, Holy Lovenia, Joel Ruben Antony Moniz, Tack Hwa Wo
 year: 2025
 venue: ACL
 tags:
-- Vision-Language
-- Retrieval
+- Multimodal
+- Responsible-AI
 paper_url: https://aclanthology.org/2025.acl-long.916/
 search: true
 ---

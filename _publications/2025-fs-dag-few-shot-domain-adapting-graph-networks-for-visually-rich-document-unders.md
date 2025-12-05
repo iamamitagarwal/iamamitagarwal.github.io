@@ -7,7 +7,7 @@ venue: COLING
 venue_token: COLING
 tags:
 - Document-AI
-- Graph
+- Multimodal
 paper_url: https://aclanthology.org/2025.coling-industry.9/
 search: true
 ---

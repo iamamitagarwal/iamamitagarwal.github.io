@@ -5,9 +5,8 @@ authors: 'Hansa Meghwani, Amit Agarwal, Priyaranjan Pattnayak, Hitesh Laxmichand
 year: 2025
 venue: ACL
 tags:
-- Document-AI
-- Eval
-- Retrieval
+- RAG
+- Information-Retrieval
 paper_url: https://aclanthology.org/2025.acl-industry.72/
 search: true
 ---

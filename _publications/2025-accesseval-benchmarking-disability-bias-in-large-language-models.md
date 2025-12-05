@@ -5,9 +5,8 @@ authors: 'Srikant Panda, Amit Agarwal, Hitesh Laxmichand Patel'
 year: 2025
 venue: EMNLP
 tags:
+- Responsible-AI
 - Eval
-- LLM
-- Safety
 paper_url: https://aclanthology.org/2025.emnlp-main.1653/
 search: true
 ---

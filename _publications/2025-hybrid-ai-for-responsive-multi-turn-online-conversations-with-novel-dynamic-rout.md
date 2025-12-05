@@ -5,8 +5,8 @@ authors: 'Priyaranjan Pattnayak, Amit Agarwal, Hansa Meghwani, Hitesh Laxmichand
 year: 2025
 venue: NAACL
 tags:
-- LLM
-- Retrieval
+- RAG
+- Information-Retrieval
 paper_url: https://aclanthology.org/2025.knowledgenlp-1.20/
 search: true
 ---

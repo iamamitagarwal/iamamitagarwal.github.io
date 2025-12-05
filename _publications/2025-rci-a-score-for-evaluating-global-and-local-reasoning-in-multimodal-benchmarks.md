@@ -5,11 +5,8 @@ authors: 'Amit Agarwal, Hitesh Laxmichand Patel, Srikant Panda, Hansa Meghwani, 
 year: 2025
 venue: EMNLP
 tags:
-- LLM
-- Retrieval
 - Eval
-- Vision-Language
-- Safety
+- Multimodal
 paper_url: https://aclanthology.org/2025.emnlp-industry.10/
 search: true
 ---

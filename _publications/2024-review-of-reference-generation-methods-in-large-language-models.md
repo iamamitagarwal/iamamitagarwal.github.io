@@ -5,12 +5,7 @@ authors: 'Priyaranjan Pattnayak, Amit Agarwal, Bhargava Kumar, Yeshil Bangera, S
 year: 2024
 venue: IJAIML
 tags:
-- LLM
-- Retrieval
-- Legal
-- Eval
-- Vision-Language
-- Safety
+- RAG
 paper_url: https://openreview.net/pdf?id=eB87ISzlL1
 search: true
 ---

@@ -6,7 +6,8 @@ year: 2024
 venue: arXiv
 tags:
 - Document-AI
-- LLM
+- Multimodal
+
 paper_url: https://arxiv.org/abs/2411.14962
 search: true
 ---

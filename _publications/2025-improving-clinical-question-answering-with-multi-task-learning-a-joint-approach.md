@@ -3,10 +3,10 @@ layout: paper
 title: "Improving Clinical Question Answering With Multi-Task Learning: A Joint Approach for Answer Extraction and Medical Categorization"
 authors: 'Priyaranjan Pattnayak, Hitesh Laxmichand Patel, Amit Agarwal, Bhargava Kumar, Srikant Panda, Tejaswini Kumar'
 year: 2025
-venue: arXiv
+venue: IEEE
 tags:
-- Health
-- Retrieval
+- RAG
+- Information-Retrieval
 paper_url: https://ui.adsabs.harvard.edu/abs/2025arXiv250213108P/abstract
 search: true
 ---

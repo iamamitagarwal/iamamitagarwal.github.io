@@ -5,11 +5,9 @@ authors: 'Amit Agarwal, Srikant Panda, Angeline Charles, Bhargava Kumar, Hitesh 
 year: 2024
 venue: ACL
 tags:
-- LLM
-- Retrieval
+- Multimodal
+- Responsible-AI
 - Eval
-- Vision-Language
-- Safety
 paper_url: https://aclanthology.org/2025.findings-acl.963/
 search: true
 ---

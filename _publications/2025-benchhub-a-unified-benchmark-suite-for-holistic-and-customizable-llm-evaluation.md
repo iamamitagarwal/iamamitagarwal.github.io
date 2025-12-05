@@ -6,8 +6,7 @@ year: 2025
 venue: arXiv
 tags:
 - Eval
-- LLM
-- Retrieval
+
 paper_url: https://arxiv.org/abs/2506.00482
 search: true
 ---

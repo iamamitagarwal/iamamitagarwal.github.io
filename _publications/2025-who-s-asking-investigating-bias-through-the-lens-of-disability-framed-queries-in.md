@@ -5,10 +5,8 @@ authors: 'Vishnu Hari, Kalpana Panda, Srikant Panda, Amit Agarwal, Hitesh Laxmic
 year: 2025
 venue: IEEE
 tags:
-- Graph
+- Responsible-AI
 - Eval
-- LLM
-- Safety
 paper_url: https://openaccess.thecvf.com/content/ICCV2025W/CV4A11y/html/Hari_Whos_Asking_Investigating_Bias_Through_the_Lens_of_Disability-Framed_Queries_ICCVW_2025_paper.html
 search: true
 ---

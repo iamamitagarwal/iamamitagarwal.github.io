@@ -5,10 +5,8 @@ authors: 'Hitesh Laxmichand Patel, Amit Agarwal, Srikant Panda, Hansa Meghwani, 
 year: 2025
 venue: EMNLP
 tags:
+- Multimodal
 - Eval
-- Vision-Language
-- LLM
-- Retrieval
 paper_url: https://aclanthology.org/2025.emnlp-industry.14/
 search: true
 ---

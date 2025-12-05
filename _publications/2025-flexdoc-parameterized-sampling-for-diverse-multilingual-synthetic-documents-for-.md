@@ -7,7 +7,7 @@ venue: EMNLP
 tags:
 - Document-AI
 - Multilingual
-- Legal
+
 paper_url: https://aclanthology.org/2025.emnlp-industry.105/
 search: true
 ---

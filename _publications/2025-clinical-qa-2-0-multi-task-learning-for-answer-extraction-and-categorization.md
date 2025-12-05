@@ -5,8 +5,7 @@ authors: 'Priyaranjan Pattnayak, Hitesh Laxmichand Patel, Amit Agarwal, Bhargava
 year: 2025
 venue: arXiv
 tags:
-- Health
-- Retrieval
+- RAG
 paper_url: https://arxiv.org/abs/2502.13108
 search: true
 ---

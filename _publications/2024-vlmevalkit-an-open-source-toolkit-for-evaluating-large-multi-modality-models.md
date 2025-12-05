@@ -5,8 +5,9 @@ authors: 'Haodong Duan, Junming Yang, Yuxuan Qiao, Xinyu Fang, Lin Chen, Yuan Li
 year: 2024
 venue: ACM
 tags:
-- Document-AI
-- Vision-Language
+- Multimodal
+- Eval
+- Multilingual
 paper_url: https://doi.org/10.1145/3664647.3685520
 search: true
 ---

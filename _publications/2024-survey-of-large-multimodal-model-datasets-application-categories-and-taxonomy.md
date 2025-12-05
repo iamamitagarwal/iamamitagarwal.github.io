@@ -5,9 +5,7 @@ authors: 'Priyaranjan Pattnayak, Hitesh Laxmichand Patel, Bhargava Kumar, Amit A
 year: 2024
 venue: arXiv
 tags:
-- Eval
-- Vision-Language
-- Retrieval
+- Multimodal
 paper_url: https://arxiv.org/abs/2412.17759
 search: true
 ---

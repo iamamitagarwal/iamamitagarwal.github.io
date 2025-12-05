@@ -6,7 +6,7 @@ year: 2024
 venue: arXiv
 tags:
 - Document-AI
-- Graph
+- Multimodal
 paper_url: https://arxiv.org/abs/2412.03590
 search: true
 ---

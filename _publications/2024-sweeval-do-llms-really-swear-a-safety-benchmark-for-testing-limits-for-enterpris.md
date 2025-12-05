@@ -3,11 +3,11 @@ layout: paper
 title: "SweEval: Do LLMs Really Swear? A Safety Benchmark for Testing Limits for Enterprise Use"
 authors: 'Hitesh Laxmichand Patel, Amit Agarwal'
 year: 2024
-venue: arXiv
+venue: NAACL
 tags:
+- Responsible-AI
 - Eval
-- LLM
-- Safety
+- Multilingual
 paper_url: https://aclanthology.org/2025.naacl-industry.46/
 search: true
 ---

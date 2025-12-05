@@ -5,10 +5,8 @@ authors: 'Amit Agarwal, Hansa Meghwani, Hitesh Laxmichand Patel, Tao Sheng, Suji
 year: 2025
 venue: EMNLP
 tags:
-- Safety
 - Multilingual
-- LLM
-- Retrieval
+- RAG
 paper_url: https://aclanthology.org/2025.emnlp-industry.9/
 search: true
 ---
