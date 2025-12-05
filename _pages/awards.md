@@ -92,6 +92,12 @@ classes: wide
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(340px,1fr));
     gap:1rem;
+    max-height:70vh;
+    overflow:auto;
+    padding-right:.4rem;
+  }
+  @media(max-width: 720px){
+    .awards-grid{ max-height:none; overflow:visible; }
   }
   .award-card{
     background:var(--tile); border:1.5px solid var(--ring); border-radius:20px;

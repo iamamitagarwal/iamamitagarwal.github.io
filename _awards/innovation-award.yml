@@ -1,9 +1,9 @@
 ---
-title: "Employee of the Month"
-year: 2019
-org: "Abzooba"
+title: "Innovation Award"
+year: 2025
+org: "Oracle"
 icon: "trophy"     # trophy | medal | star
-certificate: "/assets/awards/Employee of the Month.pdf"
+certificate: ""
 link: ""
 layout: single
 author_profile: true

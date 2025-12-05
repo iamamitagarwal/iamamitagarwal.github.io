@@ -1,13 +1,13 @@
 ---
 layout: paper
-title: "MVTamperBench: Evaluating Robustness of Vision-Language Models"
+title: "MVTamperBench: Evaluationuating Robustness of Vision-Language Models"
 authors: 'Amit Agarwal, Srikant Panda, Angeline Charles, Bhargava Kumar, Hitesh Patel, Priyaranjan Pattnayak, Taki Hasan Rafi, Tejaswini Kumar, Dong-Kyu Chae'
 year: 2024
 venue: ACL
 tags:
 - Multimodal
 - Responsible-AI
-- Eval
+- Evaluation
 paper_url: https://aclanthology.org/2025.findings-acl.963/
 search: true
 ---

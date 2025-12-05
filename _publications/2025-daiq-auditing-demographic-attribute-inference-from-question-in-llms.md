@@ -6,7 +6,7 @@ year: 2025
 venue: arXiv
 tags:
 - Responsible-AI
-- Eval
+- Evaluation
 paper_url: https://arxiv.org/abs/2508.15830
 search: true
 ---

@@ -775,6 +775,12 @@
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(340px,1fr));
     gap:1rem;
+    max-height:70vh;
+    overflow:auto;
+    padding-right:.4rem;
+  }
+  @media(max-width: 720px){
+    .awards-grid{ max-height:none; overflow:visible; }
   }
   .award-card{
     background:var(--tile); border:1.5px solid var(--ring); border-radius:20px;
@@ -887,38 +893,45 @@
     <div class="awards-grid"><div class="award-card">
           <div class="award-icon">🏆</div>
           <div class="award-body">
-            <div class="award-title" title="Abzoobian of the month 1">Abzoobian of the month 1</div>
+            <div class="award-title" title="Innovation Award">Innovation Award</div>
+            <div class="award-meta">Oracle • 2025</div>
+          </div>
+          <div class="award-actions"></div>
+        </div><div class="award-card">
+          <div class="award-icon">🏆</div>
+          <div class="award-body">
+            <div class="award-title" title="Edison Award">Edison Award</div>
+            <div class="award-meta">Oracle • 2022</div>
+          </div>
+          <div class="award-actions"></div>
+        </div><div class="award-card">
+          <div class="award-icon">🏆</div>
+          <div class="award-body">
+            <div class="award-title" title="Employee of the Month">Employee of the Month</div>
             <div class="award-meta">Abzooba • 2019</div>
           </div>
-          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Abzoobian of Month 1.pdf" target="_blank" rel="noopener">PDF</a></div>
+          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Employee of the Month.pdf" target="_blank" rel="noopener">PDF</a></div>
         </div><div class="award-card">
           <div class="award-icon">🏆</div>
           <div class="award-body">
-            <div class="award-title" title="Abzoobian of the month 4">Abzoobian of the month 4</div>
+            <div class="award-title" title="Employee of the Month">Employee of the Month</div>
             <div class="award-meta">Abzooba • 2019</div>
           </div>
-          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Abzoobian Month 4.pdf" target="_blank" rel="noopener">PDF</a></div>
+          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Employee of the Month.pdf" target="_blank" rel="noopener">PDF</a></div>
         </div><div class="award-card">
           <div class="award-icon">🏆</div>
           <div class="award-body">
-            <div class="award-title" title="Abzoobian of the month 2">Abzoobian of the month 2</div>
+            <div class="award-title" title="Employee of the Month">Employee of the Month</div>
             <div class="award-meta">Abzooba • 2018</div>
           </div>
-          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Abzoobian Month 2.pdf" target="_blank" rel="noopener">PDF</a></div>
+          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Employee of the Month.pdf" target="_blank" rel="noopener">PDF</a></div>
         </div><div class="award-card">
           <div class="award-icon">🏆</div>
           <div class="award-body">
-            <div class="award-title" title="Abzoobian of the month 3">Abzoobian of the month 3</div>
+            <div class="award-title" title="Employee of the Month">Employee of the Month</div>
             <div class="award-meta">Abzooba • 2018</div>
           </div>
-          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Abzoobian Award 3.pdf" target="_blank" rel="noopener">PDF</a></div>
-        </div><div class="award-card">
-          <div class="award-icon">🏆</div>
-          <div class="award-body">
-            <div class="award-title" title="Victor Award">Victor Award</div>
-            <div class="award-meta">Abzooba • 2017</div>
-          </div>
-          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Victor Award.pdf" target="_blank" rel="noopener">PDF</a></div>
+          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Employee of the Month.pdf" target="_blank" rel="noopener">PDF</a></div>
         </div><div class="award-card">
           <div class="award-icon">🏆</div>
           <div class="award-body">
@@ -926,6 +939,13 @@
             <div class="award-meta">Abzooba • 2017</div>
           </div>
           <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Thankyou Award.pdf" target="_blank" rel="noopener">PDF</a></div>
+        </div><div class="award-card">
+          <div class="award-icon">🏆</div>
+          <div class="award-body">
+            <div class="award-title" title="Victor Award">Victor Award</div>
+            <div class="award-meta">Abzooba • 2017</div>
+          </div>
+          <div class="award-actions"><a class="pill pill--pdf" href="/assets/awards/Victor Award.pdf" target="_blank" rel="noopener">PDF</a></div>
         </div></div>
   </div>
 </div>

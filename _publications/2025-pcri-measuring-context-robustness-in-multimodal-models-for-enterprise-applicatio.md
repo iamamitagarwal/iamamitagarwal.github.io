@@ -6,7 +6,7 @@ year: 2025
 venue: EMNLP
 tags:
 - Multimodal
-- Eval
+- Evaluation
 paper_url: https://aclanthology.org/2025.emnlp-industry.14/
 search: true
 ---

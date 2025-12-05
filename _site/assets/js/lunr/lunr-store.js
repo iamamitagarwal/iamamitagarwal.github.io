@@ -1,26 +1,38 @@
 var store = [{
-        "title": "Abzoobian of the month 3",
+        "title": "Employee of the Month",
         "excerpt":"","categories": null,
         "tags": null,
         "url": "/awards/abzoobian-award-3/",
         "teaser": null
       },{
-        "title": "Abzoobian of the month 2",
+        "title": "Employee of the Month",
         "excerpt":"","categories": null,
         "tags": null,
         "url": "/awards/abzoobian-month-2/",
         "teaser": null
       },{
-        "title": "Abzoobian of the month 4",
+        "title": "Employee of the Month",
         "excerpt":"","categories": null,
         "tags": null,
         "url": "/awards/abzoobian-month-4/",
         "teaser": null
       },{
-        "title": "Abzoobian of the month 1",
+        "title": "Employee of the Month",
         "excerpt":"","categories": null,
         "tags": null,
         "url": "/awards/abzoobian-of-month-1/",
+        "teaser": null
+      },{
+        "title": "Edison Award",
+        "excerpt":"","categories": null,
+        "tags": null,
+        "url": "/awards/edison-award/",
+        "teaser": null
+      },{
+        "title": "Innovation Award",
+        "excerpt":"","categories": null,
+        "tags": null,
+        "url": "/awards/innovation-award/",
         "teaser": null
       },{
         "title": "Thank You Award",
@@ -161,7 +173,7 @@ var store = [{
         "url": "/llm-eval-platform/",
         "teaser": null
       },{
-        "title": "Evaluate Generalisation & Robustness of Visual Features from Images to Video",
+        "title": "Evaluationuate Generalisation & Robustness of Visual Features from Images to Video",
         "excerpt":"Abstract. Unlabeled data has always been more readily available for researchers and industrial applications but supervised learning techniques consistently outperformed unsupervised learning techniques, limiting our capability to capitalise on the massive volume of unlabeled data. Recently, self-supervised learning techniques have attempted to generate supervised signals from unlabeled data to learn a pretask and thus generate general visual representations. However, they are still in their early stage for computer vision tasks due to the different modalities and high-dimensional input signals like images, videos (with audio), 3D objects and geometry. This research studies the generalisation, robustness, and reusability of visual features learned from self-supervised image-based models for video-based tasks like action recognition and action retrieval for UCF101 and HMDB51 datasets. This research proposes a deep learning model that can be trained to adapt visual features learned from image-based models for action recognition and action retrieval task. Finally, clustering and silhouette score analysis is conducted to objectively evaluate the quality of these visual features for video tasks. The trained model head outperforms other video-based models trained on a similar dataset for the action recognition task by a margin greater than 20%. For action retrieval, the performance is highly competitive to the stateof-the-art models trained on much larger datasets than the self-supervised models used in this research. Silhouette score analysis results highlight that the image-based visual features cluster the videos correctly though the cluster boundaries are not very distinctive. The results from the experimental procedures univocally conclude that visual features from self-supervised image-based models can be adapted and reused for video-based tasks. It also highlights that different image-based self-supervised models can adapt to video-based tasks, thus, further studies should explore jointly training selfsupervised models for image and video modalities.  ","categories": [],
         "tags": ["Multimodal"],
         "url": "/publications/2021-evaluate-generalisation-robustness-of-visual-features-from-images-to-video/",
@@ -179,9 +191,9 @@ var store = [{
         "url": "/publications/2024-llm-for-barcodes-generating-diverse-synthetic-data-for-identity-documents/",
         "teaser": null
       },{
-        "title": "MVTamperBench: Evaluating Robustness of Vision-Language Models",
+        "title": "MVTamperBench: Evaluationuating Robustness of Vision-Language Models",
         "excerpt":"Abstract. Multimodal Large Language Models (MLLMs), are recent advancement of Vision-Language Models (VLMs) that have driven major advances in video understanding. However, their vulnerability to adversarial tampering and manipulations remains underexplored. To address this gap, we introduce MVTamperBench, a benchmark that systematically evaluates MLLM robustness against five prevalent tampering techniques: rotation, masking, substitution, repetition, and dropping, based on real-world visual tampering scenarios such as surveillance interference, social media content edits, and misinformation injection. MVTamperBench comprises~ 3.4 K original videos, expanded into over~ 17K tampered clips covering 19 distinct video manipulation tasks. This benchmark challenges models to detect manipulations in spatial and temporal coherence. We evaluate 45 recent MLLMs from 15+ model families. We reveal substantial variability in resilience across tampering types and show that larger parameter counts do not necessarily guarantee robustness. MVTamperBench sets a new benchmark for developing tamper-resilient MLLM in safety-critical applications, including detecting clickbait, preventing harmful content distribution, and enforcing policies on media platforms. We release all code, data, and benchmark to foster open research in trustworthy video understanding.  ","categories": [],
-        "tags": ["Multimodal","Responsible-AI","Eval"],
+        "tags": ["Multimodal","Responsible-AI","Evaluation"],
         "url": "/publications/2024-mvtamperbench-evaluating-robustness-of-vision-language-models/",
         "teaser": null
       },{
@@ -197,21 +209,21 @@ var store = [{
         "url": "/publications/2024-survey-of-large-multimodal-model-datasets-application-categories-and-taxonomy/",
         "teaser": null
       },{
-        "title": "SweEval: Do LLMs Really Swear? A Safety Benchmark for Testing Limits for Enterprise Use",
-        "excerpt":"Abstract. Enterprise customers are increasingly adopting Large Language Models (LLMs) for critical communication tasks, such as drafting emails, crafting sales pitches, and composing casual messages. Deploying such models across different regions requires them to understand diverse cultural and linguistic contexts and generate safe and respectful responses. For enterprise applications, it is crucial to mitigate reputational risks, maintain trust, and ensure compliance by effectively identifying and handling unsafe or offensive language. To address this, we introduce SweEval, a benchmark simulating real-world scenarios with variations in tone (positive or negative) and context (formal or informal). The prompts explicitly instruct the model to include specific swear words while completing the task. This benchmark evaluates whether LLMs comply with or resist such inappropriate instructions and assesses their alignment with ethical frameworks, cultural nuances, and language comprehension capabilities.  ","categories": [],
-        "tags": ["Responsible-AI","Eval","Multilingual"],
+        "title": "SweEvaluation: Do LLMs Really Swear? A Safety Benchmark for Testing Limits for Enterprise Use",
+        "excerpt":"Abstract. Enterprise customers are increasingly adopting Large Language Models (LLMs) for critical communication tasks, such as drafting emails, crafting sales pitches, and composing casual messages. Deploying such models across different regions requires them to understand diverse cultural and linguistic contexts and generate safe and respectful responses. For enterprise applications, it is crucial to mitigate reputational risks, maintain trust, and ensure compliance by effectively identifying and handling unsafe or offensive language. To address this, we introduce SweEvaluation, a benchmark simulating real-world scenarios with variations in tone (positive or negative) and context (formal or informal). The prompts explicitly instruct the model to include specific swear words while completing the task. This benchmark evaluates whether LLMs comply with or resist such inappropriate instructions and assesses their alignment with ethical frameworks, cultural nuances, and language comprehension capabilities.  ","categories": [],
+        "tags": ["Responsible-AI","Evaluation","Multilingual"],
         "url": "/publications/2024-sweeval-do-llms-really-swear-a-safety-benchmark-for-testing-limits-for-enterpris/",
         "teaser": null
       },{
-        "title": "Vlmevalkit: An Open-Source Toolkit for Evaluating Large Multi-Modality Models",
+        "title": "Vlmevalkit: An Open-Source Toolkit for Evaluationuating Large Multi-Modality Models",
         "excerpt":"Abstract. the available training data may be from general domains and models trained on this data may struggle to classify data from different target domains. Accordingly, improvements in training a model to label key-value labeled documents are desirable.  ","categories": [],
-        "tags": ["Multimodal","Eval","Multilingual"],
+        "tags": ["Multimodal","Evaluation","Multilingual"],
         "url": "/publications/2024-vlmevalkit-an-open-source-toolkit-for-evaluating-large-multi-modality-models/",
         "teaser": null
       },{
         "title": "Accesseval: Benchmarking Disability Bias in Large Language Models",
-        "excerpt":"Abstract. Large Language Models (LLMs) are increasingly deployed across diverse domains but often exhibit disparities in how they handle real life queries. To systematically investigate these effects with various disability context, we introduce AccessEval, a large-scale benchmark evaluating total 21 close &amp; open source LLMs across six real-world domains and nine disability types using paired Neutral and Disability-Aware Queries. We evaluated model outputs with metrics for factual accuracy, sentiment, and social perception. Our analysis reveals that responses to disability-aware queries tend to have higher factual error, more negative tone, and increased stereotyping with social perception compared to neutral queries. These effects show notable variation by domain and disability type. Disabilities affecting hearing, speech and mobility are disproportionately impacted. These disparities reveal persistent forms of ableism, highlighting the need for more comprehensive and nuanced assessment. We further argue that framing bias in terms of model performance within real-world decision making helps to better link model behaviors to the potential harms users may face. This approach guides the development of more effective and tailored fairness interventions. AccessEval, therefore, serves as a crucial tool for advancing equitable and inclusive language technologies.  ","categories": [],
-        "tags": ["Responsible-AI","Eval"],
+        "excerpt":"Abstract. Large Language Models (LLMs) are increasingly deployed across diverse domains but often exhibit disparities in how they handle real life queries. To systematically investigate these effects with various disability context, we introduce AccessEvaluation, a large-scale benchmark evaluating total 21 close &amp; open source LLMs across six real-world domains and nine disability types using paired Neutral and Disability-Aware Queries. We evaluated model outputs with metrics for factual accuracy, sentiment, and social perception. Our analysis reveals that responses to disability-aware queries tend to have higher factual error, more negative tone, and increased stereotyping with social perception compared to neutral queries. These effects show notable variation by domain and disability type. Disabilities affecting hearing, speech and mobility are disproportionately impacted. These disparities reveal persistent forms of ableism, highlighting the need for more comprehensive and nuanced assessment. We further argue that framing bias in terms of model performance within real-world decision making helps to better link model behaviors to the potential harms users may face. This approach guides the development of more effective and tailored fairness interventions. AccessEvaluation, therefore, serves as a crucial tool for advancing equitable and inclusive language technologies.  ","categories": [],
+        "tags": ["Responsible-AI","Evaluation"],
         "url": "/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/",
         "teaser": null
       },{
@@ -221,9 +233,9 @@ var store = [{
         "url": "/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/",
         "teaser": null
       },{
-        "title": "BenchHub: A Unified Benchmark Suite for Holistic and Customizable LLM Evaluation",
+        "title": "BenchHub: A Unified Benchmark Suite for Holistic and Customizable LLM Evaluationuation",
         "excerpt":"Abstract. As large language models (LLMs) continue to advance, the need for up-to-date and well-organized benchmarks becomes increasingly critical. However, many existing datasets are scattered, difficult to manage, and make it challenging to perform evaluations tailored to specific needs or domains, despite the growing importance of domain-specific models in areas such as math or code. In this paper, we introduce BenchHub, a dynamic benchmark repository that empowers researchers and developers to evaluate LLMs more effectively. BenchHub aggregates and automatically classifies benchmark datasets from diverse domains, integrating 303K questions across 38 benchmarks. It is designed to support continuous updates and scalable data management, enabling flexible and customizable evaluation tailored to various domains or use cases. Through extensive experiments with various LLM families, we demonstrate that model performance varies significantly across domain-specific subsets, emphasizing the importance of domain-aware benchmarking. We believe BenchHub can encourage better dataset reuse, more transparent model comparisons, and easier identification of underrepresented areas in existing benchmarks, offering a critical infrastructure for advancing LLM evaluation research.  ","categories": [],
-        "tags": ["Eval"],
+        "tags": ["Evaluation"],
         "url": "/publications/2025-benchhub-a-unified-benchmark-suite-for-holistic-and-customizable-llm-evaluation/",
         "teaser": null
       },{
@@ -241,7 +253,7 @@ var store = [{
       },{
         "title": "DAIQ: Auditing Demographic Attribute Inference from Question in LLMs",
         "excerpt":"Abstract. Large Language Models (LLMs) are known to reflect social biases when demographic attributes, such as gender or race, are explicitly present in the input. But even in their absence, these models still infer user identities based solely on question phrasing. This subtle behavior has received far less attention, yet poses serious risks: it violates expectations of neutrality, infers unintended demographic information, and encodes stereotypes that undermine fairness in various domains including healthcare, finance and education. We introduce Demographic Attribute Inference from Questions (DAIQ), a task and framework for auditing an overlooked failure mode in language models: inferring user demographic attributes from questions that lack explicit demographic cues. Our approach leverages curated neutral queries, systematic prompting, and both quantitative and qualitative analysis to uncover how models infer demographic information. We show that both open and closed source LLMs do assign demographic labels based solely on question phrasing. Prevalence and consistency of demographic inferences across diverse models reveal a systemic and underacknowledged risk: LLMs can fabricate demographic identities, reinforce societal stereotypes, and propagate harms that erode privacy, fairness, and trust posing a broader threat to social equity and responsible AI deployment. To mitigate this, we develop a prompt-based guardrail that substantially reduces identity inference and helps align model behavior with fairness and privacy objectives.  ","categories": [],
-        "tags": ["Responsible-AI","Eval"],
+        "tags": ["Responsible-AI","Evaluation"],
         "url": "/publications/2025-daiq-auditing-demographic-attribute-inference-from-question-in-llms/",
         "teaser": null
       },{
@@ -258,7 +270,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Hard Negative Mining for Domain-Specific Retrieval in Enterprise Systems",
-        "excerpt":"Abstract. Enterprise search systems often struggle to retrieve accurate, domain-specific information due to semantic mismatches and overlapping terminologies. These issues can degrade the performance of downstream applications such as knowledge management, customer support, and retrieval-augmented generation agents. To address this challenge, we propose a scalable hard-negative mining framework tailored specifically for domain-specific enterprise data. Our approach dynamically selects semantically challenging but contextually irrelevant documents to enhance deployed re-ranking models. Our method integrates diverse embedding models, performs dimensionality reduction, and uniquely selects hard negatives, ensuring computational efficiency and semantic precision. Evaluation on our proprietary enterprise corpus (cloud services domain) demonstrates substantial improvements of 15\\% in MRR@3 and 19\\% in MRR@10 compared to state-of-the-art baselines and other negative sampling techniques. Further validation on public domain-specific datasets (FiQA, Climate Fever, TechQA) confirms our method’s generalizability and readiness for real-world applications.  ","categories": [],
+        "excerpt":"Abstract. Enterprise search systems often struggle to retrieve accurate, domain-specific information due to semantic mismatches and overlapping terminologies. These issues can degrade the performance of downstream applications such as knowledge management, customer support, and retrieval-augmented generation agents. To address this challenge, we propose a scalable hard-negative mining framework tailored specifically for domain-specific enterprise data. Our approach dynamically selects semantically challenging but contextually irrelevant documents to enhance deployed re-ranking models. Our method integrates diverse embedding models, performs dimensionality reduction, and uniquely selects hard negatives, ensuring computational efficiency and semantic precision. Evaluationuation on our proprietary enterprise corpus (cloud services domain) demonstrates substantial improvements of 15\\% in MRR@3 and 19\\% in MRR@10 compared to state-of-the-art baselines and other negative sampling techniques. Further validation on public domain-specific datasets (FiQA, Climate Fever, TechQA) confirms our method’s generalizability and readiness for real-world applications.  ","categories": [],
         "tags": ["RAG","Information-Retrieval"],
         "url": "/publications/2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems/",
         "teaser": null
@@ -295,7 +307,7 @@ var store = [{
       },{
         "title": "PCRI: Measuring Context Robustness in Multimodal Models for Enterprise Applications",
         "excerpt":"Abstract. The reliability of Multimodal Large Language Models (MLLMs) in real-world settings is often undermined by sensitivity to irrelevant or distracting visual context, an aspect not captured by existing evaluation metrics. We introduce the Patch Context Robustness Index (PCRI), the first systematic and interpretable score for quantifying MLLM robustness to variations in visual context granularity, measuring performance changes between localized image patches and full-image input. Applying PCRI to 19 state-of-the-art MLLMs across 15 vision-language benchmarks, we find that most leading models remain brittle to background noise, with only a few, such as InternVL2-26B and Qwen2VL-72B, demonstrating consistent robustness across tasks. PCRI analysis also highlights how different model architectures handle and integrate visual context, offering actionable diagnostic insight for both researchers and practitioners. PCRI enables rigorous comparison of context robustness, supporting principled model selection and guiding the development of future architectures and training strategies for robust, real-world deployment.  ","categories": [],
-        "tags": ["Multimodal","Eval"],
+        "tags": ["Multimodal","Evaluation"],
         "url": "/publications/2025-pcri-measuring-context-robustness-in-multimodal-models-for-enterprise-applicatio/",
         "teaser": null
       },{
@@ -305,9 +317,9 @@ var store = [{
         "url": "/publications/2025-pushing-on-multilingual-reasoning-models-with-language-mixed-chain-of-thought/",
         "teaser": null
       },{
-        "title": "RCI: A Score for Evaluating Global and Local Reasoning in Multimodal Benchmarks",
+        "title": "RCI: A Score for Evaluationuating Global and Local Reasoning in Multimodal Benchmarks",
         "excerpt":"Abstract. Multimodal Large Language Models (MLLMs) have achieved impressive results on vision-language benchmarks, yet it remains unclear whether these benchmarks assess genuine global reasoning or allow success via localized visual cues. Existing evaluation methods do not explicitly measure this distinction, hindering effective dataset curation and real-world focused model development. We introduce Region Comprehension Index (RCI), the first model-based score to directly quantify a dataset’s reliance on global versus local visual information. RCI systematically compares reference-model performance on image patches versus full images, revealing if tasks require holistic image understanding or can be solved with partial or localized visual cues. When applying RCI to 13 widely used multimodal benchmarks, we observed that most of them favor localized reasoning and exhibit significant spatial biases, indicating potential risks in real-world applications. RCI equips researchers &amp; practitioners with an actionable tool for diagnosing &amp; mitigating these biases, enabling the construction of datasets and benchmarks to foster the development of robust, enterprise-ready multimodal systems.  ","categories": [],
-        "tags": ["Eval","Multimodal"],
+        "tags": ["Evaluation","Multimodal"],
         "url": "/publications/2025-rci-a-score-for-evaluating-global-and-local-reasoning-in-multimodal-benchmarks/",
         "teaser": null
       },{
@@ -325,7 +337,7 @@ var store = [{
       },{
         "title": "Who's Asking? Investigating Bias Through the Lens of Disability-Framed Queries in LLMs",
         "excerpt":"Abstract. Large Language Models (LLMs) routinely infer users’ demographic traits from phrasing alone, which can result in biased responses, even when no explicit demographic information is provided. The role of disability cues in shaping these inferences remains largely uncharted. Thus, we present the first systematic audit of disability-conditioned demographic bias across eight state-of-the-art instruction-tuned LLMs ranging from 3B to 72B parameters. Using a balanced template corpus that pairs nine disability categories with six real-world business domains, we prompt each model to predict five demographic attributes - gender, socioeconomic status, education, cultural background, and locality - under both neutral and disability-aware conditions. Across a varied set of prompts, models deliver a definitive demographic guess in up to 97% of cases, exposing a strong tendency to make arbitrary inferences with no clear justification. Disability context heavily shifts predicted attribute distributions, and domain context can further amplify these deviations. We observe that larger models are simultaneously more sensitive to disability cues and more prone to biased reasoning, indicating that scale alone does not mitigate stereotype amplification. Our findings reveal persistent intersections between ableism and other demographic stereotypes, pinpointing critical blind spots in current alignment strategies. We release our evaluation framework and results to encourage disability-inclusive benchmarking and recommend integrating abstention calibration and counterfactual fine-tuning to curb unwarranted demographic inference. Code and data will be released on acceptance.  ","categories": [],
-        "tags": ["Responsible-AI","Eval"],
+        "tags": ["Responsible-AI","Evaluation"],
         "url": "/publications/2025-who-s-asking-investigating-bias-through-the-lens-of-disability-framed-queries-in/",
         "teaser": null
       },{
