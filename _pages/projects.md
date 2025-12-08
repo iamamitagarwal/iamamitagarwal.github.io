@@ -30,14 +30,14 @@ search: true
   .proj-card:hover{ transform:translateY(-1px); border-color:var(--rim-strong); }
 
   .proj-head{ display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; }
-  .proj-title{ font-size:1.1rem; font-weight:900; line-height:1.2; }
+  .proj-title{ font-size:1.05rem; font-weight:900; line-height:1.25; }
 
   .proj-badges{ display:flex; gap:.4rem; flex-wrap:wrap; }
   .badge{
     display:inline-flex; align-items:center; gap:.35rem;
-    padding:.2rem .6rem; border-radius:999px;
-    font-weight:800; font-size:.78rem; letter-spacing:.01em;
-    border:1px solid var(--rim-strong); background:rgba(2,132,199,.08);
+    padding:.18rem .55rem; border-radius:12px;
+    font-weight:700; font-size:.74rem; letter-spacing:.01em;
+    border:1px solid var(--rim-strong); background:rgba(2,132,199,.05);
   }
   .badge--year{ background:rgba(99,102,241,.12); }
   .badge--company{ background:rgba(34,197,94,.12); }
@@ -46,8 +46,11 @@ search: true
   .tags{ display:flex; flex-wrap:wrap; gap:.35rem; }
   .tag{
     display:inline-flex; align-items:center; padding:.16rem .5rem;
-    border-radius:999px; border:1px solid var(--rim);
-    font-weight:700; font-size:.72rem; color:var(--muted);
+    border-radius:12px;
+    border:1px solid var(--tag-chip-border, var(--rim));
+    font-weight:600; font-size:.7rem;
+    color:var(--tag-chip-text, var(--muted));
+    background:var(--tag-chip-bg, rgba(148,163,184,.14));
   }
 
   .bullets{ margin:.2rem 0 0 0; padding-left:1.1rem; }
@@ -61,7 +64,7 @@ search: true
   }
   .link-pill:hover{ background:var(--accent); color:#fff; }
 
-  .proj-card, .proj-card li { font-size:.98rem; }
+  .proj-card, .proj-card li { font-size:.92rem; line-height:1.35; }
 </style>
 
 {%- assign items = site.data.projects -%}
@@ -92,7 +95,13 @@ search: true
     <div class="proj-head">
       <div class="proj-title">{{ p.title }}</div>
       <div class="proj-badges">
-        {%- if p.company -%}<span class="badge badge--company">{{ p.company }}</span>{%- endif -%}
+        {%- if p.company -%}
+          {%- assign comps = p.company | replace:"/","|" | split:"|" -%}
+          {%- for comp in comps -%}
+            {%- assign clean = comp | strip -%}
+            {%- if clean != "" -%}<span class="badge badge--company">{{ clean }}</span>{%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
         {%- if p.role -%}<span class="badge badge--role">{{ p.role }}</span>{%- endif -%}
         {%- if p.year -%}<span class="badge badge--year">{{ p.year }}</span>{%- endif -%}
       </div>

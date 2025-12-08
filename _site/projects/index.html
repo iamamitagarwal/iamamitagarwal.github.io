@@ -160,53 +160,109 @@
   .link-pills{
     display:flex;
     flex-wrap:wrap;
-    gap:.5rem;
+    gap:.35rem;
     margin:.5rem 0 0;
   }
   .link-pill{
     display:inline-flex;
     align-items:center;
-    gap:.45rem;
-    padding:.18rem .55rem;
-    border-radius:999px;
-    font-weight:700;
-    font-size:.85rem;
-    border:1px solid var(--brand-accent, #0ea5e9);
+    gap:.35rem;
+    padding:.16rem .55rem;
+    border-radius:12px;
+    font-weight:600;
+    font-size:.78rem;
+    border:1px solid var(--tag-chip-border);
     text-decoration:none;
-    background:transparent;
-    line-height:1.2;
+    background:var(--tag-chip-bg);
+    color:var(--tag-chip-text);
+    line-height:1.15;
     white-space:nowrap;
+    transition:color .15s ease, background .15s ease, border-color .15s ease;
   }
-  .link-pill:hover{ background:var(--brand-accent, #0ea5e9); color:#fff; }
+  .link-pill:hover{
+    background:var(--chip-active-bg);
+    border-color:var(--chip-active-bg);
+    color:var(--chip-active-text);
+  }
 
   /* variants */
-  .pill--pdf   { border-color:#ef4444; } .pill--pdf:hover{ background:#ef4444; }
-  .pill--code  { border-color:#16a34a; } .pill--code:hover{ background:#16a34a; }
-  .pill--uspto { border-color:#8b5cf6; } .pill--uspto:hover{ background:#8b5cf6; }
-  .pill--copy  { cursor:pointer; }
+  .pill--pdf{
+    border-color:#fca5a5;
+    background:rgba(248,113,113,.16);
+    color:#7f1d1d;
+  }
+  html.theme-dark .pill--pdf{ color:#ffe4e6; }
+  .pill--pdf:hover{ background:#ef4444; border-color:#ef4444; color:#fff; }
 
-  /* Dark mode tweaks */
-  html.theme-dark .link-pill{
-    color:var(--dark-text, #e6edf3);
-    border-color:#22d3ee;
+  .pill--code{
+    border-color:#86efac;
+    background:rgba(34,197,94,.18);
+    color:#064e3b;
   }
-  html.theme-dark .link-pill:hover{
-    background:#22d3ee;
-    color:#0b1220;
+  html.theme-dark .pill--code{ color:#d1fae5; }
+  .pill--code:hover{ background:#16a34a; border-color:#16a34a; color:#fff; }
+
+  .pill--uspto{
+    border-color:#d8b4fe;
+    background:rgba(167,139,250,.18);
+    color:#4c1d95;
   }
+  html.theme-dark .pill--uspto{ color:#ede9fe; }
+  .pill--uspto:hover{ background:#8b5cf6; border-color:#8b5cf6; color:#fff; }
+
+  .pill--copy{ cursor:pointer; }
 
   /* Venue pill variant */
   .pill--venue{
-    background:rgba(14,165,233,0.08);
-    color:#0b1320;
-    border:1px solid rgba(14,165,233,0.45);
+    background:var(--venue-pill-bg);
+    color:var(--pill-text);
+    border:1px solid var(--venue-pill-border);
     font-weight:800;
     letter-spacing:.01em;
   }
-  html.theme-dark .pill--venue{
-    background:rgba(34,211,238,0.12);
-    color:#0b1220;
-    border:1px solid rgba(34,211,238,0.55);
+
+  /* Filter button rows (tags + years) */
+  #pub-filters,
+  #pub-year-filters,
+  #pat-filters,
+  #pat-year-filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+  }
+
+  #pub-filters .btn,
+  #pub-year-filters .btn,
+  #pat-filters .btn,
+  #pat-year-filters .btn,
+  #proj-filters .btn{
+    border-radius:12px;
+    border:1px solid var(--chip-border) !important;
+    background:var(--chip-bg) !important;
+    color:var(--chip-text) !important;
+    font-weight:700;
+    font-size:.85rem;
+    padding:.24rem .95rem;
+    transition:color .15s ease, background .15s ease, border-color .15s ease;
+  }
+
+  #pub-filters .btn:not(.btn--primary):hover,
+  #pub-year-filters .btn:not(.btn--primary):hover,
+  #pat-filters .btn:not(.btn--primary):hover,
+  #pat-year-filters .btn:not(.btn--primary):hover,
+  #proj-filters .btn:not(.btn--primary):hover{
+    border-color:var(--brand-accent) !important;
+    color:var(--brand-accent) !important;
+  }
+
+  #pub-filters .btn.btn--primary,
+  #pub-year-filters .btn.btn--primary,
+  #pat-filters .btn.btn--primary,
+  #pat-year-filters .btn.btn--primary,
+  #proj-filters .btn.btn--primary{
+    background:var(--chip-active-bg) !important;
+    border-color:var(--chip-active-bg) !important;
+    color:var(--chip-active-text) !important;
   }
 
   /* Publication titles: remove default underline, add hover only */
@@ -289,6 +345,21 @@
     --dark-panel:#0b1220; --dark-panel-brdr:#1f2937;
     --dark-footer-bg:#0B2738; --dark-footer-text:#9ec1d9;
     --dark-footer-link:#58a6ff; --dark-footer-brdr:#0f3a52;
+    --chip-bg:#f8fafc; --chip-border:#cbd5e1; --chip-text:#0b1320;
+    --chip-active-bg:var(--brand-accent, #0ea5e9); --chip-active-text:#ffffff;
+    --pill-bg:rgba(14,165,233,.08); --pill-border:rgba(14,165,233,.45);
+    --pill-text:#0b1320; --pill-hover-bg:var(--brand-accent, #0ea5e9); --pill-hover-text:#ffffff;
+    --venue-pill-bg:rgba(14,165,233,.11); --venue-pill-border:rgba(14,165,233,.40);
+    --tag-chip-bg:#f1f5f9; --tag-chip-border:#d7e1ea; --tag-chip-text:#0f172a;
+  }
+
+  html.theme-dark{
+    --chip-bg:#101828; --chip-border:#334155; --chip-text:#e2ecff;
+    --chip-active-bg:#22d3ee; --chip-active-text:#051923;
+    --pill-bg:rgba(34,211,238,.18); --pill-border:rgba(34,211,238,.65);
+    --pill-text:#e6edf3; --pill-hover-bg:#22d3ee; --pill-hover-text:#051923;
+    --venue-pill-bg:rgba(34,211,238,.26); --venue-pill-border:rgba(34,211,238,.85);
+    --tag-chip-bg:rgba(99,110,140,.38); --tag-chip-border:#475569; --tag-chip-text:#f9fafe;
   }
 
   .masthead{ border-bottom:4px solid var(--brand-accent); }
@@ -712,14 +783,14 @@
   .proj-card:hover{ transform:translateY(-1px); border-color:var(--rim-strong); }
 
   .proj-head{ display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; }
-  .proj-title{ font-size:1.1rem; font-weight:900; line-height:1.2; }
+  .proj-title{ font-size:1.05rem; font-weight:900; line-height:1.25; }
 
   .proj-badges{ display:flex; gap:.4rem; flex-wrap:wrap; }
   .badge{
     display:inline-flex; align-items:center; gap:.35rem;
-    padding:.2rem .6rem; border-radius:999px;
-    font-weight:800; font-size:.78rem; letter-spacing:.01em;
-    border:1px solid var(--rim-strong); background:rgba(2,132,199,.08);
+    padding:.18rem .55rem; border-radius:12px;
+    font-weight:700; font-size:.74rem; letter-spacing:.01em;
+    border:1px solid var(--rim-strong); background:rgba(2,132,199,.05);
   }
   .badge--year{ background:rgba(99,102,241,.12); }
   .badge--company{ background:rgba(34,197,94,.12); }
@@ -728,8 +799,11 @@
   .tags{ display:flex; flex-wrap:wrap; gap:.35rem; }
   .tag{
     display:inline-flex; align-items:center; padding:.16rem .5rem;
-    border-radius:999px; border:1px solid var(--rim);
-    font-weight:700; font-size:.72rem; color:var(--muted);
+    border-radius:12px;
+    border:1px solid var(--tag-chip-border, var(--rim));
+    font-weight:600; font-size:.7rem;
+    color:var(--tag-chip-text, var(--muted));
+    background:var(--tag-chip-bg, rgba(148,163,184,.14));
   }
 
   .bullets{ margin:.2rem 0 0 0; padding-left:1.1rem; }
@@ -743,31 +817,27 @@
   }
   .link-pill:hover{ background:var(--accent); color:#fff; }
 
-  .proj-card, .proj-card li { font-size:.98rem; }
+  .proj-card, .proj-card li { font-size:.92rem; line-height:1.35; }
 </style>
 <div id="proj-filters">
-  <button class="btn btn--primary" data-tag="all">All</button><button class="btn" data-tag="Document-AI">Document-AI</button><button class="btn" data-tag="Evaluation">Evaluation</button><button class="btn" data-tag="LLM">LLM</button><button class="btn" data-tag="ML">ML</button><button class="btn" data-tag="Ranking">Ranking</button><button class="btn" data-tag="Retrieval">Retrieval</button><button class="btn" data-tag="Safety">Safety</button><button class="btn" data-tag="Systems">Systems</button></div>
-<div class="proj-grid"><article class="proj-card" data-tags="LLM Safety Evaluation">
+  <button class="btn btn--primary" data-tag="all">All</button><button class="btn" data-tag="Document-AI">Document-AI</button><button class="btn" data-tag="Guardrails">Guardrails</button><button class="btn" data-tag="Multilingual">Multilingual</button><button class="btn" data-tag="Multimodal">Multimodal</button><button class="btn" data-tag="NL2SQL">NL2SQL</button><button class="btn" data-tag="RAG">RAG</button></div>
+<div class="proj-grid"><article class="proj-card" data-tags="Multimodal Multilingual RAG NL2SQL">
     <div class="proj-head">
-      <div class="proj-title">Accesseval — Benchmarking disability bias in LLMs</div>
-      <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Lead Author</span><span class="badge badge--year">2025</span></div>
-    </div><div class="tags"><span class="tag">LLM</span><span class="tag">Safety</span><span class="tag">Evaluation</span></div><ul class="bullets"><li>Built bias measurement slices and procedures; drove Best Paper – Social Impact at EMNLP 2025.</li><li>Open, extensible task templates for continuous fairness monitoring.</li></ul><div class="links"><a class="link-pill" href="https://aclanthology.org/2025.emnlp-main.1653/" target="_blank" rel="noopener">Publication</a></div></article><article class="proj-card" data-tags="LLM Retrieval Evaluation Safety">
+      <div class="proj-title">Retrieval &amp; Ranking for Agents</div>
+      <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Tech Lead</span><span class="badge badge--year">2025</span></div>
+    </div><div class="tags"><span class="tag">Multimodal</span><span class="tag">Multilingual</span><span class="tag">RAG</span><span class="tag">NL2SQL</span></div><ul class="bullets"><li>Improved quality and robustness of Agentic Platform for all Retrieval.</li><li>Innovated Context-Aware ranking from Structured (SQL/Code) and Un-structured Sources (Documents/Images/ Audio/Video).</li><li>Trained in-house multimodal and multilingual embedding and ranking models.</li></ul></article><article class="proj-card" data-tags="Multilingual Multimodal Guardrails">
     <div class="proj-head">
-      <div class="proj-title">GenAI Evaluation Platform (LLM/RAG)</div>
-      <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Principal Applied Scientist</span><span class="badge badge--year">2025</span></div>
-    </div><div class="tags"><span class="tag">LLM</span><span class="tag">Retrieval</span><span class="tag">Evaluation</span><span class="tag">Safety</span></div><ul class="bullets"><li>Shipped an evaluation harness (unit + scenario) and dashboards used across orgs.</li><li>Regression-proofed ranking/retrieval with measurable quality bars and alerts.</li><li>Reduced serving cost ~20–30% via ranking/latency trade‑offs without quality loss.</li></ul><div class="links"><a class="link-pill" href="https://substack.com/@reachsumit/p-164776541" target="_blank" rel="noopener">Notes</a></div></article><article class="proj-card" data-tags="Safety Systems">
+      <div class="proj-title">Responsible AI &amp; Safety</div>
+      <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Co-Lead</span><span class="badge badge--year">2024-2025</span></div>
+    </div><div class="tags"><span class="tag">Multilingual</span><span class="tag">Multimodal</span><span class="tag">Guardrails</span></div><ul class="bullets"><li>Led research for  Responsible AI practices for the Agentic Platform.</li><li>Developed multilingual and multimodal content moderation models.</li><li>Implemented safety guardrails and monitoring systems.</li></ul></article><article class="proj-card" data-tags="RAG NL2SQL Multimodal Multilingual">
     <div class="proj-head">
-      <div class="proj-title">Safety &amp; Guardrails for GenAI Features</div>
-      <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Owner</span><span class="badge badge--year">2024</span></div>
-    </div><div class="tags"><span class="tag">Safety</span><span class="tag">Systems</span></div><ul class="bullets"><li>Policy checks, rate‑limits and content filters for user‑facing surfaces.</li><li>Incident review templates and release gates tied to evaluation metrics.</li></ul></article><article class="proj-card" data-tags="Retrieval Ranking Systems">
+      <div class="proj-title">GenAI Agentic Platform</div>
+      <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Principal Applied Scientist</span><span class="badge badge--year">2023-2025</span></div>
+    </div><div class="tags"><span class="tag">RAG</span><span class="tag">NL2SQL</span><span class="tag">Multimodal</span><span class="tag">Multilingual</span></div><ul class="bullets"><li>Led Applied Science for Oracle's GenAI Agentic Platform supporting RAG, NL2SQL, Code Agents.</li><li>Guided Content-Moderation and Responsible-AI for the plaform.</li><li>Handled customer integration and feedback loops for continuous improvement.</li><li>Led Agentic AI usecases Tech Support, Healthcare, SQL, SalesHelp, Education.</li></ul><div class="links"><a class="link-pill" href="https://substack.com/@reachsumit/p-164776541" target="_blank" rel="noopener">Notes</a></div></article><article class="proj-card" data-tags="Document-AI Multilingual Multimodal">
     <div class="proj-head">
-      <div class="proj-title">LLM Retrieval + Ranking Optimization</div>
-      <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Tech Lead</span><span class="badge badge--year">2024</span></div>
-    </div><div class="tags"><span class="tag">Retrieval</span><span class="tag">Ranking</span><span class="tag">Systems</span></div><ul class="bullets"><li>Improved retrieval robustness with hybrid search and query reformulation.</li><li>Set up golden sets and auto‑eval for releases; reduced regressions and outages.</li><li>End‑to‑end latency tuning for enterprise workloads.</li></ul></article><article class="proj-card" data-tags="Document-AI ML">
-    <div class="proj-head">
-      <div class="proj-title">Document AI — Key‑Value Extraction for business docs</div>
-      <div class="proj-badges"><span class="badge badge--company">Abzooba</span><span class="badge badge--role">Applied Scientist</span><span class="badge badge--year">2019</span></div>
-    </div><div class="tags"><span class="tag">Document-AI</span><span class="tag">ML</span></div><ul class="bullets"><li>Production KV extraction for invoices/forms; training data bootstrapping and QA.</li><li>Evaluation harness and error taxonomy adopted across teams.</li></ul><div class="links"><a class="link-pill" href="https://patents.google.com/patent/US11823478B2/en" target="_blank" rel="noopener">US Patent</a></div></article></div>
+      <div class="proj-title">Document AI</div>
+      <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure, Jio Platforms</span><span class="badge badge--role">Senior Applied Scientist</span><span class="badge badge--year">2020-2023</span></div>
+    </div><div class="tags"><span class="tag">Document-AI</span><span class="tag">Multilingual</span><span class="tag">Multimodal</span></div><ul class="bullets"><li>Led Applied Science for Document AI services in Oracle Cloud and Jio Platforms.</li><li>Developed key capabilities: Document Understanding, Key-Value Extraction, Table Extraction, OCR</li><li>Built few-shot multilingual and multimodal models with low-latency.</li><li>Established synthetic data generation pipelines to augment training</li></ul><div class="links"><a class="link-pill" href="https://patents.google.com/patent/US11823478B2/en" target="_blank" rel="noopener">US Patent</a></div></article></div>
 
 <script>
 (function(){

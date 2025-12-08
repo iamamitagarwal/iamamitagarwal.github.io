@@ -33,8 +33,22 @@ classes: wide
     mix-blend-mode:multiply; opacity:.5;
   }
 
-  .media-img{ width:100%; background:#f4f2ee; }
-  .media-img img{ display:block; width:100%; height:auto; object-fit:contain; }
+  .media-img{
+    width:100%;
+    background:#f5f7fb;
+    padding:.6rem;
+    border-bottom:1px solid #dfe3eb;
+  }
+  .media-img img{
+    display:block;
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:12px;
+    border:1.5px solid rgba(15,23,42,.22);
+    background:#fff;
+    box-shadow:0 12px 24px rgba(15,23,42,.16);
+  }
 
   /* Tape label – smaller and moved off the image (lower-left) */
   .tape{
@@ -66,6 +80,8 @@ classes: wide
   .pill--pdf:hover{ background:#d44; color:#fff; }
 
   html.theme-dark .media-card{ background:#0b1220; border-color:#1f2937; box-shadow:none; }
+  html.theme-dark .media-img{ background:#10192a; border-bottom-color:#1e293b; }
+  html.theme-dark .media-img img{ border-color:rgba(226,232,240,.2); background:#0b1220; box-shadow:0 18px 32px rgba(0,0,0,.65); }
   html.theme-dark .tape{ background:#2a2b26; color:#f4f1e8; border-color:#3a3b33; }
   html.theme-dark .pill{ background:#0e2a31; color:#d7eef6; border-color:#2aaec4; }
   html.theme-dark .pill--pdf{ background:#2a1212; border-color:#f87171; color:#ffe2e2; }

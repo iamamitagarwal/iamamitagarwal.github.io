@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-12-04T19:07:01-08:00">
+  <meta property="article:published_time" content="2025-12-05T16:51:55-08:00">
 
 
 
@@ -164,53 +164,109 @@
   .link-pills{
     display:flex;
     flex-wrap:wrap;
-    gap:.5rem;
+    gap:.35rem;
     margin:.5rem 0 0;
   }
   .link-pill{
     display:inline-flex;
     align-items:center;
-    gap:.45rem;
-    padding:.18rem .55rem;
-    border-radius:999px;
-    font-weight:700;
-    font-size:.85rem;
-    border:1px solid var(--brand-accent, #0ea5e9);
+    gap:.35rem;
+    padding:.16rem .55rem;
+    border-radius:12px;
+    font-weight:600;
+    font-size:.78rem;
+    border:1px solid var(--tag-chip-border);
     text-decoration:none;
-    background:transparent;
-    line-height:1.2;
+    background:var(--tag-chip-bg);
+    color:var(--tag-chip-text);
+    line-height:1.15;
     white-space:nowrap;
+    transition:color .15s ease, background .15s ease, border-color .15s ease;
   }
-  .link-pill:hover{ background:var(--brand-accent, #0ea5e9); color:#fff; }
+  .link-pill:hover{
+    background:var(--chip-active-bg);
+    border-color:var(--chip-active-bg);
+    color:var(--chip-active-text);
+  }
 
   /* variants */
-  .pill--pdf   { border-color:#ef4444; } .pill--pdf:hover{ background:#ef4444; }
-  .pill--code  { border-color:#16a34a; } .pill--code:hover{ background:#16a34a; }
-  .pill--uspto { border-color:#8b5cf6; } .pill--uspto:hover{ background:#8b5cf6; }
-  .pill--copy  { cursor:pointer; }
+  .pill--pdf{
+    border-color:#fca5a5;
+    background:rgba(248,113,113,.16);
+    color:#7f1d1d;
+  }
+  html.theme-dark .pill--pdf{ color:#ffe4e6; }
+  .pill--pdf:hover{ background:#ef4444; border-color:#ef4444; color:#fff; }
 
-  /* Dark mode tweaks */
-  html.theme-dark .link-pill{
-    color:var(--dark-text, #e6edf3);
-    border-color:#22d3ee;
+  .pill--code{
+    border-color:#86efac;
+    background:rgba(34,197,94,.18);
+    color:#064e3b;
   }
-  html.theme-dark .link-pill:hover{
-    background:#22d3ee;
-    color:#0b1220;
+  html.theme-dark .pill--code{ color:#d1fae5; }
+  .pill--code:hover{ background:#16a34a; border-color:#16a34a; color:#fff; }
+
+  .pill--uspto{
+    border-color:#d8b4fe;
+    background:rgba(167,139,250,.18);
+    color:#4c1d95;
   }
+  html.theme-dark .pill--uspto{ color:#ede9fe; }
+  .pill--uspto:hover{ background:#8b5cf6; border-color:#8b5cf6; color:#fff; }
+
+  .pill--copy{ cursor:pointer; }
 
   /* Venue pill variant */
   .pill--venue{
-    background:rgba(14,165,233,0.08);
-    color:#0b1320;
-    border:1px solid rgba(14,165,233,0.45);
+    background:var(--venue-pill-bg);
+    color:var(--pill-text);
+    border:1px solid var(--venue-pill-border);
     font-weight:800;
     letter-spacing:.01em;
   }
-  html.theme-dark .pill--venue{
-    background:rgba(34,211,238,0.12);
-    color:#0b1220;
-    border:1px solid rgba(34,211,238,0.55);
+
+  /* Filter button rows (tags + years) */
+  #pub-filters,
+  #pub-year-filters,
+  #pat-filters,
+  #pat-year-filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+  }
+
+  #pub-filters .btn,
+  #pub-year-filters .btn,
+  #pat-filters .btn,
+  #pat-year-filters .btn,
+  #proj-filters .btn{
+    border-radius:12px;
+    border:1px solid var(--chip-border) !important;
+    background:var(--chip-bg) !important;
+    color:var(--chip-text) !important;
+    font-weight:700;
+    font-size:.85rem;
+    padding:.24rem .95rem;
+    transition:color .15s ease, background .15s ease, border-color .15s ease;
+  }
+
+  #pub-filters .btn:not(.btn--primary):hover,
+  #pub-year-filters .btn:not(.btn--primary):hover,
+  #pat-filters .btn:not(.btn--primary):hover,
+  #pat-year-filters .btn:not(.btn--primary):hover,
+  #proj-filters .btn:not(.btn--primary):hover{
+    border-color:var(--brand-accent) !important;
+    color:var(--brand-accent) !important;
+  }
+
+  #pub-filters .btn.btn--primary,
+  #pub-year-filters .btn.btn--primary,
+  #pat-filters .btn.btn--primary,
+  #pat-year-filters .btn.btn--primary,
+  #proj-filters .btn.btn--primary{
+    background:var(--chip-active-bg) !important;
+    border-color:var(--chip-active-bg) !important;
+    color:var(--chip-active-text) !important;
   }
 
   /* Publication titles: remove default underline, add hover only */
@@ -293,6 +349,21 @@
     --dark-panel:#0b1220; --dark-panel-brdr:#1f2937;
     --dark-footer-bg:#0B2738; --dark-footer-text:#9ec1d9;
     --dark-footer-link:#58a6ff; --dark-footer-brdr:#0f3a52;
+    --chip-bg:#f8fafc; --chip-border:#cbd5e1; --chip-text:#0b1320;
+    --chip-active-bg:var(--brand-accent, #0ea5e9); --chip-active-text:#ffffff;
+    --pill-bg:rgba(14,165,233,.08); --pill-border:rgba(14,165,233,.45);
+    --pill-text:#0b1320; --pill-hover-bg:var(--brand-accent, #0ea5e9); --pill-hover-text:#ffffff;
+    --venue-pill-bg:rgba(14,165,233,.11); --venue-pill-border:rgba(14,165,233,.40);
+    --tag-chip-bg:#f1f5f9; --tag-chip-border:#d7e1ea; --tag-chip-text:#0f172a;
+  }
+
+  html.theme-dark{
+    --chip-bg:#101828; --chip-border:#334155; --chip-text:#e2ecff;
+    --chip-active-bg:#22d3ee; --chip-active-text:#051923;
+    --pill-bg:rgba(34,211,238,.18); --pill-border:rgba(34,211,238,.65);
+    --pill-text:#e6edf3; --pill-hover-bg:#22d3ee; --pill-hover-text:#051923;
+    --venue-pill-bg:rgba(34,211,238,.26); --venue-pill-border:rgba(34,211,238,.85);
+    --tag-chip-bg:rgba(99,110,140,.38); --tag-chip-border:#475569; --tag-chip-text:#f9fafe;
   }
 
   .masthead{ border-bottom:4px solid var(--brand-accent); }
@@ -677,7 +748,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Dainik Ajay Ujala Amit  English">
     <meta itemprop="description" content="Coverage summary (optional).">
-    <meta itemprop="datePublished" content="2025-12-04T19:07:01-08:00">
+    <meta itemprop="datePublished" content="2025-12-05T16:51:55-08:00">
     
 
     <div class="page__inner-wrap">
@@ -705,7 +776,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2025-12-04T19:07:01-08:00">December 4, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2025-12-05T16:51:55-08:00">December 5, 2025</time></p>
 
 
       </footer>

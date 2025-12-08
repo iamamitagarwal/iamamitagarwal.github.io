@@ -1,55 +1,63 @@
-# _data/projects.yml
-- title: "GenAI Evaluation Platform (LLM/RAG)"
-  company: "Oracle Cloud Infrastructure"
-  role: "Principal Applied Scientist"
+- title: GenAI Agentic Platform
+  company: Oracle Cloud Infrastructure
+  role: Principal Applied Scientist
+  year: 2023-2025
+  tags:
+  - RAG
+  - NL2SQL
+  - Multimodal
+  - Multilingual
+  bullets:
+  - Led Applied Science for Oracle's GenAI Agentic Platform supporting RAG, NL2SQL,
+    Code Agents.
+  - Guided Content-Moderation and Responsible-AI for the plaform.
+  - Handled customer integration and feedback loops for continuous improvement.
+  - Led Agentic AI usecases Tech Support, Healthcare, SQL, SalesHelp, Education.
+  links:
+  - label: Notes
+    url: https://substack.com/@reachsumit/p-164776541
+- title: Retrieval & Ranking for Agents
+  company: Oracle Cloud Infrastructure
+  role: Tech Lead
   year: 2025
-  tags: ["LLM", "Retrieval", "Evaluation", "Safety"]
+  tags:
+  - Multimodal
+  - Multilingual
+  - RAG
+  - NL2SQL
   bullets:
-    - "Shipped an evaluation harness (unit + scenario) and dashboards used across orgs."
-    - "Regression-proofed ranking/retrieval with measurable quality bars and alerts."
-    - "Reduced serving cost ~20–30% via ranking/latency trade‑offs without quality loss."
-  links:
-    - { label: "Notes", url: "https://substack.com/@reachsumit/p-164776541" }
-
-- title: "Accesseval — Benchmarking disability bias in LLMs"
-  company: "Oracle Cloud Infrastructure"
-  role: "Lead Author"
-  year: 2025
-  tags: ["LLM", "Safety", "Evaluation"]
-  bullets:
-    - "Built bias measurement slices and procedures; drove Best Paper – Social Impact at EMNLP 2025."
-    - "Open, extensible task templates for continuous fairness monitoring."
-  links:
-    - { label: "Publication", url: "https://aclanthology.org/2025.emnlp-main.1653/" }
-
-- title: "LLM Retrieval + Ranking Optimization"
-  company: "Oracle Cloud Infrastructure"
-  role: "Tech Lead"
-  year: 2024
-  tags: ["Retrieval", "Ranking", "Systems"]
-  bullets:
-    - "Improved retrieval robustness with hybrid search and query reformulation."
-    - "Set up golden sets and auto‑eval for releases; reduced regressions and outages."
-    - "End‑to‑end latency tuning for enterprise workloads."
+  - Improved quality and robustness of Agentic Platform for all Retrieval.
+  - Innovated Context-Aware ranking from Structured (SQL/Code) and Un-structured Sources
+    (Documents/Images/ Audio/Video).
+  - Trained in-house multimodal and multilingual embedding and ranking models.
   links: []
-
-- title: "Document AI — Key‑Value Extraction for business docs"
-  company: "Abzooba"
-  role: "Applied Scientist"
-  year: 2019
-  tags: ["Document-AI", "ML"]
+- title: Responsible AI & Safety
+  company: Oracle Cloud Infrastructure
+  role: Co-Lead
+  year: 2024-2025
+  tags:
+  - Multilingual
+  - Multimodal
+  - Guardrails
   bullets:
-    - "Production KV extraction for invoices/forms; training data bootstrapping and QA."
-    - "Evaluation harness and error taxonomy adopted across teams."
-  links:
-    - { label: "US Patent", url: "https://patents.google.com/patent/US11823478B2/en" }
-
-- title: "Safety & Guardrails for GenAI Features"
-  company: "Oracle Cloud Infrastructure"
-  role: "Owner"
-  year: 2024
-  tags: ["Safety", "Systems"]
-  bullets:
-    - "Policy checks, rate‑limits and content filters for user‑facing surfaces."
-    - "Incident review templates and release gates tied to evaluation metrics."
+  - Led research for  Responsible AI practices for the Agentic Platform.
+  - Developed multilingual and multimodal content moderation models.
+  - Implemented safety guardrails and monitoring systems.
   links: []
+- title: Document AI
+  company: Oracle Cloud Infrastructure, Jio Platforms
+  role: Senior Applied Scientist
+  year: 2020-2023
+  tags:
+  - Document-AI
+  - Multilingual
+  - Multimodal
+  bullets:
+  - Led Applied Science for Document AI services in Oracle Cloud and Jio Platforms.
+  - 'Developed key capabilities: Document Understanding, Key-Value Extraction, Table
+    Extraction, OCR'
+  - Built few-shot multilingual and multimodal models with low-latency.
+  - Established synthetic data generation pipelines to augment training
+  links:
+  - label: US Patent
+    url: https://patents.google.com/patent/US11823478B2/en
