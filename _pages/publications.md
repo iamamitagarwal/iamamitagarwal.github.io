@@ -76,7 +76,7 @@ Handles tags stored as arrays or strings (single or comma/space separated).
   {% endfor %}
 </div>
 
-<div id="pub-year-filters" style="margin:-.2rem 0 1rem 0;">
+<div id="pub-year-filters" style="margin:.35rem 0 1rem 0;">
   {% assign years_sorted = years | sort | reverse %}
   <button class="btn btn--primary" data-year="all">All years</button>
   {% for y in years_sorted %}

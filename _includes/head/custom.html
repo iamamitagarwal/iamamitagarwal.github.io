@@ -181,6 +181,25 @@
     color:var(--chip-active-text) !important;
   }
 
+  /* Mobile: prevent filter-row collisions when buttons wrap */
+  @media (max-width: 600px){
+    #pub-filters,
+    #pub-year-filters,
+    #pat-filters,
+    #pat-year-filters,
+    #proj-filters{
+      gap:.32rem;
+    }
+    #pub-filters .btn,
+    #pub-year-filters .btn,
+    #pat-filters .btn,
+    #pat-year-filters .btn,
+    #proj-filters .btn{
+      font-size:.78rem;
+      padding:.22rem .72rem;
+    }
+  }
+
   /* Publication titles: remove default underline, add hover only */
   .pub-title{
     text-decoration:none;

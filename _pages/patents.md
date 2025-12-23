@@ -73,7 +73,7 @@ Works whether `tags` is an array or a string (comma/space separated).
   {% endfor %}
 </div>
 
-<div id="pat-year-filters" style="margin:-.2rem 0 1rem 0;">
+<div id="pat-year-filters" style="margin:.35rem 0 1rem 0;">
   {% assign sorted_years = years | sort | reverse %}
   <button class="btn btn--primary" data-year="all">All years</button>
   {% for y in sorted_years %}
