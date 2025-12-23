@@ -470,6 +470,17 @@
       align-items:center;
     }
   }
+
+  /* Mobile: keep sidebar contact dropdown readable (avoid overflow) */
+  @media (max-width: 640px){
+    .author__urls{
+      left: 0;
+      right: auto;
+      max-width: calc(100vw - 2rem);
+    }
+    .author__urls li{ white-space: normal; }
+    .author__urls a{ overflow-wrap: anywhere; }
+  }
 </style>
 <!-- ***** END added block ***** -->
 
