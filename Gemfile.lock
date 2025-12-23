@@ -19,8 +19,10 @@ GEM
     faraday-net_http (3.4.2)
       net-http (~> 0.5)
     ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-linux)
     forwardable-extended (2.6.0)
     google-protobuf (4.33.1-arm64-darwin)
+    google-protobuf (4.33.1-x86_64-linux)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
@@ -99,6 +101,8 @@ GEM
     safe_yaml (1.0.5)
     sass-embedded (1.94.2-arm64-darwin)
       google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-x86_64-linux)
+      google-protobuf (~> 4.31)
     sawyer (0.9.3)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
@@ -110,6 +114,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   jekyll (~> 4.3)
