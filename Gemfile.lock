@@ -99,6 +99,7 @@ GEM
     safe_yaml (1.0.5)
     sass-embedded (1.97.1)
       google-protobuf (~> 4.31)
+      rake (>= 13)
     sawyer (0.9.3)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
