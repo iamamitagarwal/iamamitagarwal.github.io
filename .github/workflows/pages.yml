@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUNDLE_FORCE_RUBY_PLATFORM: "true"
+      BUNDLE_FULL_INDEX: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
