@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-12-05T16:51:55-08:00">
+  <meta property="article:published_time" content="2025-12-22T20:12:05-08:00">
 
 
 
@@ -280,6 +280,56 @@
     font-style: normal;
     font-weight: 500;
     font-size: .9rem;
+  }
+
+  /* Hero video support (landing header) */
+  .page__hero--overlay.has-video{
+    position:relative;
+    overflow:hidden;
+    background:#0b1220 !important;
+    width:100%;
+    aspect-ratio:16 / 9;
+  }
+  @media (min-width: 800px){
+    .page__hero--overlay.has-video{ aspect-ratio:21 / 9; }
+  }
+  @media (min-width: 1000px){
+    .page__hero--overlay.has-video{ aspect-ratio:3 / 1; }
+  }
+  @media (min-width: 1400px){
+    .page__hero--overlay.has-video{ aspect-ratio:4 / 1; }
+  }
+  .page__hero--overlay.has-video::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,var(--hero-filter,0.4));
+    z-index:1;
+  }
+  .page__hero-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    z-index:0;
+  }
+  @media (max-width: 700px){
+    .page__hero--overlay.has-video{
+      aspect-ratio:16 / 9;
+      height:auto;
+      max-height:none;
+    }
+    .page__hero-video{
+      object-fit:contain;
+      object-position:center;
+    }
+  }
+  .page__hero--overlay.has-video .wrapper,
+  .page__hero--overlay.has-video .page__hero-caption{
+    position:relative;
+    z-index:2;
   }
 
   /* === What's next (tab + panel only) === */
@@ -748,7 +798,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="BenchHub: A Unified Benchmark Suite for Holistic and Customizable LLM Evaluationuation">
     <meta itemprop="description" content="Abstract. As large language models (LLMs) continue to advance, the need for up-to-date and well-organized benchmarks becomes increasingly critical. However, many existing datasets are scattered, difficult to manage, and make it challenging to perform evaluations tailored to specific needs or domains, despite the growing importance of domain-specific models in areas such as math or code. In this paper, we introduce BenchHub, a dynamic benchmark repository that empowers researchers and developers to evaluate LLMs more effectively. BenchHub aggregates and automatically classifies benchmark datasets from diverse domains, integrating 303K questions across 38 benchmarks. It is designed to support continuous updates and scalable data management, enabling flexible and customizable evaluation tailored to various domains or use cases. Through extensive experiments with various LLM families, we demonstrate that model performance varies significantly across domain-specific subsets, emphasizing the importance of domain-aware benchmarking. We believe BenchHub can encourage better dataset reuse, more transparent model comparisons, and easier identification of underrepresented areas in existing benchmarks, offering a critical infrastructure for advancing LLM evaluation research.">
-    <meta itemprop="datePublished" content="2025-12-05T16:51:55-08:00">
+    <meta itemprop="datePublished" content="2025-12-22T20:12:05-08:00">
     
 
     <div class="page__inner-wrap">
@@ -814,7 +864,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2025-12-05T16:51:55-08:00">December 5, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2025-12-22T20:12:05-08:00">December 22, 2025</time></p>
 
 
       </footer>

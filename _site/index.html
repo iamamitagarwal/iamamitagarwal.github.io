@@ -278,6 +278,56 @@
     font-size: .9rem;
   }
 
+  /* Hero video support (landing header) */
+  .page__hero--overlay.has-video{
+    position:relative;
+    overflow:hidden;
+    background:#0b1220 !important;
+    width:100%;
+    aspect-ratio:16 / 9;
+  }
+  @media (min-width: 800px){
+    .page__hero--overlay.has-video{ aspect-ratio:21 / 9; }
+  }
+  @media (min-width: 1000px){
+    .page__hero--overlay.has-video{ aspect-ratio:3 / 1; }
+  }
+  @media (min-width: 1400px){
+    .page__hero--overlay.has-video{ aspect-ratio:4 / 1; }
+  }
+  .page__hero--overlay.has-video::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,var(--hero-filter,0.4));
+    z-index:1;
+  }
+  .page__hero-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    z-index:0;
+  }
+  @media (max-width: 700px){
+    .page__hero--overlay.has-video{
+      aspect-ratio:16 / 9;
+      height:auto;
+      max-height:none;
+    }
+    .page__hero-video{
+      object-fit:contain;
+      object-position:center;
+    }
+  }
+  .page__hero--overlay.has-video .wrapper,
+  .page__hero--overlay.has-video .page__hero-caption{
+    position:relative;
+    z-index:2;
+  }
+
   /* === What's next (tab + panel only) === */
   .wnx-tab{
     position:fixed; right:0; top:35vh; z-index:1000;
@@ -613,39 +663,12 @@
 
     <div class="initial-content">
       
-  
-
-
-
-
-
-
-
-<div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/llm-hero.gif');"
->
-  
-    <div class="wrapper">
+  <div class="page__hero--overlay has-video"
+    style="--hero-filter: 0.4;"><video class="page__hero-video" autoplay muted loop playsinline><source src="/files/videos/hero-4x1-1280x320.mp4" type="video/mp4" media="(min-width: 1400px)"><source src="/files/videos/hero-3x1-1200x400.mp4" type="video/mp4" media="(min-width: 1000px)"><source src="/files/videos/hero-21x9-1280x544.mp4" type="video/mp4" media="(min-width: 800px)"><source src="/files/videos/hero-16x9-720.mp4" type="video/mp4" media="(min-width: 768px)"><source src="/files/videos/hero-16x9-360.mp4" type="video/mp4" media="(max-width: 479px)"><source src="/files/videos/hero-16x9-720.mp4" type="video/mp4"></video><div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
-        
-          About me
-
-        
+        About me
       </h1>
-      
-      
-
-
-      
-      
-    </div>
-  
-  
-    <span class="page__hero-caption">GenAI · LLM systems · evaluation · retrieval
-</span>
-  
-</div>
-
+    </div></div>
 
 
 

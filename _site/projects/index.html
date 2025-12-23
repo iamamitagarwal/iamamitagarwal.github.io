@@ -278,6 +278,56 @@
     font-size: .9rem;
   }
 
+  /* Hero video support (landing header) */
+  .page__hero--overlay.has-video{
+    position:relative;
+    overflow:hidden;
+    background:#0b1220 !important;
+    width:100%;
+    aspect-ratio:16 / 9;
+  }
+  @media (min-width: 800px){
+    .page__hero--overlay.has-video{ aspect-ratio:21 / 9; }
+  }
+  @media (min-width: 1000px){
+    .page__hero--overlay.has-video{ aspect-ratio:3 / 1; }
+  }
+  @media (min-width: 1400px){
+    .page__hero--overlay.has-video{ aspect-ratio:4 / 1; }
+  }
+  .page__hero--overlay.has-video::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,var(--hero-filter,0.4));
+    z-index:1;
+  }
+  .page__hero-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    z-index:0;
+  }
+  @media (max-width: 700px){
+    .page__hero--overlay.has-video{
+      aspect-ratio:16 / 9;
+      height:auto;
+      max-height:none;
+    }
+    .page__hero-video{
+      object-fit:contain;
+      object-position:center;
+    }
+  }
+  .page__hero--overlay.has-video .wrapper,
+  .page__hero--overlay.has-video .page__hero-caption{
+    position:relative;
+    z-index:2;
+  }
+
   /* === What's next (tab + panel only) === */
   .wnx-tab{
     position:fixed; right:0; top:35vh; z-index:1000;
@@ -820,20 +870,20 @@
   .proj-card, .proj-card li { font-size:.92rem; line-height:1.35; }
 </style>
 <div id="proj-filters">
-  <button class="btn btn--primary" data-tag="all">All</button><button class="btn" data-tag="Document-AI">Document-AI</button><button class="btn" data-tag="Guardrails">Guardrails</button><button class="btn" data-tag="Multilingual">Multilingual</button><button class="btn" data-tag="Multimodal">Multimodal</button><button class="btn" data-tag="NL2SQL">NL2SQL</button><button class="btn" data-tag="RAG">RAG</button></div>
-<div class="proj-grid"><article class="proj-card" data-tags="Multimodal Multilingual RAG NL2SQL">
+  <button class="btn btn--primary" data-tag="all">All</button><button class="btn" data-tag="Agents">Agents</button><button class="btn" data-tag="Document-AI">Document-AI</button><button class="btn" data-tag="Guardrails">Guardrails</button><button class="btn" data-tag="Multilingual">Multilingual</button><button class="btn" data-tag="Multimodal">Multimodal</button><button class="btn" data-tag="NL2SQL">NL2SQL</button><button class="btn" data-tag="RAG">RAG</button></div>
+<div class="proj-grid"><article class="proj-card" data-tags="Multimodal Multilingual Agents RAG NL2SQL">
     <div class="proj-head">
       <div class="proj-title">Retrieval &amp; Ranking for Agents</div>
       <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Tech Lead</span><span class="badge badge--year">2025</span></div>
-    </div><div class="tags"><span class="tag">Multimodal</span><span class="tag">Multilingual</span><span class="tag">RAG</span><span class="tag">NL2SQL</span></div><ul class="bullets"><li>Improved quality and robustness of Agentic Platform for all Retrieval.</li><li>Innovated Context-Aware ranking from Structured (SQL/Code) and Un-structured Sources (Documents/Images/ Audio/Video).</li><li>Trained in-house multimodal and multilingual embedding and ranking models.</li></ul></article><article class="proj-card" data-tags="Multilingual Multimodal Guardrails">
+    </div><div class="tags"><span class="tag">Multimodal</span><span class="tag">Multilingual</span><span class="tag">Agents</span><span class="tag">RAG</span><span class="tag">NL2SQL</span></div><ul class="bullets"><li>Improved quality and robustness of Agentic Platform for all Retrieval.</li><li>Innovated Context-Aware ranking from Structured (SQL/Code) and Un-structured Sources (Documents/Images/ Audio/Video).</li><li>Trained in-house multimodal and multilingual embedding and ranking models.</li></ul></article><article class="proj-card" data-tags="Agents Multilingual Multimodal Guardrails">
     <div class="proj-head">
       <div class="proj-title">Responsible AI &amp; Safety</div>
       <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Co-Lead</span><span class="badge badge--year">2024-2025</span></div>
-    </div><div class="tags"><span class="tag">Multilingual</span><span class="tag">Multimodal</span><span class="tag">Guardrails</span></div><ul class="bullets"><li>Led research for  Responsible AI practices for the Agentic Platform.</li><li>Developed multilingual and multimodal content moderation models.</li><li>Implemented safety guardrails and monitoring systems.</li></ul></article><article class="proj-card" data-tags="RAG NL2SQL Multimodal Multilingual">
+    </div><div class="tags"><span class="tag">Agents</span><span class="tag">Multilingual</span><span class="tag">Multimodal</span><span class="tag">Guardrails</span></div><ul class="bullets"><li>Led research for  Responsible AI practices for the Agentic Platform.</li><li>Developed multilingual and multimodal content moderation models.</li><li>Implemented safety guardrails and monitoring systems.</li></ul></article><article class="proj-card" data-tags="Agents RAG NL2SQL Multimodal Multilingual">
     <div class="proj-head">
       <div class="proj-title">GenAI Agentic Platform</div>
       <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure</span><span class="badge badge--role">Principal Applied Scientist</span><span class="badge badge--year">2023-2025</span></div>
-    </div><div class="tags"><span class="tag">RAG</span><span class="tag">NL2SQL</span><span class="tag">Multimodal</span><span class="tag">Multilingual</span></div><ul class="bullets"><li>Led Applied Science for Oracle's GenAI Agentic Platform supporting RAG, NL2SQL, Code Agents.</li><li>Guided Content-Moderation and Responsible-AI for the plaform.</li><li>Handled customer integration and feedback loops for continuous improvement.</li><li>Led Agentic AI usecases Tech Support, Healthcare, SQL, SalesHelp, Education.</li></ul><div class="links"><a class="link-pill" href="https://substack.com/@reachsumit/p-164776541" target="_blank" rel="noopener">Notes</a></div></article><article class="proj-card" data-tags="Document-AI Multilingual Multimodal">
+    </div><div class="tags"><span class="tag">Agents</span><span class="tag">RAG</span><span class="tag">NL2SQL</span><span class="tag">Multimodal</span><span class="tag">Multilingual</span></div><ul class="bullets"><li>Led Applied Science for Oracle's GenAI Agentic Platform supporting RAG, NL2SQL, Code Agents.</li><li>Guided Content-Moderation and Responsible-AI for the plaform.</li><li>Handled customer integration and feedback loops for continuous improvement.</li><li>Led Agentic AI usecases Tech Support, Healthcare, SQL, SalesHelp, Education.</li></ul><div class="links"><a class="link-pill" href="https://substack.com/@reachsumit/p-164776541" target="_blank" rel="noopener">Notes</a></div></article><article class="proj-card" data-tags="Document-AI Multilingual Multimodal">
     <div class="proj-head">
       <div class="proj-title">Document AI</div>
       <div class="proj-badges"><span class="badge badge--company">Oracle Cloud Infrastructure, Jio Platforms</span><span class="badge badge--role">Senior Applied Scientist</span><span class="badge badge--year">2020-2023</span></div>

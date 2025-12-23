@@ -6,8 +6,12 @@ author_profile: true
 classes: wide
 header:
   overlay_image: /images/llm-hero.gif
+  overlay_video: /files/videos/hero-16x9-720.mp4
+  overlay_video_small: /files/videos/hero-16x9-360.mp4
+  overlay_video_wide: /files/videos/hero-21x9-1280x544.mp4
+  overlay_video_superwide: /files/videos/hero-3x1-1200x400.mp4
+  overlay_video_ultrawide: /files/videos/hero-4x1-1280x320.mp4
   overlay_filter: 0.40
-  caption: "GenAI · LLM systems · evaluation · retrieval"
 ---
 
 > *“If your actions inspire others to dream more, learn more, do more, and become more, you are a leader.”* — John Quincy Adams

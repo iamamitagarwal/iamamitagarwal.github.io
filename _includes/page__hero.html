@@ -1,0 +1,49 @@
+{%- assign overlay_image = page.header.overlay_image | default: page.header.image -%}
+{%- assign overlay_video = page.header.overlay_video | default: nil -%}
+{%- assign overlay_video_small = page.header.overlay_video_small | default: nil -%}
+{%- assign overlay_video_wide = page.header.overlay_video_wide | default: nil -%}
+{%- assign overlay_video_ultrawide = page.header.overlay_video_ultrawide | default: nil -%}
+{%- assign overlay_video_superwide = page.header.overlay_video_superwide | default: nil -%}
+{%- if overlay_image or overlay_video -%}
+  {%- assign overlay_filter = page.header.overlay_filter | default: 0.5 -%}
+  {%- assign overlay_caption = page.header.caption | default: nil -%}
+
+  <div class="page__hero--overlay{% if overlay_video %} has-video{% endif %}"
+    style="--hero-filter: {{ overlay_filter }};{% if overlay_video == nil and overlay_image %} background-image: linear-gradient(rgba(0, 0, 0, {{ overlay_filter }}), rgba(0, 0, 0, {{ overlay_filter }})), url('{{ overlay_image | relative_url }}');{% endif %}">
+
+    {%- if overlay_video -%}
+      {%- assign poster = overlay_image | default: "" -%}
+      {%- if poster contains ".gif" -%}{% assign poster = "" %}{%- endif -%}
+      <video class="page__hero-video" autoplay muted loop playsinline{% if poster != "" %} poster="{{ poster | relative_url }}"{% endif %}>
+        {%- if overlay_video_ultrawide -%}
+          <source src="{{ overlay_video_ultrawide | relative_url }}" type="video/mp4" media="(min-width: 1400px)">
+        {%- endif -%}
+        {%- if overlay_video_superwide -%}
+          <source src="{{ overlay_video_superwide | relative_url }}" type="video/mp4" media="(min-width: 1000px)">
+        {%- endif -%}
+        {%- if overlay_video_wide -%}
+          <source src="{{ overlay_video_wide | relative_url }}" type="video/mp4" media="(min-width: 800px)">
+        {%- endif -%}
+        {%- if overlay_video -%}
+          <source src="{{ overlay_video | relative_url }}" type="video/mp4" media="(min-width: 768px)">
+        {%- endif -%}
+        {%- if overlay_video_small -%}
+          <source src="{{ overlay_video_small | relative_url }}" type="video/mp4" media="(max-width: 479px)">
+        {%- endif -%}
+        {%- if overlay_video -%}
+          <source src="{{ overlay_video | relative_url }}" type="video/mp4">
+        {%- endif -%}
+      </video>
+    {%- endif -%}
+
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        {{ page.title | default: site.title }}
+      </h1>
+    </div>
+
+    {%- if overlay_caption -%}
+      <span class="page__hero-caption">{{ overlay_caption | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+    {%- endif -%}
+  </div>
+{%- endif -%}
