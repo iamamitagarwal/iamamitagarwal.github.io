@@ -14,6 +14,7 @@
     --fab-bg:#10b981;
     --fab-fg:#ffffff;
     --fab-shadow:0 10px 30px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.08);
+    --masthead-height:64px;
   }
   html.theme-dark{
     --wnx-bg:#0b1220;
@@ -32,7 +33,7 @@
 
   /* ---------- WHAT’S NEXT (collapsed by default) ---------- */
   .wnx-tab{
-    position:fixed; right:0; top:45vh; z-index:1100;   /* moved lower */
+    position:fixed; right:0; top:50%; transform:translateY(-50%); z-index:1100;
     background:#1fb6ff; color:#fff; border:none;
     border-radius:12px 0 0 12px; padding:.6rem .7rem; font-weight:900;
     box-shadow:0 8px 16px rgba(0,0,0,.18);
@@ -40,11 +41,15 @@
   .wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); letter-spacing:.4px; }
 
   .wnx-panel{
-    position:fixed; right:-360px; top:96px; width:340px; bottom:24px; z-index:1100;
+    position:fixed; right:-360px;
+    top:calc(var(--masthead-height, 64px) + 12px);
+    bottom:max(24px, env(safe-area-inset-bottom));
+    width:340px; z-index:1100;
     background:var(--wnx-bg); color:var(--wnx-fg);
     border:1px solid var(--wnx-line); border-radius:16px 0 0 16px;
     box-shadow:var(--wnx-shadow);
     transition:right .18s ease; display:flex; flex-direction:column;
+    max-height:calc(100vh - var(--masthead-height, 64px) - 36px);
   }
   .wnx-panel.open{ right:0; }
   .wnx-head{
@@ -128,7 +133,8 @@
     .wnx-tab{ top:auto; bottom:96px; right:14px; border-radius:999px; }
     .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
     .wnx-panel{
-      right:14px; left:14px; width:auto; bottom:96px; top:auto; border-radius:16px;
+      right:14px; left:14px; width:auto; bottom:calc(96px + env(safe-area-inset-bottom));
+      top:auto; border-radius:16px; max-height:calc(100vh - 140px);
       transform:translateY(110%); transition:transform .18s ease;
     }
     .wnx-panel.open{ transform:translateY(0); right:14px; }
@@ -204,6 +210,14 @@
 
 <script>
   (function(){
+    function updateMastheadHeight(){
+      const mast = document.querySelector('.masthead');
+      const h = mast ? mast.offsetHeight : 64;
+      document.documentElement.style.setProperty('--masthead-height', h + 'px');
+    }
+    updateMastheadHeight();
+    window.addEventListener('resize', updateMastheadHeight, { passive: true });
+
     /* --- What’s next: collapsed by default, remember last state on desktop --- */
     const tab   = document.getElementById('wnxTab');
     const panel = document.getElementById('wnxPanel');
