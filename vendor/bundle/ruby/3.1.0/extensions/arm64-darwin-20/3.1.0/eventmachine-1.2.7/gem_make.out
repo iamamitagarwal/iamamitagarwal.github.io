@@ -1,0 +1,20 @@
+current directory: /Users/aamita/Oracle/amitbcp/iamamitagarwal.github.io/vendor/bundle/ruby/3.1.0/gems/eventmachine-1.2.7/ext/fastfilereader
+/Users/aamita/miniconda3/envs/jekyll/bin/ruby -I /Users/aamita/miniconda3/envs/jekyll/lib/ruby/3.1.0 -r ./siteconf20260114-4618-zvfwb9.rb extconf.rb
+creating Makefile
+
+current directory: /Users/aamita/Oracle/amitbcp/iamamitagarwal.github.io/vendor/bundle/ruby/3.1.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= clean
+
+current directory: /Users/aamita/Oracle/amitbcp/iamamitagarwal.github.io/vendor/bundle/ruby/3.1.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\=
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.bundle
+ld: warning: duplicate -rpath '/Users/aamita/miniconda3/envs/jekyll/lib' ignored
+ld: warning: -pie being ignored. It is only used when linking a main executable
+ld: warning: -multiply_defined is obsolete
+ld: warning: search path '/Users/runner/miniforge3/conda-bld/ruby_1679298974550/_build_env/lib/clang/14.0.6/lib' not found
+
+current directory: /Users/aamita/Oracle/amitbcp/iamamitagarwal.github.io/vendor/bundle/ruby/3.1.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 fastfilereaderext.bundle ./.gem.20260114-4618-3s9ldu

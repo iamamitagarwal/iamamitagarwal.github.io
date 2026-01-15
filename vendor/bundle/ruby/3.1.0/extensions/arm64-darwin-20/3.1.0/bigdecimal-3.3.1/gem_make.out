@@ -1,0 +1,37 @@
+current directory: /Users/aamita/Oracle/amitbcp/iamamitagarwal.github.io/vendor/bundle/ruby/3.1.0/gems/bigdecimal-3.3.1/ext/bigdecimal
+/Users/aamita/miniconda3/envs/jekyll/bin/ruby -I /Users/aamita/miniconda3/envs/jekyll/lib/ruby/3.1.0 -r ./siteconf20260114-4618-if3pc.rb extconf.rb
+checking for __builtin_clz()... yes
+checking for __builtin_clzl()... yes
+checking for __builtin_clzll()... yes
+checking for float.h... yes
+checking for math.h... yes
+checking for stdbool.h... yes
+checking for stdlib.h... yes
+checking for x86intrin.h... no
+checking for intrin.h... no
+checking for ruby/atomic.h... yes
+checking for ruby/internal/has/builtin.h... yes
+checking for ruby/internal/static_assert.h... yes
+checking for rb_complex_real() in ruby.h... yes
+checking for rb_complex_imag() in ruby.h... yes
+checking for rb_opts_exception_p() in ruby.h... yes
+checking for rb_category_warn() in ruby.h... yes
+checking for RB_WARN_CATEGORY_DEPRECATED in ruby.h... yes
+creating Makefile
+
+current directory: /Users/aamita/Oracle/amitbcp/iamamitagarwal.github.io/vendor/bundle/ruby/3.1.0/gems/bigdecimal-3.3.1/ext/bigdecimal
+make DESTDIR\= clean
+
+current directory: /Users/aamita/Oracle/amitbcp/iamamitagarwal.github.io/vendor/bundle/ruby/3.1.0/gems/bigdecimal-3.3.1/ext/bigdecimal
+make DESTDIR\=
+compiling bigdecimal.c
+compiling missing.c
+linking shared-object bigdecimal.bundle
+ld: warning: duplicate -rpath '/Users/aamita/miniconda3/envs/jekyll/lib' ignored
+ld: warning: -pie being ignored. It is only used when linking a main executable
+ld: warning: -multiply_defined is obsolete
+ld: warning: search path '/Users/runner/miniforge3/conda-bld/ruby_1679298974550/_build_env/lib/clang/14.0.6/lib' not found
+
+current directory: /Users/aamita/Oracle/amitbcp/iamamitagarwal.github.io/vendor/bundle/ruby/3.1.0/gems/bigdecimal-3.3.1/ext/bigdecimal
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bigdecimal.bundle ./.gem.20260114-4618-rm46vj

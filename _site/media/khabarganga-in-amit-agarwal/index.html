@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-12-22T20:12:05-08:00">
+  <meta property="article:published_time" content="2026-01-14T16:36:26-08:00">
 
 
 
@@ -232,7 +232,7 @@
   #pat-year-filters{
     display:flex;
     flex-wrap:wrap;
-    gap:.4rem;
+    gap:.35rem;
   }
 
   #pub-filters .btn,
@@ -245,8 +245,9 @@
     background:var(--chip-bg) !important;
     color:var(--chip-text) !important;
     font-weight:700;
-    font-size:.85rem;
-    padding:.24rem .95rem;
+    font-size:.82rem;
+    padding:.22rem .78rem;
+    white-space:nowrap; /* prevent label wrapping inside a chip */
     transition:color .15s ease, background .15s ease, border-color .15s ease;
   }
 
@@ -267,6 +268,25 @@
     background:var(--chip-active-bg) !important;
     border-color:var(--chip-active-bg) !important;
     color:var(--chip-active-text) !important;
+  }
+
+  /* Mobile: prevent filter-row collisions when buttons wrap */
+  @media (max-width: 600px){
+    #pub-filters,
+    #pub-year-filters,
+    #pat-filters,
+    #pat-year-filters,
+    #proj-filters{
+      gap:.32rem;
+    }
+    #pub-filters .btn,
+    #pub-year-filters .btn,
+    #pat-filters .btn,
+    #pat-year-filters .btn,
+    #proj-filters .btn{
+      font-size:.78rem;
+      padding:.22rem .72rem;
+    }
   }
 
   /* Publication titles: remove default underline, add hover only */
@@ -332,62 +352,6 @@
     z-index:2;
   }
 
-  /* === What's next (tab + panel only) === */
-  .wnx-tab{
-    position:fixed; right:0; top:35vh; z-index:1000;
-    background:var(--mm-accent, #0ea5e9);
-    color:#fff; border:none; border-radius:12px 0 0 12px;
-    padding:.55rem .75rem; font-weight:900; letter-spacing:.02em;
-    box-shadow:0 8px 16px rgba(0,0,0,.15);
-  }
-  .wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); }
-
-  .wnx-panel{
-    position:fixed; right:-360px; width:340px; bottom:24px; z-index:1000;
-    /* top is set in the include so it doesn't clip under the masthead */
-    background:var(--mm-card-bg, #fff);
-    border:1.5px solid var(--mm-border, #e5e7eb);
-    border-radius:16px 0 0 16px;
-    box-shadow:0 12px 24px rgba(0,0,0,.18);
-    transition:right .18s ease;
-    display:flex; flex-direction:column;
-  }
-  .wnx-panel.open{ right:0; }
-  .wnx-head{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:.7rem .8rem; font-weight:900; border-bottom:1px solid var(--mm-border, #e5e7eb);
-  }
-  .wnx-close{ border:none; background:transparent; font-size:1.1rem; line-height:1; color:inherit; cursor:pointer; }
-  .wnx-body{ overflow:auto; padding:.6rem .8rem; }
-  .wnx-list{ display:flex; flex-direction:column; gap:.75rem; }
-  .wnx-card{
-    background:var(--mm-card-bg, #fff);
-    border:1px solid var(--mm-border, #e5e7eb);
-    border-radius:14px; padding:12px 14px; box-shadow:0 6px 14px rgba(0,0,0,.08);
-  }
-  .wnx-title{ font-weight:900; margin:0 0 4px; display:flex; gap:.5rem; align-items:flex-start; }
-  .wnx-title::before{ content:""; width:3px; height:14px; border-radius:2px; background:#0ea5e9; margin-top:3px; }
-  .wnx-meta{ color:#64748b; font-weight:700; font-size:.95rem; }
-
-  /* Floating contact button (mail FAB). Toggle will be in masthead. */
-  .contact-fab{
-    position:fixed; right:16px; bottom:16px; z-index:999;
-    width:56px; height:56px; border-radius:999px; border:none; cursor:pointer;
-    box-shadow:0 12px 22px rgba(0,0,0,.18);
-    background:var(--mm-accent, #0ea5e9); color:#fff; font-size:22px;
-  }
-  html.theme-dark .contact-fab{ box-shadow:none; }
-
-  /* Mobile: convert panel to bottom sheet */
-  @media (max-width:1100px){
-    .wnx-tab{ top:auto; bottom:90px; right:14px; border-radius:999px; padding:.55rem .7rem; }
-    .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
-    .wnx-panel{
-      right:14px; left:14px; width:auto; bottom:90px; top:auto; border-radius:16px;
-      transform:translateY(110%); transition:transform .18s ease;
-    }
-    .wnx-panel.open{ transform:translateY(0); right:14px; }
-  }
 </style>
 
 <!-- Brand tokens, dark-mode styling, sticky header, pills, callout -->
@@ -538,6 +502,17 @@
       display:inline-flex;
       align-items:center;
     }
+  }
+
+  /* Mobile: keep sidebar contact dropdown readable (avoid overflow) */
+  @media (max-width: 640px){
+    .author__urls{
+      left: 0;
+      right: auto;
+      max-width: calc(100vw - 2rem);
+    }
+    .author__urls li{ white-space: normal; }
+    .author__urls a{ overflow-wrap: anywhere; }
   }
 </style>
 <!-- ***** END added block ***** -->
@@ -798,7 +773,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Khabarganga.In   Amit Agarwal">
     <meta itemprop="description" content="Coverage summary (optional).">
-    <meta itemprop="datePublished" content="2025-12-22T20:12:05-08:00">
+    <meta itemprop="datePublished" content="2026-01-14T16:36:26-08:00">
     
 
     <div class="page__inner-wrap">
@@ -826,7 +801,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2025-12-22T20:12:05-08:00">December 22, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2026-01-14T16:36:26-08:00">January 14, 2026</time></p>
 
 
       </footer>
@@ -887,6 +862,7 @@
     --fab-bg:#10b981;
     --fab-fg:#ffffff;
     --fab-shadow:0 10px 30px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.08);
+    --masthead-height:64px;
   }
   html.theme-dark{
     --wnx-bg:#0b1220;
@@ -905,7 +881,7 @@
 
   /* ---------- WHAT’S NEXT (collapsed by default) ---------- */
   .wnx-tab{
-    position:fixed; right:0; top:45vh; z-index:1100;   /* moved lower */
+    position:fixed; right:0; top:50%; transform:translateY(-50%); z-index:1100;
     background:#1fb6ff; color:#fff; border:none;
     border-radius:12px 0 0 12px; padding:.6rem .7rem; font-weight:900;
     box-shadow:0 8px 16px rgba(0,0,0,.18);
@@ -913,11 +889,15 @@
   .wnx-tab span{ writing-mode:vertical-rl; transform:rotate(180deg); letter-spacing:.4px; }
 
   .wnx-panel{
-    position:fixed; right:-360px; top:96px; width:340px; bottom:24px; z-index:1100;
+    position:fixed; right:-360px;
+    top:calc(var(--masthead-height, 64px) + 12px);
+    bottom:calc(24px + env(safe-area-inset-bottom));
+    width:340px; z-index:1100;
     background:var(--wnx-bg); color:var(--wnx-fg);
     border:1px solid var(--wnx-line); border-radius:16px 0 0 16px;
     box-shadow:var(--wnx-shadow);
     transition:right .18s ease; display:flex; flex-direction:column;
+    max-height:calc(100vh - var(--masthead-height, 64px) - 36px);
   }
   .wnx-panel.open{ right:0; }
   .wnx-head{
@@ -1001,7 +981,8 @@
     .wnx-tab{ top:auto; bottom:96px; right:14px; border-radius:999px; }
     .wnx-tab span{ writing-mode:horizontal-tb; transform:none; }
     .wnx-panel{
-      right:14px; left:14px; width:auto; bottom:96px; top:auto; border-radius:16px;
+      right:14px; left:14px; width:auto; bottom:calc(96px + env(safe-area-inset-bottom));
+      top:auto; border-radius:16px; max-height:calc(100vh - 140px);
       transform:translateY(110%); transition:transform .18s ease;
     }
     .wnx-panel.open{ transform:translateY(0); right:14px; }
@@ -1021,13 +1002,26 @@
         <article class="wnx-card">
           <h4 class="wnx-title">
             
-              <a href="https://2026.aclweb.org/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
-                Hosting workshop at ACL
+              <a href="https://grailworkshops.github.io" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
+                Organizing GRAIL-V Workshop in CVPR 2026
               </a>
             
           </h4>
           <div class="wnx-meta">
-            Workshop • July, 2026
+            Workshop • CVPR 2026
+          </div>
+        </article>
+      
+        <article class="wnx-card">
+          <h4 class="wnx-title">
+            
+              <a href="https://surgellm.github.io/acl2026/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
+                Organizing SURGeLLM Workshop in ACL 2026
+              </a>
+            
+          </h4>
+          <div class="wnx-meta">
+            Workshop • ACL 2026
           </div>
         </article>
       
@@ -1035,12 +1029,25 @@
           <h4 class="wnx-title">
             
               <a href="https://iclr.cc/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
-                Under Review papers at ICLR
+                2 papers under review in ICLR 26
               </a>
             
           </h4>
           <div class="wnx-meta">
-            Publication • April, 2026
+            Under Review • ICLR 2026
+          </div>
+        </article>
+      
+        <article class="wnx-card">
+          <h4 class="wnx-title">
+            
+              <a href="https://2026.aclweb.org/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
+                8 papers under review in ACL 26
+              </a>
+            
+          </h4>
+          <div class="wnx-meta">
+            Under Review • ACL 2026
           </div>
         </article>
       
@@ -1048,25 +1055,12 @@
           <h4 class="wnx-title">
             
               <a href="https://wacv.thecvf.com/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
-                Oral Presentation in WACV
+                Paper Presentation in WACV 26
               </a>
             
           </h4>
           <div class="wnx-meta">
-            Presentation • March, 2026
-          </div>
-        </article>
-      
-        <article class="wnx-card">
-          <h4 class="wnx-title">
-            
-              <a href="" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">
-                6 Patent in Draft
-              </a>
-            
-          </h4>
-          <div class="wnx-meta">
-            Patent • Open
+            Presentation • WACV 2026
           </div>
         </article>
       
@@ -1112,6 +1106,52 @@
 
 <script>
   (function(){
+    function viewportH(){
+      return window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    }
+    function updateMastheadHeight(){
+      const mast = document.querySelector('.masthead');
+      const h = mast ? mast.offsetHeight : 64;
+      document.documentElement.style.setProperty('--masthead-height', h + 'px');
+      return h;
+    }
+    function updateWnxLayout(){
+      const tab = document.getElementById('wnxTab');
+      const panel = document.getElementById('wnxPanel');
+      const vh = viewportH();
+      const mastH = updateMastheadHeight();
+
+      if (window.innerWidth <= 980){
+        if (tab){
+          tab.style.top = '';
+          tab.style.transform = '';
+        }
+        if (panel){
+          panel.style.top = '';
+          panel.style.maxHeight = '';
+        }
+        return;
+      }
+
+      if (tab){
+        const tabH = tab.getBoundingClientRect().height || 0;
+        const top = Math.max(mastH + 16, (vh - tabH) / 2);
+        tab.style.top = `${top}px`;
+        tab.style.transform = 'translateY(0)';
+      }
+      if (panel){
+        const top = mastH + 12;
+        const maxH = Math.max(240, vh - top - 36);
+        panel.style.top = `${top}px`;
+        panel.style.maxHeight = `${maxH}px`;
+      }
+    }
+    updateWnxLayout();
+    window.addEventListener('resize', updateWnxLayout, { passive: true });
+    if (window.visualViewport){
+      window.visualViewport.addEventListener('resize', updateWnxLayout, { passive: true });
+    }
+
     /* --- What’s next: collapsed by default, remember last state on desktop --- */
     const tab   = document.getElementById('wnxTab');
     const panel = document.getElementById('wnxPanel');
@@ -1180,7 +1220,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 Amit Agarwal. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 Amit Agarwal. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
