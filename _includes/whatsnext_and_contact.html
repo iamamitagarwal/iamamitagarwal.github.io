@@ -43,7 +43,7 @@
   .wnx-panel{
     position:fixed; right:-360px;
     top:calc(var(--masthead-height, 64px) + 12px);
-    bottom:max(24px, env(safe-area-inset-bottom));
+    bottom:calc(24px + env(safe-area-inset-bottom));
     width:340px; z-index:1100;
     background:var(--wnx-bg); color:var(--wnx-fg);
     border:1px solid var(--wnx-line); border-radius:16px 0 0 16px;
@@ -210,13 +210,51 @@
 
 <script>
   (function(){
+    function viewportH(){
+      return window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    }
     function updateMastheadHeight(){
       const mast = document.querySelector('.masthead');
       const h = mast ? mast.offsetHeight : 64;
       document.documentElement.style.setProperty('--masthead-height', h + 'px');
+      return h;
     }
-    updateMastheadHeight();
-    window.addEventListener('resize', updateMastheadHeight, { passive: true });
+    function updateWnxLayout(){
+      const tab = document.getElementById('wnxTab');
+      const panel = document.getElementById('wnxPanel');
+      const vh = viewportH();
+      const mastH = updateMastheadHeight();
+
+      if (window.innerWidth <= 980){
+        if (tab){
+          tab.style.top = '';
+          tab.style.transform = '';
+        }
+        if (panel){
+          panel.style.top = '';
+          panel.style.maxHeight = '';
+        }
+        return;
+      }
+
+      if (tab){
+        const tabH = tab.getBoundingClientRect().height || 0;
+        const top = Math.max(mastH + 16, (vh - tabH) / 2);
+        tab.style.top = `${top}px`;
+        tab.style.transform = 'translateY(0)';
+      }
+      if (panel){
+        const top = mastH + 12;
+        const maxH = Math.max(240, vh - top - 36);
+        panel.style.top = `${top}px`;
+        panel.style.maxHeight = `${maxH}px`;
+      }
+    }
+    updateWnxLayout();
+    window.addEventListener('resize', updateWnxLayout, { passive: true });
+    if (window.visualViewport){
+      window.visualViewport.addEventListener('resize', updateWnxLayout, { passive: true });
+    }
 
     /* --- What’s next: collapsed by default, remember last state on desktop --- */
     const tab   = document.getElementById('wnxTab');
