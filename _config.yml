@@ -20,6 +20,13 @@ search_full_content: true
 
 og_image: /images/og-card.png
 
+social:
+  name: "Amit Agarwal"
+  links:
+    - "https://www.linkedin.com/in/amitagarwal6/"
+    - "https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&hl=en"
+    - "https://github.com/iamamitagarwal"
+
 analytics:
   provider: "false"
 

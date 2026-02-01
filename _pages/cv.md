@@ -3,6 +3,8 @@ permalink: /cv/
 title: "CV"
 classes: wide
 search: true
+description: "Curriculum vitae and downloadable PDF."
+tags: ["CV", "Resume"]
 ---
 
 📄 **Download:** [/files/amit-agarwal-cv.pdf](/files/amit-agarwal-cv.pdf)

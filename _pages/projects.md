@@ -5,6 +5,8 @@ layout: single
 author_profile: true
 classes: wide
 search: true
+description: "Selected projects in GenAI, retrieval, evaluation platforms, and enterprise ML systems."
+tags: ["Projects", "GenAI", "ML Systems"]
 ---
 
 <style>

@@ -5,6 +5,8 @@ layout: single
 author_profile: true
 classes: wide
 search: true
+description: "Peer-reviewed publications and preprints across evaluation, retrieval, multimodal, multilingual, and document AI."
+tags: ["Publications", "Research", "AI"]
 ---
 
 <style>

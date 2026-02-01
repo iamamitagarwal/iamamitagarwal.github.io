@@ -4,6 +4,8 @@ title: "Media"
 layout: single
 author_profile: true
 classes: wide
+description: "Press coverage, interviews, and media features related to my research and work."
+tags: ["Media", "Press"]
 ---
 
 <style>

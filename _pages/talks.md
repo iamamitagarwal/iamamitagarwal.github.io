@@ -4,6 +4,8 @@ title: "Talks"
 layout: single
 author_profile: true
 classes: wide
+description: "Invited talks, presentations, and workshops across AI, evaluation, and document understanding."
+tags: ["Talks", "Workshops", "Presentations"]
 ---
 
 <style>

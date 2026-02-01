@@ -4,6 +4,8 @@ title: "About me"
 layout: single
 author_profile: true
 classes: wide
+description: "Principal Applied Scientist at Oracle AI (OCI, Oracle) focused on GenAI, retrieval, evaluation, and multilingual systems."
+tags: ["About", "Profile", "GenAI"]
 header:
   overlay_image: /images/llm-hero.gif
   overlay_video: /files/videos/hero-16x9-720.mp4

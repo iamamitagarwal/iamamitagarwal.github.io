@@ -4,6 +4,8 @@ title: "Awards"
 layout: single
 author_profile: true
 classes: wide
+description: "Awards and recognitions across research, product, and innovation."
+tags: ["Awards", "Recognition"]
 ---
 
 <style>
