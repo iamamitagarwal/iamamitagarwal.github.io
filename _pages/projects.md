@@ -70,7 +70,7 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
   .proj-card, .proj-card li { font-size:.92rem; line-height:1.35; }
 </style>
 
-Projects span **agentic AI systems**, **RAG**, **evaluation platforms**, **retrieval**, and **enterprise ML** for GenAI products.
+<p>Projects span <strong>agentic AI systems</strong>, <strong>RAG</strong>, <strong>evaluation platforms</strong>, <strong>retrieval</strong>, and <strong>enterprise ML</strong> for GenAI products.</p>
 
 {%- assign items = site.data.projects -%}
 {%- if items == nil or items == empty -%}
@@ -88,13 +88,13 @@ Projects span **agentic AI systems**, **RAG**, **evaluation platforms**, **retri
 {%- endfor -%}
 {%- assign all_tags = all_tags | sort_natural -%}
 
-<div id="proj-filters">
+<div id="proj-filters" markdown="0">
   <button class="btn btn--primary" data-tag="all">All</button>
   {%- for t in all_tags -%}<button class="btn" data-tag="{{ t | escape }}">{{ t }}</button>{%- endfor -%}
 </div>
 
 {%- assign sorted = site.data.projects | sort: "year" | reverse -%}
-<div class="proj-grid">
+<div class="proj-grid" markdown="0">
 {%- for p in sorted -%}
   <article class="proj-card" data-tags="{{ p.tags | join: ' ' }}">
     <div class="proj-head">
