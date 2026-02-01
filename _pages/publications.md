@@ -38,8 +38,6 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
 html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4b5563; }
 </style>
 
-Research themes include **alignment**, **reasoning**, **multilingual** and **multimodal** understanding, **RAG**, **retrieval**, **evaluation**, **safety**, and **document AI**.
-
 {%- comment -%}
 Collect unique tags from all publications.
 Handles tags stored as arrays or strings (single or comma/space separated).
