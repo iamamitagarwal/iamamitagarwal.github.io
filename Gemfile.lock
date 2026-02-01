@@ -116,6 +116,7 @@ DEPENDENCIES
   jekyll (~> 4.3)
   jekyll-include-cache
   jekyll-remote-theme
+  jekyll-sitemap
   minimal-mistakes-jekyll (= 4.24.0)
   webrick
 
