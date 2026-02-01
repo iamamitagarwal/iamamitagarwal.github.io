@@ -31,6 +31,29 @@
 {%- if page.tags -%}
   {%- assign kw_list = kw_list | concat: page.tags -%}
 {%- endif -%}
+{%- if page.collection == "publications" -%}
+  {%- if page.venue -%}
+    {%- assign kw_list = kw_list | push: page.venue -%}
+  {%- endif -%}
+  {%- if page.venue_token -%}
+    {%- assign kw_list = kw_list | push: page.venue_token | push: page.venue_token | upcase -%}
+  {%- endif -%}
+  {%- assign vtxt = page.venue | default: "" | downcase -%}
+  {%- assign href = page.paper_url | default: "" | downcase -%}
+  {%- if vtxt contains "iclr" or href contains "iclr" -%}{% assign kw_list = kw_list | push: "ICLR" %}{%- endif -%}
+  {%- if vtxt contains "icml" or href contains "icml" -%}{% assign kw_list = kw_list | push: "ICML" %}{%- endif -%}
+  {%- if vtxt contains "cvpr" or href contains "cvpr" -%}{% assign kw_list = kw_list | push: "CVPR" %}{%- endif -%}
+  {%- if vtxt contains "iccv" or href contains "iccv" -%}{% assign kw_list = kw_list | push: "ICCV" %}{%- endif -%}
+  {%- if vtxt contains "eccv" or href contains "eccv" -%}{% assign kw_list = kw_list | push: "ECCV" %}{%- endif -%}
+  {%- if vtxt contains "acl" or href contains "acl" -%}{% assign kw_list = kw_list | push: "ACL" %}{%- endif -%}
+  {%- if vtxt contains "emnlp" or href contains "emnlp" -%}{% assign kw_list = kw_list | push: "EMNLP" %}{%- endif -%}
+  {%- if vtxt contains "naacl" or href contains "naacl" -%}{% assign kw_list = kw_list | push: "NAACL" %}{%- endif -%}
+  {%- if vtxt contains "neurips" or href contains "neurips" -%}{% assign kw_list = kw_list | push: "NeurIPS" %}{%- endif -%}
+  {%- if vtxt contains "wacv" or href contains "wacv" -%}{% assign kw_list = kw_list | push: "WACV" %}{%- endif -%}
+  {%- if vtxt contains "cikm" or href contains "cikm" -%}{% assign kw_list = kw_list | push: "CIKM" %}{%- endif -%}
+  {%- if vtxt contains "dasfaa" or href contains "dasfaa" -%}{% assign kw_list = kw_list | push: "DASFAA" %}{%- endif -%}
+  {%- if vtxt contains "arxiv" or href contains "arxiv" -%}{% assign kw_list = kw_list | push: "arXiv" %}{%- endif -%}
+{%- endif -%}
 {%- assign kw_list = kw_list | uniq -%}
 {%- if kw_list.size > 0 -%}
   <meta name="keywords" content="{{ kw_list | join: ', ' | escape }}">
