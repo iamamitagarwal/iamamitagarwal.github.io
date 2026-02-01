@@ -6,7 +6,7 @@ author_profile: true
 classes: wide
 description: "Invited talks, presentations, and workshops across AI, evaluation, and document understanding."
 tags: ["Talks", "Workshops", "Presentations", "AI"]
-keywords: ["Talks", "Workshops", "Presentations", "AI", "LLM", "Evaluation"]
+keywords: ["Talks", "Workshops", "Presentations", "AI", "LLM", "Evaluation", "RAG", "Agentic AI", "Multimodal", "Multilingual"]
 ---
 
 <style>
@@ -67,6 +67,8 @@ keywords: ["Talks", "Workshops", "Presentations", "AI", "LLM", "Evaluation"]
   .badge-paper{border:1px solid #2563eb}
   .badge-paper:hover{background:#2563eb;color:#fff}
 </style>
+
+Talks cover **evaluation**, **retrieval**, **RAG**, **multimodal/multilingual** systems, and **responsible AI**.
 
 {% assign talks_all = site.talks | sort: "year" | reverse %}
 {% assign by_venue = talks_all | group_by: "venue" %}

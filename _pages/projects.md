@@ -7,7 +7,7 @@ classes: wide
 search: true
 description: "Selected projects in GenAI, retrieval, evaluation platforms, and enterprise ML systems."
 tags: ["Projects", "GenAI", "ML Systems", "RAG", "Evaluation", "Retrieval"]
-keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "MLOps", "Enterprise AI"]
+keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agentic AI", "AI agents", "AI safety", "MLOps", "Enterprise AI"]
 ---
 
 <style>
@@ -69,6 +69,8 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "MLOps"
 
   .proj-card, .proj-card li { font-size:.92rem; line-height:1.35; }
 </style>
+
+Projects span **agentic AI systems**, **RAG**, **evaluation platforms**, **retrieval**, and **enterprise ML** for GenAI products.
 
 {%- assign items = site.data.projects -%}
 {%- if items == nil or items == empty -%}

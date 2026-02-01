@@ -24,6 +24,10 @@ keywords:
   - "OCI"
   - "LLM"
   - "GenAI"
+  - "Agentic AI"
+  - "AI agents"
+  - "AI automation"
+  - "Prompt engineering"
   - "RAG"
   - "Retrieval"
   - "Evaluation"
@@ -32,6 +36,10 @@ keywords:
   - "Multimodal"
   - "Alignment"
   - "Reasoning"
+  - "AI safety"
+  - "Responsible AI"
+  - "On-device AI"
+  - "Small models"
 url: https://iamamitagarwal.github.io
 baseurl: ""
 

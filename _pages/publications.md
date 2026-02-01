@@ -7,7 +7,7 @@ classes: wide
 search: true
 description: "Peer-reviewed publications and preprints across evaluation, retrieval, multimodal, multilingual, and document AI."
 tags: ["Publications", "Research", "AI", "Alignment", "Reasoning", "Multilingual", "Multimodal", "RAG", "Retrieval", "Evaluation", "Document AI"]
-keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "Multimodal", "RAG", "Retrieval", "Evaluation", "Document AI", "LLM", "NLP", "CVPR", "ICLR", "ACL", "EMNLP", "WACV", "CIKM", "DASFAA"]
+keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "Multimodal", "RAG", "Retrieval", "Evaluation", "Document AI", "LLM", "NLP", "Agentic AI", "AI safety", "CVPR", "ICLR", "ACL", "EMNLP", "WACV", "CIKM", "DASFAA"]
 ---
 
 <style>
@@ -37,6 +37,8 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
 .badge-arxiv{ background:#e5e7eb; color:#111827; border-color:#cbd5e1; }
 html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4b5563; }
 </style>
+
+Research themes include **alignment**, **reasoning**, **multilingual** and **multimodal** understanding, **RAG**, **retrieval**, **evaluation**, **safety**, and **document AI**.
 
 {%- comment -%}
 Collect unique tags from all publications.
