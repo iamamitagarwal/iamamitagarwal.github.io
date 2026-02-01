@@ -7,6 +7,10 @@ venue: ACL
 tags:
 - Multimodal
 - Responsible-AI
+keywords:
+  - "Multimodal"
+  - "Responsible-AI"
+  - "ACL"
 paper_url: https://aclanthology.org/2025.acl-long.916/
 search: true
 ---

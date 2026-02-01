@@ -8,6 +8,11 @@ tags:
 - Multimodal
 - Responsible-AI
 - Evaluation
+keywords:
+  - "Multimodal"
+  - "Responsible-AI"
+  - "Evaluation"
+  - "ACL"
 paper_url: https://aclanthology.org/2025.findings-acl.963/
 search: true
 ---

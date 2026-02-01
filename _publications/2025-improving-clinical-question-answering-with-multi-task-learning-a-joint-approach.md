@@ -7,6 +7,11 @@ venue: IEEE
 tags:
 - RAG
 - Information-Retrieval
+keywords:
+  - "RAG"
+  - "Information-Retrieval"
+  - "IEEE"
+  - "arXiv"
 paper_url: https://ui.adsabs.harvard.edu/abs/2025arXiv250213108P/abstract
 search: true
 ---

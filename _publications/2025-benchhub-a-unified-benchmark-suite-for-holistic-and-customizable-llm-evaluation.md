@@ -6,6 +6,9 @@ year: 2025
 venue: arXiv
 tags:
 - Evaluation
+keywords:
+  - "Evaluation"
+  - "arXiv"
 
 paper_url: https://arxiv.org/abs/2506.00482
 search: true

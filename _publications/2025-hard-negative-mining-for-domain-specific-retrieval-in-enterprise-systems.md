@@ -7,6 +7,10 @@ venue: ACL
 tags:
 - RAG
 - Information-Retrieval
+keywords:
+  - "RAG"
+  - "Information-Retrieval"
+  - "ACL"
 paper_url: https://aclanthology.org/2025.acl-industry.72/
 search: true
 ---

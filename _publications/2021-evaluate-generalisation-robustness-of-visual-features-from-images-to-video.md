@@ -7,6 +7,9 @@ venue: LJMU
 venue_token: ljmu
 tags:
 - Multimodal
+keywords:
+  - "Multimodal"
+  - "LJMU"
 paper_url: https://www.researchgate.net/profile/Amit-Agarwal-62/publication/363539287_Evaluationuate_Generalisation_Robustness_of_Visual_Features_from_Images_to_Video/links/6321e7f8071ea12e3632736c/Evaluationuate-Generalisation-Robustness-of-Visual-Features-from-Images-to-Video.pdf
 search: true
 ---

@@ -5,6 +5,9 @@ authors: "Taki Hasan Rafi, Amit Agarwal, Hitesh Laxmichand Patel, Dong-Kyu Chae"
 year: 2026
 venue: WACV
 tags: ["Multimodal"]
+keywords:
+  - "Multimodal"
+  - "WACV"
 paper_url: ""
 search: true
 ---

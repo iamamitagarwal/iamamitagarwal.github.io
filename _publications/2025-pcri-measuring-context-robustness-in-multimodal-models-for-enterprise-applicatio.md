@@ -7,6 +7,11 @@ venue: EMNLP
 tags:
 - Multimodal
 - Evaluation
+keywords:
+  - "Multimodal"
+  - "Evaluation"
+  - "EMNLP"
+  - "ACL"
 paper_url: https://aclanthology.org/2025.emnlp-industry.14/
 search: true
 ---

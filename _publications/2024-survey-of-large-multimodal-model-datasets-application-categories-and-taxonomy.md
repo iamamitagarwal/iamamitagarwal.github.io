@@ -6,6 +6,9 @@ year: 2024
 venue: arXiv
 tags:
 - Multimodal
+keywords:
+  - "Multimodal"
+  - "arXiv"
 paper_url: https://arxiv.org/abs/2412.17759
 search: true
 ---

@@ -5,6 +5,9 @@ authors: "Hitesh Laxmichand Patel, Amit Agarwal, Taki Hasan Rafi, Dong-Kyu Chae"
 year: 2025
 venue: DASFAA
 tags: ["Multimodal"]
+keywords:
+  - "Multimodal"
+  - "DASFAA"
 paper_url: ""
 search: true
 ---

@@ -8,6 +8,12 @@ tags:
 - Responsible-AI
 - Evaluation
 - Multilingual
+keywords:
+  - "Responsible-AI"
+  - "Evaluation"
+  - "Multilingual"
+  - "NAACL"
+  - "ACL"
 paper_url: https://aclanthology.org/2025.naacl-industry.46/
 search: true
 ---

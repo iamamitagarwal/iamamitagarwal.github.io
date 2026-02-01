@@ -7,6 +7,11 @@ venue: EMNLP
 tags:
 - Multilingual
 - RAG
+keywords:
+  - "Multilingual"
+  - "RAG"
+  - "EMNLP"
+  - "ACL"
 paper_url: https://aclanthology.org/2025.emnlp-industry.9/
 search: true
 ---

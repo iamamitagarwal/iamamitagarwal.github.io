@@ -5,6 +5,9 @@ authors: "Taki Hasan Rafi, Amit Agarwal, Hitesh Laxmichand Patel, Dong-Kyu Chae"
 year: 2025
 venue: CIKM
 tags: ["Multimodal"]
+keywords:
+  - "Multimodal"
+  - "CIKM"
 paper_url: ""
 search: true
 ---

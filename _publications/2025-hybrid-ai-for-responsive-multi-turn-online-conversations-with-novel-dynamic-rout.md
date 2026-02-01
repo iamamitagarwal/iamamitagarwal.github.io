@@ -7,6 +7,11 @@ venue: NAACL
 tags:
 - RAG
 - Information-Retrieval
+keywords:
+  - "RAG"
+  - "Information-Retrieval"
+  - "NAACL"
+  - "ACL"
 paper_url: https://aclanthology.org/2025.knowledgenlp-1.20/
 search: true
 ---

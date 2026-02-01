@@ -7,6 +7,11 @@ venue: EMNLP
 tags:
 - Document-AI
 - Multilingual
+keywords:
+  - "Document-AI"
+  - "Multilingual"
+  - "EMNLP"
+  - "ACL"
 
 paper_url: https://aclanthology.org/2025.emnlp-industry.105/
 search: true

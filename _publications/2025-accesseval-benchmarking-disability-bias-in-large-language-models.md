@@ -7,6 +7,11 @@ venue: EMNLP
 tags:
 - Responsible-AI
 - Evaluation
+keywords:
+  - "Responsible-AI"
+  - "Evaluation"
+  - "EMNLP"
+  - "ACL"
 paper_url: https://aclanthology.org/2025.emnlp-main.1653/
 search: true
 ---

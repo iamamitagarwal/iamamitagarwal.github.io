@@ -7,6 +7,11 @@ venue: ICLR 2026
 priority: 1
 tags:
 - Multilingual
+keywords:
+  - "Multilingual"
+  - "ICLR 2026"
+  - "ICLR"
+  - "arXiv"
 paper_url: https://arxiv.org/abs/2510.04230
 search: true
 ---

@@ -8,6 +8,11 @@ tags:
 - Multimodal
 - Evaluation
 - Multilingual
+keywords:
+  - "Multimodal"
+  - "Evaluation"
+  - "Multilingual"
+  - "ACM"
 paper_url: https://doi.org/10.1145/3664647.3685520
 search: true
 ---

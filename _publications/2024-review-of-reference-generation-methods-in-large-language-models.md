@@ -6,6 +6,9 @@ year: 2024
 venue: IJAIML
 tags:
 - RAG
+keywords:
+  - "RAG"
+  - "IJAIML"
 paper_url: https://openreview.net/pdf?id=eB87ISzlL1
 search: true
 ---

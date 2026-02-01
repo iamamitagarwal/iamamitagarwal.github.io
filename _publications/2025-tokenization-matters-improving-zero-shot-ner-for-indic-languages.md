@@ -6,6 +6,9 @@ year: 2025
 venue: IEEE
 tags:
 - Multilingual
+keywords:
+  - "Multilingual"
+  - "IEEE"
 paper_url: https://ieeexplore.ieee.org/abstract/document/11103625
 search: true
 ---

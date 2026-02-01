@@ -8,6 +8,11 @@ tags:
 - Document-AI
 - RAG
 - Information-Retrieval
+keywords:
+  - "Document-AI"
+  - "RAG"
+  - "Information-Retrieval"
+  - "ACM"
 paper_url: https://dl.acm.org/doi/abs/10.1145/3715070.3749262
 search: true
 ---

@@ -7,6 +7,10 @@ venue: arXiv
 tags:
 - Responsible-AI
 - Evaluation
+keywords:
+  - "Responsible-AI"
+  - "Evaluation"
+  - "arXiv"
 paper_url: https://arxiv.org/abs/2508.15830
 search: true
 ---

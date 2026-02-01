@@ -7,6 +7,10 @@ venue: arXiv
 tags:
 - Document-AI
 - Multimodal
+keywords:
+  - "Document-AI"
+  - "Multimodal"
+  - "arXiv"
 
 paper_url: https://arxiv.org/abs/2411.14962
 search: true

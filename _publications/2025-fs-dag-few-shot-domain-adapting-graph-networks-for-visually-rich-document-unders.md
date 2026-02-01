@@ -8,6 +8,11 @@ venue_token: COLING
 tags:
 - Document-AI
 - Multimodal
+keywords:
+  - "Document-AI"
+  - "Multimodal"
+  - "COLING"
+  - "ACL"
 paper_url: https://aclanthology.org/2025.coling-industry.9/
 search: true
 ---

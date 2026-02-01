@@ -6,6 +6,9 @@ year: 2025
 venue: arXiv
 tags:
 - RAG
+keywords:
+  - "RAG"
+  - "arXiv"
 paper_url: https://arxiv.org/abs/2502.13108
 search: true
 ---
