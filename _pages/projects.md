@@ -6,7 +6,8 @@ author_profile: true
 classes: wide
 search: true
 description: "Selected projects in GenAI, retrieval, evaluation platforms, and enterprise ML systems."
-tags: ["Projects", "GenAI", "ML Systems"]
+tags: ["Projects", "GenAI", "ML Systems", "RAG", "Evaluation", "Retrieval"]
+keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "MLOps", "Enterprise AI"]
 ---
 
 <style>

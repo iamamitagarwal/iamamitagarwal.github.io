@@ -6,7 +6,8 @@ author_profile: true
 classes: wide
 search: true
 description: "Patent portfolio covering document AI, information extraction, retrieval, and LLM systems."
-tags: ["Patents", "IP", "AI"]
+tags: ["Patents", "IP", "AI", "Document AI", "Information Extraction", "LLM"]
+keywords: ["Patents", "IP", "Document AI", "Information Extraction", "LLM", "Retrieval", "Enterprise AI"]
 ---
 
 <style>

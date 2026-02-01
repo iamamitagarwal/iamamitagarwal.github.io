@@ -5,7 +5,8 @@ layout: single
 author_profile: true
 classes: wide
 description: "Press coverage, interviews, and media features related to my research and work."
-tags: ["Media", "Press"]
+tags: ["Media", "Press", "AI"]
+keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
 ---
 
 <style>

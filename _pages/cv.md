@@ -4,7 +4,8 @@ title: "CV"
 classes: wide
 search: true
 description: "Curriculum vitae and downloadable PDF."
-tags: ["CV", "Resume"]
+tags: ["CV", "Resume", "Amit Agarwal"]
+keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
 ---
 
 📄 **Download:** [/files/amit-agarwal-cv.pdf](/files/amit-agarwal-cv.pdf)

@@ -21,6 +21,21 @@
   })();
 </script>
 
+{%- assign kw_list = "" | split: "" -%}
+{%- if site.keywords -%}
+  {%- assign kw_list = kw_list | concat: site.keywords -%}
+{%- endif -%}
+{%- if page.keywords -%}
+  {%- assign kw_list = kw_list | concat: page.keywords -%}
+{%- endif -%}
+{%- if page.tags -%}
+  {%- assign kw_list = kw_list | concat: page.tags -%}
+{%- endif -%}
+{%- assign kw_list = kw_list | uniq -%}
+{%- if kw_list.size > 0 -%}
+  <meta name="keywords" content="{{ kw_list | join: ', ' | escape }}">
+{%- endif -%}
+
 <style>
   .author-me{ font-weight:800; color:#0e7490; }
   html.theme-dark .author-me{ color:#7dc9ff; }

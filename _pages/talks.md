@@ -5,7 +5,8 @@ layout: single
 author_profile: true
 classes: wide
 description: "Invited talks, presentations, and workshops across AI, evaluation, and document understanding."
-tags: ["Talks", "Workshops", "Presentations"]
+tags: ["Talks", "Workshops", "Presentations", "AI"]
+keywords: ["Talks", "Workshops", "Presentations", "AI", "LLM", "Evaluation"]
 ---
 
 <style>
