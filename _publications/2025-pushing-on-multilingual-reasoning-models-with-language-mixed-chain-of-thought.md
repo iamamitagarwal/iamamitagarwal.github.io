@@ -1,9 +1,10 @@
 ---
 layout: paper
 title: "Pushing on Multilingual Reasoning Models With Language-Mixed Chain-of-Thought"
-authors: 'Guijin Son, Donghun Yang, Hitesh Laxmichand Patel, Amit Agarwal, Hyunwoo Ko, Chanuk Lim, Srikant Panda, Minhyuk Kim, Nikunj Drolia, Dasol Choi'
-year: 2025
-venue: arXiv
+authors: 'Guijin Son, Donghun Yang, Hitesh Laxmichand Patel, Amit Agarwal, Hyunwoo Ko, Chanuk Lim, Srikant Panda, Minhyuk Kim, Nikunj Drolia, Dasol Choi, Kyong-Ha Lee, Youngjae Yu'
+year: 2026
+venue: ICLR 2026
+priority: 1
 tags:
 - Multilingual
 paper_url: https://arxiv.org/abs/2510.04230

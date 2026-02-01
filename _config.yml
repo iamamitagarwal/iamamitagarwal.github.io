@@ -2,13 +2,13 @@
 title: "Amit Agarwal's site"   # REQUIRED by the theme/SEO
 logo: /images/logo.png                                    # keep text brand in header
 masthead_title: ""
-brand_sub: "Principal Applied Scientist, OCI · ML/LLMs & cloud-scale systems"
+brand_sub: "Principal Applied Scientist, Oracle AI (OCI, Oracle) · ML/LLMs & cloud-scale systems"
 title_separator: " | "                      # change to " | " or "" if you insist
 locale: en
 timezone: America/Los_Angeles
 
 name: "Amit Agarwal"
-description: Principal Applied Scientist at Oracle Cloud Infrastructure
+description: Principal Applied Scientist at Oracle AI (OCI, Oracle)
 url: https://iamamitagarwal.github.io
 baseurl: ""
 
@@ -35,7 +35,7 @@ plugins:
 author:
   name: "Amit Agarwal"
   avatar: "/images/profile.jpeg"
-  bio: "Principal Applied Scientist at Oracle Cloud Infrastructure (OCI). Applied ML/LLMs and cloud-scale systems."
+  bio: "Principal Applied Scientist at Oracle AI (OCI, Oracle)."
   location: "Seattle, WA"
   links:
     - label: "Oracle Cloud Infrastructure"

@@ -1,4 +1,10 @@
 # _data/whats_next.yml
+- title: "1 paper accepted at ICLR 2026"
+  desc: ""
+  when: "ICLR 2026"
+  tag: "Accepted"
+  link: "https://iclr.cc/"
+
 - title: "Organizing GRAIL-V Workshop in CVPR 2026"
   desc: ""
   when: "CVPR 2026"
@@ -10,12 +16,6 @@
   when: "ACL 2026"
   tag: "Workshop"
   link: "https://surgellm.github.io/acl2026/"
-
-- title: "2 papers under review in ICLR 26"
-  desc: ""
-  when: "ICLR 2026"
-  tag: "Under Review"
-  link: "https://iclr.cc/"
 
 - title: "8 papers under review in ACL 26"
   desc: ""
