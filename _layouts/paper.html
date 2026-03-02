@@ -3,9 +3,11 @@ layout: single
 ---
 
 <style>
+  /* Hide the theme's default page title — paper layout renders its own inside pub-hero */
+  #page-title.page__title{display:none}
   .pub-hero{margin-bottom:1rem;padding:1rem;border:1px solid rgba(0,0,0,.08);border-radius:14px}
   .pub-meta{margin:.25rem 0 .75rem;color:#475569}
-  .pub-actions{display:flex;flex-wrap:wrap;gap:.5rem}
+  .pub-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
   .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .7rem;border-radius:999px;
         border:1px solid #0ea5e9;font-weight:700;text-decoration:none}
   .pill:hover{background:#0ea5e9;color:#fff}
@@ -14,7 +16,43 @@ layout: single
   .pill--grey{border-color:#94a3b8}.pill--grey:hover{background:#94a3b8}
   html.theme-dark .pub-hero{border-color:#1f2937;background:#0b1220}
   html.theme-dark .pub-meta{color:#cbd5e1}
+  .pub-breadcrumb{font-size:.85rem;margin-bottom:.75rem;color:#64748b}
+  .pub-breadcrumb a{color:var(--brand-accent,#0ea5e9);text-decoration:none}
+  .pub-breadcrumb a:hover{text-decoration:underline}
+  html.theme-dark .pub-breadcrumb{color:#94a3b8}
+  .pub-divider{width:1px;height:1.2rem;background:#cbd5e1;margin:0 .15rem}
+  html.theme-dark .pub-divider{background:#475569}
+  .related-papers{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(0,0,0,.08)}
+  html.theme-dark .related-papers{border-top-color:#1f2937}
+  .related-papers h3{margin-bottom:.75rem}
+  .related-papers ul{list-style:none;padding:0;margin:0}
+  .related-papers li{padding:.4rem 0;border-bottom:1px solid rgba(0,0,0,.04)}
+  html.theme-dark .related-papers li{border-bottom-color:#1f2937}
+  .related-papers .rp-venue{color:#64748b;font-size:.85rem}
+  html.theme-dark .related-papers .rp-venue{color:#94a3b8}
+  .cross-links{margin-top:1.5rem}
+  .cross-links h3{margin-bottom:.5rem}
 </style>
+
+{%- comment -%} Breadcrumb navigation with schema.org markup {%- endcomment -%}
+<nav aria-label="Breadcrumb" class="pub-breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.25rem">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{ '/' | relative_url }}"><span itemprop="name">Home</span></a>
+      <meta itemprop="position" content="1">
+      <span aria-hidden="true">&rsaquo;</span>
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{ '/publications/' | relative_url }}"><span itemprop="name">Publications</span></a>
+      <meta itemprop="position" content="2">
+      <span aria-hidden="true">&rsaquo;</span>
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+      <span itemprop="name">{{ page.title | truncate: 60 }}</span>
+      <meta itemprop="position" content="3">
+    </li>
+  </ol>
+</nav>
 
 <div class="pub-hero">
   <h1 class="page__title">{{ page.title }}</h1>
@@ -47,9 +85,101 @@ layout: single
         <pre style="margin:.5rem 0 0 .5rem;white-space:pre-wrap">{{ page.bibtex }}</pre>
       </details>
     {% endif %}
+    {%- comment -%} Social share buttons (same row) {%- endcomment -%}
+    {%- assign share_url = page.url | absolute_url | url_encode -%}
+    {%- assign share_title = page.title | url_encode -%}
+    <span class="pub-divider" aria-hidden="true"></span>
+    <a class="pill pill--grey" href="https://twitter.com/intent/tweet?url={{ share_url }}&text={{ share_title }}" target="_blank" rel="noopener" aria-label="Share on X/Twitter">X/Twitter</a>
+    <a class="pill pill--grey" href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}" target="_blank" rel="noopener" aria-label="Share on LinkedIn">LinkedIn</a>
+    <a class="pill pill--grey" href="mailto:?subject={{ share_title }}&body={{ share_url }}" aria-label="Share via Email">Email</a>
   </div>
 </div>
 
 <article class="page__content">
   {{ content }}
 </article>
+
+{%- comment -%} Cross-linking: related patents and projects (populated via front matter) {%- endcomment -%}
+{% if page.related_patents or page.related_projects %}
+<div class="cross-links">
+  {% if page.related_patents %}
+    <h3>Related Patents</h3>
+    <ul style="list-style:none;padding:0">
+    {% for slug in page.related_patents %}
+      {% assign pat = site.patents | where: "slug", slug | first %}
+      {% if pat %}
+        <li><a href="{{ pat.url | relative_url }}">{{ pat.title }}</a> ({{ pat.year }})</li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  {% endif %}
+  {% if page.related_projects %}
+    <h3>Related Projects</h3>
+    <ul style="list-style:none;padding:0">
+    {% for proj_title in page.related_projects %}
+      {% assign proj = site.data.projects | where: "title", proj_title | first %}
+      {% if proj and proj.link %}
+        <li><a href="{{ proj.link }}" target="_blank" rel="noopener">{{ proj.title }}</a></li>
+      {% elsif proj %}
+        <li>{{ proj.title }}</li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+{% endif %}
+
+{%- comment -%} Related papers (tag-based matching, up to 5) {%- endcomment -%}
+{% if page.tags and page.tags.size > 0 %}
+  {%- assign related = "" | split: "" -%}
+  {%- for pub in site.publications -%}
+    {%- if pub.url == page.url -%}{%- continue -%}{%- endif -%}
+    {%- if pub.tags -%}
+      {%- assign match = false -%}
+      {%- for t in page.tags -%}
+        {%- if pub.tags contains t -%}{%- assign match = true -%}{%- break -%}{%- endif -%}
+      {%- endfor -%}
+      {%- if match -%}
+        {%- assign related = related | push: pub -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {% if related.size > 0 %}
+  <div class="related-papers">
+    <h3>Related Papers</h3>
+    <ul>
+    {%- for rp in related limit:5 -%}
+      <li>
+        <a href="{{ rp.url | relative_url }}">{{ rp.title }}</a>
+        <span class="rp-venue">{{ rp.venue }}{% if rp.year %} ({{ rp.year }}){% endif %}</span>
+      </li>
+    {%- endfor -%}
+    </ul>
+  </div>
+  {% endif %}
+{% endif %}
+
+{%- comment -%} JSON-LD ScholarlyArticle structured data {%- endcomment -%}
+{%- assign desc_raw = page.description | default: content | strip_html | strip_newlines | strip -%}
+{%- if desc_raw.size > 200 -%}
+  {%- assign desc_trunc = desc_raw | truncate: 200 -%}
+{%- else -%}
+  {%- assign desc_trunc = desc_raw -%}
+{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": {{ page.title | jsonify }},
+  "datePublished": "{{ page.year | default: page.date | date: '%Y' }}",
+  {% if page.venue %}"publisher": {"@type": "Organization", "name": {{ page.venue | jsonify }}},{% endif %}
+  "url": "{{ page.url | absolute_url }}",
+  "description": {{ desc_trunc | jsonify }},
+  "author": [
+    {%- assign author_list = page.authors | split: "; " -%}
+    {%- for a in author_list -%}
+    {"@type": "Person", "name": {{ a | strip | jsonify }}}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>

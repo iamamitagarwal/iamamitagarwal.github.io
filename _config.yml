@@ -51,6 +51,9 @@ search_full_content: true
 
 og_image: /images/og-card.png
 
+twitter:
+  username: amitpinaki
+
 social:
   name: "Amit Agarwal"
   links:

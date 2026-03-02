@@ -39,5 +39,35 @@
   .masthead .site-logo img{ height: 40px; } /* final desktop size */
 }
 
-/* Optional: tighten the header’s vertical space a touch */
+/* Optional: tighten the header's vertical space a touch */
 .masthead { padding-top: .35rem; padding-bottom: .35rem; }
+
+/* --- Focus-visible styles for keyboard accessibility --- */
+:focus-visible{
+  outline: 2px solid var(--brand-accent, #0ea5e9);
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible){
+  outline: none;
+}
+.link-pill:focus-visible,
+.btn:focus-visible,
+.contact-fab:focus-visible,
+#theme-toggle:focus-visible{
+  outline: 2px solid var(--brand-accent, #0ea5e9);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.25);
+}
+
+/* --- Prefers-reduced-motion: disable animations for motion-sensitive users --- */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .page__hero-video{
+    display: none;
+  }
+}

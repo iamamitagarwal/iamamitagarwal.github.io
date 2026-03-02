@@ -1,9 +1,15 @@
 # _data/whats_next.yml
-- title: "1 paper accepted at ICLR 2026"
+- title: "1 paper accepted in ICLR & CVPR 2026"
   desc: ""
-  when: "ICLR 2026"
+  when: "ICLR 2026 · CVPR 2026"
   tag: "Accepted"
-  link: "https://iclr.cc/"
+  link: ""
+
+- title: "Organizing DocInsights Workshop in EMNLP 2026"
+  desc: ""
+  when: "EMNLP 2026"
+  tag: "Workshop"
+  link: ""
 
 - title: "Organizing GRAIL-V Workshop in CVPR 2026"
   desc: ""
@@ -16,12 +22,6 @@
   when: "ACL 2026"
   tag: "Workshop"
   link: "https://surgellm.github.io/acl2026/"
-
-- title: "8 papers under review in ACL 26"
-  desc: ""
-  when: "ACL 2026"
-  tag: "Under Review"
-  link: "https://2026.aclweb.org/"
 
 - title: "Paper Presentation in WACV 26"
   desc: ""

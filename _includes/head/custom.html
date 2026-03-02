@@ -10,14 +10,40 @@
 <!-- Your brand overrides -->
 <link rel="stylesheet" href="{{ '/assets/css/brand.css' | relative_url }}">
 
-<!-- Prevent FOUC: apply saved theme ASAP -->
+<!-- Prevent FOUC: apply saved theme ASAP (respects OS preference as fallback) -->
 <script>
   (function() {
     try {
-      if (localStorage.getItem('theme') === 'dark') {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('theme-dark');
       }
     } catch(e){}
+  })();
+</script>
+
+<!-- Skip-to-content link (visible on focus for keyboard users) -->
+<style>
+  .skip-link{
+    position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    z-index:9999; padding:.75rem 1.5rem; background:var(--brand-accent,#0ea5e9); color:#fff;
+    font-weight:700; text-decoration:none; border-radius:0 0 8px 0;
+  }
+  .skip-link:focus{
+    position:fixed; left:0; top:0; width:auto; height:auto; overflow:visible;
+  }
+</style>
+<script>
+  (function(){
+    var a = document.createElement('a');
+    a.className = 'skip-link';
+    a.href = '#main';
+    a.textContent = 'Skip to main content';
+    document.addEventListener('DOMContentLoaded', function(){
+      document.body.insertBefore(a, document.body.firstChild);
+    });
   })();
 </script>
 
@@ -502,9 +528,12 @@
       btn.id = 'theme-toggle';
       btn.type = 'button';
       btn.textContent = '🌙';
+      btn.setAttribute('aria-label', 'Switch to dark mode');
     }
     const setIcon = () => {
-      btn.textContent = document.documentElement.classList.contains('theme-dark') ? '☀️' : '🌙';
+      const isDark = document.documentElement.classList.contains('theme-dark');
+      btn.textContent = isDark ? '☀️' : '🌙';
+      btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
     };
     btn.addEventListener('click', ()=>{
       const dark = document.documentElement.classList.toggle('theme-dark');
@@ -526,6 +555,14 @@
     }
     if (!place()) window.addEventListener('load', place);
   })();
+</script>
+
+<!-- Lazy-load sidebar avatar on mobile (below-fold) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var img = document.querySelector('.author__avatar img');
+    if(img) img.setAttribute('loading', 'lazy');
+  });
 </script>
 
 <!-- Google Analytics -->

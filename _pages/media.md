@@ -11,9 +11,8 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
 
 <style>
   /* Masonry columns – auto-flow as you add media */
-  .masonry{ column-count:3; column-gap:1rem; }
-  @media (max-width:1200px){ .masonry{ column-count:2; } }
-  @media (max-width:720px){  .masonry{ column-count:1; } }
+  .masonry{ column-count:2; column-gap:1rem; }
+  @media (max-width:900px){  .masonry{ column-count:1; } }
   .masonry-item{ break-inside:avoid; width:100%; margin:0 0 1rem; }
 
   /* Parchment clipping */
@@ -38,9 +37,9 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
 
   .media-img{
     width:100%;
-    background:#f5f7fb;
-    padding:.6rem;
-    border-bottom:1px solid #dfe3eb;
+    background:linear-gradient(180deg, #edf2f7 0%, #e5ebf3 100%);
+    padding:.7rem;
+    border-bottom:1px solid #d4dce8;
   }
   .media-img img{
     display:block;
@@ -48,9 +47,11 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
     height:auto;
     object-fit:contain;
     border-radius:12px;
-    border:1.5px solid rgba(15,23,42,.22);
+    border:1.5px solid rgba(15,23,42,.34);
     background:#fff;
-    box-shadow:0 12px 24px rgba(15,23,42,.16);
+    box-shadow:
+      0 14px 28px rgba(15,23,42,.18),
+      0 0 0 1px rgba(15,23,42,.06);
   }
 
   /* Tape label – smaller and moved off the image (lower-left) */
@@ -100,6 +101,34 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
 {% assign found_any = false %}
 
 <div class="masonry">
+{% if linkmap %}
+  {% for pair in linkmap %}
+    {% assign entry_key = pair[0] %}
+    {% assign entry = pair[1] %}
+    {% if entry.image %}
+      {% assign display_title = entry.title | default: entry_key %}
+      {% assign site_link = entry.site | default: "" | strip %}
+      {% assign found_any = true %}
+      <figure class="masonry-item media-card">
+        <div class="media-img">
+          <img src="{{ entry.image }}" alt="{{ display_title | escape }}" loading="lazy">
+        </div>
+
+        <div class="tape" title="{{ display_title | escape }}">{{ display_title }}</div>
+
+        <div class="media-foot">
+          {% unless site_link == nil or site_link == "" or site_link == blank %}
+            <a class="pill" href="{{ site_link }}" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4a8 8 0 1 0 0 16A8 8 0 0 0 12 4Zm6.9 7h-3.1a13 13 0 0 0-1-4.3A6 6 0 0 1 18.9 11ZM12 6c.8 0 2 1.7 2.6 5H9.4C10 7.7 11.2 6 12 6Zm-3.8.7A13 13 0 0 0 7.2 11H4.1a6 6 0 0 1 4.1-4.3ZM4.1 13h3.1a13 13 0 0 0 1 4.3A6 6 0 0 1 4.1 13ZM12 18c-.8 0-2-1.7-2.6-5h5.2C14 16.3 12.8 18 12 18Zm3.8-.7A13 13 0 0 0 16.8 13h3.1a6 6 0 0 1-4.1 4.3Z"/></svg>
+              Site
+            </a>
+          {% endunless %}
+        </div>
+      </figure>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
 {% for f in site.static_files %}
   {% assign p = f.path | downcase %}
   {% if p contains pictures_dir %}
@@ -144,6 +173,9 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
       {% assign title_override = nil %}
       {% assign pdf_manual = nil %}
       {% if entry %}
+        {% if entry.image %}
+          {% continue %}
+        {% endif %}
         {% if entry.site or entry.title or entry.pdf %}
           {% assign site_link = entry.site | default: "" | strip %}
           {% assign title_override = entry.title %}

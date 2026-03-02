@@ -250,10 +250,16 @@
         panel.style.maxHeight = `${maxH}px`;
       }
     }
+    /* Debounce helper */
+    function debounce(fn, ms){
+      var t; return function(){ clearTimeout(t); t = setTimeout(fn, ms); };
+    }
+    var debouncedWnxLayout = debounce(updateWnxLayout, 100);
+
     updateWnxLayout();
-    window.addEventListener('resize', updateWnxLayout, { passive: true });
+    window.addEventListener('resize', debouncedWnxLayout, { passive: true });
     if (window.visualViewport){
-      window.visualViewport.addEventListener('resize', updateWnxLayout, { passive: true });
+      window.visualViewport.addEventListener('resize', debouncedWnxLayout, { passive: true });
     }
 
     /* --- What’s next: collapsed by default, remember last state on desktop --- */
@@ -279,7 +285,7 @@
       panel.style.top = px + 'px';
     }
     adjustWnxTop();
-    window.addEventListener('resize', adjustWnxTop);
+    window.addEventListener('resize', debounce(adjustWnxTop, 100), { passive: true });
 
     /* --- Contact drawer (right side) --- */
     const fab    = document.getElementById('contactFab');
@@ -287,8 +293,32 @@
     const cClose = document.getElementById('contactClose');
     const cCanc  = document.getElementById('contactCancel');
 
-    fab.addEventListener('click',   () => drawer.classList.add('open'));
-    cClose.addEventListener('click',() => drawer.classList.remove('open'));
-    cCanc.addEventListener('click', () => drawer.classList.remove('open'));
+    function openDrawer(){
+      drawer.classList.add('open');
+      /* Focus first input after transition */
+      setTimeout(function(){ var first = drawer.querySelector('input, textarea'); if(first) first.focus(); }, 180);
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      fab.focus();
+    }
+
+    fab.addEventListener('click',   openDrawer);
+    cClose.addEventListener('click', closeDrawer);
+    cCanc.addEventListener('click',  closeDrawer);
+
+    /* Focus trap + Escape key for contact drawer */
+    drawer.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ closeDrawer(); return; }
+      if(e.key !== 'Tab') return;
+      var focusable = drawer.querySelectorAll('input, textarea, button, [tabindex]:not([tabindex="-1"])');
+      if(!focusable.length) return;
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if(e.shiftKey){
+        if(document.activeElement === first){ e.preventDefault(); last.focus(); }
+      } else {
+        if(document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    });
   })();
 </script>

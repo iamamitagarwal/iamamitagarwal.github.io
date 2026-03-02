@@ -39,8 +39,49 @@
   {%- assign yr2 = "" -%}
 {%- endif -%}
 
+{%- comment -%}
+Compact long author lists on the publications page while keeping your name visible.
+Full authors remain available on the detail page and as a hover title here.
+{%- endcomment -%}
+{%- assign authors_full = p.authors | default: "" -%}
+{%- assign author_list = authors_full | split: "," -%}
+{%- assign author_count = author_list | size -%}
+{%- assign authors_display = authors_full -%}
+{%- if author_count > 12 -%}
+  {%- assign authors_display = "" -%}
+  {%- assign lead_authors = author_list | slice: 0, 3 -%}
+  {%- for a in lead_authors -%}
+    {%- assign a_clean = a | strip -%}
+    {%- if a_clean != "" -%}
+      {%- if authors_display != "" -%}
+        {%- assign authors_display = authors_display | append: ", " -%}
+      {%- endif -%}
+      {%- assign authors_display = authors_display | append: a_clean -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- assign amit_present = false -%}
+  {%- assign amit_in_leads = false -%}
+  {%- for a in author_list -%}
+    {%- assign a_trim = a | strip -%}
+    {%- assign a_lc = a_trim | downcase -%}
+    {%- if a_lc contains "amit" and a_lc contains "agarwal" -%}
+      {%- assign amit_present = true -%}
+      {%- if forloop.index0 < 3 -%}
+        {%- assign amit_in_leads = true -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if amit_present and amit_in_leads == false -%}
+    {%- assign authors_display = authors_display | append: ", ..." -%}
+    {%- assign authors_display = authors_display | append: " Amit Agarwal" -%}
+  {%- endif -%}
+  {%- assign authors_display = authors_display | append: ", et al" -%}
+{%- endif -%}
+
 {%- comment -%} Highlight your name (handles both Last, First and First Last) {%- endcomment -%}
-{%- assign authors_html = p.authors
+{%- assign authors_html = authors_display
   | replace: "Agarwal, Amit", "<span class='author-me'>Agarwal, Amit</span>"
   | replace: "Amit Agarwal", "<span class='author-me'>Amit Agarwal</span>"
 -%}
@@ -73,7 +114,7 @@
 <li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
   <strong><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></strong>
   <br/>
-  <span class="pub-authors">{{ authors_html }}</span>.
+  <span class="pub-authors" title="{{ authors_full | escape_once }}">{{ authors_html }}</span>.
 
   <div class="link-pills">
   {%- if tok != "" -%}
