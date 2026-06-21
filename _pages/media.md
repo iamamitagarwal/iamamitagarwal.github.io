@@ -108,6 +108,7 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
     {% if entry.image %}
       {% assign display_title = entry.title | default: entry_key %}
       {% assign site_link = entry.site | default: "" | strip %}
+      {% assign entry_links = entry.links %}
       {% assign found_any = true %}
       <figure class="masonry-item media-card">
         <div class="media-img">
@@ -117,12 +118,24 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
         <div class="tape" title="{{ display_title | escape }}">{{ display_title }}</div>
 
         <div class="media-foot">
-          {% unless site_link == nil or site_link == "" or site_link == blank %}
-            <a class="pill" href="{{ site_link }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4a8 8 0 1 0 0 16A8 8 0 0 0 12 4Zm6.9 7h-3.1a13 13 0 0 0-1-4.3A6 6 0 0 1 18.9 11ZM12 6c.8 0 2 1.7 2.6 5H9.4C10 7.7 11.2 6 12 6Zm-3.8.7A13 13 0 0 0 7.2 11H4.1a6 6 0 0 1 4.1-4.3ZM4.1 13h3.1a13 13 0 0 0 1 4.3A6 6 0 0 1 4.1 13ZM12 18c-.8 0-2-1.7-2.6-5h5.2C14 16.3 12.8 18 12 18Zm3.8-.7A13 13 0 0 0 16.8 13h3.1a6 6 0 0 1-4.1 4.3Z"/></svg>
-              Site
-            </a>
-          {% endunless %}
+          {% if entry_links %}
+            {% for media_link in entry_links %}
+              {% assign media_link_url = media_link.url | default: "" | strip %}
+              {% unless media_link_url == nil or media_link_url == "" or media_link_url == blank %}
+                <a class="pill" href="{{ media_link_url }}" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4a8 8 0 1 0 0 16A8 8 0 0 0 12 4Zm6.9 7h-3.1a13 13 0 0 0-1-4.3A6 6 0 0 1 18.9 11ZM12 6c.8 0 2 1.7 2.6 5H9.4C10 7.7 11.2 6 12 6Zm-3.8.7A13 13 0 0 0 7.2 11H4.1a6 6 0 0 1 4.1-4.3ZM4.1 13h3.1a13 13 0 0 0 1 4.3A6 6 0 0 1 4.1 13ZM12 18c-.8 0-2-1.7-2.6-5h5.2C14 16.3 12.8 18 12 18Zm3.8-.7A13 13 0 0 0 16.8 13h3.1a6 6 0 0 1-4.1 4.3Z"/></svg>
+                  {{ media_link.label | default: "Site" }}
+                </a>
+              {% endunless %}
+            {% endfor %}
+          {% else %}
+            {% unless site_link == nil or site_link == "" or site_link == blank %}
+              <a class="pill" href="{{ site_link }}" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4a8 8 0 1 0 0 16A8 8 0 0 0 12 4Zm6.9 7h-3.1a13 13 0 0 0-1-4.3A6 6 0 0 1 18.9 11ZM12 6c.8 0 2 1.7 2.6 5H9.4C10 7.7 11.2 6 12 6Zm-3.8.7A13 13 0 0 0 7.2 11H4.1a6 6 0 0 1 4.1-4.3ZM4.1 13h3.1a13 13 0 0 0 1 4.3A6 6 0 0 1 4.1 13ZM12 18c-.8 0-2-1.7-2.6-5h5.2C14 16.3 12.8 18 12 18Zm3.8-.7A13 13 0 0 0 16.8 13h3.1a6 6 0 0 1-4.1 4.3Z"/></svg>
+                Site
+              </a>
+            {% endunless %}
+          {% endif %}
         </div>
       </figure>
     {% endif %}

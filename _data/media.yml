@@ -2,9 +2,14 @@
 # Key can be the base name or a slug. Update `site:` with the real article URL.
 
 oracleai-beyond-perception-cvpr-2026:
-  title: "Oracle AI Blog — Beyond Perception Workshop at CVPR 2026"
-  site: "https://blogs.oracle.com/ai-and-datascience/beyond-perception-workshop-cvpr-2026"
-  image: "https://blogs.oracle.com/ai-and-datascience/wp-content/uploads/sites/13/2026/02/GRAIL-V-CFP-2-1-1024x1024.jpg"
+  title: "GRAIL-V@CVPR 2026 — Slides, Awards, Papers & Proceedings"
+  site: "https://grailworkshops.github.io/"
+  image: "/assets/media/pictures/000-OracleAI-Beyond-Perception-CVPR-2026.png"
+  links:
+    - label: "Event"
+      url: "https://grailworkshops.github.io/"
+    - label: "Oracle Blog"
+      url: "https://blogs.oracle.com/ai-and-datascience/beyond-perception-workshop-cvpr-2026"
 
 ahmedabadmirror-ai-unleashed:
   title: "Ahmedabad Mirror — AI Unleashed"

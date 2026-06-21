@@ -1,9 +1,9 @@
 # _data/whats_next.yml
-- title: "1 paper accepted in ICLR & CVPR 2026"
-  desc: ""
-  when: "ICLR 2026 · CVPR 2026"
+- title: "2 papers accepted at ACL 2026"
+  desc: "Do Image-Text Metrics Respect Semantic Invariances? and GSM-SEM."
+  when: "ACL 2026"
   tag: "Accepted"
-  link: ""
+  link: "/publications/"
 
 - title: "Organizing DocInsights Workshop in EMNLP 2026"
   desc: ""
@@ -11,10 +11,10 @@
   tag: "Workshop"
   link: ""
 
-- title: "Organizing GRAIL-V Workshop in CVPR 2026"
-  desc: ""
-  when: "CVPR 2026"
-  tag: "Workshop"
+- title: "GRAIL-V@CVPR 2026 materials are live"
+  desc: "Slides, award winners, accepted papers, and proceedings are available."
+  when: "June 3, 2026 · Denver"
+  tag: "Completed"
   link: "https://grailworkshops.github.io"
 
 - title: "Organizing SURGeLLM Workshop in ACL 2026"
@@ -27,4 +27,4 @@
   desc: ""
   when: "WACV 2026"
   tag: "Presentation"
-  link: "https://wacv.thecvf.com/"
+  link: "https://openaccess.thecvf.com/content/WACV2026/html/Rafi_Learning_from_Unknown_for_Open-Set_Test-Time_Adaptation_WACV_2026_paper.html"

@@ -1,6 +1,6 @@
 ---
 layout: paper
-title: "Evaluationuate Generalisation & Robustness of Visual Features from Images to Video"
+title: "Evaluate Generalisation & Robustness of Visual Features from Images to Video"
 authors: 'Amit Agarwal'
 year: 2021
 venue: LJMU

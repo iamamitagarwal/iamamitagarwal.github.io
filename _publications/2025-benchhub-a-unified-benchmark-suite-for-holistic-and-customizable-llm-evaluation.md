@@ -1,6 +1,6 @@
 ---
 layout: paper
-title: "BenchHub: A Unified Benchmark Suite for Holistic and Customizable LLM Evaluationuation"
+title: "BenchHub: A Unified Benchmark Suite for Holistic and Customizable LLM Evaluation"
 authors: 'Eunsu Kim, Haneul Yoo, Guijin Son, Hitesh Patel, Amit Agarwal, Alice Oh'
 year: 2025
 venue: arXiv

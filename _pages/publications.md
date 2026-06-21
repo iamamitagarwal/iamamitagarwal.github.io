@@ -25,6 +25,7 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
 /* Color map */
 .badge-emnlp{ background:#0d9488; color:#fff; }
 .badge-acl{ background:#10b981; color:#0b1320; }
+.badge-aacl{ background:#34d399; color:#0b1320; }
 .badge-naacl{ background:#f59e0b; color:#111827; }
 .badge-neurips{ background:#06b6d4; color:#0b1320; }
 .badge-iclr{ background:#a78bfa; color:#111827; }
@@ -34,6 +35,7 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
 .badge-eccv{ background:#2563eb; color:#fff; }
 .badge-ieee{ background:#93c5fd; color:#0b1320; }
 .badge-acm{ background:#f97316; color:#0b1320; }
+.badge-pakdd{ background:#fbbf24; color:#111827; }
 .badge-arxiv{ background:#e5e7eb; color:#111827; border-color:#cbd5e1; }
 html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4b5563; }
 </style>
@@ -73,6 +75,7 @@ Handles tags stored as arrays or strings (single or comma/space separated).
     {% assign href = p.paper_url | default: "" | downcase %}
     {% if vtxt contains "emnlp" or href contains "emnlp" %}{% assign tok = "emnlp" %}
     {% elsif vtxt contains "naacl" or href contains "naacl" %}{% assign tok = "naacl" %}
+    {% elsif vtxt contains "aacl" or href contains "aacl" %}{% assign tok = "aacl" %}
     {% elsif vtxt contains "acl"   or href contains "acl"   %}{% assign tok = "acl"   %}
     {% elsif vtxt contains "neurips" or href contains "neurips" %}{% assign tok = "neurips" %}
     {% elsif vtxt contains "iclr" or href contains "iclr" %}{% assign tok = "iclr" %}
@@ -86,6 +89,7 @@ Handles tags stored as arrays or strings (single or comma/space separated).
     {% elsif vtxt contains "wacv" or href contains "wacv" %}{% assign tok = "wacv" %}
     {% elsif vtxt contains "cikm" or href contains "cikm" %}{% assign tok = "cikm" %}
     {% elsif vtxt contains "dasfaa" or href contains "dasfaa" %}{% assign tok = "dasfaa" %}
+    {% elsif vtxt contains "pakdd" or href contains "pakdd" %}{% assign tok = "pakdd" %}
     {% endif %}
   {% endif %}
   {% if tok != "" %}

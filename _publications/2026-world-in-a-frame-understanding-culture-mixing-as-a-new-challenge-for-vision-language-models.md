@@ -4,7 +4,7 @@ title: "World in a Frame: Understanding Culture Mixing as a New Challenge for Vi
 authors: "Eunsu Kim, Junyeong Park, Na Min An, Junseong Kim, Hitesh Laxmichand Patel, Jiho Jin, Julia Kruk, Amit Agarwal, Srikant Panda, Fenal Ashokbhai Ilasariya, Hyunjung Shim, Alice Oh"
 year: 2026
 venue: CVPR
-priority: 2
+priority: 3
 tags:
   - Multimodal
   - Responsible-AI

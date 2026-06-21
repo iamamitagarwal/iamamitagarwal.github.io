@@ -6,4 +6,6 @@ ieee-mipr:
   url: "https://mipr2025.ieee.org/"
 icdmai:
   url: "https://icdmai.org/"
+cvpr:
+  url: "https://grailworkshops.github.io/"
 # add more as needed…

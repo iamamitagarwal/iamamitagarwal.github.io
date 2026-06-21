@@ -1,6 +1,6 @@
 ---
 layout: paper
-title: "RCI: A Score for Evaluationuating Global and Local Reasoning in Multimodal Benchmarks"
+title: "RCI: A Score for Evaluating Global and Local Reasoning in Multimodal Benchmarks"
 authors: 'Amit Agarwal, Hitesh Laxmichand Patel, Srikant Panda, Hansa Meghwani, Jyotika Singh, Karan Dua, Paul Li, Tao Sheng, Sujith Ravi, Dan Roth'
 year: 2025
 venue: EMNLP

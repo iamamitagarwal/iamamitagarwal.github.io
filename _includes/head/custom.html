@@ -366,6 +366,28 @@
   .masthead{ position:sticky; top:0; z-index:2000; background:#ffffff; }
   .greedy-nav{ background:inherit; }
   .greedy-nav a, .site-title{ color:#0f172a; }
+  .masthead__menu-item > a{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    min-height:2rem;
+  }
+  .masthead__menu-item > a[aria-current="page"]::after,
+  .masthead__menu-item.is-active > a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-.38rem;
+    height:3px;
+    border-radius:999px;
+    background:var(--brand-accent);
+  }
+  .masthead__menu-item > a[aria-current="page"],
+  .masthead__menu-item.is-active > a{
+    color:var(--brand-accent) !important;
+    font-weight:800;
+  }
   .masthead.is-stuck{ box-shadow:0 2px 6px rgba(0,0,0,.06); }
 
   .masthead__inner-wrap { padding-block: 10px; }
@@ -385,6 +407,8 @@
   html.theme-dark .brand-sub { color:#cce9ef; background:#0d2a31; border-color:#1f5b68; }
   html.theme-dark .masthead, html.theme-dark .greedy-nav{ background:var(--dark-bg) !important; }
   html.theme-dark .greedy-nav a, html.theme-dark .site-title{ color:var(--dark-text) !important; }
+  html.theme-dark .masthead__menu-item > a[aria-current="page"],
+  html.theme-dark .masthead__menu-item.is-active > a{ color:#22d3ee !important; }
   html.theme-dark .masthead{ border-bottom-color:#22d3ee; }
 
   .page__content p, .page__content li{ text-align:justify; text-justify:inter-word; }
@@ -506,6 +530,33 @@
     if(!h) return;
     var on = () => h.classList.toggle('is-stuck', window.scrollY > 8);
     on(); window.addEventListener('scroll', on, {passive:true});
+  })();
+
+  /* Mark the active top-level navigation item. */
+  (function(){
+    function markActiveNav(){
+      const normalize = path => {
+        if(!path) return '/';
+        const clean = path.split('#')[0].split('?')[0];
+        return clean.endsWith('/') ? clean : clean + '/';
+      };
+      const current = normalize(window.location.pathname);
+      document.querySelectorAll('.masthead .masthead__menu-item > a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if(!href || href.startsWith('http') || href.startsWith('mailto:')) return;
+        const linkPath = normalize(new URL(href, window.location.origin).pathname);
+        const active = linkPath === '/' ? current === '/' : current.startsWith(linkPath);
+        if(active){
+          link.closest('.masthead__menu-item')?.classList.add('is-active');
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+    }
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', markActiveNav);
+    } else {
+      markActiveNav();
+    }
   })();
 
   /* Copy BibTeX pill */

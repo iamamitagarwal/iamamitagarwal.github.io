@@ -5,6 +5,9 @@ The goal of this project is to -
 1. Have the personal website for the author compatible with Chrome, Safari and mobile devices.
 2. Ensure any changes that are made is compatible and gives the same experience across Chrome,Safari, Desktop and Mobile Devices.
 
+## Project Memory
+- Read `PROJECT_MEMORY.md` at the start of any session.
+- Update `PROJECT_MEMORY.md` when significant progress is made (new features, new data, layout changes, workflow changes).
 
 ## Project Structure & Content
 - Jekyll site using Minimal Mistakes theme. Key paths:
@@ -26,7 +29,7 @@ The goal of this project is to -
 ## Coding Style & Naming
 - Markdown/front matter: YAML keys lower_snake; arrays for tags; wrap strings in quotes.
 - Titles: Title Case, accurate acronyms (LLM, NLP, NER, SEA-VL).
-- Authors/inventors: “First Last” order, semicolon-separated.
+- Authors/inventors: “First Last” order, comma-separated.
 - CSS: keep overrides in `assets/css/brand.css` or scoped `<style>` blocks in includes; prefer REM/px already used; avoid inline `!important` unless matching existing patterns.
 
 ## Testing / Validation

@@ -27,7 +27,8 @@ authors: >-
   Abdulhamid Abubakar, Jean Maillard, Benoît Sagot, Thibault Clérice, Kenton
   Murray, Sarah Luger
 year: 2026
-venue: arXiv
+venue: ACL 2026
+venue_token: acl
 tags:
   - Multilingual
   - Evaluation
@@ -36,11 +37,11 @@ keywords:
   - "Language Identification"
   - "Evaluation"
   - "Web Data"
-  - "arXiv"
+  - "ACL"
 paper_url: "https://arxiv.org/abs/2601.18026"
 arxiv_id: "2601.18026"
 search: true
-last_modified_at: 2026-03-01
+last_modified_at: 2026-06-21
 ---
 
 **Abstract.** CommonLID introduces a community-driven benchmark for language identification on noisy web data across 109 languages. The paper reevaluates widely used LID systems and shows that current benchmarks often overestimate performance on real multilingual web content.
