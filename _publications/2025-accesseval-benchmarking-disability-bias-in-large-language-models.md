@@ -9,6 +9,7 @@ highlight: true
 highlight_rank: 1
 recognition: "EMNLP 2025 Best Social Impact Paper Award"
 recognition_type: award
+home_highlight_title: "AccessEval"
 tags:
 - Responsible-AI
 - Evaluation

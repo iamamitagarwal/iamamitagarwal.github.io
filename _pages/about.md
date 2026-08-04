@@ -29,8 +29,7 @@ Current focus areas include **agentic AI systems**, **retrieval-augmented genera
   {% for p in highlighted_pubs %}
   <article class="research-highlight research-highlight--{{ p.recognition_type | default: 'highlight' }}">
     <p class="research-highlight__recognition">{{ p.recognition }}</p>
-    <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-    <p class="research-highlight__meta">{{ p.venue }}{% if p.year %} &middot; {{ p.year }}{% endif %}</p>
+    <h3><a href="{{ p.url | relative_url }}" title="{{ p.title }}">{{ p.home_highlight_title | default: p.title }}</a></h3>
   </article>
   {% endfor %}
 </div>

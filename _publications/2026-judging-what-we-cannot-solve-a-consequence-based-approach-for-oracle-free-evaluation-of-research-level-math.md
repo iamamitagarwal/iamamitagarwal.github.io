@@ -10,6 +10,7 @@ highlight: true
 highlight_rank: 2
 recognition: "ICML 2026 Spotlight Paper"
 recognition_type: spotlight
+home_highlight_title: "Judging What We Cannot Solve"
 tags:
   - Evaluation
 keywords:

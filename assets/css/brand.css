@@ -90,38 +90,55 @@
 }
 .research-highlights{
   display:grid;
-  gap:.7rem;
-  margin:1.2rem 0 1.7rem;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:0;
+  margin:.75rem 0 1.15rem;
+  border-top:1px solid #cbd5e1;
 }
 .research-highlight{
-  border-left:3px solid #64748b;
-  padding:.8rem 0 .8rem 1rem;
+  border-top:3px solid #64748b;
+  padding:.65rem 1rem .65rem 0;
 }
-.research-highlight__recognition{
-  margin:0 0 .18rem;
+.research-highlight + .research-highlight{
+  border-left:1px solid #cbd5e1;
+  padding-left:1rem;
+}
+.research-highlight .research-highlight__recognition{
+  margin:0;
   color:#475569;
-  font-size:.8rem;
+  font-size:.78rem;
   font-weight:800;
+  line-height:1.3;
 }
 .research-highlight h3{
-  margin:0;
-  font-size:1.03rem;
+  margin:.22rem 0 0;
+  font-size:1rem;
+  line-height:1.3;
 }
 .research-highlight h3 a{ text-decoration:none; }
 .research-highlight h3 a:hover{ text-decoration:underline; }
-.research-highlight__meta{
-  margin:.25rem 0 0;
-  color:#64748b;
-  font-size:.88rem;
-}
+.research-highlight--award{ border-top-color:#ca8a04; }
+.research-highlight--spotlight{ border-top-color:#0e7490; }
 html.theme-dark .pub-recognition--award{ background:#422006; color:#fef3c7; }
 html.theme-dark .pub-recognition--spotlight{ background:#083344; color:#cffafe; }
+html.theme-dark .research-highlights,
+html.theme-dark .research-highlight + .research-highlight{ border-color:#475569; }
 html.theme-dark .research-highlight__recognition{ color:#cbd5e1; }
-html.theme-dark .research-highlight__meta{ color:#94a3b8; }
 
 @media (max-width: 600px){
   .pub-item--highlight{ padding-left:.55rem; }
   .pub-recognition{ margin-left:0; }
+  .research-highlights{ grid-template-columns:1fr; }
+  .research-highlight{
+    display:block;
+    padding:.55rem 0;
+  }
+  .research-highlight + .research-highlight{
+    border-left:0;
+    border-top-width:1px;
+    padding-left:0;
+  }
+  .research-highlight h3{ margin-top:.15rem; }
 }
 
 /* --- Prefers-reduced-motion: disable animations for motion-sensitive users --- */
