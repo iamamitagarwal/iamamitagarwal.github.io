@@ -3,7 +3,7 @@ layout: paper
 title: "LegalMind: An Intelligent Solution for Legal Document Analysis With User-Centric UI and AI-Driven Capabilities in Mobile Devices"
 authors: 'Azmine Toushik Wasi, Mst Rafia Islam, Abdur Rahman, Tawfia Yeasmin, Amit Agarwal, Hitesh Laxmichand Patel, Taki Hasan Rafi, Dong-Kyu Chae'
 year: 2025
-venue: ACM
+venue: CSCW Companion 2025
 tags:
 - Document-AI
 - RAG
@@ -14,6 +14,7 @@ keywords:
   - "Information-Retrieval"
   - "ACM"
 paper_url: https://dl.acm.org/doi/abs/10.1145/3715070.3749262
+venue_url: https://dl.acm.org/doi/abs/10.1145/3715070.3749262
 search: true
 last_modified_at: 2026-01-31
 ---

@@ -1,7 +1,6 @@
 # _data/best_papers.yml
-- title: "Accesseval: Benchmarking disability bias in large language models"
+- title: "AccessEval: Benchmarking Disability Bias in Large Language Models"
   venue: "EMNLP"
   year: 2025
-  category: "Social Impact"
-  link: "https://x.com/emnlpmeeting/status/1986923462619734140?s=12"  
-  # if want to adjust to your pub page pass this in link: "/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/"
+  category: "Best Social Impact Paper Award"
+  link: "/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/"

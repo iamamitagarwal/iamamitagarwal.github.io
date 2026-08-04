@@ -3,7 +3,7 @@ layout: paper
 title: "FS-DAG: Few Shot Domain Adapting Graph Networks for Visually Rich Document Understanding"
 authors: 'Amit Agarwal, Srikant Panda, Kulbhushan Pachauri'
 year: 2025
-venue: COLING
+venue: COLING 2025 Industry Track
 venue_token: COLING
 tags:
 - Document-AI
@@ -14,6 +14,8 @@ keywords:
   - "COLING"
   - "ACL"
 paper_url: https://aclanthology.org/2025.coling-industry.9/
+venue_url: "https://aclanthology.org/2025.coling-industry.9/"
+pdf_url: "https://aclanthology.org/2025.coling-industry.9.pdf"
 search: true
 last_modified_at: 2026-01-31
 ---

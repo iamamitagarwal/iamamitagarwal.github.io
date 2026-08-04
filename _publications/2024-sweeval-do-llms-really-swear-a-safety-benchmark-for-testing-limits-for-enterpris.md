@@ -3,7 +3,7 @@ layout: paper
 title: "SweEval: Do LLMs Really Swear? A Safety Benchmark for Testing Limits for Enterprise Use"
 authors: 'Hitesh Laxmichand Patel, Amit Agarwal, Arion Das, Bhargava Kumar, Srikant Panda, Priyaranjan Pattnayak, Taki Hasan Rafi, Tejaswini Kumar, Dong-Kyu Chae'
 year: 2025
-venue: NAACL 2025
+venue: NAACL 2025 Industry Track
 venue_token: naacl
 tags:
 - Responsible-AI
@@ -16,6 +16,8 @@ keywords:
   - "NAACL"
   - "ACL"
 paper_url: https://aclanthology.org/2025.naacl-industry.46/
+venue_url: "https://aclanthology.org/2025.naacl-industry.46/"
+pdf_url: "https://aclanthology.org/2025.naacl-industry.46.pdf"
 search: true
 last_modified_at: 2026-06-21
 ---

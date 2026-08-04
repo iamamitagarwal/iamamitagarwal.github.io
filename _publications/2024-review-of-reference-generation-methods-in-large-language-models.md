@@ -2,14 +2,16 @@
 layout: paper
 title: "Review of Reference Generation Methods in Large Language Models"
 authors: 'Priyaranjan Pattnayak, Amit Agarwal, Bhargava Kumar, Yeshil Bangera, Srikant Panda, Tejaswini Kumar, Hitesh Laxmichand Patel'
-year: 2024
-venue: IJAIML
+year: 2025
+venue: IJAIML 2025
 tags:
 - RAG
 keywords:
   - "RAG"
   - "IJAIML"
-paper_url: https://openreview.net/pdf?id=eB87ISzlL1
+paper_url: "https://iaeme.com/Home/article_id/IJAIML_04_01_003"
+venue_url: "https://iaeme.com/Home/article_id/IJAIML_04_01_003"
+pdf_url: "https://iaeme.com/MasterAdmin/Journal_uploads/IJAIML/VOLUME_4_ISSUE_1/IJAIML_04_01_003.pdf"
 search: true
 last_modified_at: 2026-01-31
 ---

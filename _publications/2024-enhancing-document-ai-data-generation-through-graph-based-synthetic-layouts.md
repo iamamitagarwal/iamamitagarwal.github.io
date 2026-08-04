@@ -3,15 +3,17 @@ layout: paper
 title: "Enhancing Document AI Data Generation Through Graph-Based Synthetic Layouts"
 authors: 'Amit Agarwal, Hitesh Patel, Priyaranjan Pattnayak, Srikant Panda, Bhargava Kumar, Tejaswini Kumar'
 year: 2024
-venue: arXiv
+venue: IJERT 2024
 tags:
 - Document-AI
 - Multimodal
 keywords:
   - "Document-AI"
   - "Multimodal"
-  - "arXiv"
-paper_url: https://arxiv.org/abs/2412.03590
+  - "IJERT"
+paper_url: "https://www.ijert.org/enhancing-document-ai-data-generation-through-graph-based-synthetic-layouts"
+venue_url: "https://www.ijert.org/enhancing-document-ai-data-generation-through-graph-based-synthetic-layouts"
+arxiv_id: "2412.03590"
 search: true
 last_modified_at: 2026-01-31
 ---

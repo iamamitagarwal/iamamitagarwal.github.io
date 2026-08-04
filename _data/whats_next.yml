@@ -1,6 +1,6 @@
 # _data/whats_next.yml
 - title: "2 papers accepted at ACL 2026"
-  desc: "Do Image-Text Metrics Respect Semantic Invariances? and GSM-SEM."
+  desc: "Do Image-Text Metrics Respect Semantic Invariances? and CommonLID."
   when: "ACL 2026"
   tag: "Accepted"
   link: "/publications/"

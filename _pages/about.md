@@ -23,6 +23,18 @@ Hi - I’m **Amit Agarwal**, a **Principal Applied Scientist** at Oracle AI (OCI
 
 Current focus areas include **agentic AI systems**, **retrieval-augmented generation (RAG)**, **multimodal** and **multilingual** reasoning, **evaluation & safety**, and **document AI**.
 
+## Research Highlights
+{% assign highlighted_pubs = site.publications | where: "highlight", true | sort: "highlight_rank" %}
+<div class="research-highlights">
+  {% for p in highlighted_pubs %}
+  <article class="research-highlight research-highlight--{{ p.recognition_type | default: 'highlight' }}">
+    <p class="research-highlight__recognition">{{ p.recognition }}</p>
+    <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+    <p class="research-highlight__meta">{{ p.venue }}{% if p.year %} &middot; {{ p.year }}{% endif %}</p>
+  </article>
+  {% endfor %}
+</div>
+
 ### What I’m focused on
 I’m pushing an **evaluation-first** approach to LLM features. Every surface - RAG, NL2SQL, document understanding, multilingual flows-ships with success criteria, targeted human review where it matters, and dashboards that make regressions obvious. On retrieval, I lean on **hybrid search + rerankers** that behave well in the wild, plus guardrails that reduce surprises without blocking velocity. For Document AI, I’ve spent time on **layout-aware models** and **synthetic data** that scale across messy, real-world documents.
 

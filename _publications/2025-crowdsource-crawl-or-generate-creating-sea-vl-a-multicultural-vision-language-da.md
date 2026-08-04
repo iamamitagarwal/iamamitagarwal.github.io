@@ -37,6 +37,8 @@ keywords:
   - "Responsible-AI"
   - "ACL"
 paper_url: https://aclanthology.org/2025.acl-long.916/
+venue_url: https://aclanthology.org/2025.acl-long.916/
+pdf_url: https://aclanthology.org/2025.acl-long.916.pdf
 search: true
 last_modified_at: 2026-06-21
 ---

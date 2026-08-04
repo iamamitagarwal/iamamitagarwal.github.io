@@ -15,8 +15,10 @@ keywords:
   - "Cultural Bias"
   - "Indic Languages"
   - "PAKDD"
+paper_url: "https://link.springer.com/chapter/10.1007/978-981-92-1947-6_48"
+venue_url: "https://link.springer.com/book/10.1007/978-981-92-1947-6"
 search: true
-last_modified_at: 2026-06-21
+last_modified_at: 2026-08-04
 ---
 
 Short description pending public abstract/proceedings page.

@@ -3,7 +3,7 @@ layout: paper
 title: "Hybrid AI for Responsive Multi-Turn Online Conversations With Novel Dynamic Routing and Feedback Adaptation"
 authors: 'Priyaranjan Pattnayak, Amit Agarwal, Hansa Meghwani, Hitesh Laxmichand Patel, Srikant Panda'
 year: 2025
-venue: NAACL
+venue: KnowledgeNLP Workshop 2025
 tags:
 - RAG
 - Information-Retrieval
@@ -13,6 +13,8 @@ keywords:
   - "NAACL"
   - "ACL"
 paper_url: https://aclanthology.org/2025.knowledgenlp-1.20/
+venue_url: "https://aclanthology.org/2025.knowledgenlp-1.20/"
+pdf_url: "https://aclanthology.org/2025.knowledgenlp-1.20.pdf"
 search: true
 last_modified_at: 2026-01-31
 ---

@@ -3,7 +3,7 @@ layout: paper
 title: "Who's Asking? Investigating Bias Through the Lens of Disability-Framed Queries in LLMs"
 authors: 'Vishnu Hari, Kalpana Panda, Srikant Panda, Amit Agarwal, Hitesh Laxmichand Patel'
 year: 2025
-venue: IEEE
+venue: ICCV 2025 Workshop (CV4A11y)
 tags:
 - Responsible-AI
 - Evaluation
@@ -13,6 +13,8 @@ keywords:
   - "IEEE"
   - "ICCV"
 paper_url: https://openaccess.thecvf.com/content/ICCV2025W/CV4A11y/html/Hari_Whos_Asking_Investigating_Bias_Through_the_Lens_of_Disability-Framed_Queries_ICCVW_2025_paper.html
+venue_url: https://openaccess.thecvf.com/content/ICCV2025W/CV4A11y/html/Hari_Whos_Asking_Investigating_Bias_Through_the_Lens_of_Disability-Framed_Queries_ICCVW_2025_paper.html
+pdf_url: https://openaccess.thecvf.com/content/ICCV2025W/CV4A11y/papers/Hari_Whos_Asking_Investigating_Bias_Through_the_Lens_of_Disability-Framed_Queries_ICCVW_2025_paper.pdf
 search: true
 last_modified_at: 2026-01-31
 ---

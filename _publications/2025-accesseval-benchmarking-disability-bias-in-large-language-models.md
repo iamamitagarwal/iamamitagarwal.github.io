@@ -1,9 +1,14 @@
 ---
 layout: paper
-title: "Accesseval: Benchmarking Disability Bias in Large Language Models"
+title: "AccessEval: Benchmarking Disability Bias in Large Language Models"
 authors: 'Srikant Panda, Amit Agarwal, Hitesh Laxmichand Patel'
 year: 2025
-venue: EMNLP
+venue: EMNLP 2025
+priority: 0
+highlight: true
+highlight_rank: 1
+recognition: "EMNLP 2025 Best Social Impact Paper Award"
+recognition_type: award
 tags:
 - Responsible-AI
 - Evaluation
@@ -13,8 +18,10 @@ keywords:
   - "EMNLP"
   - "ACL"
 paper_url: https://aclanthology.org/2025.emnlp-main.1653/
+venue_url: https://aclanthology.org/2025.emnlp-main.1653/
+pdf_url: https://aclanthology.org/2025.emnlp-main.1653.pdf
 search: true
-last_modified_at: 2026-01-31
+last_modified_at: 2026-08-04
 ---
 
 **Abstract.** Large Language Models (LLMs) are increasingly deployed across diverse domains but often exhibit disparities in how they handle real life queries. To systematically investigate these effects with various disability context, we introduce AccessEvaluation, a large-scale benchmark evaluating total 21 close & open source LLMs across six real-world domains and nine disability types using paired Neutral and Disability-Aware Queries. We evaluated model outputs with metrics for factual accuracy, sentiment, and social perception. Our analysis reveals that responses to disability-aware queries tend to have higher factual error, more negative tone, and increased stereotyping with social perception compared to neutral queries. These effects show notable variation by domain and disability type. Disabilities affecting hearing, speech and mobility are disproportionately impacted. These disparities reveal persistent forms of ableism, highlighting the need for more comprehensive and nuanced assessment. We further argue that framing bias in terms of model performance within real-world decision making helps to better link model behaviors to the potential harms users may face. This approach guides the development of more effective and tailored fairness interventions. AccessEvaluation, therefore, serves as a crucial tool for advancing equitable and inclusive language technologies.

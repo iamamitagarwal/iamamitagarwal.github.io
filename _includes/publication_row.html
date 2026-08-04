@@ -1,4 +1,5 @@
 {%- assign p = include.pub -%}
+{%- assign recognition = p.recognition | default: "" -%}
 
 {%- comment -%} Title link: prefer external paper_url; else internal details page {%- endcomment -%}
 {%- if p.paper_url -%}
@@ -113,8 +114,8 @@ Full authors remain available on the detail page and as a hover title here.
   {%- endif -%}
 {%- endif -%}
 
-<li class="pub-item" data-tags="{{ p.tags | join: ' ' }}">
-  <strong><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></strong>
+<li class="pub-item{% if recognition != "" %} pub-item--highlight{% endif %}" data-tags="{{ p.tags | join: ' ' }}">
+  <strong><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></strong>{% if recognition != "" %} <span class="pub-recognition pub-recognition--{{ p.recognition_type | default: 'highlight' }}">{{ recognition }}</span>{% endif %}
   <br/>
   <span class="pub-authors" title="{{ authors_full | escape_once }}">{{ authors_html }}</span>.
 

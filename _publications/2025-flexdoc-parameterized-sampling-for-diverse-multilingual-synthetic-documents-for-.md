@@ -3,7 +3,7 @@ layout: paper
 title: "FlexDoc: Parameterized Sampling for Diverse Multilingual Synthetic Documents for Training Document Understanding Models"
 authors: 'Karan Dua, Hitesh Laxmichand Patel, Puneet Mittal, Ranjeet Gupta, Amit Agarwal, Praneet Pabolu, Srikant Panda, Hansa Meghwani, Graham Horwood, Fahad Shah'
 year: 2025
-venue: EMNLP
+venue: EMNLP 2025 Industry Track
 tags:
 - Document-AI
 - Multilingual
@@ -14,6 +14,8 @@ keywords:
   - "ACL"
 
 paper_url: https://aclanthology.org/2025.emnlp-industry.105/
+venue_url: "https://aclanthology.org/2025.emnlp-industry.105/"
+pdf_url: "https://aclanthology.org/2025.emnlp-industry.105.pdf"
 search: true
 last_modified_at: 2026-01-31
 ---

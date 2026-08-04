@@ -3,7 +3,7 @@ layout: paper
 title: "Learning from Unknown for Open-Set Test-Time Adaptation"
 authors: "Taki Hasan Rafi, Amit Agarwal, Hitesh Laxmichand Patel, Dong-Kyu Chae"
 year: 2026
-venue: WACV
+venue: WACV 2026
 venue_url: "https://openaccess.thecvf.com/content/WACV2026/html/Rafi_Learning_from_Unknown_for_Open-Set_Test-Time_Adaptation_WACV_2026_paper.html"
 tags: ["Multimodal"]
 keywords:

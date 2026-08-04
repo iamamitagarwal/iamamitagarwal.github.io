@@ -5,7 +5,7 @@ authors: "Priyaranjan Pattnayak, Sanchari Chowdhuri, Amit Agarwal, Hitesh Laxmic
 year: 2025
 venue: AACL 2025
 venue_token: aacl
-venue_url: "https://aclanthology.org/2025.ijcnlp-main.19/"
+venue_url: "https://aclanthology.org/2025.ijcnlp-long.170/"
 tags:
   - Information-Retrieval
 keywords:
@@ -14,10 +14,10 @@ keywords:
   - "Conversation Analytics"
   - "AACL"
   - "ACL"
-paper_url: "https://doi.org/10.18653/v1/2025.ijcnlp-main.19"
-pdf_url: "https://aclanthology.org/2025.ijcnlp-main.19.pdf"
+paper_url: "https://aclanthology.org/2025.ijcnlp-long.170/"
+pdf_url: "https://aclanthology.org/2025.ijcnlp-long.170.pdf"
 search: true
-last_modified_at: 2026-06-21
+last_modified_at: 2026-08-04
 ---
 
 **Abstract.** This paper studies lifecycle-aware clustering for multi-turn customer support conversations with LLM guidance. The goal is to organize support interaction histories more effectively so downstream analysis and assistance systems can work over cleaner conversational structure.

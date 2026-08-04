@@ -2,14 +2,17 @@
 layout: paper
 title: "Survey of Large Multimodal Model Datasets, Application Categories and Taxonomy"
 authors: 'Priyaranjan Pattnayak, Hitesh Laxmichand Patel, Bhargava Kumar, Amit Agarwal, Ishan Banerjee, Srikant Panda, Tejaswini Kumar'
-year: 2024
-venue: arXiv
+year: 2026
+venue: CVR 2025
 tags:
 - Multimodal
 keywords:
   - "Multimodal"
-  - "arXiv"
-paper_url: https://arxiv.org/abs/2412.17759
+  - "CVR 2025"
+  - "Springer"
+paper_url: "https://link.springer.com/chapter/10.1007/978-3-032-14041-8_4"
+venue_url: "https://link.springer.com/chapter/10.1007/978-3-032-14041-8_4"
+arxiv_id: "2412.17759"
 search: true
 last_modified_at: 2026-01-31
 ---

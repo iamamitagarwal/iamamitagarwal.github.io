@@ -5,6 +5,11 @@ authors: "Guijin Son, Donghun Yang, Hitesh Laxmichand Patel, Hyunwoo Ko, Amit Ag
 year: 2026
 venue: ICML 2026
 venue_token: icml
+priority: 0
+highlight: true
+highlight_rank: 2
+recognition: "ICML 2026 Spotlight Paper"
+recognition_type: spotlight
 tags:
   - Evaluation
 keywords:
@@ -15,7 +20,7 @@ keywords:
 paper_url: "https://arxiv.org/abs/2602.06291"
 arxiv_id: "2602.06291"
 search: true
-last_modified_at: 2026-06-21
+last_modified_at: 2026-08-04
 ---
 
 **Abstract.** This work proposes an oracle-free evaluation method for research-level mathematics. Instead of relying on expert verification for every solution, it scores candidate solutions by measuring how useful they are as in-context exemplars for solving related, verifiable problems.

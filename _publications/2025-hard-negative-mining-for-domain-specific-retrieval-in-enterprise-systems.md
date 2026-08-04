@@ -3,7 +3,7 @@ layout: paper
 title: "Hard Negative Mining for Domain-Specific Retrieval in Enterprise Systems"
 authors: 'Hansa Meghwani, Amit Agarwal, Priyaranjan Pattnayak, Hitesh Laxmichand Patel, Srikant Panda'
 year: 2025
-venue: ACL
+venue: ACL 2025 Industry Track
 tags:
 - RAG
 - Information-Retrieval
@@ -12,6 +12,8 @@ keywords:
   - "Information-Retrieval"
   - "ACL"
 paper_url: https://aclanthology.org/2025.acl-industry.72/
+venue_url: "https://aclanthology.org/2025.acl-industry.72/"
+pdf_url: "https://aclanthology.org/2025.acl-industry.72.pdf"
 search: true
 last_modified_at: 2026-01-31
 ---
