@@ -11,6 +11,7 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 ---
 
 <style>
+  .page__content p, .page__content li{ text-align:left; }
   :root{
     --tile:#fff; --ink:#0b1320; --muted:#64748b; --rim:#e5e7eb; --rim-strong:#cbd5e1; --accent:#2d8fa2;
   }
@@ -21,7 +22,7 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
   #proj-filters{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0 1rem 0; }
   #proj-filters .btn{ font-weight:800; }
 
-  .proj-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:1rem; }
+  .proj-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap:1rem; }
 
   .proj-card{
     background:var(--tile); color:var(--ink);
@@ -71,6 +72,16 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 </style>
 
 <p>Projects span <strong>agentic AI systems</strong>, <strong>RAG</strong>, <strong>evaluation platforms</strong>, <strong>retrieval</strong>, and <strong>enterprise ML</strong> for GenAI products.</p>
+
+## Selected Work: Problems, Decisions, and Evidence
+
+My work connects research methods with architecture and evaluation. These stories explain my contribution, the results a study establishes, and the questions that remain when applying it to a product.
+
+- **[Enterprise Retrieval and Hard-Negative Mining](/projects/enterprise-retrieval/):** Co-first-author research on domain-specific ranking, its measured comparison, and the tradeoffs behind a retrieval system.
+- **[Knowledge Infrastructure for Grounded AI Agents](/projects/agentic-knowledge-systems/):** Technical direction across knowledge retrieval, access-aware grounding, and evaluation workflows.
+- **[Multimodal Evaluation and Metric Robustness](/projects/multimodal-evaluation/):** First-author work on visual reasoning and whether evaluation scores remain stable when meaning is preserved.
+
+## Project Portfolio
 
 {%- assign items = site.data.projects -%}
 {%- if items == nil or items == empty -%}

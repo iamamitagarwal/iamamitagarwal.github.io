@@ -9,14 +9,15 @@
   - Multimodal
   - Multilingual
   bullets:
-  - Led Applied Science for Oracle's GenAI Agentic Platform supporting RAG, NL2SQL,
-    Code Agents.
-  - Guided Content-Moderation and Responsible-AI for the plaform.
-  - Handled customer integration and feedback loops for continuous improvement.
-  - Led Agentic AI usecases Tech Support, Healthcare, SQL, SalesHelp, Education.
+  - Contributed technical direction across retrieval-augmented generation, NL2SQL,
+    and agentic workflows, connecting research questions with product requirements.
+  - Architected shared knowledge infrastructure combining knowledge graphs,
+    multimodal and multilingual retrieval, reranking, and access-aware grounding.
+  - Worked across science and engineering on evaluation criteria, integration,
+    and feedback workflows.
   links:
-  - label: Notes
-    url: https://substack.com/@reachsumit/p-164776541
+  - label: Knowledge and agents story
+    url: /projects/agentic-knowledge-systems/
 - title: Retrieval & Ranking for Agents
   company: Oracle Cloud Infrastructure
   role: Tech Lead
@@ -28,39 +29,46 @@
   - RAG
   - NL2SQL
   bullets:
-  - Improved quality and robustness of Agentic Platform for all Retrieval.
-  - Innovated Context-Aware ranking from Structured (SQL/Code) and Un-structured Sources
-    (Documents/Images/ Audio/Video).
-  - Trained in-house multimodal and multilingual embedding and ranking models.
-  links: []
+  - Co-first author of hard-negative mining research for domain-specific enterprise retrieval.
+  - The reported cloud-services test-set comparison achieved MRR@10 of 0.64
+    versus 0.57 for ADORE+STAR; this is a study result, not a production business metric.
+  - Technical work spans multimodal and multilingual retrieval, reranking,
+    and evidence selection for agentic applications.
+  links:
+  - label: Retrieval research story
+    url: /projects/enterprise-retrieval/
 - title: Responsible AI & Safety
   company: Oracle Cloud Infrastructure
-  role: Co-Lead
-  year: 2024-2025
+  role: Research and evaluation
+  year: 2024-2026
   tags:
   - Agents
   - Multilingual
   - Multimodal
   - Guardrails
   bullets:
-  - Led research for  Responsible AI practices for the Agentic Platform.
-  - Developed multilingual and multimodal content moderation models.
-  - Implemented safety guardrails and monitoring systems.
-  links: []
+  - Co-author of AccessEval, a study of disability bias in large language models
+    recognized with the EMNLP 2025 Social Impact Award.
+  - First-author research on multimodal evaluation examines visual reasoning
+    and sensitivity to changes that preserve meaning.
+  - Connect evaluation questions to model behavior and application requirements.
+  links:
+  - label: Evaluation research story
+    url: /projects/multimodal-evaluation/
 - title: Document AI
   company: Oracle Cloud Infrastructure, Jio Platforms
-  role: Senior Applied Scientist
+  role: Applied science and technical leadership
   year: 2020-2023
   tags:
   - Document-AI
   - Multilingual
   - Multimodal
   bullets:
-  - Led Applied Science for Document AI services in Oracle Cloud and Jio Platforms.
+  - Worked on document intelligence across Oracle Cloud Infrastructure and Jio Platforms.
   - 'Developed key capabilities: Document Understanding, Key-Value Extraction, Table
     Extraction, OCR'
-  - Built few-shot multilingual and multimodal models with low-latency.
-  - Established synthetic data generation pipelines to augment training
+  - Research contributions include graph models, low-data learning, and synthetic
+    document generation.
   links:
   - label: US Patent
     url: https://patents.google.com/patent/US11823478B2/en

@@ -13,6 +13,13 @@ sitemap: false
 {% endfor %}
 - [Home]({{ '/' | absolute_url }})
 
+## Project stories
+
+{% assign stories = site.pages | where: "project_story", true | sort: "title" %}
+{% for story in stories %}
+- [{{ story.title }}]({{ story.url | absolute_url }}) — {{ story.description }}
+{% endfor %}
+
 ## Selected research
 
 {% assign selected_papers = site.publications | where: "highlight", true | sort: "highlight_rank" %}

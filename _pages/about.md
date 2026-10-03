@@ -42,6 +42,12 @@ My current work focuses on **shared knowledge infrastructure, retrieval and agen
 
 My technical leadership combines architectural direction with hands-on implementation. I work across science and engineering to define evaluation criteria, investigate failure cases, and connect model behavior to product requirements.
 
+Explore the problems, decisions, and evidence behind this work:
+
+- [Enterprise retrieval: learning from hard negatives](/projects/enterprise-retrieval/) — what a domain-specific ranking study shows, and how I approach retrieval decisions.
+- [Knowledge infrastructure for grounded AI agents](/projects/agentic-knowledge-systems/) — connecting retrieval, permissions, and evaluation through technical leadership.
+- [Multimodal evaluation: understanding what a score measures](/projects/multimodal-evaluation/) — visual reasoning, metric robustness, and the limits of benchmark results.
+
 - **Knowledge and agents:** Architected shared knowledge infrastructure combining knowledge graphs, multimodal and multilingual retrieval, reranking, and access-aware grounding. My current work includes governed context delivery and streaming evaluation tooling.
 - **Multimodal delivery:** Co-owned multimodal RAG science for Oracle Fusion, contributing to an **image-to-text capability deployed to production in August 2025**.
 - **Document intelligence:** Delivered work across OCR, layout understanding, visual question answering, and key information extraction, alongside research on graph models and synthetic document data.

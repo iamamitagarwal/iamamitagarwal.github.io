@@ -153,3 +153,9 @@ html.theme-dark .research-highlight__recognition{ color:#cbd5e1; }
     display: none;
   }
 }
+
+/* Keep long-form project stories readable and clear of floating controls. */
+.project-story .page__content p,
+.project-story .page__content li{ text-align:left; }
+.project-story #wnxTab,
+.project-story #contactFab{ display:none; }
