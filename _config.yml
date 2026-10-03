@@ -1,14 +1,14 @@
 # --- Site identity ---
-title: "Amit Agarwal's site"   # REQUIRED by the theme/SEO
+title: "Amit Agarwal — Applied AI Research"
 logo: /images/logo.png                                    # keep text brand in header
-masthead_title: ""
+masthead_title: "Amit Agarwal"
 brand_sub: "Principal Applied Scientist, Oracle AI (OCI, Oracle) · ML/LLMs & cloud-scale systems"
 title_separator: " | "                      # change to " | " or "" if you insist
 locale: en
 timezone: America/Los_Angeles
 
 name: "Amit Agarwal"
-description: Principal Applied Scientist at Oracle AI (OCI, Oracle)
+description: "Amit Agarwal is a Principal Applied Scientist at Oracle Cloud Infrastructure, working on retrieval, agentic systems, multimodal AI, and evaluation."
 keywords:
   - "Amit Agarwal"
   - "Amit"
@@ -43,7 +43,8 @@ keywords:
 url: https://iamamitagarwal.github.io
 baseurl: ""
 
-remote_theme: mmistakes/minimal-mistakes@4.24.0
+# The same pinned 4.24.0 theme is installed by Gemfile for local and CI builds.
+theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: air
 
 search: true
@@ -69,10 +70,31 @@ permalink: /:categories/:title/
 include:
   - _pages
 
+# Development records and build output are not public profile content.
+exclude:
+  - AGENTS.md
+  - CLAUDE.md
+  - PROJECT_MEMORY.md
+  - README.md
+  - file.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - _site
+  - output
+  - .agent-notes
+  - .claude
+  - .codex
+  - .github
+  - .playwright-cli
+  - .jekyll-cache
+  - .jekyll-metadata
+
 plugins:
   - jekyll-include-cache
-  - jekyll-remote-theme
   - jekyll-sitemap
+  - jekyll-feed
 
 author:
   name: "Amit Agarwal"

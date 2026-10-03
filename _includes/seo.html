@@ -3,6 +3,7 @@
   {%- assign seo_url = site.url | append: site.baseurl -%}
 {%- endif -%}
 {%- assign seo_url = seo_url | default: site.github.url -%}
+{%- assign profile_job_title = site.author.bio | split: " at " | first | strip -%}
 
 {% assign title_separator = site.title_separator | default: '-' | replace: '|', '&#124;' %}
 
@@ -119,6 +120,10 @@
 
 <link rel="canonical" href="{{ canonical_url }}">
 
+{% if page.layout == "paper" %}
+  {% include publication_metadata.html mode="citation" %}
+{% endif %}
+
 {% if paginator.previous_page %}
   <link rel="prev" href="{{ paginator.previous_page_path | absolute_url }}">
 {% endif %}
@@ -135,12 +140,33 @@
       "logo": {{ site_og_image | jsonify }}{% endif %}
     {% else %}
       "@type": "Person",
+      "@id": {{ '/' | absolute_url | append: '#person' | jsonify }},
       "name": {{ site.social.name | default: site.name | jsonify }},
-      "url": {{ '/' | absolute_url |jsonify }}{% if site.social.links %},
+      "url": {{ '/' | absolute_url | jsonify }},
+      "jobTitle": {{ profile_job_title | jsonify }},
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Oracle Cloud Infrastructure",
+        "url": "https://www.oracle.com/cloud/"
+      },
+      "mainEntityOfPage": {{ '/' | absolute_url | jsonify }}{% if site.social.links %},
       "sameAs": {{ site.social.links | jsonify }}{% endif %}
     {% endif %}
   }
 </script>
+
+{% if page.url == "/" %}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": {{ canonical_url | append: "#profilepage" | jsonify }},
+    "url": {{ canonical_url | jsonify }},
+    "name": {{ site.social.name | default: site.name | jsonify }},
+    "mainEntity": {"@id": {{ '/' | absolute_url | append: '#person' | jsonify }}}
+  }
+</script>
+{% endif %}
 
 {% if site.google_site_verification %}
   <meta name="google-site-verification" content="{{ site.google_site_verification }}" />

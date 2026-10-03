@@ -7,7 +7,7 @@ venue: EMNLP 2025
 priority: 0
 highlight: true
 highlight_rank: 1
-recognition: "EMNLP 2025 Best Social Impact Paper Award"
+recognition: "EMNLP 2025 Social Impact Award"
 recognition_type: award
 home_highlight_title: "AccessEval"
 tags:

@@ -19,4 +19,6 @@ search: true
 last_modified_at: 2026-08-04
 ---
 
-**Abstract.** the available training data may be from general domains and models trained on this data may struggle to classify data from different target domains. Accordingly, improvements in training a model to label key-value labeled documents are desirable.
+**Summary.** VLMEvalKit is a PyTorch toolkit for evaluating large multimodal models through a shared workflow across models and benchmarks. It automates common evaluation steps and includes the OpenVLM Leaderboard for tracking research progress.
+
+[Publisher record, full abstract, and paper](https://doi.org/10.1145/3664647.3685520).

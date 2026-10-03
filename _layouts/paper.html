@@ -166,20 +166,20 @@ layout: single
 {%- else -%}
   {%- assign desc_trunc = desc_raw -%}
 {%- endif -%}
+{%- assign publication_date = "" -%}
+{%- if page.year -%}
+  {%- assign publication_date = page.year | append: "" -%}
+{%- elsif page.date -%}
+  {%- assign publication_date = page.date | date_to_xmlschema -%}
+{%- endif -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
   "headline": {{ page.title | jsonify }},
-  "datePublished": "{{ page.year | default: page.date | date: '%Y' }}",
-  {% if page.venue %}"publisher": {"@type": "Organization", "name": {{ page.venue | jsonify }}},{% endif %}
-  "url": "{{ page.url | absolute_url }}",
-  "description": {{ desc_trunc | jsonify }},
-  "author": [
-    {%- assign author_list = page.authors | split: "; " -%}
-    {%- for a in author_list -%}
-    {"@type": "Person", "name": {{ a | strip | jsonify }}}{% unless forloop.last %},{% endunless %}
-    {%- endfor -%}
-  ]
+  {% if publication_date != "" %}"datePublished": {{ publication_date | jsonify }},{% endif %}
+  "url": {{ page.url | absolute_url | jsonify }},
+  "description": {{ desc_trunc | jsonify }}{% if page.authors %},
+  "author": {% include publication_metadata.html mode="jsonld_authors" %}{% endif %}
 }
 </script>

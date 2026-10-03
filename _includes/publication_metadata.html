@@ -1,0 +1,66 @@
+{%- comment -%}
+  Shared publication author parsing and head metadata. Author front matter is a
+  comma-separated string; omit shorthand placeholders rather than inventing
+  names from an abbreviated list.
+{%- endcomment -%}
+{%- assign raw_authors = page.authors | default: "" | split: "," -%}
+{%- assign authors = "" | split: "" -%}
+{%- assign omitted_author_labels = "...|…|et al.|et al|and others|others" | split: "|" -%}
+{%- for raw_author in raw_authors -%}
+  {%- assign author_name = raw_author | strip -%}
+  {%- assign author_key = author_name | downcase -%}
+  {%- assign is_abbreviation = false -%}
+  {%- if author_key contains "et al" -%}
+    {%- assign is_abbreviation = true -%}
+  {%- endif -%}
+  {%- unless author_name == "" or omitted_author_labels contains author_key or is_abbreviation -%}
+    {%- assign authors = authors | push: author_name -%}
+  {%- endunless -%}
+{%- endfor -%}
+
+{%- if include.mode == "citation" -%}
+  {%- if page.title -%}
+<meta name="citation_title" content="{{ page.title | strip_html | escape_once }}">
+  {%- endif -%}
+  {%- for author in authors -%}
+<meta name="citation_author" content="{{ author | escape_once }}">
+  {%- endfor -%}
+  {%- assign citation_publication_date = "" -%}
+  {%- if page.year -%}
+    {%- assign citation_publication_date = page.year | append: "" -%}
+  {%- elsif page.date -%}
+    {%- assign citation_publication_date = page.date | date: "%Y/%m/%d" -%}
+  {%- endif -%}
+  {%- if citation_publication_date != "" -%}
+<meta name="citation_publication_date" content="{{ citation_publication_date | escape_once }}">
+  {%- endif -%}
+  {%- assign venue_key = page.venue | downcase -%}
+  {%- if page.venue and venue_key != "arxiv" and venue_key != "under review" and venue_key != "ljmu" -%}
+    {%- if venue_key contains "ijaiml" or venue_key contains "ijert" -%}
+      {%- assign journal_title = page.venue | remove: page.year | strip -%}
+<meta name="citation_journal_title" content="{{ journal_title | escape_once }}">
+    {%- else -%}
+<meta name="citation_conference_title" content="{{ page.venue | escape_once }}">
+    {%- endif -%}
+  {%- endif -%}
+  {%- if page.pdf_url -%}
+    {%- assign paper_directory_url = page.url | absolute_url -%}
+    {%- assign pdf_absolute_url = page.pdf_url | absolute_url -%}
+    {%- assign pdf_directory_prefix = pdf_absolute_url | slice: 0, paper_directory_url.size -%}
+    {%- if pdf_directory_prefix == paper_directory_url -%}
+<meta name="citation_pdf_url" content="{{ pdf_absolute_url | escape_once }}">
+    {%- endif -%}
+  {%- endif -%}
+{%- elsif include.mode == "jsonld_authors" -%}
+[
+  {%- for author in authors -%}
+    {%- assign author_key = author | downcase -%}
+    {%- if author_key == "amit agarwal" -%}
+  {"@type":"Person","@id":{{ '/' | absolute_url | append: '#person' | jsonify }},"name":{{ author | jsonify }}}
+    {%- else -%}
+  {"@type":"Person","name":{{ author | jsonify }}}
+    {%- endif -%}
+    {%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+]
+{%- endif -%}

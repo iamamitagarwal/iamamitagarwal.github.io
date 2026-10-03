@@ -1,0 +1,21 @@
+---
+layout: null
+sitemap: false
+---
+# {{ site.name | default: site.title }}
+
+{{ site.author.bio | default: site.description }}
+
+## Pages
+
+{% for item in site.data.navigation.main %}
+- [{{ item.title }}]({{ item.url | absolute_url }})
+{% endfor %}
+- [Home]({{ '/' | absolute_url }})
+
+## Selected research
+
+{% assign selected_papers = site.publications | where: "highlight", true | sort: "highlight_rank" %}
+{% for paper in selected_papers %}
+- [{{ paper.title }}]({{ paper.url | absolute_url }}){% if paper.recognition %} — {{ paper.recognition }}{% elsif paper.venue %} — {{ paper.venue }}{% endif %}{% if paper.paper_url %}; [Published paper]({{ paper.paper_url }}){% endif %}
+{% endfor %}

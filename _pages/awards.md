@@ -214,7 +214,7 @@ Awards come from the _awards collection. Front matter supported:
       </div>
 
       <div class="best-paper">
-        <h4>Best paper awards <span class="bp-chip">Social Impact</span></h4>
+        <h4>Paper recognition <span class="bp-chip">Social Impact</span></h4>
         {%- if site.data.best_papers and site.data.best_papers.size > 0 -%}
           {%- for bp in site.data.best_papers -%}
             <div class="bp-item">

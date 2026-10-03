@@ -1,6 +1,22 @@
 ---
+layout: null
+sitemap: false
 ---
+# Public research content is available to search crawlers and user-directed agents.
 User-agent: *
+Allow: /
+
+# Google Search, including its AI search features and scholarly discovery.
+User-agent: Googlebot
+Allow: /
+
+# ChatGPT search discovery is independent of GPTBot's training control.
+User-agent: OAI-SearchBot
+Allow: /
+
+# Preserve the existing allow-all policy for Gemini grounding and training.
+# Google-Extended is a product-control token, not a Google Search ranking signal.
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: {{ site.url | default: "https://iamamitagarwal.github.io" }}/sitemap.xml

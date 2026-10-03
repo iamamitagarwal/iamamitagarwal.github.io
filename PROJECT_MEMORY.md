@@ -4,6 +4,12 @@
 Personal website for Amit Agarwal built on Jekyll + Minimal Mistakes, optimized for consistent rendering across Chrome, Safari, desktop, and mobile.
 
 ## Current Focus / Recent Work
+- October 2, 2026 discoverability fixes: plain `robots.txt`; explicit Googlebot, OAI-SearchBot and Google-Extended allow rules preserving the prior allow-all policy; explicit `jekyll-feed`; build exclusions for operational documents and generated/scratch directories.
+- Local and production builds now use the existing Gemfile-pinned Minimal Mistakes 4.24.0 gem. The remote-theme download encountered a local certificate CRL error; certificate verification remains enabled. The theme version is unchanged.
+- Publication metadata shares comma-separated author normalization in `_includes/publication_metadata.html`. Numeric years are emitted directly, citation tags use separate authors, and conference names are no longer mislabeled as publishers. Home ProfilePage and Person share a stable `/#person` identity with the actual current title.
+- CV now has readable HTML and two labeled reviewed resume downloads. AccessEval's official paper recognition label is "EMNLP 2025 Social Impact Award", superseding the older wording below. VLMEvalKit's unrelated abstract was replaced by a labeled summary and publisher link; this is not a full abstract or an indexing guarantee.
+- Added a small data-driven `llms.txt` navigation aid; it is optional agent convenience, not a ranking promise or crawler policy. The blog feed retains the existing post collection.
+- A separate `codex/website-redesign-preview` worktree holds the proposed visual redesign for local review. It is not part of the immediate production changes.
 - Publications and patents were normalized: author display uses comma-separated “First Last” order, titles standardized, and ordering adjusted (priority for first-author papers).
 - Added/updated 2025–2026 publications (new files under `_publications/`) and corrected venues/URLs for specific papers.
 - “What’s next” content refreshed and reordered in `_data/whats_next.yml`.
@@ -34,6 +40,7 @@ Personal website for Amit Agarwal built on Jekyll + Minimal Mistakes, optimized 
 - Oracle-hosted media image requires referrer and fails with `no-referrer`; keep default referrer behavior for remote media images.
 
 ## Commands / Tests Run
+- October 2 production-config `JEKYLL_ENV=production bundle exec jekyll build --destination /private/tmp/amit-profile-production-20261002 --disable-disk-cache` passed using the documented conda Ruby invocation. Generated metadata for all 38 publications was inspected, feed/sitemap XML parsed, and listed development paths were absent. No automated tests added or run. Do not generate into the tracked local `_site` when reviewing this task.
 - `bundle exec jekyll build --config _config.yml,_config.local.yml` (passes; Sass deprecation warnings from theme).
 - `bundle exec jekyll serve --livereload --config _config.yml,_config.local.yml` used for local verification.
 - Playwright used for viewport checks on `/media/`.

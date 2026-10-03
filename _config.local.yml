@@ -2,3 +2,5 @@ theme: minimal-mistakes-jekyll
 remote_theme:
 plugins:
   - jekyll-include-cache
+  - jekyll-sitemap
+  - jekyll-feed

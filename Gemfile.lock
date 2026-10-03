@@ -114,6 +114,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.3)
+  jekyll-feed (~> 0.17)
   jekyll-include-cache
   jekyll-remote-theme
   jekyll-sitemap
