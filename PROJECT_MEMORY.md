@@ -4,6 +4,7 @@
 Personal website for Amit Agarwal built on Jekyll + Minimal Mistakes, optimized for consistent rendering across Chrome, Safari, desktop, and mobile.
 
 ## Current Focus / Recent Work
+- October 2 homepage content refresh in the existing layout: current title and career continuity, explicit technical leadership, bounded first/co-first-author research findings, science co-ownership of the Fusion image-to-text production contribution, and linked workshop organizing. Removed the opening quote, universal quality/safety assertions and unconfirmed IIIT credential. Hero, sidebar, navigation and existing recognition component remain in the current design; the separate visual redesign stays local.
 - October 2, 2026 discoverability fixes: plain `robots.txt`; explicit Googlebot, OAI-SearchBot and Google-Extended allow rules preserving the prior allow-all policy; explicit `jekyll-feed`; build exclusions for operational documents and generated/scratch directories.
 - Local and production builds now use the existing Gemfile-pinned Minimal Mistakes 4.24.0 gem. The remote-theme download encountered a local certificate CRL error; certificate verification remains enabled. The theme version is unchanged.
 - Publication metadata shares comma-separated author normalization in `_includes/publication_metadata.html`. Numeric years are emitted directly, citation tags use separate authors, and conference names are no longer mislabeled as publishers. Home ProfilePage and Person share a stable `/#person` identity with the actual current title.

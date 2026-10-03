@@ -1,10 +1,10 @@
 ---
 permalink: /
-title: "About me"
+title: "Applied AI Research & Technical Leadership"
 layout: single
 author_profile: true
 classes: wide
-description: "Principal Applied Scientist at Oracle AI (OCI, Oracle) focused on GenAI, retrieval, evaluation, and multilingual systems."
+description: "Amit Agarwal, Principal Applied Scientist at Oracle Cloud Infrastructure, connects retrieval, agentic AI, multimodal research, and evaluation with enterprise delivery."
 tags: ["About", "Profile", "GenAI", "Oracle AI", "Amit Agarwal"]
 keywords: ["Amit Agarwal", "Oracle AI", "OCI", "GenAI", "LLM", "RAG", "Evaluation", "Retrieval", "Multilingual", "Multimodal", "Agentic AI", "AI agents", "AI safety"]
 header:
@@ -17,11 +17,11 @@ header:
   overlay_filter: 0.40
 ---
 
-> *“If your actions inspire others to dream more, learn more, do more, and become more, you are a leader.”* — John Quincy Adams
+I’m **Amit Agarwal**, a **Principal Applied Scientist at Oracle Cloud Infrastructure**, with **10+ years in applied AI**. I lead technical work from research questions and model development through architecture, evaluation, and product integration. I joined OCI in 2021, following roles as Data Science Lead at Jio Platforms and Data Scientist at Abzooba.
 
-Hi - I’m **Amit Agarwal**, a **Principal Applied Scientist** at Oracle AI (OCI, Oracle) with over a decade of experience turning research into dependable production systems. I work where research meets product: GenAI systems backed by retrieval and ranking, shipped with evaluation and safety you can trust under real traffic. I care about the unglamorous bits as much as the shiny ones - clean data, honest metrics, simpler interfaces, and cost/latency that don’t surprise you at scale. I hold a **Master’s in Machine Learning & AI from Liverpool John Moores University (LJMU)**, and a PGD in ML & AI from IIIT Bangalore.
+My current work focuses on **shared knowledge infrastructure, retrieval and agentic systems, multimodal and multilingual AI, and evaluation harnesses**. I bring research and engineering teams together around clear problems, meaningful comparisons, and capabilities that can be reused across applications.
 
-Current focus areas include **agentic AI systems**, **retrieval-augmented generation (RAG)**, **multimodal** and **multilingual** reasoning, **evaluation & safety**, and **document AI**.
+[Research](/publications/) · [Projects](/projects/) · [CV and resumes](/cv/) · [Contact](mailto:amit.pinaki@gmail.com)
 
 ## Research Highlights
 {% assign highlighted_pubs = site.publications | where: "highlight", true | sort: "highlight_rank" %}
@@ -34,19 +34,22 @@ Current focus areas include **agentic AI systems**, **retrieval-augmented genera
   {% endfor %}
 </div>
 
-### What I’m focused on
-I’m pushing an **evaluation-first** approach to LLM features. Every surface - RAG, NL2SQL, document understanding, multilingual flows-ships with success criteria, targeted human review where it matters, and dashboards that make regressions obvious. On retrieval, I lean on **hybrid search + rerankers** that behave well in the wild, plus guardrails that reduce surprises without blocking velocity. For Document AI, I’ve spent time on **layout-aware models** and **synthetic data** that scale across messy, real-world documents.
+- **Enterprise retrieval:** Co-first author of [hard-negative mining research](/publications/2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems/) reporting **MRR@10 of 0.64 versus 0.57** for ADORE+STAR on a cloud-services test set (ACL 2025 Industry).
+- **Multilingual model development:** First author of [multilingual consistency research](/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/). In the reported study, batch-aligned preference optimization using ORPO achieved **74.9% average MGSM exact match versus 57.2%** for the Llama-3.1-70B baseline (EMNLP 2025 Industry).
+- **Evaluation quality:** First-author work on [image-text metric invariance](/publications/2026-do-image-text-metrics-respect-semantic-invariances/) examines how meaning-preserving changes can alter scores and system rankings, and proposes calibration to reduce that sensitivity (ACL 2026 Findings).
 
-### Why it matters
-A good system shouldn’t just ace a benchmark once; it should **stay healthy** as products evolve and edge cases appear. That’s why evaluation, robustness, and safety are first-class citizens in my work and why I publish and review: to turn lessons from production into patterns others can reuse.
+## From Research to Enterprise Systems
 
-> 🪂 **Off the clock:** I’m a **certified paraglider** and a **scuba diver**-two very fun ways to practice respecting complexity, preparing well, and staying calm when conditions shift.  
-> 🌏 Earlier, I worked with **AIESEC** across India and Thailand; I still **enjoy mentoring students** and teams building their first real systems.
-{: .notice--info .about-callout}
+My technical leadership combines architectural direction with hands-on implementation. I work across science and engineering to define evaluation criteria, investigate failure cases, and connect model behavior to product requirements.
 
-### Looking ahead
-I’m excited about **evaluation-native AI**-systems that surface their confidence and trade-offs by design and about making **multilingual** and **multimodal** experiences feel natural, not bolted on.
+- **Knowledge and agents:** Architected shared knowledge infrastructure combining knowledge graphs, multimodal and multilingual retrieval, reranking, and access-aware grounding. My current work includes governed context delivery and streaming evaluation tooling.
+- **Multimodal delivery:** Co-owned multimodal RAG science for Oracle Fusion, contributing to an **image-to-text capability deployed to production in August 2025**.
+- **Document intelligence:** Delivered work across OCR, layout understanding, visual question answering, and key information extraction, alongside research on graph models and synthetic document data.
 
----
+## Research Community and Background
 
-If any of this sparks ideas, **say hi** - I’m always up for swapping notes with builders and researchers. You’ll find ways to reach me in the sidebar.
+I contribute to workshop organizing for [GRAIL-V at CVPR 2026](https://grailworkshops.github.io/speakers/#workshop-organizers), [SURGeLLM at ACL 2026](https://surgellm.github.io/acl2026/organizers/), and [DocInsights at EMNLP 2026](https://docinsights-workshop.github.io/docinsights-2026/organizers/). I also mentor emerging researchers and practitioners and share work through [talks](/talks/) and open-source collaboration.
+
+I hold a **Master’s in Machine Learning & AI from Liverpool John Moores University**. Outside work, I enjoy paragliding and scuba diving.
+
+For research collaborations, technical leadership opportunities, or a conversation about applied AI, [get in touch](mailto:amit.pinaki@gmail.com). My [CV](/cv/) provides the broader career and publication context.
