@@ -1,4 +1,4 @@
-- title: GenAI Agentic Platform
+- title: Knowledge Infrastructure for AI Agents
   company: Oracle Cloud Infrastructure
   role: Principal Applied Scientist
   year: 2023-2025
@@ -6,52 +6,40 @@
   - Agents
   - RAG
   - NL2SQL
-  - Multimodal
-  - Multilingual
   bullets:
   - Contributed technical direction across retrieval-augmented generation, NL2SQL,
     and agentic workflows, connecting research questions with product requirements.
   - Architected shared knowledge infrastructure combining knowledge graphs,
     multimodal and multilingual retrieval, reranking, and access-aware grounding.
-  - Worked across science and engineering on evaluation criteria, integration,
-    and feedback workflows.
   links:
   - label: Knowledge and agents story
     url: /projects/agentic-knowledge-systems/
-- title: Retrieval & Ranking for Agents
+- title: Enterprise Retrieval & Ranking
   company: Oracle Cloud Infrastructure
   role: Tech Lead
   year: 2025
   tags:
-  - Multimodal
-  - Multilingual
-  - Agents
+  - Retrieval
   - RAG
-  - NL2SQL
   bullets:
   - Co-first author of hard-negative mining research for domain-specific enterprise retrieval.
   - The reported cloud-services test-set comparison achieved MRR@10 of 0.64
     versus 0.57 for ADORE+STAR; this is a study result, not a production business metric.
-  - Technical work spans multimodal and multilingual retrieval, reranking,
-    and evidence selection for agentic applications.
   links:
   - label: Retrieval research story
     url: /projects/enterprise-retrieval/
-- title: Responsible AI & Safety
+- title: Multimodal Evaluation & Responsible AI
   company: Oracle Cloud Infrastructure
   role: Research and evaluation
   year: 2024-2026
   tags:
-  - Agents
-  - Multilingual
+  - Evaluation
   - Multimodal
-  - Guardrails
   bullets:
   - Co-author of AccessEval, a study of disability bias in large language models
     recognized with the EMNLP 2025 Social Impact Award.
   - First-author research on multimodal evaluation examines visual reasoning
     and sensitivity to changes that preserve meaning.
-  - Connect evaluation questions to model behavior and application requirements.
   links:
   - label: Evaluation research story
     url: /projects/multimodal-evaluation/
@@ -64,7 +52,6 @@
   - Multilingual
   - Multimodal
   bullets:
-  - Worked on document intelligence across Oracle Cloud Infrastructure and Jio Platforms.
   - 'Developed key capabilities: Document Understanding, Key-Value Extraction, Table
     Extraction, OCR'
   - Research contributions include graph models, low-data learning, and synthetic

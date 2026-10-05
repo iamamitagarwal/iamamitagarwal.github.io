@@ -10,6 +10,8 @@ tags: ["Patents", "IP", "AI", "Document AI", "Information Extraction", "LLM"]
 keywords: ["Patents", "IP", "Document AI", "Information Extraction", "LLM", "Retrieval", "Enterprise AI"]
 ---
 
+Records are grouped by priority year. Linked records distinguish published applications from granted patents; grant dates are noted where updated.
+
 <style>
 /* Make dense lists a bit lighter */
 .pat-list li{ font-size:.93rem; line-height:1.33; }

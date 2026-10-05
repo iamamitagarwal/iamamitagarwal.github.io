@@ -18,7 +18,7 @@ keywords:
   - "Reasoning"
   - "Mathematical Reasoning"
   - "ICML"
-paper_url: "https://arxiv.org/abs/2602.06291"
+paper_url: "https://proceedings.mlr.press/v306/son26a.html"
 arxiv_id: "2602.06291"
 search: true
 last_modified_at: 2026-08-04

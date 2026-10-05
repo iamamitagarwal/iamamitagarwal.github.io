@@ -4,7 +4,7 @@ title: "Media"
 layout: single
 author_profile: true
 classes: wide
-description: "Press coverage, interviews, and media features related to my research and work."
+description: "Workshop organizing, press coverage, interviews, and media features related to my research and work."
 tags: ["Media", "Press", "AI"]
 keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
 ---
@@ -90,6 +90,12 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
   html.theme-dark .pill{ background:#0e2a31; color:#d7eef6; border-color:#2aaec4; }
   html.theme-dark .pill--pdf{ background:#2a1212; border-color:#f87171; color:#ffe2e2; }
 </style>
+
+## Workshop Organizing
+
+I serve on the organizing committees for [SURGeLLM at ACL 2026](https://surgellm.github.io/acl2026/organizers/) and [DocInsights at EMNLP 2026](https://docinsights-workshop.github.io/docinsights-2026/organizers/), alongside [GRAIL-V at CVPR 2026](https://grailworkshops.github.io/speakers/#workshop-organizers). These workshops bring together researchers working on structured data, document intelligence, and grounded multimodal reasoning.
+
+## Media Coverage and Workshop Materials
 
 {% assign pictures_dir = "/assets/media/pictures/" %}
 {% assign pdfs_dir     = "/assets/media/pdfs/" %}

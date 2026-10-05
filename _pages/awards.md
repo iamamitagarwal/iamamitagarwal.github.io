@@ -185,7 +185,7 @@ Counts:
 - Papers  = site.publications.size
 - Patents = site.patents.size
 - Talks   = total talks (per your request)
-Best-paper items come from _data/best_papers.yml entries: { title, venue, year, link, tags[] }.
+Paper recognition comes from highlighted publications and their recognition_type metadata.
 Awards come from the _awards collection. Front matter supported:
   title, year, org, icon: trophy|medal|star, certificate: /assets/awards/xxx.pdf, link:
 {%- endcomment -%}
@@ -214,35 +214,17 @@ Awards come from the _awards collection. Front matter supported:
       </div>
 
       <div class="best-paper">
-        <h4>Paper recognition <span class="bp-chip">Social Impact</span></h4>
-        {%- if site.data.best_papers and site.data.best_papers.size > 0 -%}
-          {%- for bp in site.data.best_papers -%}
-            <div class="bp-item">
-              <div class="bp-emoji">🏅</div>
-              <div class="bp-title">
-                <a href="{{ bp.link | relative_url }}" target="_blank" rel="noopener">{{ bp.title }}</a>
-                <span>— {{ bp.venue }} {{ bp.year }}</span>
-              </div>
+        <h4>Paper Recognition</h4>
+        {%- assign recognized_papers = site.publications | where: "highlight", true | sort: "highlight_rank" -%}
+        {%- for paper in recognized_papers -%}
+          <div class="bp-item">
+            <div class="bp-emoji" aria-hidden="true">{% if paper.recognition_type == "spotlight" %}⭐{% else %}🏅{% endif %}</div>
+            <div class="bp-title">
+              <a href="{{ paper.url | relative_url }}">{{ paper.title }}</a>
+              <span>{{ paper.recognition }}</span>
             </div>
-          {%- endfor -%}
-        {%- else -%}
-          {%- assign acc = nil -%}
-          {%- for p in site.publications -%}
-            {%- assign tl = p.title | downcase -%}
-            {%- if tl contains "accesseval" or tl contains "disability bias" -%}
-              {%- assign acc = p -%}{%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-          {%- if acc -%}
-            <div class="bp-item">
-              <div class="bp-emoji">🏅</div>
-              <div class="bp-title">
-                <a href="{{ acc.url | relative_url }}">{{ acc.title }}</a>
-                <span>— {{ acc.venue | default:"EMNLP" }} {{ acc.year | default:"2025" }}</span>
-              </div>
-            </div>
-          {%- endif -%}
-        {%- endif -%}
+          </div>
+        {%- endfor -%}
       </div>
     </div>
 

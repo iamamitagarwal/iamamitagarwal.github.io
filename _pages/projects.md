@@ -11,6 +11,7 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 ---
 
 <style>
+  #wnxTab, #contactFab { display:none; }
   .page__content p, .page__content li{ text-align:left; }
   :root{
     --tile:#fff; --ink:#0b1320; --muted:#64748b; --rim:#e5e7eb; --rim-strong:#cbd5e1; --accent:#2d8fa2;
@@ -34,7 +35,7 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
   .proj-card:hover{ transform:translateY(-1px); border-color:var(--rim-strong); }
 
   .proj-head{ display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; }
-  .proj-title{ font-size:1.05rem; font-weight:900; line-height:1.25; }
+  .proj-title{ margin:0; font-size:1.05rem; font-weight:900; line-height:1.25; }
 
   .proj-badges{ display:flex; gap:.4rem; flex-wrap:wrap; }
   .badge{
@@ -71,74 +72,68 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
   .proj-card, .proj-card li { font-size:.92rem; line-height:1.35; }
 </style>
 
-<p>Projects span <strong>agentic AI systems</strong>, <strong>RAG</strong>, <strong>evaluation platforms</strong>, <strong>retrieval</strong>, and <strong>enterprise ML</strong> for GenAI products.</p>
+<p>Selected work in enterprise retrieval, grounded AI agents, multimodal evaluation, and document intelligence. Each project links to its research story or supporting evidence.</p>
 
-## Selected Work: Problems, Decisions, and Evidence
+<h2 id="project-portfolio">Project Portfolio</h2>
 
-My work connects research methods with architecture and evaluation. These stories explain my contribution, the results a study establishes, and the questions that remain when applying it to a product.
-
-- **[Enterprise Retrieval and Hard-Negative Mining](/projects/enterprise-retrieval/):** Co-first-author research on domain-specific ranking, its measured comparison, and the tradeoffs behind a retrieval system.
-- **[Knowledge Infrastructure for Grounded AI Agents](/projects/agentic-knowledge-systems/):** Technical direction across knowledge retrieval, access-aware grounding, and evaluation workflows.
-- **[Multimodal Evaluation and Metric Robustness](/projects/multimodal-evaluation/):** First-author work on visual reasoning and whether evaluation scores remain stable when meaning is preserved.
-
-## Project Portfolio
-
-{%- assign items = site.data.projects -%}
-{%- if items == nil or items == empty -%}
+{% assign items = site.data.projects %}
+{% if items == nil or items == empty %}
 <div class="notice--info">
   Add projects to <code>_data/projects.yml</code> to populate this page.
 </div>
-{%- endif -%}
+{% endif %}
 
-{%- assign all_tags = "" | split: "" -%}
-{%- for p in items -%}
-  {%- for t in p.tags -%}
-    {%- assign tclean = t | strip -%}
-    {%- unless all_tags contains tclean -%}{%- assign all_tags = all_tags | push: tclean -%}{%- endunless -%}
-  {%- endfor -%}
-{%- endfor -%}
-{%- assign all_tags = all_tags | sort_natural -%}
+{% assign all_tags = "" | split: "" %}
+{% for p in items %}
+  {% for t in p.tags %}
+    {% assign tclean = t | strip %}
+    {% unless all_tags contains tclean %}{% assign all_tags = all_tags | push: tclean %}{% endunless %}
+  {% endfor %}
+{% endfor %}
+{% assign all_tags = all_tags | sort_natural %}
 
 <div id="proj-filters" markdown="0">
-  <button class="btn btn--primary" data-tag="all">All</button>
-  {%- for t in all_tags -%}<button class="btn" data-tag="{{ t | escape }}">{{ t }}</button>{%- endfor -%}
+  <button class="btn btn--primary" data-tag="all" aria-pressed="true">All</button>
+  {% for t in all_tags %}<button class="btn" data-tag="{{ t | escape }}" aria-pressed="false">{{ t }}</button>{% endfor %}
 </div>
 
-{%- assign sorted = site.data.projects | sort: "year" | reverse -%}
+{% assign sorted = site.data.projects | sort: "year" | reverse %}
 <div class="proj-grid" markdown="0">
-{%- for p in sorted -%}
+{% for p in sorted %}
   <article class="proj-card" data-tags="{{ p.tags | join: ' ' }}">
     <div class="proj-head">
-      <div class="proj-title">{{ p.title }}</div>
+      <h3 class="proj-title">{{ p.title }}</h3>
       <div class="proj-badges">
-        {%- if p.company -%}
-          {%- assign comps = p.company | replace:"/","|" | split:"|" -%}
-          {%- for comp in comps -%}
-            {%- assign clean = comp | strip -%}
-            {%- if clean != "" -%}<span class="badge badge--company">{{ clean }}</span>{%- endif -%}
-          {%- endfor -%}
-        {%- endif -%}
-        {%- if p.role -%}<span class="badge badge--role">{{ p.role }}</span>{%- endif -%}
-        {%- if p.year -%}<span class="badge badge--year">{{ p.year }}</span>{%- endif -%}
+        {% if p.company %}
+          {% assign comps = p.company | replace:"/","|" | split:"|" %}
+          {% for comp in comps %}
+            {% assign clean = comp | strip %}
+            {% if clean != "" %}<span class="badge badge--company">{{ clean }}</span>{% endif %}
+          {% endfor %}
+        {% endif %}
+        {% if p.role %}<span class="badge badge--role">{{ p.role }}</span>{% endif %}
+        {% if p.year %}<span class="badge badge--year">{{ p.year }}</span>{% endif %}
       </div>
     </div>
 
-    {%- if p.tags and p.tags.size > 0 -%}
-      <div class="tags">{%- for tg in p.tags -%}<span class="tag">{{ tg }}</span>{%- endfor -%}</div>
-    {%- endif -%}
+    {% if p.tags and p.tags.size > 0 %}
+      <div class="tags">{% for tg in p.tags %}<span class="tag">{{ tg }}</span>{% endfor %}</div>
+    {% endif %}
 
-    {%- if p.bullets and p.bullets.size > 0 -%}
-      <ul class="bullets">{%- for b in p.bullets -%}<li>{{ b }}</li>{%- endfor -%}</ul>
-    {%- endif -%}
+    {% if p.bullets and p.bullets.size > 0 %}
+      <ul class="bullets">{% for b in p.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+    {% endif %}
 
-    {%- if p.links and p.links.size > 0 -%}
+    {% if p.links and p.links.size > 0 %}
       <div class="links">
-        {%- for l in p.links -%}<a class="link-pill" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{%- endfor -%}
+        {% for l in p.links %}<a class="link-pill" href="{{ l.url }}">{{ l.label }}</a>{% endfor %}
       </div>
-    {%- endif -%}
+    {% endif %}
   </article>
-{%- endfor -%}
+{% endfor %}
 </div>
+
+<p>For collaboration or technical leadership opportunities, <a href="mailto:amit.pinaki@gmail.com">get in touch</a>.</p>
 
 <script>
 (function(){
@@ -149,8 +144,11 @@ My work connects research methods with architecture and evaluation. These storie
       const tags=(c.dataset.tags||'').split(/\s+/).filter(Boolean);
       c.style.display = (tag==='all'||tags.includes(tag)) ? '' : 'none';
     });
-    btns.forEach(b=>b.classList.remove('btn--primary'));
-    document.querySelector(`#proj-filters .btn[data-tag="${tag}"]`)?.classList.add('btn--primary');
+    btns.forEach(b=>{
+      const active = b.dataset.tag === tag;
+      b.classList.toggle('btn--primary', active);
+      b.setAttribute('aria-pressed', String(active));
+    });
   }
   btns.forEach(b=>b.addEventListener('click',()=>setActive(b.dataset.tag)));
 })();

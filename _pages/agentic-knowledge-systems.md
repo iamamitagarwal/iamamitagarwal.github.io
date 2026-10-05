@@ -12,7 +12,7 @@ An agent answering an enterprise question needs usable evidence: relevant inform
 
 ## My Role and Scope
 
-As a Principal Applied Scientist at Oracle Cloud Infrastructure, I work across research, architecture, evaluation, and product integration. My work includes architecting shared knowledge infrastructure combining knowledge graphs, multimodal and multilingual retrieval, reranking, and access-aware grounding. My [profile](/) and [CV and resumes](/cv/) describe this contribution and its career context.
+As a Principal Applied Scientist at Oracle Cloud Infrastructure, I work across research, architecture, evaluation, and product integration. My work includes architecting shared knowledge infrastructure combining knowledge graphs, multimodal and multilingual retrieval, reranking, and access-aware grounding. My [profile](/) and [CV](/cv/) describe this contribution and its career context.
 
 The following design principles illustrate how I reason about these systems. Their application depends on the task, available evidence, and deployment requirements.
 

@@ -159,3 +159,6 @@ html.theme-dark .research-highlight__recognition{ color:#cbd5e1; }
 .project-story .page__content li{ text-align:left; }
 .project-story #wnxTab,
 .project-story #contactFab{ display:none; }
+
+/* Keep the profile narrative easy to scan across viewport sizes. */
+.profile-overview .page__content p { text-align: left; }

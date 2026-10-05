@@ -3,7 +3,7 @@ permalink: /
 title: "Applied AI Research & Technical Leadership"
 layout: single
 author_profile: true
-classes: wide
+classes: wide profile-overview
 description: "Amit Agarwal, Principal Applied Scientist at Oracle Cloud Infrastructure, connects retrieval, agentic AI, multimodal research, and evaluation with enterprise delivery."
 tags: ["About", "Profile", "GenAI", "Oracle AI", "Amit Agarwal"]
 keywords: ["Amit Agarwal", "Oracle AI", "OCI", "GenAI", "LLM", "RAG", "Evaluation", "Retrieval", "Multilingual", "Multimodal", "Agentic AI", "AI agents", "AI safety"]
@@ -21,7 +21,7 @@ I’m **Amit Agarwal**, a **Principal Applied Scientist at Oracle Cloud Infrastr
 
 My current work focuses on **shared knowledge infrastructure, retrieval and agentic systems, multimodal and multilingual AI, and evaluation harnesses**. I bring research and engineering teams together around clear problems, meaningful comparisons, and capabilities that can be reused across applications.
 
-[Research](/publications/) · [Projects](/projects/) · [CV and resumes](/cv/) · [Contact](mailto:amit.pinaki@gmail.com)
+[Research](/publications/) · [Projects](/projects/) · [CV](/cv/) · [Contact](mailto:amit.pinaki@gmail.com)
 
 ## Research Highlights
 {% assign highlighted_pubs = site.publications | where: "highlight", true | sort: "highlight_rank" %}
@@ -34,23 +34,31 @@ My current work focuses on **shared knowledge infrastructure, retrieval and agen
   {% endfor %}
 </div>
 
-- **Enterprise retrieval:** Co-first author of [hard-negative mining research](/publications/2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems/) reporting **MRR@10 of 0.64 versus 0.57** for ADORE+STAR on a cloud-services test set (ACL 2025 Industry).
-- **Multilingual model development:** First author of [multilingual consistency research](/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/). In the reported study, batch-aligned preference optimization using ORPO achieved **74.9% average MGSM exact match versus 57.2%** for the Llama-3.1-70B baseline (EMNLP 2025 Industry).
-- **Evaluation quality:** First-author work on [image-text metric invariance](/publications/2026-do-image-text-metrics-respect-semantic-invariances/) examines how meaning-preserving changes can alter scores and system rankings, and proposes calibration to reduce that sensitivity (ACL 2026 Findings).
+## Research and Technical Leadership
 
-## From Research to Enterprise Systems
+I connect research with the systems that put it to work: framing problems, shaping architecture, building models, and defining evidence for product decisions. My work spans four connected areas.
 
-My technical leadership combines architectural direction with hands-on implementation. I work across science and engineering to define evaluation criteria, investigate failure cases, and connect model behavior to product requirements.
+### Retrieval & Agentic Systems
 
-Explore the problems, decisions, and evidence behind this work:
+I architect shared knowledge infrastructure for grounded AI applications, connecting retrieval, reranking, knowledge graphs, permissions, and agent evaluation. My research spans [hard-negative mining](/publications/2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems/), [conversational retrieval (RECOR)](/publications/2026-recor-reasoning-focused-multi-turn-conversational-retrieval-benchmark/), and [lifecycle-aware conversation clustering](/publications/2025-llm-guided-lifecycle-aware-clustering-of-multi-turn-customer-support-conversations/).
 
-- [Enterprise retrieval: learning from hard negatives](/projects/enterprise-retrieval/) — what a domain-specific ranking study shows, and how I approach retrieval decisions.
-- [Knowledge infrastructure for grounded AI agents](/projects/agentic-knowledge-systems/) — connecting retrieval, permissions, and evaluation through technical leadership.
-- [Multimodal evaluation: understanding what a score measures](/projects/multimodal-evaluation/) — visual reasoning, metric robustness, and the limits of benchmark results.
+[Read the systems perspective](/projects/agentic-knowledge-systems/).
 
-- **Knowledge and agents:** Architected shared knowledge infrastructure combining knowledge graphs, multimodal and multilingual retrieval, reranking, and access-aware grounding. My current work includes governed context delivery and streaming evaluation tooling.
-- **Multimodal delivery:** Co-owned multimodal RAG science for Oracle Fusion, contributing to an **image-to-text capability deployed to production in August 2025**.
-- **Document intelligence:** Delivered work across OCR, layout understanding, visual question answering, and key information extraction, alongside research on graph models and synthetic document data.
+### Multimodal AI
+
+I work on models that connect language, images, and context. This includes science co-ownership of multimodal RAG for Oracle Fusion, contributing to an image-to-text capability deployed in August 2025, and research on [context robustness (PCRI)](/publications/2025-pcri-measuring-context-robustness-in-multimodal-models-for-enterprise-applicatio/) and [culture mixing in vision-language models](/publications/2026-world-in-a-frame-understanding-culture-mixing-as-a-new-challenge-for-vision-language-models/).
+
+### Evaluation & Reliability
+
+I develop evaluation methods and harnesses that help teams understand model behavior and failure modes. Research includes [multimodal reasoning (RCI)](/publications/2025-rci-a-score-for-evaluating-global-and-local-reasoning-in-multimodal-benchmarks/), [semantic invariance of image-text metrics](/publications/2026-do-image-text-metrics-respect-semantic-invariances/), and the work on LLM judging and disability bias highlighted above.
+
+[Read the evaluation perspective](/projects/multimodal-evaluation/).
+
+### Document Intelligence
+
+My work spans OCR, layout understanding, visual question answering, and information extraction. I connect model development with reusable document capabilities, supported by research on [domain-adapting graph networks](/publications/2025-fs-dag-few-shot-domain-adapting-graph-networks-for-visually-rich-document-unders/) and [multilingual synthetic documents (FlexDoc)](/publications/2025-flexdoc-parameterized-sampling-for-diverse-multilingual-synthetic-documents-for-/).
+
+[Explore the project portfolio](/projects/) · [Browse all publications](/publications/) · [Patents](/patents/)
 
 ## Research Community and Background
 
