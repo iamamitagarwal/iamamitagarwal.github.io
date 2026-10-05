@@ -10,87 +10,29 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
 ---
 
 <style>
-  /* Masonry columns – auto-flow as you add media */
-  .masonry{ column-count:2; column-gap:1rem; }
-  @media (max-width:900px){  .masonry{ column-count:1; } }
-  .masonry-item{ break-inside:avoid; width:100%; margin:0 0 1rem; }
-
-  /* Parchment clipping */
-  .media-card{
-    position:relative;
-    border-radius:14px;
-    background:#fffaf1;
-    border:1px solid #e7dbc7;
-    box-shadow:0 10px 18px rgba(0,0,0,.07), 0 1px 3px rgba(0,0,0,.06);
-    overflow:hidden;
-    transform:rotate(-.18deg);
+  /* Explicit grid avoids browser-dependent multi-column figure fragmentation. */
+  .page__content .media-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.4rem; margin:0 0 1.4rem; }
+  .page__content .media-card{ display:flex; flex-direction:column; float:none; width:auto; min-width:0; margin:0; padding:0; overflow:hidden; background:#fff; border:1px solid #d4e0e8; border-radius:8px; }
+  .media-img{ background:#edf3f7; border-bottom:1px solid #d4e0e8; }
+  .media-img a{ display:block; }
+  .page__content .media-img img{ display:block; width:100%; height:clamp(240px,25vw,340px); margin:0; object-fit:contain; object-position:center; border:0; border-radius:0; }
+  .page__content .workshop-card .media-img img{ object-fit:contain; }
+  .page__content .media-title{ margin:0; padding:1rem 1rem .5rem; font-size:1rem; line-height:1.4; font-weight:700; border:0; color:#142e42; text-align:left; }
+  .media-foot{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:auto; padding:.4rem 1rem 1rem; }
+  .media-foot .pill{ display:inline-flex; align-items:center; gap:.35rem; padding:.35rem .65rem; border:1px solid #a8c6d7; border-radius:4px; background:transparent; color:#07567d; font-size:.75rem; font-weight:600; text-decoration:none; }
+  .media-foot .pill svg{ width:15px; height:15px; }
+  .media-foot .pill:hover{ background:#e9f5fb; }
+  .media-card a:focus-visible{ outline:3px solid #078cc9; outline-offset:-3px; }
+  #wnxTab, #contactFab{ display:none; }
+  html.theme-dark .media-card{ background:#152533; border-color:#3b5264; }
+  html.theme-dark .media-img{ background:#203441; border-color:#3b5264; }
+  html.theme-dark .media-title{ color:#f0f6fa; }
+  html.theme-dark .media-foot .pill{ color:#a9dfff; border-color:#537d96; }
+  html.theme-dark .media-foot .pill:hover{ background:#254256; }
+  @media(max-width:700px){
+    .page__content .media-grid{ grid-template-columns:minmax(0,1fr); gap:1rem; }
+    .page__content .media-img img{ height:auto; max-height:440px; object-fit:contain; }
   }
-  .media-card:nth-child(2n){ transform:rotate(.15deg) }
-  .media-card:nth-child(3n){ transform:rotate(-.08deg) }
-  .media-card::after{
-    content:""; position:absolute; inset:0; pointer-events:none;
-    background:
-      radial-gradient(1200px 600px at 8% -200px, rgba(0,0,0,.06), transparent 60%),
-      radial-gradient(900px 500px at 112% 120%, rgba(0,0,0,.05), transparent 55%);
-    mix-blend-mode:multiply; opacity:.5;
-  }
-
-  .media-img{
-    width:100%;
-    background:linear-gradient(180deg, #edf2f7 0%, #e5ebf3 100%);
-    padding:.7rem;
-    border-bottom:1px solid #d4dce8;
-  }
-  .media-img img{
-    display:block;
-    width:100%;
-    height:auto;
-    object-fit:contain;
-    border-radius:12px;
-    border:1.5px solid rgba(15,23,42,.34);
-    background:#fff;
-    box-shadow:
-      0 14px 28px rgba(15,23,42,.18),
-      0 0 0 1px rgba(15,23,42,.06);
-  }
-
-  /* Tape label – smaller and moved off the image (lower-left) */
-  .tape{
-    position:absolute; left:10px; bottom:64px;   /* sits above the footer */
-    transform:rotate(-2deg);
-    padding:.26rem .6rem;
-    background:#f7ecd5; color:#1f2937;
-    font-weight:800; font-size:.8rem;
-    border:1px solid #eadfca; border-radius:6px;
-    box-shadow:0 3px 8px rgba(0,0,0,.08);
-    max-width:80%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  }
-
-  .workshop-card .tape{ position:static; display:block; transform:none; margin:.6rem .7rem 0; max-width:none; white-space:normal; }
-
-  .media-foot{
-    display:flex; align-items:center; justify-content:flex-end;
-    gap:.45rem; padding:.5rem .6rem .65rem;
-    background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.05) 100%);
-  }
-  .pill{
-    display:inline-flex; align-items:center; gap:.4rem;
-    padding:.28rem .62rem; border-radius:999px;
-    font-weight:800; font-size:.8rem; letter-spacing:.01em;
-    border:1px solid #7aa6b1; color:#10343d; text-decoration:none;
-    background:#eef7f9; box-shadow:0 1px 0 rgba(255,255,255,.85) inset;
-  }
-  .pill svg{ width:15px; height:15px; }
-  .pill:hover{ background:#2d8fa2; color:#fff; border-color:#2d8fa2; }
-  .pill--pdf{ border-color:#d44; background:#fff1f1; color:#6b1010; }
-  .pill--pdf:hover{ background:#d44; color:#fff; }
-
-  html.theme-dark .media-card{ background:#0b1220; border-color:#1f2937; box-shadow:none; }
-  html.theme-dark .media-img{ background:#10192a; border-bottom-color:#1e293b; }
-  html.theme-dark .media-img img{ border-color:rgba(226,232,240,.2); background:#0b1220; box-shadow:0 18px 32px rgba(0,0,0,.65); }
-  html.theme-dark .tape{ background:#2a2b26; color:#f4f1e8; border-color:#3a3b33; }
-  html.theme-dark .pill{ background:#0e2a31; color:#d7eef6; border-color:#2aaec4; }
-  html.theme-dark .pill--pdf{ background:#2a1212; border-color:#f87171; color:#ffe2e2; }
 </style>
 
 {% assign pictures_dir = "/assets/media/pictures/" %}
@@ -104,7 +46,7 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
 
 {% assign media_groups = "featured,remaining" | split: "," %}
 {% for media_group in media_groups %}
-<div class="masonry">
+<div class="media-grid">
 {% if linkmap %}
   {% for pair in linkmap %}
     {% assign entry_key = pair[0] %}
@@ -116,12 +58,12 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
       {% assign site_link = entry.site | default: "" | strip %}
       {% assign entry_links = entry.links %}
       {% assign found_any = true %}
-      <figure class="masonry-item media-card{% if entry.image contains '/workshops/' %} workshop-card{% endif %}">
+      <figure class="media-card{% if entry.image contains '/workshops/' %} workshop-card{% endif %}">
         <div class="media-img">
           <a href="{{ entry.image }}" target="_blank" rel="noopener" aria-label="View full image: {{ display_title | escape }}"><img src="{{ entry.image }}" alt="{{ display_title | escape }}" loading="lazy"></a>
         </div>
 
-        <div class="tape" title="{{ display_title | escape }}">{{ display_title }}</div>
+        <h2 class="media-title">{{ display_title }}</h2>
 
         <div class="media-foot">
           {% if entry_links %}
@@ -218,13 +160,12 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
       {% assign display_title = title_override | default: base %}
       {% assign found_any = true %}
 
-      <figure class="masonry-item media-card">
+      <figure class="media-card">
         <div class="media-img">
-          <img src="{{ f.path | relative_url }}" alt="{{ display_title | escape }}" loading="lazy">
+          <a href="{{ f.path | relative_url }}" target="_blank" rel="noopener" aria-label="View full image: {{ display_title | escape }}"><img src="{{ f.path | relative_url }}" alt="{{ display_title | escape }}" loading="lazy"></a>
         </div>
 
-        <!-- small tape label, kept off the image -->
-        <div class="tape" title="{{ display_title | escape }}">{{ display_title }}</div>
+        <h2 class="media-title">{{ display_title }}</h2>
 
         <div class="media-foot">
           {% if pdf_hit %}

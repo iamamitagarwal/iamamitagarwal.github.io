@@ -3,7 +3,7 @@
 
 oracleai-beyond-perception-cvpr-2026:
   featured: true
-  title: "GRAIL-V@CVPR 2026 — Slides, Awards, Papers & Proceedings"
+  title: "GRAIL-V at CVPR 2026"
   site: "https://grailworkshops.github.io/"
   image: "/assets/media/pictures/000-OracleAI-Beyond-Perception-CVPR-2026.png"
   links:
@@ -13,7 +13,7 @@ oracleai-beyond-perception-cvpr-2026:
       url: "https://blogs.oracle.com/ai-and-datascience/beyond-perception-workshop-cvpr-2026"
 
 surgellm-2026-organizers:
-  title: "SURGeLLM · ACL 2026 — Organizing Committee"
+  title: "SURGeLLM at ACL 2026"
   site: "https://surgellm.github.io/acl2026/organizers/"
   image: "/assets/media/workshops/surgellm-2026-organizers.png"
   links:
@@ -21,7 +21,7 @@ surgellm-2026-organizers:
       url: "https://surgellm.github.io/acl2026/organizers/"
 
 docinsights-2026-organizers:
-  title: "DocInsights · EMNLP 2026 — Organizing Committee"
+  title: "DocInsights at EMNLP 2026"
   site: "https://docinsights-workshop.github.io/docinsights-2026/organizers/"
   image: "/assets/media/workshops/docinsights-2026-organizers.png"
   links:
