@@ -19,7 +19,7 @@ header:
 
 I’m **Amit Agarwal**, a **Principal Applied Scientist at Oracle Cloud Infrastructure**, with **10+ years in applied AI**. I lead technical work from research questions and model development through architecture, evaluation, and product integration. I joined OCI in 2021, following roles as Data Science Lead at Jio Platforms and Data Scientist at Abzooba.
 
-My current work focuses on **shared knowledge infrastructure, retrieval and agentic systems, multimodal and multilingual AI, and evaluation harnesses**. I bring research and engineering teams together around clear problems, meaningful comparisons, and capabilities that can be reused across applications.
+My current work focuses on **shared knowledge infrastructure, retrieval and agentic systems, multimodal and multilingual AI, and evaluation**. I shape research priorities and architecture, stay hands-on with models and evaluation harnesses, and bring science and engineering teams together to build reusable capabilities and guide product decisions.
 
 [Research](/publications/) · [Projects](/projects/) · [CV](/cv/) · [Contact](mailto:amit.pinaki@gmail.com)
 
