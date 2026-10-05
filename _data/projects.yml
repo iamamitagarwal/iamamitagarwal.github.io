@@ -1,4 +1,4 @@
-- title: AI Agents & Knowledge Infrastructure
+- title: Agents & Automation
   company: Oracle Cloud Infrastructure
   role: Principal Applied Scientist
   year: 2023-present
@@ -8,15 +8,13 @@
   - Multimodal
   bullets:
   - Work on support agents, ticket automation, and incident triage and resolution
-    workflows, connecting research questions with product requirements.
-  - Architected shared knowledge infrastructure combining knowledge graphs,
-    multimodal and multilingual retrieval, reranking, and access-aware grounding.
+    workflows for Oracle Support, connecting research questions with product requirements.
   - Current research directions include long-horizon tasks, multimodal agents,
     and agent memory.
   links:
   - label: Knowledge and agents story
     url: /projects/agentic-knowledge-systems/
-- title: Enterprise Retrieval & Ranking
+- title: Search & Knowledge Systems
   company: Oracle Cloud Infrastructure
   role: Tech Lead
   year: 2025
@@ -24,13 +22,15 @@
   - Retrieval
   - RAG
   bullets:
+  - Architected shared knowledge infrastructure combining multimodal and multilingual
+    retrieval, ranking, knowledge graphs, and access-aware grounding.
   - Co-first author of hard-negative mining research for domain-specific enterprise retrieval.
   - The reported cloud-services test-set comparison achieved MRR@10 of 0.64
     versus 0.57 for ADORE+STAR; this is a study result, not a production business metric.
   links:
   - label: Retrieval research story
     url: /projects/enterprise-retrieval/
-- title: Multimodal Evaluation & Responsible AI
+- title: Evaluation & Responsible AI
   company: Oracle Cloud Infrastructure
   role: Research and evaluation
   year: 2024-2026
@@ -45,17 +45,20 @@
   links:
   - label: Evaluation research story
     url: /projects/multimodal-evaluation/
-- title: Document AI
+- title: Multimodal & Document Intelligence
   company: Oracle Cloud Infrastructure, Jio Platforms
   role: Applied science and technical leadership
-  year: 2020-2023
+  year: 2020-present
   tags:
   - Document-AI
   - Multilingual
   - Multimodal
   bullets:
-  - 'Developed key capabilities: Document Understanding, Key-Value Extraction, Table
-    Extraction, OCR'
+  - Co-owned multimodal RAG science for Oracle Fusion, contributing to an image-to-text
+    capability deployed to production in August 2025.
+  - Developed document-understanding capabilities spanning OCR, key-value and table extraction.
+    Earlier at Jio Platforms, led computer-vision work including video analytics,
+    detection and tracking, and OCR-based document understanding.
   - Research contributions include graph models, low-data learning, and synthetic
     document generation.
   links:
