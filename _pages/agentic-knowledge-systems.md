@@ -1,20 +1,32 @@
 ---
 permalink: /projects/agentic-knowledge-systems/
-title: "Agentic Knowledge Systems: Making Evidence Usable"
+title: "Agentic Systems: From Evidence to Action"
 layout: single
 author_profile: true
 classes: wide project-story
 project_story: true
-description: "Amit Agarwal's approach to shared knowledge infrastructure, retrieval, reranking, access-aware grounding, and evaluation for enterprise agents."
+description: "Amit Agarwal's work on support agents, incident triage, shared knowledge infrastructure, and research directions in long-horizon tasks and multimodal memory."
 ---
 
-An agent answering an enterprise question needs usable evidence: relevant information, enough surrounding context to interpret it, and appropriate access to the source. My work on shared knowledge infrastructure brings these concerns together. The question guiding my architectural perspective is simple: **what must an agent know about its evidence before it can use it well?**
+An enterprise agent needs to connect evidence with useful action: understand a support request, gather context, choose a next step, and assess whether the task is progressing. My work spans support agents, ticket automation, incident triage and resolution workflows, and the shared knowledge infrastructure that grounds them.
 
 ## My Role and Scope
 
 As a Principal Applied Scientist at Oracle Cloud Infrastructure, I work across research, architecture, evaluation, and product integration. My work includes architecting shared knowledge infrastructure combining knowledge graphs, multimodal and multilingual retrieval, reranking, and access-aware grounding. My [profile](/) and [CV](/cv/) describe this contribution and its career context.
 
 The following design principles illustrate how I reason about these systems. Their application depends on the task, available evidence, and deployment requirements.
+
+## Support Workflows and Longer Tasks
+
+My current research directions include **long-horizon tasks, multimodal agents, and multimodal memory**. I am interested in how agents preserve relevant context across steps, combine text and visual evidence, and use tools while keeping their decisions inspectable. These are ongoing directions, with task-specific evaluation guiding development.
+
+For a support workflow, I ask three practical questions:
+
+- **Context:** What evidence and prior steps should the agent retain, and when should that context be refreshed?
+- **Action:** What can the agent do, what needs human review, and how does it recognize an unsuccessful step?
+- **Evaluation:** Did the workflow make useful progress toward resolution, and can we trace errors to evidence, reasoning, or tool use?
+
+These questions help connect research priorities with engineering decisions and product needs. They also separate a plausible answer from progress on a real task.
 
 ## From Search Results to Evidence
 

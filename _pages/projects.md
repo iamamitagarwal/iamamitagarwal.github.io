@@ -5,7 +5,7 @@ layout: single
 author_profile: true
 classes: wide
 search: true
-description: "Selected projects in GenAI, retrieval, evaluation platforms, and enterprise ML systems."
+description: "Selected work in AI agents, support workflows, retrieval, multimodal AI, and evaluation."
 tags: ["Projects", "GenAI", "ML Systems", "RAG", "Evaluation", "Retrieval"]
 keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agentic AI", "AI agents", "AI safety", "MLOps", "Enterprise AI"]
 ---
@@ -72,7 +72,7 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
   .proj-card, .proj-card li { font-size:.92rem; line-height:1.35; }
 </style>
 
-<p>Selected work in enterprise retrieval, grounded AI agents, multimodal evaluation, and document intelligence. Each project links to its research story or supporting evidence.</p>
+<p>Selected work in action-oriented AI agents, enterprise retrieval, multimodal evaluation, and document intelligence. Each project links to its research story or supporting evidence.</p>
 
 <h2 id="project-portfolio">Project Portfolio</h2>
 

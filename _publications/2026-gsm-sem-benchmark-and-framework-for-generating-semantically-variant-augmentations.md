@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: "GSM-SEM: Benchmark and Framework for Generating Semantically Variant Augmentations"
-authors: "Jyotika Singh, Fang Tu, Aziza Mirzadova, Amit Agarwal, Hitesh Laxmichand Patel, Sandip Ghoshal, Miguel Ballesteros, Yassine Benajiba, Weiyi Sun, Graham Horwood, Sujith Ravi, Dan Roth"
+authors: "Jyotika Singh, Fang Tu, Aziza Mirsaidova, Amit Agarwal, Hitesh Laxmichand Patel, Sandip Ghoshal, Miguel Ballesteros, Karan Dua, Yassine Benajiba, Weiyi Sun, Tao Sheng, Graham Horwood, Sujith Ravi, Dan Roth"
 year: 2026
 venue: arXiv
 venue_token: arxiv

@@ -30,6 +30,6 @@ I favor complementary views of quality: representative examples, controlled chan
 
 There is a practical tradeoff between richer evaluation and the time required to interpret it. I would prioritize checks capable of changing a decision: whether a model comparison is stable, whether a benchmark requires the capability we need, and whether the evaluator agrees with the intended notion of correctness. Calibration and diagnostic scores help investigate these questions; their value still depends on the use case.
 
-This perspective connects to [Enterprise Retrieval](/projects/enterprise-retrieval/) and [Agentic Knowledge Systems](/projects/agentic-knowledge-systems/), where evidence selection and answer evaluation shape the same end-to-end decision. More work is listed under [publications](/publications/).
+This perspective connects to [Enterprise Retrieval](/projects/enterprise-retrieval/) and [Agentic Systems: From Evidence to Action](/projects/agentic-knowledge-systems/), where evidence selection and answer evaluation shape the same end-to-end decision. More work is listed under [publications](/publications/).
 
 [Discuss this work](mailto:amit.pinaki@gmail.com).

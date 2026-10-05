@@ -30,6 +30,6 @@ The comparison supports the reported ranking improvement under the paper’s dat
 
 My practical takeaway is to connect model development to an explicit evaluation question: did the system learn to separate the relevant answer from a convincing distraction? That question remains useful when the surrounding application, model, or document collection changes.
 
-Continue with [Agentic Knowledge Systems](/projects/agentic-knowledge-systems/) and [Multimodal Evaluation](/projects/multimodal-evaluation/), or explore my [publications](/publications/).
+Continue with [Agentic Systems: From Evidence to Action](/projects/agentic-knowledge-systems/) and [Multimodal Evaluation](/projects/multimodal-evaluation/), or explore my [publications](/publications/).
 
 [Discuss this work](mailto:amit.pinaki@gmail.com).

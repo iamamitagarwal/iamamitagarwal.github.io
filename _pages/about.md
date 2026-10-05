@@ -4,7 +4,7 @@ title: "Applied AI Research & Technical Leadership"
 layout: single
 author_profile: true
 classes: wide profile-overview
-description: "Amit Agarwal, Principal Applied Scientist at Oracle Cloud Infrastructure, connects retrieval, agentic AI, multimodal research, and evaluation with enterprise delivery."
+description: "Amit Agarwal, Principal Applied Scientist at Oracle Cloud Infrastructure, connects action-oriented AI agents, retrieval, multimodal research, and evaluation with enterprise delivery."
 tags: ["About", "Profile", "GenAI", "Oracle AI", "Amit Agarwal"]
 keywords: ["Amit Agarwal", "Oracle AI", "OCI", "GenAI", "LLM", "RAG", "Evaluation", "Retrieval", "Multilingual", "Multimodal", "Agentic AI", "AI agents", "AI safety"]
 header:
@@ -19,7 +19,7 @@ header:
 
 I’m **Amit Agarwal**, a **Principal Applied Scientist at Oracle Cloud Infrastructure**, with **10+ years in applied AI**. I lead technical work from research questions and model development through architecture, evaluation, and product integration. I joined OCI in 2021, following roles as Data Science Lead at Jio Platforms and Data Scientist at Abzooba.
 
-My current work focuses on **shared knowledge infrastructure, retrieval and agentic systems, multimodal and multilingual AI, and evaluation**. I shape research priorities and architecture, stay hands-on with models and evaluation harnesses, and bring science and engineering teams together to build reusable capabilities and guide product decisions.
+My current work connects **action-oriented AI agents, shared knowledge infrastructure, multimodal and multilingual AI, and evaluation**. I shape research priorities and architecture, stay hands-on with models and evaluation harnesses, and bring science and engineering teams together to build reusable capabilities and guide product decisions.
 
 [Research](/publications/) · [Projects](/projects/) · [CV](/cv/) · [Contact](mailto:amit.pinaki@gmail.com)
 
@@ -38,9 +38,9 @@ My current work focuses on **shared knowledge infrastructure, retrieval and agen
 
 I connect research with the systems that put it to work: framing problems, shaping architecture, building models, and defining evidence for product decisions. My work spans four connected areas.
 
-### Retrieval & Agentic Systems
+### AI Agents & Knowledge Systems
 
-I architect shared knowledge infrastructure for grounded AI applications, connecting retrieval, reranking, knowledge graphs, permissions, and agent evaluation. My research spans [hard-negative mining](/publications/2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems/), [conversational retrieval (RECOR)](/publications/2026-recor-reasoning-focused-multi-turn-conversational-retrieval-benchmark/), and [lifecycle-aware conversation clustering](/publications/2025-llm-guided-lifecycle-aware-clustering-of-multi-turn-customer-support-conversations/).
+I work on support agents and ticket automation, including incident triage and resolution workflows. My current research directions include **long-horizon tasks, multimodal agents, and agent memory**. Shared knowledge infrastructure provides the grounding for this work through retrieval, reranking, knowledge graphs, and access-aware context. My research spans [hard-negative mining](/publications/2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems/), [conversational retrieval (RECOR)](/publications/2026-recor-reasoning-focused-multi-turn-conversational-retrieval-benchmark/), and [lifecycle-aware conversation clustering](/publications/2025-llm-guided-lifecycle-aware-clustering-of-multi-turn-customer-support-conversations/).
 
 [Read the systems perspective](/projects/agentic-knowledge-systems/).
 

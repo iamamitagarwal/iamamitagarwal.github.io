@@ -1,16 +1,18 @@
-- title: Knowledge Infrastructure for AI Agents
+- title: AI Agents & Knowledge Infrastructure
   company: Oracle Cloud Infrastructure
   role: Principal Applied Scientist
-  year: 2023-2025
+  year: 2023-present
   tags:
   - Agents
   - RAG
-  - NL2SQL
+  - Multimodal
   bullets:
-  - Contributed technical direction across retrieval-augmented generation, NL2SQL,
-    and agentic workflows, connecting research questions with product requirements.
+  - Work on support agents, ticket automation, and incident triage and resolution
+    workflows, connecting research questions with product requirements.
   - Architected shared knowledge infrastructure combining knowledge graphs,
     multimodal and multilingual retrieval, reranking, and access-aware grounding.
+  - Current research directions include long-horizon tasks, multimodal agents,
+    and agent memory.
   links:
   - label: Knowledge and agents story
     url: /projects/agentic-knowledge-systems/
