@@ -16,7 +16,7 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
   .page__content .media-card .media-img{ width:100%; max-width:none; flex:none; aspect-ratio:16 / 10; overflow:hidden; background:#edf3f7; border-bottom:1px solid #d4e0e8; }
   .page__content .media-card .media-img a{ display:block; float:none; width:100%; height:100%; max-width:none; margin:0; }
   .page__content .media-card .media-img a img{ display:block; width:100%; max-width:none; height:100%; margin:0; object-fit:cover; object-position:top; border:0; border-radius:0; }
-  .page__content .workshop-card .media-img{ aspect-ratio:1265 / 712; }
+  .page__content .media-card.workshop-card .media-img{ aspect-ratio:1265 / 712; }
   .page__content .workshop-card .media-img a img{ object-fit:contain; }
   .page__content .media-title{ margin:0; padding:1rem 1rem .5rem; font-size:1rem; line-height:1.4; font-weight:700; border:0; color:#142e42; text-align:left; }
   .media-foot{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:auto; padding:.4rem 1rem 1rem; }
