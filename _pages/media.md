@@ -13,10 +13,11 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
   /* Explicit grid avoids browser-dependent multi-column figure fragmentation. */
   .page__content .media-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.4rem; margin:0 0 1.4rem; }
   .page__content .media-card{ display:flex; flex-direction:column; float:none; width:auto; min-width:0; margin:0; padding:0; overflow:hidden; background:#fff; border:1px solid #d4e0e8; border-radius:8px; }
-  .media-img{ background:#edf3f7; border-bottom:1px solid #d4e0e8; }
-  .media-img a{ display:block; }
-  .page__content .media-img img{ display:block; width:100%; height:clamp(240px,25vw,340px); margin:0; object-fit:contain; object-position:center; border:0; border-radius:0; }
-  .page__content .workshop-card .media-img img{ object-fit:contain; }
+  .page__content .media-card .media-img{ width:100%; max-width:none; flex:none; aspect-ratio:16 / 10; overflow:hidden; background:#edf3f7; border-bottom:1px solid #d4e0e8; }
+  .page__content .media-card .media-img a{ display:block; float:none; width:100%; height:100%; max-width:none; margin:0; }
+  .page__content .media-card .media-img a img{ display:block; width:100%; max-width:none; height:100%; margin:0; object-fit:cover; object-position:top; border:0; border-radius:0; }
+  .page__content .workshop-card .media-img{ aspect-ratio:1265 / 712; }
+  .page__content .workshop-card .media-img a img{ object-fit:contain; }
   .page__content .media-title{ margin:0; padding:1rem 1rem .5rem; font-size:1rem; line-height:1.4; font-weight:700; border:0; color:#142e42; text-align:left; }
   .media-foot{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:auto; padding:.4rem 1rem 1rem; }
   .media-foot .pill{ display:inline-flex; align-items:center; gap:.35rem; padding:.35rem .65rem; border:1px solid #a8c6d7; border-radius:4px; background:transparent; color:#07567d; font-size:.75rem; font-weight:600; text-decoration:none; }
@@ -31,7 +32,7 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
   html.theme-dark .media-foot .pill:hover{ background:#254256; }
   @media(max-width:700px){
     .page__content .media-grid{ grid-template-columns:minmax(0,1fr); gap:1rem; }
-    .page__content .media-img img{ height:auto; max-height:440px; object-fit:contain; }
+
   }
 </style>
 

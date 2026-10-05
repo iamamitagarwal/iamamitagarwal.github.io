@@ -4,6 +4,7 @@
 Personal website for Amit Agarwal built on Jekyll + Minimal Mistakes, optimized for consistent rendering across Chrome, Safari, desktop, and mobile.
 
 ## Current Focus / Recent Work
+- October 5 image framing follow-up: theme figure anchors shrank portrait images to intrinsic aspect ratio despite full-width img rules. Explicitly size media image links to full width; use 16:10 top-aligned article previews and native-ratio committee screenshots, with original images on click.
 - October 5 Media redesign: replaced fragmented CSS columns and tape overlays with explicit two-column CSS Grid, reset figure geometry, readable full headings, consistent image previews and full-size links. GRAIL-V and Ahmedabad Mirror remain first; mobile stacks cards. Kept existing blue palette/type and added dark-mode/focus styles; removed floating widgets from Media.
 - October 5 media ordering: feature GRAIL-V first with Ahmedabad Mirror beside it in the desktop opening pair; keep remaining workshop/press masonry below. Mobile retains GRAIL-V then Ahmedabad Mirror. Preserve Mirror PDF and source links and suppress duplicate static-image rendering.
 - October 5 workshop media: replaced the organizing prose with two image cards using official SURGeLLM ACL 2026 and DocInsights EMNLP 2026 committee screenshots, captured October 5. Local assets in assets/media/workshops preserve source-page links and include Amit in each view.
