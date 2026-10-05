@@ -102,11 +102,15 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
 
 {% assign found_any = false %}
 
+{% assign media_groups = "featured,remaining" | split: "," %}
+{% for media_group in media_groups %}
 <div class="masonry">
 {% if linkmap %}
   {% for pair in linkmap %}
     {% assign entry_key = pair[0] %}
     {% assign entry = pair[1] %}
+    {% if media_group == "featured" and entry.featured != true %}{% continue %}{% endif %}
+    {% if media_group == "remaining" and entry.featured == true %}{% continue %}{% endif %}
     {% if entry.image %}
       {% assign display_title = entry.title | default: entry_key %}
       {% assign site_link = entry.site | default: "" | strip %}
@@ -144,6 +148,7 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
   {% endfor %}
 {% endif %}
 
+{% if media_group == "remaining" %}
 {% for f in site.static_files %}
   {% assign p = f.path | downcase %}
   {% if p contains pictures_dir %}
@@ -240,7 +245,9 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
     {% endif %}
   {% endif %}
 {% endfor %}
+{% endif %}
 </div>
+{% endfor %}
 
 {% unless found_any %}
 <p><em>No media found under <code>/assets/media/pictures/</code>. PDFs go in <code>/assets/media/pdfs/</code>. Add optional titles/links in <code>_data/media.yml</code>.</em></p>

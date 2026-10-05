@@ -1,6 +1,17 @@
 # _data/media.yml
 # Key can be the base name or a slug. Update `site:` with the real article URL.
 
+oracleai-beyond-perception-cvpr-2026:
+  featured: true
+  title: "GRAIL-V@CVPR 2026 — Slides, Awards, Papers & Proceedings"
+  site: "https://grailworkshops.github.io/"
+  image: "/assets/media/pictures/000-OracleAI-Beyond-Perception-CVPR-2026.png"
+  links:
+    - label: "Event"
+      url: "https://grailworkshops.github.io/"
+    - label: "Oracle Blog"
+      url: "https://blogs.oracle.com/ai-and-datascience/beyond-perception-workshop-cvpr-2026"
+
 surgellm-2026-organizers:
   title: "SURGeLLM · ACL 2026 — Organizing Committee"
   site: "https://surgellm.github.io/acl2026/organizers/"
@@ -17,18 +28,15 @@ docinsights-2026-organizers:
     - label: "Organizers"
       url: "https://docinsights-workshop.github.io/docinsights-2026/organizers/"
 
-oracleai-beyond-perception-cvpr-2026:
-  title: "GRAIL-V@CVPR 2026 — Slides, Awards, Papers & Proceedings"
-  site: "https://grailworkshops.github.io/"
-  image: "/assets/media/pictures/000-OracleAI-Beyond-Perception-CVPR-2026.png"
-  links:
-    - label: "Event"
-      url: "https://grailworkshops.github.io/"
-    - label: "Oracle Blog"
-      url: "https://blogs.oracle.com/ai-and-datascience/beyond-perception-workshop-cvpr-2026"
-
 ahmedabadmirror-ai-unleashed:
+  featured: true
   title: "Ahmedabad Mirror — AI Unleashed"
+  image: "/assets/media/pictures/AhmedabadMirror-AI Unleashed.png"
+  links:
+    - label: "PDF"
+      url: "/assets/media/pdfs/AhmedabadMirror-AI%20Unleashed.pdf"
+    - label: "Site"
+      url: "https://www.ahmedabadmirror.com/ai-unleashed-inside-the-world-of-generative-ai/81891343.html"
   site: "https://www.ahmedabadmirror.com/ai-unleashed-inside-the-world-of-generative-ai/81891343.html#goog_rewarded"
 
 Dainik Ajay Ujala-Amit -English:
