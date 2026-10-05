@@ -66,6 +66,8 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
     max-width:80%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
 
+  .workshop-card .tape{ position:static; display:block; transform:none; margin:.6rem .7rem 0; max-width:none; white-space:normal; }
+
   .media-foot{
     display:flex; align-items:center; justify-content:flex-end;
     gap:.45rem; padding:.5rem .6rem .65rem;
@@ -91,12 +93,6 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
   html.theme-dark .pill--pdf{ background:#2a1212; border-color:#f87171; color:#ffe2e2; }
 </style>
 
-## Workshop Organizing
-
-I serve on the organizing committees for [SURGeLLM at ACL 2026](https://surgellm.github.io/acl2026/organizers/) and [DocInsights at EMNLP 2026](https://docinsights-workshop.github.io/docinsights-2026/organizers/), alongside [GRAIL-V at CVPR 2026](https://grailworkshops.github.io/speakers/#workshop-organizers). These workshops bring together researchers working on structured data, document intelligence, and grounded multimodal reasoning.
-
-## Media Coverage and Workshop Materials
-
 {% assign pictures_dir = "/assets/media/pictures/" %}
 {% assign pdfs_dir     = "/assets/media/pdfs/" %}
 
@@ -116,9 +112,9 @@ I serve on the organizing committees for [SURGeLLM at ACL 2026](https://surgellm
       {% assign site_link = entry.site | default: "" | strip %}
       {% assign entry_links = entry.links %}
       {% assign found_any = true %}
-      <figure class="masonry-item media-card">
+      <figure class="masonry-item media-card{% if entry.image contains '/workshops/' %} workshop-card{% endif %}">
         <div class="media-img">
-          <img src="{{ entry.image }}" alt="{{ display_title | escape }}" loading="lazy">
+          <a href="{{ entry.image }}" target="_blank" rel="noopener" aria-label="View full image: {{ display_title | escape }}"><img src="{{ entry.image }}" alt="{{ display_title | escape }}" loading="lazy"></a>
         </div>
 
         <div class="tape" title="{{ display_title | escape }}">{{ display_title }}</div>

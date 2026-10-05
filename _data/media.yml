@@ -1,6 +1,22 @@
 # _data/media.yml
 # Key can be the base name or a slug. Update `site:` with the real article URL.
 
+surgellm-2026-organizers:
+  title: "SURGeLLM · ACL 2026 — Organizing Committee"
+  site: "https://surgellm.github.io/acl2026/organizers/"
+  image: "/assets/media/workshops/surgellm-2026-organizers.png"
+  links:
+    - label: "Organizers"
+      url: "https://surgellm.github.io/acl2026/organizers/"
+
+docinsights-2026-organizers:
+  title: "DocInsights · EMNLP 2026 — Organizing Committee"
+  site: "https://docinsights-workshop.github.io/docinsights-2026/organizers/"
+  image: "/assets/media/workshops/docinsights-2026-organizers.png"
+  links:
+    - label: "Organizers"
+      url: "https://docinsights-workshop.github.io/docinsights-2026/organizers/"
+
 oracleai-beyond-perception-cvpr-2026:
   title: "GRAIL-V@CVPR 2026 — Slides, Awards, Papers & Proceedings"
   site: "https://grailworkshops.github.io/"
