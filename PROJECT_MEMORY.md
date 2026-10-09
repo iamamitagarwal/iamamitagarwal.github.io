@@ -75,3 +75,5 @@ Personal website for Amit Agarwal built on Jekyll + Minimal Mistakes, optimized 
 ## Workflow Notes
 - Local setup uses conda env `jekyll` with Ruby 3.1 and `SDKROOT` set via `xcrun --show-sdk-path`.
 - Prefer changes in source files; `_site/` is generated and should remain untracked.
+
+October 9 resume venue correction: refreshed the neutral public V7A PDF from Overleaf ff01b53, removing NeurIPS workshop from the publication-venue summary. Research-service mention remains separate.
