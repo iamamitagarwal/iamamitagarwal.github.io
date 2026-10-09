@@ -12,9 +12,13 @@ An enterprise agent needs to connect evidence with useful action: understand a s
 
 ## My Role and Scope
 
-As a Principal Applied Scientist at Oracle Cloud Infrastructure, I work across research, architecture, evaluation, and product integration. My work includes architecting shared knowledge infrastructure combining knowledge graphs, multimodal and multilingual retrieval, reranking, and access-aware grounding. My [profile](/) and [CV](/cv/) describe this contribution and its career context.
+As a Senior Principal Applied Scientist at Oracle Cloud Infrastructure, I work across research, architecture, evaluation, and product integration. My work includes architecting shared knowledge infrastructure combining knowledge graphs, multimodal and multilingual retrieval, reranking, and access-aware grounding. My [profile](/) and [CV](/cv/) describe this contribution and its career context.
 
 The following design principles illustrate how I reason about these systems. Their application depends on the task, available evidence, and deployment requirements.
+
+## Personalized Leadership Coaching Pilot
+
+I developed a personalized leadership-coaching agent pilot combining assessment-driven plans, persistent memory, retrieval-grounded recommendations, role-play practice, and proactive nudges. This pilot brings personalization, context retention, and practice into a shared agent workflow.
 
 ## Support Workflows and Longer Tasks
 

@@ -1,6 +1,6 @@
 - title: Agents & Automation
   company: Oracle Cloud Infrastructure
-  role: Principal Applied Scientist
+  role: Applied science and technical leadership
   year: 2023-present
   tags:
   - Agents
@@ -9,8 +9,11 @@
   bullets:
   - Work on support agents, ticket automation, and incident triage and resolution
     workflows for Oracle Support, connecting research questions with product requirements.
-  - Current research directions include long-horizon tasks, multimodal agents,
-    and agent memory.
+  - Architect Agent Hub routing, skill/tool retrieval, and shared context and memory
+    for long-horizon tasks.
+  - Developed a personalized leadership-coaching agent pilot combining assessment-driven
+    plans, persistent memory, retrieval-grounded recommendations, role-play practice,
+    and proactive nudges.
   links:
   - label: Knowledge and agents story
     url: /projects/agentic-knowledge-systems/
@@ -22,6 +25,8 @@
   - Retrieval
   - RAG
   bullets:
+  - Built and grew applied-science teams delivering enterprise semantic layers, personalized
+    search and agents, and support automation.
   - Architected shared knowledge infrastructure combining multimodal and multilingual
     retrieval, ranking, knowledge graphs, and access-aware grounding.
   - Co-first author of hard-negative mining research for domain-specific enterprise retrieval.
@@ -54,8 +59,9 @@
   - Multilingual
   - Multimodal
   bullets:
-  - Co-owned multimodal RAG science for Oracle Fusion, contributing to an image-to-text
-    capability deployed to production in August 2025.
+  - Owned applied-science contributions to multimodal and agentic enablement of Oracle Fusion ERP
+    and Oracle AI Database 26ai, spanning multimodal RAG, embedding fusion, image understanding,
+    and text-to-image capabilities with product engineering.
   - Developed document-understanding capabilities spanning OCR, key-value and table extraction.
     Earlier at Jio Platforms, led computer-vision work including video analytics,
     detection and tracking, and OCR-based document understanding.

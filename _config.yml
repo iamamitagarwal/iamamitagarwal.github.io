@@ -2,13 +2,13 @@
 title: "Amit Agarwal — Applied AI Research"
 logo: /images/logo.png                                    # keep text brand in header
 masthead_title: "Amit Agarwal"
-brand_sub: "Principal Applied Scientist, Oracle AI (OCI, Oracle) · ML/LLMs & cloud-scale systems"
+brand_sub: "Senior Principal Applied Scientist, Oracle AI (OCI, Oracle) · ML/LLMs & cloud-scale systems"
 title_separator: " | "                      # change to " | " or "" if you insist
 locale: en
 timezone: America/Los_Angeles
 
 name: "Amit Agarwal"
-description: "Amit Agarwal is a Principal Applied Scientist at Oracle Cloud Infrastructure, working across AI agents, search and knowledge systems, multimodal and document intelligence, and evaluation."
+description: "Amit Agarwal is a Senior Principal Applied Scientist at Oracle Cloud Infrastructure, working across AI agents, search and knowledge systems, multimodal and document intelligence, and evaluation."
 keywords:
   - "Amit Agarwal"
   - "Amit"
@@ -100,7 +100,7 @@ plugins:
 author:
   name: "Amit Agarwal"
   avatar: "/images/profile.jpeg"
-  bio: "Principal Applied Scientist at Oracle AI (OCI, Oracle)."
+  bio: "Senior Principal Applied Scientist at Oracle AI (OCI, Oracle)."
   location: "Seattle, WA"
   links:
     - label: "Oracle Cloud Infrastructure"

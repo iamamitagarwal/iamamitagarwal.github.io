@@ -6,6 +6,8 @@ sitemap: false
 
 {{ site.author.bio | default: site.description }}
 
+Current work spans enterprise semantic layers, personalized search and agents, support automation, multimodal models, post-training, and evaluation. The leadership-coaching work described on the site is a pilot.
+
 ## Pages
 
 {% for item in site.data.navigation.main %}
