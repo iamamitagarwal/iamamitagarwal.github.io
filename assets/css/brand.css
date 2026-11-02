@@ -188,3 +188,12 @@ html.theme-dark .research-highlight__recognition{ color:#cbd5e1; }
   .author__avatar { width: 180px; height: 180px; }
 }
 .research-highlight__summary { margin: .5rem 0 0; font-size: .9em; line-height: 1.5; }
+
+/* Shared readable canvas and balanced desktop gutters. */
+html:not(.theme-dark) body,html:not(.theme-dark) .page__footer { background:#fff; }
+.page__content { font-size:1rem; line-height:1.7; }
+@media(min-width:1280px) { #main,.masthead__inner-wrap,.page__footer footer { max-width:1480px; padding-left:2rem; padding-right:2rem; } }
+.author__urls { font-size:.85rem; }
+
+html { scroll-padding-top:100px; }
+@media(max-width:1023px) { .author__urls-wrapper .author__urls { min-width:220px; right:0; } }

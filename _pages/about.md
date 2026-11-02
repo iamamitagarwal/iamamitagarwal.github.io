@@ -10,20 +10,7 @@ tags: ["About", "Profile", "GenAI", "Oracle AI", "Amit Agarwal"]
 keywords: ["Amit Agarwal", "Oracle AI", "OCI", "GenAI", "LLM", "RAG", "Evaluation", "Retrieval", "Multilingual", "Multimodal", "Agentic AI", "AI agents", "AI safety"]
 last_modified_at: 2026-11-02
 ---
-
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="header-inner">
-    <a class="wordmark" href="#main">Amit Agarwal</a>
-    <nav aria-label="Main navigation">
-      <a href="https://iamamitagarwal.github.io/publications/">Research</a>
-      <a href="https://iamamitagarwal.github.io/projects/">Projects</a>
-      <a href="https://iamamitagarwal.github.io/cv/">CV</a>
-      <a href="mailto:amit.pinaki@gmail.com">Contact</a>
-    </nav>
-  </div>
-</header>
-<main id="main">
+<div class="home-profile">
   <section class="intro" aria-labelledby="intro-heading">
     <div class="intro-copy">
       <h1 id="intro-heading">Amit Agarwal</h1>
@@ -32,7 +19,6 @@ last_modified_at: 2026-11-02
       <p class="intro-description">I build applied-science teams and lead research, architecture, evaluation, and product integration. With 10+ years across enterprise AI, I stay hands-on alongside science, engineering, and product teams.</p>
       <div class="intro-links"><a class="primary-link" href="https://iamamitagarwal.github.io/publications/">Explore my research</a><a href="https://iamamitagarwal.github.io/cv/">View CV</a></div>
     </div>
-    <figure class="portrait"><img src="/images/profile.jpeg" width="400" height="480" alt="Amit Agarwal" fetchpriority="high"></figure>
   </section>
 
   <section class="highlights" aria-labelledby="highlights-heading">
@@ -80,5 +66,5 @@ last_modified_at: 2026-11-02
   </section>
 
   <section class="contact-section" aria-labelledby="contact-heading"><div><h2 id="contact-heading">Let’s connect.</h2><p>Research collaborations, technical leadership, and conversations about applied AI.</p></div><a href="mailto:amit.pinaki@gmail.com">amit.pinaki@gmail.com</a></section>
-</main>
-<footer><span>Amit Agarwal</span><div><a href="https://iamamitagarwal.github.io/media/">Media</a><a href="https://iamamitagarwal.github.io/talks/">Talks</a><a href="https://iamamitagarwal.github.io/patents/">Patents</a></div><a href="/awards/">Awards</a><a href="https://scholar.google.com/citations?user=Mc9RC6QAAAAJ">Google Scholar</a><a href="https://www.linkedin.com/in/amitagarwal6/">LinkedIn</a></footer>
+
+</div>
