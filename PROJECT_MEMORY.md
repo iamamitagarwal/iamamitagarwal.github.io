@@ -86,3 +86,5 @@ Added generated `publications.json` and `llms-full.txt` from all 38 publication 
 ## November 2 — approved simplified homepage
 
 Integrated approved local demo as profile_home layout with dedicated CSS: no hero video, closer portrait, four concise research areas and expanded Fusion/Support/video/safety project examples. Maintained existing SEO include, canonical/Person/ProfilePage, Analytics and llms discovery; added footer access to Awards/Scholar/LinkedIn. All 38 publications and exports preserved. Production build to /private/tmp/amit-home-release, metadata/JSON/XML/link checks and responsive browser inspection passed; scoped independent review found no issue. Other pages retain existing layout.
+
+Approved follow-up: multimodal/post-training description explicitly includes supervised fine-tuning, preference optimization, reinforcement learning and agentic AI. User clarified “GenTech” as agentic AI. These are focus/expertise terms, not new measured training results.
