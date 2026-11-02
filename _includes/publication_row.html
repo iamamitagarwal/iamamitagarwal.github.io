@@ -115,7 +115,7 @@ Full authors remain available on the detail page and as a hover title here.
 {%- endif -%}
 
 <li class="pub-item{% if recognition != "" %} pub-item--highlight{% endif %}" data-tags="{{ p.tags | join: ' ' }}">
-  <strong><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></strong>{% if recognition != "" %} <span class="pub-recognition pub-recognition--{{ p.recognition_type | default: 'highlight' }}">{{ recognition }}</span>{% endif %}
+  <h3 class="publication-heading"><a class="pub-title" href="{{ title_link }}">{{ p.title }}</a></h3>{% if recognition != "" %} <span class="pub-recognition pub-recognition--{{ p.recognition_type | default: 'highlight' }}">{{ recognition }}</span>{% endif %}
   <br/>
   <span class="pub-authors" title="{{ authors_full | escape_once }}">{{ authors_html }}</span>.
 

@@ -40,7 +40,7 @@
     {%- assign is_preprint = true -%}
   {%- endif -%}
   {%- if page.venue and is_preprint == false and venue_key != "under review" and venue_key != "ljmu" -%}
-    {%- if venue_key contains "ijaiml" or venue_key contains "ijert" -%}
+    {%- if page.publication_type == "journal" or venue_key contains "ijaiml" or venue_key contains "ijert" -%}
       {%- assign journal_title = page.venue | remove: page.year | strip -%}
 <meta name="citation_journal_title" content="{{ journal_title | escape_once }}">
     {%- else -%}

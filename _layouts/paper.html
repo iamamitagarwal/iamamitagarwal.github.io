@@ -126,6 +126,15 @@ layout: single
 </div>
 {% endif %}
 
+<nav class="cross-links" aria-label="Research and applied work">
+  <h3>Research in practice</h3>
+  <p>Explore how my work connects research, architecture, and delivery across
+    <a href="{{ '/projects/agentic-knowledge-systems/' | relative_url }}">agents and reasoning</a>,
+    <a href="{{ '/projects/enterprise-retrieval/' | relative_url }}">search and retrieval</a>, and
+    <a href="{{ '/projects/multimodal-evaluation/' | relative_url }}">evaluation and responsible AI</a>.
+    See <a href="{{ '/cv/' | relative_url }}">my experience and CV</a> for technical leadership and applied-science work.</p>
+</nav>
+
 {%- comment -%} Related papers (tag-based matching, up to 5) {%- endcomment -%}
 {% if page.tags and page.tags.size > 0 %}
   {%- assign related = "" | split: "" -%}

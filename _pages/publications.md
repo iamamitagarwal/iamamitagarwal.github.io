@@ -186,7 +186,7 @@ Handles tags stored as arrays or strings (single or comma/space separated).
 
   {% if ordered.size > 0 %}
     <section class="year-block" data-year="{{ yr }}">
-      <h3 class="year-head">{{ yr }}</h3>
+      <h2 class="year-head">{{ yr }}</h2>
       <ul class="pub-list">
         {% for p in ordered %}
           {% include publication_row.html pub=p %}
@@ -256,3 +256,10 @@ Handles tags stored as arrays or strings (single or comma/space separated).
 
 
 [Download publication metadata (JSON)]({{ "/publications.json" | relative_url }}) · [Read the full research index (text)]({{ "/llms-full.txt" | relative_url }})
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"Research publications by Amit Agarwal","itemListElement":[
+{% assign catalog = site.publications | sort: 'year' | reverse %}{% for paper in catalog %}
+{"@type":"ListItem","position":{{ forloop.index }},"name":{{ paper.title | jsonify }},"url":{{ paper.url | absolute_url | jsonify }}}{% unless forloop.last %},{% endunless %}
+{% endfor %}]}
+</script>

@@ -3,6 +3,7 @@ layout: paper
 title: "Helpful or Harmful? A Token-Level Evaluation of LLM Responses to Accessibility-Oriented Educational Queries"
 authors: "Sharefah Al-Ghamdi, Hend Al-Khalifa, Shahad Al-Khalifa, Srikant Panda, Amit Agarwal, Hitesh Laxmichand Patel"
 year: 2026
+publication_type: journal
 venue: "Universal Access in the Information Society 25, Article 129"
 venue_url: "https://link.springer.com/article/10.1007/s10209-026-01387-8"
 tags: ["Responsible-AI", "Evaluation"]

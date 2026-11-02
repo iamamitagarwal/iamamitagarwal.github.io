@@ -206,3 +206,5 @@ html.theme-dark .page__content .pub-title,html.theme-dark .page__content .proj-t
 
 .cv-overview .page__content h2 { color:#245ca4; }
 html.theme-dark .cv-overview .page__content h2 { color:#7dd3fc; }
+
+.page__content .publication-heading { display:inline; font-size:1em; line-height:inherit; margin:0; padding:0; border:0; }
