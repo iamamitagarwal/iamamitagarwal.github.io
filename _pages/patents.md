@@ -13,9 +13,20 @@ keywords: ["Patents", "IP", "Document AI", "Information Extraction", "LLM", "Ret
 Records are grouped by priority year. Linked records distinguish published applications from granted patents; grant dates are noted where updated.
 
 <style>
-/* Make dense lists a bit lighter */
-.pat-list li{ font-size:1rem; line-height:1.55; }
-.year-head{ font-size:1.55rem; }
+/* Keep each record together without oversized gaps between years. */
+.page__content .patent-records .year-block{ margin:0; }
+.page__content .patent-records .year-head{
+  margin:1rem 0 .45rem;
+  font-size:1.35rem;
+}
+.page__content .pat-list{ margin:0; padding-left:1.1rem; }
+.page__content .pat-list .pat-item{
+  margin:0 0 .8rem;
+  padding:0;
+  font-size:1rem;
+  line-height:1.45;
+}
+.page__content .pat-item .link-pills{ margin:.25rem 0 0; }
 .pat-title{
   text-decoration:none;
   font-weight:600;
@@ -33,7 +44,7 @@ Records are grouped by priority year. Linked records distinguish published appli
 html.theme-dark .pat-badge{
   border:1px solid rgba(34,211,238,0.55);
   background:rgba(34,211,238,0.12);
-  color:#0b1220;
+  color:#b9e8ff;
 }
 </style>
 
@@ -86,7 +97,7 @@ Works whether `tags` is an array or a string (comma/space separated).
   {% endfor %}
 </div>
 
-<div markdown="0">
+<div class="patent-records" markdown="0">
 {% for yr in years %}
   {% assign in_year = pats | where: "year", yr %}
   {% if in_year.size > 0 %}

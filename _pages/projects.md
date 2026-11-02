@@ -5,6 +5,7 @@ layout: single
 author_profile: true
 classes: wide
 search: true
+last_modified_at: 2026-11-02
 description: "Selected enterprise AI work across agents and automation, search and knowledge systems, multimodal and document intelligence, and evaluation."
 tags: ["Projects", "GenAI", "ML Systems", "RAG", "Evaluation", "Retrieval"]
 keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agentic AI", "AI agents", "AI safety", "MLOps", "Enterprise AI"]

@@ -203,3 +203,6 @@ html { scroll-padding-top:100px; }
 html.theme-dark .page__content .pub-title,html.theme-dark .page__content .proj-title,html.theme-dark .page__content .talk-title a { color:#7dd3fc; }
 
 @media(max-width:700px) { #wnxTab,#contactFab { display:none; } }
+
+.cv-overview .page__content h2 { color:#245ca4; }
+html.theme-dark .cv-overview .page__content h2 { color:#7dd3fc; }

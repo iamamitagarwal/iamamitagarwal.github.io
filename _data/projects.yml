@@ -1,4 +1,4 @@
-- title: Agents & Automation
+- title: Agents & Reasoning
   company: Oracle Cloud Infrastructure
   role: Applied science and technical leadership
   year: 2023-present
@@ -17,7 +17,7 @@
   links:
   - label: Knowledge and agents story
     url: /projects/agentic-knowledge-systems/
-- title: Search & Knowledge Systems
+- title: Search & Retrieval
   company: Oracle Cloud Infrastructure
   role: Tech Lead
   year: 2025
@@ -45,12 +45,16 @@
   bullets:
   - Co-author of AccessEval, a study of disability bias in large language models
     recognized with the EMNLP 2025 Social Impact Award.
+  - Co-authored BenchHub on benchmark composition and model-ranking stability, and
+    Bias Before Disclosure on demographic assumptions in LLM assistants.
+  - Evaluate multilingual content moderation, safety, and consistency using controlled
+    comparisons and reproducible research benchmarks.
   - First-author research on multimodal evaluation examines visual reasoning
     and sensitivity to changes that preserve meaning.
   links:
   - label: Evaluation research story
     url: /projects/multimodal-evaluation/
-- title: Multimodal & Document Intelligence
+- title: Multimodal Models & Post-training
   company: Oracle Cloud Infrastructure, Jio Platforms
   role: Applied science and technical leadership
   year: 2020-present

@@ -8,6 +8,8 @@ sitemap: false
 
 Current work spans enterprise semantic layers, personalized search and agents, support automation, multimodal models, post-training, and evaluation. The leadership-coaching work described on the site is a pilot.
 
+Research areas: agents and reasoning; multimodal models and post-training; search and retrieval; evaluation and responsible AI.
+
 ## Pages
 
 {% for item in site.data.navigation.main %}

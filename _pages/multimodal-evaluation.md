@@ -1,10 +1,11 @@
 ---
 permalink: /projects/multimodal-evaluation/
-title: "Multimodal Evaluation: Testing What a Score Means"
+title: "Evaluation & Responsible AI"
 layout: single
 author_profile: true
 classes: wide project-story
 project_story: true
+last_modified_at: 2026-11-02
 description: "Amit Agarwal on first-author research into image-text metric invariance, global versus local reasoning, and reliable model comparisons."
 ---
 
@@ -21,6 +22,12 @@ Across curated slices of three detection datasets and three caption evaluation s
 I also first-authored [RCI: A Score for Evaluating Global and Local Reasoning in Multimodal Benchmarks](https://aclanthology.org/2025.emnlp-industry.10/), published at EMNLP 2025 Industry. The Region Comprehension Index compares reference-model performance using image patches and full images. Applied to **13 multimodal benchmarks**, the study found that most favored localized reasoning and exhibited spatial biases. RCI is a diagnostic tied to the models and benchmarks examined; it does not directly establish human-like understanding.
 
 Both projects are collaborative research. First authorship identifies my role in the published work; the experimental findings belong to the author teams.
+
+## Safety, Bias, and Benchmark Design
+
+My collaborative research also examines what evaluation misses. [AccessEval](/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/) studies disability bias, while [Bias Before Disclosure](/publications/2026-bias-before-disclosure-a-behavioral-audit-of-llm-assistants-under-user-identity-uncertainty/) audits demographic assumptions when users provide no identity information. [BenchHub](/publications/2025-benchhub-a-unified-benchmark-suite-for-holistic-and-customizable-llm-evaluation/) examines how benchmark composition affects comparisons and model rankings.
+
+Together, these studies motivate complementary checks for task quality, safety, bias, consistency, and evaluator reliability. In agent workflows, that means examining task completion and tool use alongside the quality of the final response, with clear failure categories and human review where judgments are sensitive.
 
 ## How I Use These Questions
 

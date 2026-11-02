@@ -35,3 +35,7 @@ html.theme-dark .home-profile .recognition,html.theme-dark .home-profile .role {
 .home-profile h3 a { color:#245ca4; font-weight:700; text-decoration:none; }
 .home-profile h3 a:hover { text-decoration:underline; }
 html.theme-dark .home-profile h3 a { color:#7dd3fc; }
+
+.home-profile .intro-links { flex-wrap:wrap; }
+.home-profile .experience-list strong { color:#245ca4; }
+html.theme-dark .home-profile .experience-list strong { color:#7dd3fc; }

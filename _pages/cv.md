@@ -1,8 +1,9 @@
 ---
 permalink: /cv/
 title: "CV"
-classes: wide
+classes: wide cv-overview
 search: true
+last_modified_at: 2026-11-02
 description: "Curriculum vitae and downloadable resume for Amit Agarwal."
 tags: ["CV", "Resume", "Amit Agarwal"]
 keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
