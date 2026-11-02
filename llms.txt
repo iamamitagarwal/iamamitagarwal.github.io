@@ -28,3 +28,9 @@ Current work spans enterprise semantic layers, personalized search and agents, s
 {% for paper in selected_papers %}
 - [{{ paper.title }}]({{ paper.url | absolute_url }}){% if paper.recognition %} — {{ paper.recognition }}{% elsif paper.venue %} — {{ paper.venue }}{% endif %}{% if paper.paper_url %}; [Published paper]({{ paper.paper_url }}){% endif %}
 {% endfor %}
+
+## Complete machine-readable records
+
+- [Full research and workshop text]({{ '/llms-full.txt' | absolute_url }}) — publication records, abstracts or labeled summaries, topics, version notes, and workshop roles.
+- [Publications JSON]({{ '/publications.json' | absolute_url }}) — metadata generated from the publication collection, with preprints distinguished by recorded venue.
+- [Workshops JSON]({{ '/workshops.json' | absolute_url }}) — public workshop records and author-reported roles; unknown dates omitted.

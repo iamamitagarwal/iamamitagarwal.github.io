@@ -145,6 +145,7 @@
       "@id": {{ '/' | absolute_url | append: '#person' | jsonify }},
       "name": {{ site.social.name | default: site.name | jsonify }},
       "url": {{ '/' | absolute_url | jsonify }},
+      "image": {{ site.author.avatar | absolute_url | jsonify }},
       "jobTitle": {{ profile_job_title | jsonify }},
       "worksFor": {
         "@type": "Organization",

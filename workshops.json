@@ -1,0 +1,10 @@
+---
+layout: null
+permalink: /workshops.json
+sitemap: false
+---
+{
+  "schema_version": 1,
+  "description": "Workshop records from this site's public About, Media and Talks pages. Unknown dates are omitted; roles are author-reported.",
+  "workshops": {{ site.data.workshops | jsonify }}
+}

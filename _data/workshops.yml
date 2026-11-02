@@ -1,0 +1,30 @@
+# Existing public site records: _pages/about.md, _data/media.yml and _talks/2026-cvpr-grail-v.md.
+# Unknown dates are omitted. Roles are author-reported, as on the public About page.
+- title: "GRAIL-V at CVPR 2026"
+  name: "GRAIL-V"
+  venue: "CVPR 2026"
+  year: 2026
+  date: "2026-06-03"
+  role: "Lead workshop organizer"
+  role_source: "Author-reported on the public About page"
+  url: "https://grailworkshops.github.io/"
+  organizers_url: "https://grailworkshops.github.io/speakers/#workshop-organizers"
+  source_paths: ["/", "/media/", "/talks/2026-cvpr-grail-v/"]
+- title: "SURGeLLM at ACL 2026"
+  name: "SURGeLLM"
+  venue: "ACL 2026"
+  year: 2026
+  role: "Lead workshop organizer"
+  role_source: "Author-reported on the public About page"
+  url: "https://surgellm.github.io/acl2026/organizers/"
+  organizers_url: "https://surgellm.github.io/acl2026/organizers/"
+  source_paths: ["/", "/media/"]
+- title: "DocInsights at EMNLP 2026"
+  name: "DocInsights"
+  venue: "EMNLP 2026"
+  year: 2026
+  role: "Lead workshop organizer"
+  role_source: "Author-reported on the public About page"
+  url: "https://docinsights-workshop.github.io/docinsights-2026/organizers/"
+  organizers_url: "https://docinsights-workshop.github.io/docinsights-2026/organizers/"
+  source_paths: ["/", "/media/"]

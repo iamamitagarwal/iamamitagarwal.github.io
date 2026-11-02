@@ -1,0 +1,42 @@
+---
+layout: null
+permalink: /llms-full.txt
+sitemap: false
+---
+# {{ site.name | default: site.title }} — Research and workshops
+
+{{ site.author.bio | default: site.description }}
+
+This export reproduces this site's publication records, including labeled summaries and version notes. Research results describe papers and do not establish the author's individual contribution or product deployment. Preprint classification follows the recorded venue, not the paper-link domain. Workshop roles are author-reported. Unknown workshop dates are omitted.
+
+Navigation: {{ '/llms.txt' | absolute_url }}
+Structured publications: {{ '/publications.json' | absolute_url }}
+Structured workshops: {{ '/workshops.json' | absolute_url }}
+
+## Publications
+{% assign papers = site.publications | sort: 'title' | sort: 'year' | reverse %}
+{% for paper in papers %}
+### {{ paper.title }}
+Authors: {{ paper.authors }}
+Year: {{ paper.year }}
+Venue: {{ paper.venue }}
+{% assign venue_key = paper.venue | downcase %}{% if venue_key contains 'arxiv' or paper.venue_token == 'arxiv' %}Status: Preprint
+{% elsif venue_key == 'under review' %}Status: Under review
+{% endif %}Topics: {{ paper.tags | join: ', ' }}
+Keywords: {{ paper.keywords | join: ', ' }}
+Record: {{ paper.url | absolute_url }}
+{% if paper.paper_url %}Paper: {{ paper.paper_url }}
+{% endif %}{% if paper.pdf_url %}PDF: {{ paper.pdf_url }}
+{% endif %}{% if paper.recognition %}Recognition: {{ paper.recognition }}
+{% endif %}
+{{ paper.content | markdownify | strip_html | replace: '&amp;', '&' | strip }}
+{% endfor %}
+## Workshops
+{% for workshop in site.data.workshops %}
+### {{ workshop.title }}
+Role: {{ workshop.role }} ({{ workshop.role_source }})
+Year: {{ workshop.year }}
+{% if workshop.date %}Date: {{ workshop.date }}
+{% endif %}Website: {{ workshop.url }}
+Organizers: {{ workshop.organizers_url }}
+{% endfor %}

@@ -253,3 +253,6 @@ Handles tags stored as arrays or strings (single or comma/space separated).
     updateYears();
   })();
 </script>
+
+
+[Download publication metadata (JSON)]({{ "/publications.json" | relative_url }}) · [Read the full research index (text)]({{ "/llms-full.txt" | relative_url }})

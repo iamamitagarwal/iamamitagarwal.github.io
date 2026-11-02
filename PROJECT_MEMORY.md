@@ -78,3 +78,7 @@ Personal website for Amit Agarwal built on Jekyll + Minimal Mistakes, optimized 
 - Prefer changes in source files; `_site/` is generated and should remain untracked.
 
 October 9 resume venue correction: refreshed the neutral public V7A PDF from Overleaf ff01b53, removing NeurIPS workshop from the publication-venue summary. Research-service mention remains separate.
+
+## November 2 — machine-readable research exports
+
+Added generated `publications.json` and `llms-full.txt` from all 38 publication records, retaining full authors, topics, source URLs, abstracts/version notes and preprint distinctions. `workshops.json` uses three public workshop records in `_data/workshops.yml`; unknown dates are omitted. `llms.txt` and Publications link to exports; page heads advertise llms.txt. Person metadata now includes the existing portrait. No keyword aliases or authors invented. These are discovery aids, not indexing or Knowledge Panel guarantees. GitHub profile website field was observed empty; cross-account edits deferred. Google Analytics already exists in head/custom.html.
