@@ -31,3 +31,7 @@
 html.theme-dark .home-profile { --home-pale:#182838; --home-line:#384859; --home-muted:#cbd5e1; }
 html.theme-dark .home-profile .recognition,html.theme-dark .home-profile .role { color:#7dd3fc; }
 @media(max-width:700px) { .home-profile .highlight-grid,.home-profile .research-grid,.home-profile .experience-list { grid-template-columns:1fr; } .home-profile .section-heading { align-items:start; flex-direction:column; } .home-profile h1 { font-size:1.8rem; } }
+
+.home-profile h3 a { color:#245ca4; font-weight:700; text-decoration:none; }
+.home-profile h3 a:hover { text-decoration:underline; }
+html.theme-dark .home-profile h3 a { color:#7dd3fc; }

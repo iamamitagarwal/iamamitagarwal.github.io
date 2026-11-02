@@ -12,7 +12,7 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
 
 <style>
 /* Slightly smaller list typography so dense years feel lighter */
-  .pub-list li{ font-size:.93rem; line-height:1.33; }
+  .pub-list li{ font-size:1rem; line-height:1.55; }
 .year-head{ font-size:1.55rem; }
 
 /* Venue badge */

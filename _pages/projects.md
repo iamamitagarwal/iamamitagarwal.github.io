@@ -69,7 +69,7 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
   }
   .link-pill:hover{ background:var(--accent); color:#fff; }
 
-  .proj-card, .proj-card li { font-size:.92rem; line-height:1.35; }
+  .proj-card, .proj-card li { font-size:1rem; line-height:1.55; }
 </style>
 
 <p>Selected work across agents and automation, search and knowledge systems, multimodal and document intelligence, and evaluation and responsible AI. The examples connect hands-on research with reusable capabilities and cross-team delivery.</p>

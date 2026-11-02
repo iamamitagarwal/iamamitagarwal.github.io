@@ -23,7 +23,7 @@ keywords: ["Talks", "Workshops", "Presentations", "AI", "LLM", "Evaluation", "RA
   /* Card grid inside each venue (make cards sit next to each other) */
   .talks-list{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));
     gap:1.25rem;
   }
 

@@ -14,7 +14,7 @@ Records are grouped by priority year. Linked records distinguish published appli
 
 <style>
 /* Make dense lists a bit lighter */
-.pat-list li{ font-size:.93rem; line-height:1.33; }
+.pat-list li{ font-size:1rem; line-height:1.55; }
 .year-head{ font-size:1.55rem; }
 .pat-title{
   text-decoration:none;

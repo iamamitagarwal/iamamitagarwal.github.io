@@ -93,7 +93,7 @@ keywords: ["Awards", "Recognition", "AI", "Innovation"]
   /* ====== Award bubbles (right) ====== */
   .awards-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(340px,1fr));
+    grid-template-columns:repeat(auto-fit, minmax(min(100%,340px),1fr));
     gap:1rem;
     max-height:70vh;
     overflow:auto;
@@ -175,8 +175,7 @@ keywords: ["Awards", "Recognition", "AI", "Innovation"]
   .award-card{ min-width: 0; }
   .award-icon{ flex:0 0 38px; height:38px; }
   
-  /* 5) Last-resort guard: clip any stray horizontal overflow */
-  .page__content{ overflow-x: hidden; }
+
   
 </style>
 
