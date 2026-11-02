@@ -14,10 +14,10 @@ last_modified_at: 2026-11-02
   <section class="intro" aria-labelledby="intro-heading">
     <div class="intro-copy">
       <h1 id="intro-heading">Amit Agarwal</h1>
-      <p class="role">Senior Principal Applied Scientist<br><span>Oracle Cloud Infrastructure</span></p>
-      <p class="intro-statement">Building enterprise AI.<br>Connecting research to product.</p>
+      <p class="role">Senior Principal Applied Scientist | <span>Oracle (Oracle Cloud Infrastructure)</span></p>
+      <p class="intro-statement">Building Enterprise AI. Connecting research to Product.</p>
       <p class="intro-description">I build applied-science teams and lead research, architecture, evaluation, and product integration. With 10+ years across enterprise AI, I stay hands-on alongside science, engineering, and product teams.</p>
-      <div class="intro-links"><a class="primary-link" href="/publications/">Explore research</a><a href="/projects/">Explore projects</a><a href="https://iamamitagarwal.github.io/cv/">View CV</a></div>
+      <div class="intro-links"><a class="primary-link" href="/publications/">Explore research</a><a class="primary-link" href="/projects/">Explore projects</a><a href="https://iamamitagarwal.github.io/cv/">View CV</a></div>
     </div>
   </section>
 
