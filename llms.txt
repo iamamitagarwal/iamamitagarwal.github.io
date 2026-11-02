@@ -32,5 +32,5 @@ Current work spans enterprise semantic layers, personalized search and agents, s
 ## Complete machine-readable records
 
 - [Full research and workshop text]({{ '/llms-full.txt' | absolute_url }}) — publication records, abstracts or labeled summaries, topics, version notes, and workshop roles.
-- [Publications JSON]({{ '/publications.json' | absolute_url }}) — metadata generated from the publication collection, with preprints distinguished by recorded venue.
+- [Publications JSON]({{ '/publications.json' | absolute_url }}) — metadata generated from the publication collection, with source links and recorded venue information.
 - [Workshops JSON]({{ '/workshops.json' | absolute_url }}) — public workshop records and author-reported roles; unknown dates omitted.

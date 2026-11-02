@@ -200,7 +200,7 @@ Awards come from the _awards collection. Front matter supported:
       <div class="metrics">
         <div class="metric">
           <strong>{{ papers_count }}</strong>
-          <small>research papers<br><span class="muter">and preprints</span></small>
+          <small>research<br><span class="muter">publications</span></small>
         </div>
         <div class="metric">
           <strong>{{ patents_count }}</strong>

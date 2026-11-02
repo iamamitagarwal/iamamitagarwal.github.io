@@ -5,7 +5,7 @@ layout: single
 author_profile: true
 classes: wide
 search: true
-description: "Peer-reviewed publications and preprints across evaluation, retrieval, multimodal, multilingual, and document AI."
+description: "Research publications across evaluation, retrieval, multimodal, multilingual, and document AI."
 tags: ["Publications", "Research", "AI", "Alignment", "Reasoning", "Multilingual", "Multimodal", "RAG", "Retrieval", "Evaluation", "Document AI"]
 keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "Multimodal", "RAG", "Retrieval", "Evaluation", "Document AI", "LLM", "NLP", "Agentic AI", "AI safety", "CVPR", "ICLR", "ACL", "EMNLP", "WACV", "CIKM", "DASFAA"]
 ---

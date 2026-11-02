@@ -13,6 +13,8 @@ sitemap: false
     {%- assign status = 'published' -%}
     {%- if venue_key contains 'arxiv' or paper.venue_token == 'arxiv' -%}
       {%- assign status = 'preprint' -%}
+    {%- elsif venue_key contains '(accepted)' -%}
+      {%- assign status = 'accepted' -%}
     {%- elsif venue_key == 'under review' -%}
       {%- assign status = 'under_review' -%}
     {%- elsif venue_key == 'ljmu' or venue_key == '' -%}

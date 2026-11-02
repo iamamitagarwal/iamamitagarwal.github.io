@@ -92,3 +92,7 @@ Approved follow-up: multimodal/post-training description explicitly includes sup
 November 2 consistency fix: homepage now inherits default layout and shared signature masthead, search/theme/navigation and author/sidebar Follow links. Removed duplicate hero portrait and standalone chrome; kept approved content. Shared light background white, readable body type and wider 1480px desktop canvas; homepage uses compact two-column research/project sections and mobile stacking. Follow dropdown minimum width restored. Metadata and existing research records unchanged.
 
 November 2 polish review: primary home CTA now Explore projects; blue bold topic/title links restored. Increased publication/patent/project list spacing, shared left alignment, flexible Awards/Talks card widths, and mobile floating widgets hidden to avoid obscuring content. Reviewed seven main page templates; preserved records and SEO.
+
+## November 2 — Scholar catalog reconciliation
+
+Added seven verified distinct papers (45 total), full authors and labeled summaries; updated BenchHub in place to current title and verified NeurIPS 2026 E&D accepted status. Portraits to Pathology and Knowing When Not to Answer are versions of one arXiv record, not two papers. Neutral Research publications wording replaces prominent preprint language; accurate venue/status remains in records. Exports and publication sitemap derive from collection; no indexing guarantee. Editorial proceedings and patents were not counted as papers.
