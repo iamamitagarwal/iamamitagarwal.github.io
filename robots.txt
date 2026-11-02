@@ -20,3 +20,4 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: {{ site.url | default: "https://iamamitagarwal.github.io" }}/sitemap.xml
+Sitemap: {{ site.url | default: "https://iamamitagarwal.github.io" }}/sitemap-publications.xml

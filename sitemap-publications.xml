@@ -1,0 +1,13 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for publication in site.publications %}
+  <url>
+    <loc>{{ publication.url | absolute_url | xml_escape }}</loc>
+    {% if publication.last_modified_at %}<lastmod>{{ publication.last_modified_at | date_to_xmlschema }}</lastmod>{% endif %}
+  </url>
+{% endfor %}
+</urlset>

@@ -3,8 +3,6 @@ layout: single
 ---
 
 <style>
-  /* Hide the theme's default page title — paper layout renders its own inside pub-hero */
-  #page-title.page__title{display:none}
   .pub-hero{margin-bottom:1rem;padding:1rem;border:1px solid rgba(0,0,0,.08);border-radius:14px}
   .pub-meta{margin:.25rem 0 .75rem;color:#475569}
   .pub-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
@@ -55,7 +53,6 @@ layout: single
 </nav>
 
 <div class="pub-hero">
-  <h1 class="page__title">{{ page.title }}</h1>
   <div class="pub-meta">
     {% if page.authors %}<strong>{{ page.authors }}</strong>. {% endif %}
     {% if page.venue_url %}<a href="{{ page.venue_url }}" target="_blank" rel="noopener">{{ page.venue }}</a>{% elsif page.venue %}{{ page.venue }}{% endif %}

@@ -1,4 +1,4 @@
-<!-- begin _includes/seo.html (local override of minimal-mistakes seo.html — adds description truncation) -->
+<!-- begin _includes/seo.html (local override of minimal-mistakes seo.html — page metadata) -->
 {%- if site.url -%}
   {%- assign seo_url = site.url | append: site.baseurl -%}
 {%- endif -%}
@@ -7,7 +7,9 @@
 
 {% assign title_separator = site.title_separator | default: '-' | replace: '|', '&#124;' %}
 
-{%- if page.title -%}
+{%- if page.seo_title -%}
+  {%- assign seo_title = page.seo_title -%}
+{%- elsif page.title -%}
   {%- assign seo_title = page.title | append: " " | append: title_separator | append: " " | append: site.title -%}
 {%- endif -%}
 
@@ -27,7 +29,7 @@
 {%- endif -%}
 
 {%- comment -%} Truncate meta description to 160 chars for SEO {%- endcomment -%}
-{%- if seo_description.size > 160 -%}
+{%- if page.description == nil and seo_description.size > 160 -%}
   {%- assign seo_description = seo_description | truncate: 160 -%}
 {%- endif -%}
 

@@ -89,20 +89,6 @@
   .author-me{ font-weight:800; color:#0e7490; }
   html.theme-dark .author-me{ color:#7dc9ff; }
 
-  /* Bigger author avatar (desktop) + responsive fallback) */
-  .sidebar .author__avatar img{
-    width: 200px !important;      /* pick 180–220px to taste */
-    height: 200px !important;
-    max-width: none !important;   /* override theme cap */
-    border-radius: 50%;
-    object-fit: cover;            /* crop nicely inside the circle */
-    display: block;
-  }
-  .sidebar .author__avatar{
-    display: flex;                /* avoids odd centering */
-    align-items: center;
-  }
-
    /* Mobile avatar clamp + spacing so it never overlaps the title/bar */
   @media (max-width: 640px){
     /* keep the masthead above everything */
@@ -110,27 +96,6 @@
 
     /* a little breathing room under the hero */
     .page__sidebar{ margin-top: 10px !important; overflow: hidden; }
-
-    /* clamp the avatar wrapper (the theme sizes this too) */
-    .author__avatar,
-    .page__sidebar .author__avatar,
-    .sidebar .author__avatar{
-      width:112px !important;
-      height:112px !important;
-      flex:0 0 112px !important;   /* prevents row stretch */
-      margin:.25rem 0 .5rem 0 !important;
-    }
-
-    /* fill the wrapper, crop nicely */
-    .author__avatar img,
-    .page__sidebar .author__avatar img,
-    .sidebar .author__avatar img{
-      width:100% !important;
-      height:100% !important;
-      object-fit:cover !important;
-      border-radius:50%;
-      display:block;
-    }
 
     /* remove any leftover left offset next to the avatar */
     .page__lead{ margin-left:0 !important; }
@@ -487,26 +452,6 @@
     }
     .masthead #theme-toggle{
       width:30px; height:30px; font-size:16px; margin-left:.35rem;
-    }
-  }
-
-  /* Clamp avatar size on phones and prevent overflow */
-  @media (max-width: 600px){
-    .page__sidebar .author__avatar img,
-    .sidebar .author__avatar img,
-    .author__avatar img{
-      width:108px !important;
-      height:108px !important;
-      min-width:108px !important;
-      max-width:none !important;
-      border-radius:50%;
-      object-fit:cover;
-      display:block;
-    }
-    .page__sidebar .author__avatar,
-    .sidebar .author__avatar{
-      display:inline-flex;
-      align-items:center;
     }
   }
 

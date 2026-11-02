@@ -1,4 +1,5 @@
 ---
+home_highlight_summary: "Evaluates research-level math solutions through their usefulness on related, verifiable problems."
 layout: paper
 title: "Judging What We Cannot Solve: A Consequence-Based Approach for Oracle-Free Evaluation of Research-Level Math"
 authors: "Guijin Son, Donghun Yang, Hitesh Laxmichand Patel, Hyunwoo Ko, Amit Agarwal, Sunghee Ahn, Kyong-Ha Lee, Youngjae Yu"

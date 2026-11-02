@@ -162,3 +162,29 @@ html.theme-dark .research-highlight__recognition{ color:#cbd5e1; }
 
 /* Keep the profile narrative easy to scan across viewport sizes. */
 .profile-overview .page__content p { text-align: left; }
+
+/* Frame the existing photo as a face-and-shoulders portrait; retain the original. */
+.author__avatar {
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.author__avatar img {
+  position: absolute;
+  width: 400%;
+  max-width: none;
+  height: 400%;
+  left: -138%;
+  top: -28%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  object-fit: cover;
+}
+@media (min-width: 64em) {
+  .author__avatar { width: 180px; height: 180px; }
+}
+.research-highlight__summary { margin: .5rem 0 0; font-size: .9em; line-height: 1.5; }

@@ -1,4 +1,5 @@
 ---
+home_highlight_summary: "Measures disability bias in LLM responses across real-world domains."
 layout: paper
 title: "AccessEval: Benchmarking Disability Bias in Large Language Models"
 authors: 'Srikant Panda, Amit Agarwal, Hitesh Laxmichand Patel'
