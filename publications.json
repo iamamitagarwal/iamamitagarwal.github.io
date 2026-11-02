@@ -27,14 +27,16 @@ sitemap: false
       {%- assign authors = authors | push: name -%}
     {%- endfor -%}
     {%- assign rendered_content = paper.content | markdownify -%}
-    {%- assign opening = rendered_content | split: '</p>' | first | strip_html | replace: '&amp;', '&' | strip -%}
     {%- assign abstract = nil -%}
     {%- assign summary = nil -%}
-    {%- if opening contains 'Abstract.' -%}
-      {%- assign abstract = opening | remove_first: 'Abstract.' | strip -%}
-    {%- elsif opening contains 'Summary.' -%}
-      {%- assign summary = opening | remove_first: 'Summary.' | strip -%}
-    {%- endif -%}
+    {%- assign paragraphs = rendered_content | split: '</p>' -%}
+    {%- for paragraph in paragraphs -%}
+      {%- if paragraph contains '<strong>Abstract.</strong>' -%}
+        {%- assign abstract = paragraph | split: '<strong>Abstract.</strong>' | last | strip_html | replace: '&amp;', '&' | strip -%}
+      {%- elsif paragraph contains '<strong>Summary.</strong>' -%}
+        {%- assign summary = paragraph | split: '<strong>Summary.</strong>' | last | strip_html | replace: '&amp;', '&' | strip -%}
+      {%- endif -%}
+    {%- endfor -%}
     {
       "title": {{ paper.title | jsonify }},
       "authors": {{ authors | jsonify }},

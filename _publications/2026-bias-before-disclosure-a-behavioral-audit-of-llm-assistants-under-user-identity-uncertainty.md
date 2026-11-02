@@ -14,4 +14,16 @@ search: true
 last_modified_at: 2026-11-02
 ---
 
-**Summary.** This audit examines demographic assumptions made by 18 LLMs when users provide no identity information. In forced-choice tests on 212 queries, 11 models assigned demographic labels in over 80% of cases. An abstention-oriented prompt reduced detected presuppositions, but also increased unnecessary clarification requests.
+## Research overview
+
+**Problem.** Assistants may assume demographic characteristics even when a user's query provides no identity information.
+
+**Contribution.** The paper audits unsupported demographic commitment in 18 LLMs using 212 information-seeking queries, including forced-choice and abstention-first settings, and tests an identity-abstention prompt intervention.
+
+**Findings and scope.** In forced-choice testing, 11 of 18 models assigned demographic labels on over 80% of queries. The intervention reduced classifier-detected presupposition from 41% to 16%, while increasing clarification requests. These diagnostic and classifier-based measures should not be treated as direct estimates of real-world harm.
+
+*Overview source: [EMNLP 2026 proceedings abstract](https://aclanthology.org/2026.emnlp-main.1758/).*
+
+**Abstract.** LLM assistants frequently answer everyday queries that reveal nothing about the user’s demographic identity. We audit whether models nevertheless attribute demographic characteristics to the user, a behavior we call unsupported demographic commitment. Across 18 proprietary and open-weight LLMs evaluated on 212 filtered information-seeking queries, 11 of 18 models commit to a demographic label on more than 80% of queries under a forced-choice diagnostic. In the matched abstention-first setting, the eight tested models average 44% commitment, compared with 5% for human annotators. Conditional on commitment, race, SES, location, and education show the same directional skew across all six domains, while gender varies by domain. Demographic-coded patterns also appear in free-form answers when no identity inference is requested. We evaluate identity-abstention, a prompt-level intervention that reduces classifier-detected presupposition from 41% to 16%, with a measurable clarification cost on queries that can be answered without additional context.
+
+*Abstract reproduced from [the authors’ proceedings record](https://aclanthology.org/2026.emnlp-main.1758/) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); wording unchanged, whitespace normalized.*
