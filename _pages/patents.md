@@ -12,6 +12,8 @@ keywords: ["Patents", "IP", "Document AI", "Information Extraction", "LLM", "Ret
 
 Records are grouped by priority year. Linked records distinguish published applications from granted patents; grant dates are noted where updated.
 
+Browse the [research topics]({{ '/research-topics/' | relative_url }}) hub for subject groupings that connect patents with related research papers.
+
 <style>
 /* Keep each record together without oversized gaps between years. */
 .page__content .patent-records .year-block{ margin:0; }

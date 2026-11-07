@@ -1,0 +1,21 @@
+---
+layout: single
+---
+<nav aria-label="Patent navigation"><a href="{{ '/patents/' | relative_url }}">All patents</a> · <a href="{{ '/research-topics/' | relative_url }}">Research topics</a></nav>
+{% assign patent_id = page.patent_url | split: '/patent/' | last | split: '/' | first %}
+<p><strong>Inventors:</strong> {{ page.inventors | escape }}<br>
+<strong>Patent record:</strong> <a href="{{ page.patent_url }}">{{ patent_id | escape }}</a></p>
+{{ content }}
+<p>Explore <a href="{{ '/research-topics/' | relative_url }}">related research and inventions by topic</a> or <a href="{{ '/cv/' | relative_url }}">Amit Agarwal’s experience</a>.</p>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CreativeWork",
+ "name": {{ page.title | jsonify }},
+ "identifier": {{ patent_id | jsonify }},
+ "url": {{ page.url | absolute_url | jsonify }},
+ "sameAs": {{ page.patent_url | jsonify }},
+ "keywords": {{ page.tags | jsonify }},
+ "creator": [{% assign names = page.inventors | split: ',' %}{% for name in names %}{"@type":"Person","name":{{ name | strip | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+}
+</script>

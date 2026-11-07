@@ -17,6 +17,9 @@ Research areas: agents and reasoning; multimodal models and post-training; searc
 {% endfor %}
 - [Home]({{ '/' | absolute_url }})
 
+- [Research topics]({{ "/research-topics/" | absolute_url }}) — browse the complete paper and patent portfolio by research question.
+- [Workshops]({{ "/workshops/" | absolute_url }}) — Amit Agarwal’s workshop organizing and related research.
+
 ## Project stories
 
 {% assign stories = site.pages | where: "project_story", true | sort: "title" %}

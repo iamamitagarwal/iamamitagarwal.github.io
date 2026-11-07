@@ -1,5 +1,5 @@
 ---
-layout: "single"
+layout: "patent"
 title: "Dynamic Vocabularies for Conditioning a Language Model for Transforming Natural Language to a Logical Form"
 inventors: 'Srikant Panda, Amit Agarwal, Kulbhushan Pachauri'
 year: 2024

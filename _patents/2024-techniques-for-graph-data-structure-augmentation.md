@@ -1,5 +1,5 @@
 ---
-layout: "single"
+layout: "patent"
 title: "Techniques for Graph Data Structure Augmentation"
 inventors: 'Amit Agarwal, Kulbhushan Pachauri, Iman Zadeh, Jun Qian'
 year: 2021

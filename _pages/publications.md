@@ -10,6 +10,8 @@ tags: ["Publications", "Research", "AI", "Alignment", "Reasoning", "Multilingual
 keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "Multimodal", "RAG", "Retrieval", "Evaluation", "Document AI", "LLM", "NLP", "Agentic AI", "AI safety", "CVPR", "ICLR", "ACL", "EMNLP", "WACV", "CIKM", "DASFAA"]
 ---
 
+Browse the [research topics]({{ '/research-topics/' | relative_url }}) hub for papers and patent records grouped by subject.
+
 <style>
 /* Slightly smaller list typography so dense years feel lighter */
   .pub-list li{ font-size:1rem; line-height:1.55; }

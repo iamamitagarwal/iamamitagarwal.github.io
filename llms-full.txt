@@ -40,3 +40,13 @@ Year: {{ workshop.year }}
 {% endif %}Website: {{ workshop.url }}
 Organizers: {{ workshop.organizers_url }}
 {% endfor %}
+
+## Patent records
+{% for patent in site.patents %}
+### {{ patent.title }}
+Inventors: {{ patent.inventors }}
+Topics: {{ patent.tags | join: ', ' }}
+Page: {{ patent.url | absolute_url }}
+Official record: {{ patent.patent_url }}
+{{ patent.content | markdownify | strip_html | strip }}
+{% endfor %}

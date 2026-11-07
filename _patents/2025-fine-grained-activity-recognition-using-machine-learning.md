@@ -1,5 +1,5 @@
 ---
-layout: "single"
+layout: "patent"
 title: "Fine-Grained Activity Recognition Using Machine Learning"
 inventors: 'Sourabh Yadav, Amit Agarwal, Sandeep Jana, Kulbhushan Pachauri'
 year: 2024

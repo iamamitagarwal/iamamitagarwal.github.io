@@ -1,6 +1,7 @@
 # Existing public site records: _pages/about.md, _data/media.yml and _talks/2026-cvpr-grail-v.md.
 # Unknown dates are omitted. Roles are author-reported, as on the public About page.
 - title: "GRAIL-V at CVPR 2026"
+  local_url: "/workshops/grail-v-cvpr-2026/"
   name: "GRAIL-V"
   venue: "CVPR 2026"
   year: 2026
@@ -11,6 +12,7 @@
   organizers_url: "https://grailworkshops.github.io/speakers/#workshop-organizers"
   source_paths: ["/", "/media/", "/talks/2026-cvpr-grail-v/"]
 - title: "SURGeLLM at ACL 2026"
+  local_url: "/workshops/surgellm-acl-2026/"
   name: "SURGeLLM"
   venue: "ACL 2026"
   year: 2026
@@ -20,6 +22,7 @@
   organizers_url: "https://surgellm.github.io/acl2026/organizers/"
   source_paths: ["/", "/media/"]
 - title: "DocInsights at EMNLP 2026"
+  local_url: "/workshops/docinsights-emnlp-2026/"
   name: "DocInsights"
   venue: "EMNLP 2026"
   year: 2026

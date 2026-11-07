@@ -1,5 +1,5 @@
 ---
-layout: "single"
+layout: "patent"
 title: "Domain Adapting Graph Networks for Visually Rich Documents"
 inventors: 'Amit Agarwal, Srikant Panda, Deepak Karmakar, Kulbhushan Pachauri'
 year: 2023

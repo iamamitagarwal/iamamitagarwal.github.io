@@ -1,0 +1,96 @@
+- slug: document-intelligence
+  title: Document Intelligence and Information Extraction
+  description: Work on extracting fields, marks, and structured information from visually rich documents, along with graph-based and synthetic approaches to training document understanding models.
+  publications:
+    - '2024-enhancing-document-ai-data-generation-through-graph-based-synthetic-layouts'
+    - '2024-llm-for-barcodes-generating-diverse-synthetic-data-for-identity-documents'
+    - '2025-a-bipartite-graph-approach-to-linking-selection-marks-and-text'
+    - '2025-flexdoc-parameterized-sampling-for-diverse-multilingual-synthetic-documents-for-'
+    - '2025-fs-dag-few-shot-domain-adapting-graph-networks-for-visually-rich-document-unders'
+    - '2025-legalmind-an-intelligent-solution-for-legal-document-analysis-with-user-centric-'
+  patents:
+    - '2023-pseudo-labelling-for-key-value-extraction-from-documents'
+    - '2024-domain-adapting-graph-networks-for-visually-rich-documents'
+    - '2024-pseudo-labelling-for-key-value-extraction-from-documents'
+    - '2024-synthetic-document-generation-pipeline-for-training-artificial-intelligence-mode'
+    - '2024-techniques-for-graph-data-structure-augmentation'
+    - '2025-out-of-distribution-element-detection-for-information-extraction'
+    - '2025-techniques-of-information-extraction-for-selection-marks'
+
+- slug: retrieval-and-knowledge-systems
+  title: Retrieval, Knowledge Access, and Conversational Systems
+  description: Work on retrieving domain knowledge, answering specialized questions, and organizing multi-turn or structured-data interactions with language models.
+  publications:
+    - '2024-review-of-reference-generation-methods-in-large-language-models'
+    - '2025-clinical-qa-2-0-multi-task-learning-for-answer-extraction-and-categorization'
+    - '2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications'
+    - '2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems'
+    - '2025-hybrid-ai-for-responsive-multi-turn-online-conversations-with-novel-dynamic-rout'
+    - '2025-llm-guided-lifecycle-aware-clustering-of-multi-turn-customer-support-conversations'
+    - '2026-recor-reasoning-focused-multi-turn-conversational-retrieval-benchmark'
+    - '2026-robust-audio-text-retrieval-via-cross-modal-attention-and-hybrid-loss'
+  patents:
+    - '2025-dynamic-vocabularies-for-conditioning-a-language-model-for-transforming-natural-'
+
+- slug: multilingual-language-technology
+  title: Multilingual Language Technology
+  description: Work on language identification, tokenization, multilingual knowledge, and reasoning across languages.
+  publications:
+    - '2025-pushing-on-multilingual-reasoning-models-with-language-mixed-chain-of-thought'
+    - '2025-tokenization-matters-improving-zero-shot-ner-for-indic-languages'
+    - '2026-commonlid-re-evaluating-state-of-the-art-language-identification-performance-on-web-data'
+    - '2026-include-2-0-disentangling-knowledge-gaps-in-multilingual-llm-evaluation'
+  patents: []
+
+- slug: responsible-and-cultural-ai
+  title: Responsible, Inclusive, and Culturally Grounded AI
+  description: Work examining how language models and vision-language systems respond to disability, demographic and cultural context, including questions of safety and representation.
+  publications:
+    - '2024-sweeval-do-llms-really-swear-a-safety-benchmark-for-testing-limits-for-enterpris'
+    - '2025-accesseval-benchmarking-disability-bias-in-large-language-models'
+    - '2025-crowdsource-crawl-or-generate-creating-sea-vl-a-multicultural-vision-language-da'
+    - '2025-daiq-auditing-demographic-attribute-inference-from-question-in-llms'
+    - '2025-who-s-asking-investigating-bias-through-the-lens-of-disability-framed-queries-in'
+    - '2026-a-review-of-human-centric-evaluation-of-cultural-biases-in-indic-languages-in-llms'
+    - '2026-bias-before-disclosure-a-behavioral-audit-of-llm-assistants-under-user-identity-uncertainty'
+    - '2026-helpful-or-harmful-a-token-level-evaluation-of-llm-responses-to-accessibility-oriented-educational-queries'
+    - '2026-world-in-a-frame-understanding-culture-mixing-as-a-new-challenge-for-vision-language-models'
+  patents: []
+
+- slug: multimodal-evaluation-and-reliability
+  title: Multimodal Evaluation and Reliability
+  description: Work assessing multimodal models, visual-language benchmarks, metric behavior, and robustness under changes to images, context, or inputs.
+  publications:
+    - '2021-evaluate-generalisation-robustness-of-visual-features-from-images-to-video'
+    - '2024-mvtamperbench-evaluating-robustness-of-vision-language-models'
+    - '2024-survey-of-large-multimodal-model-datasets-application-categories-and-taxonomy'
+    - '2024-vlmevalkit-an-open-source-toolkit-for-evaluating-large-multi-modality-models'
+    - '2025-a-diagnostic-framework-for-auditing-reference-free-vision-language-metrics'
+    - '2025-pcri-measuring-context-robustness-in-multimodal-models-for-enterprise-applicatio'
+    - '2025-rci-a-score-for-evaluating-global-and-local-reasoning-in-multimodal-benchmarks'
+    - '2026-do-image-text-metrics-respect-semantic-invariances'
+    - '2026-from-portraits-to-pathology-probing-diagnostic-overreach-in-vision-language-models'
+  patents: []
+
+- slug: reasoning-and-evaluation-methods
+  title: Reasoning and Evaluation Methods
+  description: Work on evaluating language-model reasoning, interpreting benchmark composition, generating meaningful test variations, and assessing structured outputs.
+  publications:
+    - '2025-benchhub-a-unified-benchmark-suite-for-holistic-and-customizable-llm-evaluation'
+    - '2025-can-llms-narrate-tabular-data-an-evaluation-framework-for-natural-language-representations-of-text-to-sql-system-outputs'
+    - '2026-gsm-sem-benchmark-and-framework-for-generating-semantically-variant-augmentations'
+    - '2026-judging-what-we-cannot-solve-a-consequence-based-approach-for-oracle-free-evaluation-of-research-level-math'
+    - '2026-think-twice-before-you-write-an-entropy-based-decoding-strategy-to-enhance-llm-reasoning'
+  patents: []
+
+- slug: adaptation-and-generalization
+  title: Visual Recognition, Adaptation, and Generalization
+  description: Work on visual activity recognition, model behavior under domain or distribution shifts, adaptation at evaluation time, and continual learning.
+  publications:
+    - '2025-instance-aware-test-time-adaptation-for-domain-generalization'
+    - '2025-learning-from-unknown-for-open-set-test-time-adaptation'
+    - '2025-towards-robust-continual-test-time-adaptation-via-neighbor-filtration'
+    - '2026-anthropogenic-regional-adaptation-in-multimodal-vision-language-model'
+  patents:
+    - '2025-fine-grained-activity-recognition-using-machine-learning'
+    - '2025-model-augmentation-framework-for-domain-assisted-continual-learning-in-deep-lear'

@@ -8,7 +8,7 @@ classes: wide profile-overview
 description: "Amit Agarwal, Senior Principal Applied Scientist at Oracle: enterprise AI agents, multimodal models, retrieval and evaluation."
 tags: ["About", "Profile", "GenAI", "Oracle AI", "Amit Agarwal"]
 keywords: ["Amit Agarwal", "Oracle AI", "OCI", "GenAI", "LLM", "RAG", "Evaluation", "Retrieval", "Multilingual", "Multimodal", "Agentic AI", "AI agents", "AI safety"]
-last_modified_at: 2026-11-02
+last_modified_at: 2026-11-06
 ---
 <div class="home-profile">
   <section class="intro" aria-labelledby="intro-heading">
@@ -61,7 +61,7 @@ last_modified_at: 2026-11-02
 
   <section class="community-section" aria-labelledby="community-heading">
     <h2 id="community-heading">Research community</h2>
-    <p>I serve as a lead workshop organizer for <a href="https://grailworkshops.github.io/speakers/#workshop-organizers">GRAIL-V at CVPR 2026</a>, <a href="https://surgellm.github.io/acl2026/organizers/">SURGeLLM at ACL 2026</a>, and <a href="https://docinsights-workshop.github.io/docinsights-2026/organizers/">DocInsights at EMNLP 2026</a>. I also mentor emerging researchers and practitioners and share work through <a href="https://iamamitagarwal.github.io/talks/">talks</a> and open-source collaboration.</p>
+    <p>I serve as a lead workshop organizer for <a href="/workshops/grail-v-cvpr-2026/">GRAIL-V at CVPR 2026</a>, <a href="/workshops/surgellm-acl-2026/">SURGeLLM at ACL 2026</a>, and <a href="/workshops/docinsights-emnlp-2026/">DocInsights at EMNLP 2026</a>. I also mentor emerging researchers and practitioners and share work through <a href="https://iamamitagarwal.github.io/talks/">talks</a> and open-source collaboration.</p>
     <p class="personal">I hold a Master’s in Machine Learning & AI from Liverpool John Moores University. Outside work, I enjoy paragliding and scuba diving.</p>
   </section>
 

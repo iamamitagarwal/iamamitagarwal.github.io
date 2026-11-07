@@ -1,5 +1,5 @@
 ---
-layout: "single"
+layout: "patent"
 title: "Model Augmentation Framework for Domain Assisted Continual Learning in Deep Learning"
 inventors: 'Edwin Thomas, Amit Agarwal, Sandeep Jana, Kulbhushan Pachauri'
 year: 2024

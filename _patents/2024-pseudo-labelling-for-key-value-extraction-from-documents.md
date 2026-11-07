@@ -1,5 +1,5 @@
 ---
-layout: "single"
+layout: "patent"
 title: "Pseudo Labelling for Key-Value Extraction from Documents"
 inventors: 'Amit Agarwal, Pachauri Kulbhushan'
 year: 2023

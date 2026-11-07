@@ -1,5 +1,5 @@
 ---
-layout: "single"
+layout: "patent"
 title: "Techniques of Information Extraction for Selection Marks"
 inventors: 'Srikant Panda, Amit Agarwal, Kulbhushan Pachauri'
 year: 2023
