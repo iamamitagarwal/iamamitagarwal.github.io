@@ -5,10 +5,10 @@ seo_title: "Amit Agarwal — Enterprise AI, Multimodal Models & Evaluation"
 layout: profile_home
 author_profile: true
 classes: wide profile-overview
-description: "Amit Agarwal, Senior Principal Applied Scientist at Oracle: enterprise AI agents, multimodal models, retrieval and evaluation."
+description: "Amit Agarwal, Senior Principal Applied Scientist in Oracle AI Foundations: agentic and enterprise AI, multimodal models, media understanding, retrieval and evaluation."
 tags: ["About", "Profile", "GenAI", "Oracle AI", "Amit Agarwal"]
 keywords: ["Amit Agarwal", "Oracle AI", "OCI", "GenAI", "LLM", "RAG", "Evaluation", "Retrieval", "Multilingual", "Multimodal", "Agentic AI", "AI agents", "AI safety"]
-last_modified_at: 2026-11-06
+last_modified_at: 2026-11-08
 ---
 <div class="home-profile">
   <section class="intro" aria-labelledby="intro-heading">
@@ -17,6 +17,7 @@ last_modified_at: 2026-11-06
       <p class="role">Senior Principal Applied Scientist | <span>Oracle (Oracle Cloud Infrastructure)</span></p>
       <p class="intro-statement">Building Enterprise AI. Connecting research to Product.</p>
       <p class="intro-description">I build applied-science teams and lead research, architecture, evaluation, and product integration. With 10+ years across enterprise AI, I stay hands-on alongside science, engineering, and product teams.</p>
+      <p class="intro-description">I work in Oracle AI Foundations under the guidance of Dan Roth and Sujith Ravi, advancing agentic and enterprise AI, multimodal models, and media understanding.</p>
       <div class="intro-links"><a class="primary-link" href="/publications/">Explore research</a><a class="primary-link" href="/projects/">Explore projects</a><a href="https://iamamitagarwal.github.io/cv/">View CV</a></div>
     </div>
   </section>
@@ -65,6 +66,6 @@ last_modified_at: 2026-11-06
     <p class="personal">I hold a Master’s in Machine Learning & AI from Liverpool John Moores University. Outside work, I enjoy paragliding and scuba diving.</p>
   </section>
 
-  <section class="contact-section" aria-labelledby="contact-heading"><div><h2 id="contact-heading">Let’s connect.</h2><p>Research collaborations, technical leadership, and conversations about applied AI.</p></div><a href="mailto:amit.pinaki@gmail.com">amit.pinaki@gmail.com</a></section>
+  <section class="contact-section" aria-labelledby="contact-heading"><div><h2 id="contact-heading">Let’s connect.</h2><p>Reach out about research collaborations, technical leadership, or research and internship opportunities in Oracle AI.</p></div><a href="mailto:amit.pinaki@gmail.com">amit.pinaki@gmail.com</a></section>
 
 </div>

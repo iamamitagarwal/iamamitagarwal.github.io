@@ -6,6 +6,8 @@ sitemap: false
 
 {{ site.author.bio | default: site.description }}
 
+I work in Oracle AI Foundations under the guidance of Dan Roth and Sujith Ravi, advancing agentic and enterprise AI, multimodal models, and media understanding.
+
 Current work spans enterprise semantic layers, personalized search and agents, support automation, multimodal models, post-training, and evaluation. The leadership-coaching work described on the site is a pilot.
 
 Research areas: agents and reasoning; multimodal models and post-training; search and retrieval; evaluation and responsible AI.

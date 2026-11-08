@@ -7,6 +7,8 @@ sitemap: false
 
 {{ site.author.bio | default: site.description }}
 
+I work in Oracle AI Foundations under the guidance of Dan Roth and Sujith Ravi, advancing agentic and enterprise AI, multimodal models, and media understanding.
+
 This export reproduces this site's publication records, including labeled summaries and version notes. Research results describe papers and do not establish the author's individual contribution or product deployment. Preprint classification follows the recorded venue, not the paper-link domain. Workshop roles are author-reported. Unknown workshop dates are omitted.
 
 Navigation: {{ '/llms.txt' | absolute_url }}
