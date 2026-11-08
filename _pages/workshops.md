@@ -17,7 +17,7 @@ I serve as a lead organizer for GRAIL-V at CVPR, SURGeLLM at ACL, and DocInsight
 
 {{ workshop.venue }} · {{ workshop.year }} · {{ workshop.role }}
 
-[Official organizer listing]({{ workshop.organizers_url }}) · [Local overview]({{ workshop.local_url | relative_url }})
+[Official organizer listing]({{ workshop.organizers_url }}) · [Overview]({{ workshop.local_url | relative_url }})
 
 {% endfor %}
 
