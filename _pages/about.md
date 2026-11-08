@@ -17,7 +17,7 @@ last_modified_at: 2026-11-08
       <p class="role">Senior Principal Applied Scientist | <span>Oracle (Oracle Cloud Infrastructure)</span></p>
       <p class="intro-statement">Building Enterprise AI. Connecting research to Product.</p>
       <p class="intro-description">I build applied-science teams and lead research, architecture, evaluation, and product integration. With 10+ years across enterprise AI, I stay hands-on alongside science, engineering, and product teams.</p>
-      <p class="intro-description">I work in Oracle AI Foundations under the guidance of Dan Roth and Sujith Ravi, advancing agentic and enterprise AI, multimodal models, and media understanding.</p>
+      <p class="intro-description">I work in Oracle AI Foundations under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>, advancing agentic and enterprise AI, multimodal models, and media understanding.</p>
       <div class="intro-links"><a class="primary-link" href="/publications/">Explore research</a><a class="primary-link" href="/projects/">Explore projects</a><a href="https://iamamitagarwal.github.io/cv/">View CV</a></div>
     </div>
   </section>
