@@ -28,6 +28,8 @@ Research directions: agents that use knowledge, memory and tools; multimodal und
 - [Research topics]({{ "/research-topics/" | absolute_url }}) — browse the complete paper and patent portfolio by research question.
 - [Workshops]({{ "/workshops/" | absolute_url }}) — Amit Agarwal’s workshop organizing and related research.
 
+Upcoming workshop: RBD, planned for NAACL 2027; Amit Agarwal is a lead organizer.
+
 ## Project stories
 
 {% assign stories = site.pages | where: "project_story", true | sort: "title" %}
