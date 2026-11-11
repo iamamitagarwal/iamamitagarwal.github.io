@@ -1164,3 +1164,146 @@ iframe,object,embed {
 .project-index a {
   padding:.2rem 0
 }
+
+.community-section {
+  margin:2.5rem 0
+}
+.community-disclosure {
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)
+}
+.community-disclosure>summary {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  padding:1.25rem 0;
+  list-style:none;
+  cursor:pointer
+}
+.community-disclosure>summary::-webkit-details-marker {
+  display:none
+}
+.community-disclosure .community-summary-copy {
+  margin:0 0 .3rem;
+  font-size:1.6rem
+}
+.community-summary-copy>span {
+  display:block;
+  font-weight:400;
+  color:var(--quiet);
+  font-size:1rem
+}
+.community-disclosure>summary::after {
+  content:"";
+  width:12px;
+  height:12px;
+  margin-right:.4rem;
+  border-right:2px solid var(--blue);
+  border-bottom:2px solid var(--blue);
+  transform:rotate(45deg);
+  flex-shrink:0
+}
+.community-disclosure[open]>summary::after {
+  content:"";
+  transform:rotate(225deg)
+}
+.community-content {
+  padding:0 0 1.5rem
+}
+.community-index-link {
+  margin:0 0 1.2rem
+}
+.community-workshops {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1.7rem
+}
+.community-workshop {
+  display:block;
+  color:var(--ink);
+  text-decoration:none
+}
+.community-workshop img {
+  width:100%;
+  height:160px;
+  object-fit:contain;
+  background:var(--wash);
+  border:1px solid var(--line);
+  border-radius:4px
+}
+.community-workshop h3 {
+  margin:.7rem 0 .1rem;
+  color:var(--blue);
+  font-size:1.25rem
+}
+.community-workshop p {
+  margin:.4rem 0;
+  font-size:1rem
+}
+.community-workshop .meta {
+  margin:0
+}
+.community-workshop .text-link {
+  color:var(--blue);
+  font-size:1rem
+}
+.community-planned {
+  font-size:1rem;
+  color:var(--quiet);
+  margin:1.6rem 0 0
+}
+.community-talks {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 2rem;
+  list-style:none;
+  margin:0;
+  padding:0
+}
+.community-talks li {
+  border-top:1px solid var(--line)
+}
+.community-talk {
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:1rem 0;
+  color:var(--ink);
+  text-decoration:none
+}
+.community-talk img {
+  width:84px;
+  height:72px;
+  object-fit:contain;
+  background:var(--wash);
+  flex-shrink:0
+}
+.community-talk-copy strong,.community-talk-copy>span {
+  display:block
+}
+.community-talk-copy strong {
+  color:var(--blue);
+  line-height:1.4
+}
+.community-talk-copy>span {
+  color:var(--quiet);
+  font-size:.95rem;
+  margin-top:.25rem
+}
+@media(max-width:650px) {
+  .community-workshops,.community-talks {
+    grid-template-columns:1fr
+  }
+  .community-workshop img {
+    height:190px
+  }
+  .community-workshop {
+    padding-bottom:1.2rem;
+    border-bottom:1px solid var(--line)
+  }
+  .community-workshop:last-child {
+    padding-bottom:0;
+    border-bottom:0
+  }
+}

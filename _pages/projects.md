@@ -39,7 +39,7 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 <article class="case-study" id="support-agents" aria-labelledby="support-heading">
   <header class="case-heading"><h2 id="support-heading">Oracle Support &amp; Agent Hub</h2></header>
   <div class="case-body">
-    <p>I lead applied-science work on cloud DevOps and support automation, connecting ticket triage, incident investigation and service-request resolution with grounded evidence and tool use.</p>
+    <p>I lead applied-science work on cloud DevOps and support automation, connecting ticket triage, incident investigation and service-request resolution with grounded evidence and tool use. I partner with support and engineering teams to investigate retrieval and multi-turn failures and re-evaluate changes against application behavior.</p>
     <p>In the separate Agent Hub effort, my architecture work includes agent routing, skill and tool retrieval, shared context and memory. I work across science and engineering to make those capabilities reusable and to evaluate whether an agent makes progress on longer tasks.</p>
     <div class="article-links"><a href="/projects/agentic-knowledge-systems/">Agent research and applications</a></div>
   </div>
@@ -67,9 +67,9 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 <article class="case-study" id="multimodal-applications" aria-labelledby="applications-heading">
   <header class="case-heading"><h2 id="applications-heading">Oracle Fusion &amp; AI Database 26ai</h2></header>
   <div class="case-body">
-    <p>I led applied-science contributions to multimodal and agentic enablement across Oracle Fusion business applications, working with product engineering on image understanding, document knowledge and retrieval-grounded workflows.</p>
+    <p>I led applied-science contributions to multimodal and agentic enablement across Oracle Fusion business applications, working with product engineering on image understanding, document knowledge and retrieval-grounded workflows. I work with application engineering to translate model evaluation into integration requirements.</p>
     <p>The work connects model selection and evaluation with application requirements: preserving useful evidence from business documents, evaluating answer quality and understanding latency–quality tradeoffs. Around Oracle AI Database 26ai, my focus includes RAG, semantic search and the connection between structured data and document evidence.</p>
-    <div class="article-links"><a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html">Oracle AI Vector Search</a><a href="https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/">Fusion applications</a><a href="/research-topics/#document-intelligence">Related document research</a></div>
+    <div class="article-links"><a href="/projects/multimodal-business-applications/">Science and application delivery</a><a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html">Oracle AI Vector Search</a><a href="https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/">Fusion applications</a><a href="/research-topics/#document-intelligence">Related document research</a></div>
   </div>
 </article>
 
