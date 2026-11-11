@@ -115,7 +115,8 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
             {% endif %}
           {% endfor %}
 
-          {% capture search_text %}{{ publication.title }} {{ publication.authors }} {{ publication.venue }} {{ publication.description }} {{ publication.abstract }} {% for topic in paper_topics %}{{ topic }} {% endfor %}{% endcapture %}
+          {% assign research_context = site.data.paper_context[publication.slug] %}
+          {% capture search_text %}{{ publication.title }} {{ publication.authors }} {{ publication.venue }} {{ publication.description }} {{ publication.abstract }} {{ publication.content | markdownify | strip_html }} {{ publication.keywords | join: ' ' }} {{ research_context.summary }} {{ research_context.terms | join: ' ' }} {% for topic in paper_topics %}{{ topic }} {% endfor %}{% endcapture %}
           <li class="paper-entry" data-year="{{ publication.year | escape }}" data-topics="{{ paper_topics | jsonify | escape }}" data-search="{{ search_text | strip_html | strip_newlines | escape }}">
             {% if publication.recognition %}
               <p class="recognition recognition--{{ publication.recognition_type | default: 'highlight' | slugify }}">{{ publication.recognition | escape }}</p>

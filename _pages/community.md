@@ -21,7 +21,7 @@ keywords: ["Amit Agarwal", "Community", "Workshop Organizer", "AI Talks", "Resea
     <li class="archive-entry">
       <article>
         <h3><a href="{{ workshop.local_url | relative_url }}">{{ workshop.title | escape }}</a></h3>
-        <p class="meta">{{ workshop.role }} · {{ workshop.venue }} · {{ workshop.year }}</p>
+        <p class="meta">{{ workshop.role }} · {{ workshop.venue }}</p>
         <div class="link-row">
           <a class="text-link" href="{{ workshop.local_url | relative_url }}">Overview</a>
           {% if organizer_url != "" %}
@@ -32,6 +32,7 @@ keywords: ["Amit Agarwal", "Community", "Workshop Organizer", "AI Talks", "Resea
     </li>
     {% endfor %}
   </ol>
+  <p>I am also a lead organizer of RBD, planned for NAACL 2027. Official event details will be linked when available.</p>
 </section>
 
 <section aria-labelledby="talks-heading">

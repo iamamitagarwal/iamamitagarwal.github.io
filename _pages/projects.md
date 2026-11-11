@@ -14,6 +14,17 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 <p class="lead">I lead applied-science work that connects research with enterprise products and the teams building them.</p>
 <p>My work spans shared knowledge infrastructure, cloud agents, multimodal applications and the evaluation methods that guide their development.</p>
 
+<nav class="project-index" aria-label="Project sections">
+  <a href="#knowledge-systems">Knowledge &amp; retrieval</a>
+  <a href="#support-agents">Support &amp; Agent Hub</a>
+  <a href="#console-ai">Console AI</a>
+  <a href="#multimodal-search">Multimodal &amp; media</a>
+  <a href="#multimodal-applications">Fusion &amp; Database 26ai</a>
+  <a href="#evaluation">Evaluation</a>
+  <a href="#video-documents">Video &amp; document AI</a>
+  <a href="#coaching-pilot">Coaching pilot</a>
+</nav>
+
 <article class="case-study" id="knowledge-systems" aria-labelledby="knowledge-heading">
   <header class="case-heading"><h2 id="knowledge-heading">Shared Knowledge Store (SKS)</h2></header>
   <div class="case-body">

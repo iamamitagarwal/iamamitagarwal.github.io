@@ -44,7 +44,7 @@ keywords: ["Awards", "Recognition", "AI", "Innovation"]
       {% assign recognition_link = award.link | default: "" %}
     <li class="award-entry">
       <div>
-        <h3>{{ award.title | escape }}</h3>
+        <h3><a href="{{ award.url | relative_url }}">{{ award.title | escape }}</a></h3>
         <p class="meta">{{ award.year }}</p>
       </div>
       <div class="link-row">

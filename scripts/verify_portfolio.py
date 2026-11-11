@@ -19,8 +19,13 @@ for collection in ('publications', 'patents'):
     routes.extend(targets)
 for route in ('/', '/publications/', '/projects/', '/patents/', '/awards/', '/media/', '/talks/', '/workshops/', '/community/', '/cv/', '/research-topics/'):
     routes.append(route)
+for html in root.rglob('*.html'):
+    relative = html.relative_to(root).as_posix()
+    routes.append('/' + relative[:-10] if relative.endswith('index.html') else '/' + relative)
 for route in sorted(set(routes)):
-    path = root / route.lstrip('/') / 'index.html'
+    path = root / route.lstrip('/')
+    if not route.endswith('.html'):
+        path = path / 'index.html'
     if not path.exists():
         errors.append(f'Missing route: {route}')
         continue

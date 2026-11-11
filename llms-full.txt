@@ -3,17 +3,27 @@ layout: null
 permalink: /llms-full.txt
 sitemap: false
 ---
-# {{ site.name | default: site.title }} — Research and workshops
+# {{ site.name | default: site.title }} — Research, projects and workshops
 
 {{ site.author.bio | default: site.description }}
 
 I work in Oracle AI Foundations under the guidance of [Dan Roth](https://www.cis.upenn.edu/~danroth/) and [Sujith Ravi](https://blogs.oracle.com/authors/sujithravi/), advancing agentic and enterprise AI, multimodal models, and media understanding.
 
-This export reproduces this site's publication records, including labeled summaries and version notes. Research results describe papers and do not establish the author's individual contribution or product deployment. Preprint classification follows the recorded venue, not the paper-link domain. Workshop roles are author-reported. Unknown workshop dates are omitted.
+This export reproduces this site's public project narratives, publication records, workshops and patent records, including labeled summaries and version notes. It is a research guide, not a full copy of the CV, media archive or every website page. Research results describe papers and do not establish the author's individual contribution or product deployment. Preprint classification follows the recorded venue, not the paper-link domain. Workshop roles are author-reported. Unknown workshop dates are omitted.
 
 Navigation: {{ '/llms.txt' | absolute_url }}
 Structured publications: {{ '/publications.json' | absolute_url }}
 Structured workshops: {{ '/workshops.json' | absolute_url }}
+
+## Applied research and project narratives
+
+The following project descriptions reproduce public website content. They describe the author's scope and research direction; linked product documentation does not establish sole ownership or product-wide authorship. Pilots and ongoing work retain their stated status.
+{% assign project_urls = '/projects/,/projects/enterprise-retrieval/,/projects/agentic-knowledge-systems/,/projects/multimodal-evaluation/' | split: ',' %}
+{% for project_url in project_urls %}{% assign project_page = site.pages | where: 'url', project_url | first %}{% if project_page %}
+### {{ project_page.title }}
+Page: {{ project_page.url | absolute_url }}
+{{ project_page.content | markdownify | replace: '</a>', '</a> ' | strip_html | replace: '&amp;', '&' | strip }}
+{% endif %}{% endfor %}
 
 ## Publications
 {% assign papers = site.publications | sort: 'title' | sort: 'year' | reverse %}

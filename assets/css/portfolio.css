@@ -1151,3 +1151,16 @@ iframe,object,embed {
 .research-context { margin: 28px 0; padding: 24px; background: var(--wash); border-radius: 4px; }
 .research-context h2 { margin-top: 0; font-size: 1.4rem; }
 @media (max-width: 650px) { .is-home .award-highlight { padding: 20px; } }
+
+.project-index {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem 1.2rem;
+  padding:1rem 0 1.4rem;
+  border-bottom:1px solid var(--line);
+  margin-bottom:1rem;
+  font-size:.95rem
+}
+.project-index a {
+  padding:.2rem 0
+}
