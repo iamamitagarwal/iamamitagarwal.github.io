@@ -1307,3 +1307,10 @@ iframe,object,embed {
     border-bottom:0
   }
 }
+
+.community-media {
+  margin:0
+}
+.community-media .media-caption p {
+  margin:.6rem 0 1rem
+}

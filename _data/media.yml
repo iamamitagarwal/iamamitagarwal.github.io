@@ -30,6 +30,8 @@ docinsights-2026-organizers:
 
 ahmedabadmirror-ai-unleashed:
   featured: true
+  community_featured: true
+  community_description: "An interview on generative AI and its use in enterprise applications."
   title: "Ahmedabad Mirror — AI Unleashed"
   image: "/assets/media/pictures/AhmedabadMirror-AI Unleashed.png"
   links:
@@ -44,6 +46,9 @@ Dainik Ajay Ujala-Amit -English:
   site: ""
 
 Substack-Measuring-Retrieval:
+  community_featured: true
+  community_description: "Research newsletter featuring hard-negative mining for enterprise knowledge retrieval."
+  community_image: "/assets/media/pictures/Substack-Measuring-Retrieval.png"
   title: "Substack — Measuring Retrieval"
   site: "https://substack.com/@reachsumit/p-164776541"
 

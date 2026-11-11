@@ -3,12 +3,12 @@ permalink: /community/
 title: "Community"
 layout: single
 classes: wide
-description: "Workshop organizing, invited talks and research community activity from Amit Agarwal at CVPR, ACL, EMNLP and other venues."
+description: "Workshop organizing, invited talks, panels and selected media coverage from Amit Agarwal."
 tags: ["Community", "Workshops", "Talks", "AI Research"]
 keywords: ["Amit Agarwal", "Community", "Workshop Organizer", "AI Talks", "Research Service"]
 ---
 
-<p class="lead">Bringing researchers together through workshops, invited talks and conversations about AI.</p>
+<p class="lead">Workshops, invited talks and selected media coverage of my research and applied AI work.</p>
 
 <section class="community-section" aria-labelledby="workshops-heading">
   <details class="community-disclosure" open>
@@ -62,6 +62,36 @@ keywords: ["Amit Agarwal", "Community", "Workshop Organizer", "AI Talks", "Resea
         </li>
         {% endfor %}
       </ol>
+    </div>
+  </details>
+</section>
+
+
+<section class="community-section" aria-labelledby="media-heading">
+  <details class="community-disclosure" open>
+    <summary>
+      <h2 id="media-heading" class="community-summary-copy">Media coverage<span>Selected interviews and research features</span></h2>
+    </summary>
+    <div class="community-content">
+      <p class="community-index-link"><a class="text-link" href="{{ '/media/' | relative_url }}">All media coverage</a></p>
+      <div class="media-grid community-media">
+        {% for pair in site.data.media %}
+          {% assign entry = pair[1] %}
+          {% unless entry.community_featured %}{% continue %}{% endunless %}
+          {% assign source_url = entry.site | split: '#' | first %}
+          {% assign preview_image = entry.community_image | default: entry.image %}
+        <figure class="media-card">
+          <a href="{{ preview_image | relative_url }}" target="_blank" rel="noopener" aria-label="Open full image: {{ entry.title | escape }}">
+            <img class="media-image" src="{{ preview_image | relative_url }}" alt="" loading="lazy">
+          </a>
+          <figcaption class="media-caption">
+            <h3><a href="{{ source_url }}" target="_blank" rel="noopener">{{ entry.title | escape }}</a></h3>
+            <p>{{ entry.community_description | escape }}</p>
+            <a class="text-link" href="{{ source_url }}" target="_blank" rel="noopener">Read article</a>
+          </figcaption>
+        </figure>
+        {% endfor %}
+      </div>
     </div>
   </details>
 </section>
