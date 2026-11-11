@@ -31,6 +31,11 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
   {% assign tag_values = tag_source | replace: ',', '|' | split: '|' %}
   {% for tag in tag_values %}
     {% assign clean_tag = tag | strip %}
+    {% case clean_tag %}
+      {% when 'Document-AI' %}{% assign clean_tag = 'Document AI' %}
+      {% when 'Information-Retrieval' %}{% assign clean_tag = 'Retrieval' %}
+      {% when 'Responsible-AI' %}{% assign clean_tag = 'Responsible AI' %}
+    {% endcase %}
     {% if clean_tag != "" %}
       {% unless publication_topics contains clean_tag %}
         {% assign publication_topics = publication_topics | push: clean_tag %}
@@ -60,7 +65,7 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
     <select class="filter-input" id="publication-topic" name="topic">
       <option value="">All topics</option>
       {% for topic in publication_topics %}
-        <option value="{{ topic | downcase | escape }}">{{ topic | escape }}</option>
+        <option value="{{ topic | downcase | replace: ' ', '-' | escape }}">{{ topic | escape }}</option>
       {% endfor %}
     </select>
   </label>
@@ -100,6 +105,11 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
           {% assign paper_topics = "" | split: "" %}
           {% for tag in tag_values %}
             {% assign clean_tag = tag | strip %}
+            {% case clean_tag %}
+              {% when 'Document-AI' %}{% assign clean_tag = 'Document AI' %}
+              {% when 'Information-Retrieval' %}{% assign clean_tag = 'Retrieval' %}
+              {% when 'Responsible-AI' %}{% assign clean_tag = 'Responsible AI' %}
+            {% endcase %}
             {% if clean_tag != "" %}
               {% assign paper_topics = paper_topics | push: clean_tag %}
             {% endif %}
@@ -249,7 +259,7 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
         var matchesQuery = query === "" || searchText.indexOf(query) !== -1;
         var matchesYear = selectedYear === "" || entry.getAttribute("data-year") === selectedYear;
         var matchesTopic = selectedTopic === "" || topics.some(function (topic) {
-          return topic.toLowerCase() === selectedTopic;
+          return topic.toLowerCase().replace(/ /g, "-") === selectedTopic;
         });
         var visible = matchesQuery && matchesYear && matchesTopic;
 

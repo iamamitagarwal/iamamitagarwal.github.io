@@ -105,6 +105,16 @@ layout: single
   {% endif %}
 </header>
 
+{% assign research_context = site.data.paper_context[page.slug] %}
+{% if research_context %}
+<section class="research-context" aria-labelledby="research-context-heading">
+  <h2 class="section-heading" id="research-context-heading">Research context</h2>
+  <p>{{ research_context.summary | escape }}</p>
+  <p class="meta">{{ research_context.terms | join: ' · ' | escape }}</p>
+  {% if page.paper_url %}<p><a href="{{ page.paper_url | escape }}">Read the research paper</a></p>{% endif %}
+</section>
+{% endif %}
+
 <div class="paper-body">
   {{ content }}
 </div>
@@ -219,6 +229,7 @@ layout: single
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
   "headline": {{ page.title | jsonify }},
+  {% if research_context %}"keywords": {{ research_context.terms | jsonify }},{% endif %}
   {% if publication_date != "" %}"datePublished": {{ publication_date | jsonify }},{% endif %}
   "url": {{ page.url | absolute_url | jsonify }},
   "description": {{ description_text | jsonify }}{% if page.authors %},

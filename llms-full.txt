@@ -26,6 +26,9 @@ Venue: {{ paper.venue }}
 {% elsif venue_key == 'under review' %}Status: Under review
 {% endif %}Topics: {{ paper.tags | join: ', ' }}
 Keywords: {{ paper.keywords | join: ', ' }}
+{% assign research_context = site.data.paper_context[paper.slug] %}{% if research_context %}Research context: {{ research_context.summary }}
+Research context terms: {{ research_context.terms | join: ', ' }}
+{% endif %}
 Record: {{ paper.url | absolute_url }}
 {% if paper.paper_url %}Paper: {{ paper.paper_url }}
 {% endif %}{% if paper.pdf_url %}PDF: {{ paper.pdf_url }}

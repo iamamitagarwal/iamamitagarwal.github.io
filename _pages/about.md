@@ -15,11 +15,20 @@ last_modified_at: 2026-11-11
   <div class="intro-copy">
     <h1 id="intro-heading">Amit Agarwal</h1>
     <p class="role">Senior Principal Applied Scientist · Oracle AI Foundations</p>
-    <p class="lead">I lead applied AI research and build teams that connect scientific ideas with useful products.</p>
-    <p>My work brings together agents, multimodal models and evaluation. At Oracle AI Foundations, I work under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>, alongside science, engineering and product teams.</p>
+    <p class="lead">I build applied-science teams and lead research from problem selection and system architecture through evaluation and product integration.</p>
+    <p>At Oracle AI Foundations, I bring science, engineering and product teams together on agentic systems, multimodal AI and evaluation. My applied-science contributions span Oracle Fusion ERP, Oracle AI Database 26ai and cloud support workflows. I work under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>.</p>
     <div class="link-row"><a href="/publications/">Research</a><a href="/projects/">Selected projects</a><a href="/cv/">CV</a></div>
   </div>
   <div class="portrait-group"><div class="portrait-frame"><img class="portrait" src="/images/profile.jpeg" alt="Amit Agarwal" width="480" height="480" fetchpriority="high"></div><div class="portrait-profiles"><a href="https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&amp;hl=en">Scholar</a><a href="https://www.linkedin.com/in/amitagarwal6/">LinkedIn</a><a href="https://github.com/iamamitagarwal">GitHub</a></div></div>
+</section>
+
+<section aria-labelledby="papers-heading">
+  <div class="section-head"><h2 id="papers-heading">Selected papers</h2><a class="text-link" href="/publications/">All publications</a></div>
+  <ul class="paper-list">
+    <li class="paper-entry award-highlight"><p class="recognition">EMNLP 2025 Social Impact Award</p><h3><a href="/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/">AccessEval</a></h3><p>Measuring disability bias in language-model responses.</p></li>
+    <li class="paper-entry award-highlight"><p class="recognition">ICML 2026 Spotlight</p><h3><a href="/publications/2026-judging-what-we-cannot-solve-a-consequence-based-approach-for-oracle-free-evaluation-of-research-level-math/">Judging What We Cannot Solve</a></h3><p>Evaluating research-level math solutions through related, verifiable problems.</p></li>
+    <li class="paper-entry"><h3><a href="/publications/2026-do-image-text-metrics-respect-semantic-invariances/">Do Image–Text Metrics Respect Semantic Invariances?</a></h3><p>Testing whether image–text evaluators change their scores when meaning stays the same.</p><p class="meta">ACL Findings 2026</p></li>
+  </ul>
 </section>
 
 <section aria-labelledby="directions-heading">
@@ -40,14 +49,7 @@ last_modified_at: 2026-11-11
   </div>
 </section>
 
-<section aria-labelledby="papers-heading">
-  <div class="section-head"><h2 id="papers-heading">Selected papers</h2><a class="text-link" href="/publications/">All publications</a></div>
-  <ul class="paper-list">
-    <li class="paper-entry"><h3><a href="/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/">AccessEval</a></h3><p>Measuring disability bias in language-model responses.</p><p class="meta">EMNLP 2025 · Social Impact Award</p></li>
-    <li class="paper-entry"><h3><a href="/publications/2026-judging-what-we-cannot-solve-a-consequence-based-approach-for-oracle-free-evaluation-of-research-level-math/">Judging What We Cannot Solve</a></h3><p>Evaluating mathematics through related, verifiable problems.</p><p class="meta">ICML 2026 · Spotlight</p></li>
-    <li class="paper-entry"><h3><a href="/publications/2026-do-image-text-metrics-respect-semantic-invariances/">Do Image–Text Metrics Respect Semantic Invariances?</a></h3><p>Testing whether scores change when meaning stays the same.</p><p class="meta">ACL Findings 2026</p></li>
-  </ul>
-</section>
+
 
 <section class="contact-block" aria-labelledby="community-heading">
   <h2 id="community-heading">Beyond the research</h2>

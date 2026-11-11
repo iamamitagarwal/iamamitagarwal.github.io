@@ -39,6 +39,9 @@ sitemap: false
     {%- endfor -%}
     {
       "title": {{ paper.title | jsonify }},
+      {% assign research_context = site.data.paper_context[paper.slug] %}
+      {% if research_context %}"research_context": {{ research_context.summary | jsonify }},
+      "research_context_terms": {{ research_context.terms | jsonify }},{% endif %}
       "authors": {{ authors | jsonify }},
       "year": {{ paper.year | jsonify }},
       "venue": {{ paper.venue | jsonify }},

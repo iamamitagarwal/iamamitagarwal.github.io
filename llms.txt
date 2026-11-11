@@ -8,6 +8,8 @@ sitemap: false
 
 I work in Oracle AI Foundations under the guidance of [Dan Roth](https://www.cis.upenn.edu/~danroth/) and [Sujith Ravi](https://blogs.oracle.com/authors/sujithravi/), advancing agentic and enterprise AI, multimodal models, and media understanding.
 
+I build applied-science teams and lead research from problem selection and system architecture through evaluation and product integration. My applied-science contributions span Oracle Fusion ERP, Oracle AI Database 26ai and cloud support workflows.
+
 Current work spans enterprise semantic layers, personalized search and agents, support automation, multimodal models, post-training, and evaluation. The leadership-coaching work described on the site is a pilot.
 
 Research directions: agents that use knowledge, memory and tools; multimodal understanding across language, images and video; evaluation of reasoning, robustness and bias.

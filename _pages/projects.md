@@ -11,56 +11,70 @@ tags: ["Projects", "GenAI", "ML Systems", "RAG", "Evaluation", "Retrieval"]
 keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agentic AI", "AI agents", "AI safety", "MLOps", "Enterprise AI"]
 ---
 
-<p class="lead">Selected work connecting research decisions with enterprise applications.</p>
-<p>These cases span ongoing development, product contributions and published research. Each describes my role and the evidence available for the work.</p>
+<p class="lead">I lead applied-science work that connects research with enterprise products and the teams building them.</p>
+<p>My work spans shared knowledge infrastructure, cloud agents, multimodal applications and the evaluation methods that guide their development.</p>
+
+<article class="case-study" id="knowledge-systems" aria-labelledby="knowledge-heading">
+  <header class="case-heading"><h2 id="knowledge-heading">Shared knowledge &amp; semantic understanding</h2></header>
+  <div class="case-body">
+    <p>I lead work on reusable knowledge infrastructure for enterprise AI: bringing ingestion, hybrid retrieval, reranking and evaluation into a foundation that multiple application teams can build on.</p>
+    <p>My current work connects structured data with unstructured evidence through a unified semantic layer. It addresses how agents interpret a question, choose the right source and retain the context behind an answer. Knowledge graphs and multimodal retrieval are part of this research direction.</p>
+    <p>My research on hard-negative mining for reranker training and multilingual fine-tuning addresses the model-adaptation questions behind reliable retrieval and consistent behavior across languages.</p>
+    <div class="article-links"><a href="/projects/enterprise-retrieval/">Retrieval research</a><a href="/projects/agentic-knowledge-systems/">Knowledge and agent design</a><a href="/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/">Multilingual model adaptation</a></div>
+  </div>
+</article>
 
 <article class="case-study" id="support-agents" aria-labelledby="support-heading">
-  <header class="case-heading"><p class="status">Oracle · Ongoing development</p><h2 id="support-heading">Oracle Support &amp; Agent Hub</h2></header>
+  <header class="case-heading"><h2 id="support-heading">Oracle Support &amp; Agent Hub</h2></header>
   <div class="case-body">
-    <p>Resolving a support request can require several sources of knowledge, tools and decisions. A useful agent needs to retain relevant context as the task evolves.</p>
-    <p>I work on agents for ticket triage, on-call assistance and service-request resolution. In the separate Agent Hub effort, my architecture work spans routing, retrieval of skills and tools, and shared context and memory for longer tasks.</p>
-    <p class="case-facts"><strong>Design focus.</strong> Separate evidence selection, action and evaluation so failures can be traced to a specific step. Long-horizon tasks and multimodal memory remain active research directions.</p>
-    <div class="article-links"><a href="/projects/agentic-knowledge-systems/">Design questions and approach</a><a href="/projects/enterprise-retrieval/">Supporting retrieval research</a></div>
+    <p>I lead applied-science work on support automation, connecting ticket triage, incident investigation and service-request resolution with grounded evidence and tool use.</p>
+    <p>In the separate Agent Hub effort, my architecture work includes agent routing, skill and tool retrieval, shared context and memory. I work across science and engineering to make those capabilities reusable and to evaluate whether an agent makes progress on longer tasks.</p>
+    <div class="article-links"><a href="/projects/agentic-knowledge-systems/">Agent research and applications</a></div>
+  </div>
+</article>
+
+<article class="case-study" id="console-ai" aria-labelledby="console-heading">
+  <header class="case-heading"><h2 id="console-heading">OCI Console AI</h2></header>
+  <div class="case-body">
+    <p>Console AI brings conversational guidance and approved resource actions into the OCI Console. It connects a user's operational goal with their cloud context, permissions and available tools.</p>
+    <p>My work spans the applied-science questions behind cloud-console agents: intent and tool routing, evidence-grounded assistance, multi-turn context and evaluation. This connects my support-agent work with broader questions about reliable task execution and useful human oversight.</p>
+    <div class="article-links"><a href="https://blogs.oracle.com/cloud-infrastructure/introducing-console-ai-oci">About Console AI</a><a href="https://docs.oracle.com/en-us/iaas/releasenotes/console/consoleai-availability-oct-2026.htm">Product availability</a></div>
   </div>
 </article>
 
 <article class="case-study" id="multimodal-applications" aria-labelledby="applications-heading">
-  <header class="case-heading"><p class="status">Oracle · Applied-science contribution</p><h2 id="applications-heading">Fusion ERP &amp; Oracle AI Database 26ai</h2></header>
+  <header class="case-heading"><h2 id="applications-heading">Oracle Fusion &amp; AI Database 26ai</h2></header>
   <div class="case-body">
-    <p>Business information spans images, documents and structured context. Making it useful to an AI workflow requires connecting what a model sees with the application’s knowledge and tools.</p>
-    <p>I owned applied-science contributions to multimodal and agentic enablement, working with product engineering on image understanding, multimodal retrieval, embedding fusion and text-to-image capabilities.</p>
-    <p class="case-facts"><strong>Scope.</strong> A collaboration between applied science and product engineering, connecting model capabilities with business workflows.</p>
-    <div class="article-links"><a href="/cv/">Career context</a><a href="/patents/">Related invention records</a></div>
+    <p>I led applied-science contributions to multimodal and agentic enablement across Oracle Fusion business applications, working with product engineering on image understanding, document knowledge and retrieval-grounded workflows.</p>
+    <p>The work connects model selection and evaluation with application requirements: preserving useful evidence from business documents, evaluating answer quality and understanding latency–quality tradeoffs. Around Oracle AI Database 26ai, my focus includes RAG, semantic search and the connection between structured data and document evidence.</p>
+    <div class="article-links"><a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html">Oracle AI Vector Search</a><a href="https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/">Fusion applications</a><a href="/research-topics/#document-intelligence">Related document research</a></div>
   </div>
 </article>
 
 <article class="case-study" id="evaluation" aria-labelledby="evaluation-heading">
-  <header class="case-heading"><p class="status">Collaborative research · Published studies</p><h2 id="evaluation-heading">Diagnosing multimodal evaluation</h2></header>
+  <header class="case-heading"><h2 id="evaluation-heading">Evaluation that informs development</h2></header>
   <div class="case-body">
-    <p>A higher score is useful only if we understand what it measures. My first-author studies examine whether a benchmark requires whole-image reasoning and whether an evaluator reacts to changes that preserve meaning.</p>
-    <p>The Region Comprehension Index compares performance on image patches and full images. The semantic-invariance study tests evaluators against controlled changes to images and wording. Both turn a broad reliability question into an inspectable experiment.</p>
-    <p class="case-facts"><strong>Evidence.</strong> RCI examines 13 multimodal benchmarks. This work complements my research on safety, bias and consistency, using controlled experiments and reproducible evaluation harnesses.</p>
-    <div class="article-links"><a href="/projects/multimodal-evaluation/">Findings, methods and limits</a></div>
+    <p>I lead evaluation work across retrieval, multimodal understanding and responsible AI, using controlled experiments and reproducible harnesses to turn failure analysis into research and product decisions.</p>
+    <p>My first-author RCI study examined 13 multimodal benchmarks and found a tendency toward localized reasoning and spatial bias. Related work tests context robustness and whether image–text metrics remain stable under meaning-preserving changes. Collaborative studies examine disability bias, benchmark composition and multilingual consistency.</p>
+    <div class="article-links"><a href="/projects/multimodal-evaluation/">Methods and findings</a><a href="/publications/">Research papers</a></div>
   </div>
 </article>
 
 <article class="case-study" id="video-documents" aria-labelledby="video-heading">
-  <header class="case-heading"><p class="status">Jio Platforms · Prior product-development work</p><h2 id="video-heading">Video analytics &amp; document understanding</h2></header>
+  <header class="case-heading"><h2 id="video-heading">Video analytics &amp; document understanding</h2></header>
   <div class="case-body">
-    <p>Video and scanned documents pose different challenges: events unfold over time, while useful document information depends on both text and layout.</p>
     <p>At Jio Platforms, I led computer-vision work spanning video analytics, detection and tracking, and OCR-based document understanding. My responsibilities covered data and model design, evaluation and product integration.</p>
-    <p class="case-facts"><strong>Continuity.</strong> This experience informs my later research on visual robustness, graph models and synthetic document data.</p>
-    <div class="article-links"><a href="/research-topics/#document-intelligence">Document research</a><a href="/research-topics/#adaptation-and-generalization">Visual adaptation research</a></div>
+    <p>That experience informs my research on visual robustness, low-data adaptation, graph models and synthetic document generation.</p>
+    <div class="article-links"><a href="/research-topics/#document-intelligence">Document intelligence</a><a href="/research-topics/#adaptation-and-generalization">Visual adaptation</a></div>
   </div>
 </article>
 
 <article class="case-study" id="coaching-pilot" aria-labelledby="coaching-heading">
-  <header class="case-heading"><p class="status">Oracle · Pilot</p><h2 id="coaching-heading">Personalized leadership coaching</h2></header>
+  <header class="case-heading"><h2 id="coaching-heading">Personalized leadership coaching</h2></header>
   <div class="case-body">
-    <p>I developed an agent pilot combining assessment-driven plans, persistent memory, retrieval-grounded recommendations and role-play practice. The design explores how an agent can carry personal context from planning into practice.</p>
-    <p class="case-facts"><strong>Status.</strong> A pilot exploring persistent context, assessment-driven plans and guided practice.</p>
-    <div class="article-links"><a href="/projects/agentic-knowledge-systems/#personalized-leadership-coaching-pilot">Agent design context</a></div>
+    <p>I developed a coaching-agent pilot combining assessment-driven plans, persistent memory, retrieval-grounded recommendations and role-play practice. It explores how an agent can carry personal context from planning into practice and help a learner act on useful feedback.</p>
+    <div class="article-links"><a href="/projects/agentic-knowledge-systems/#personalized-leadership-coaching-pilot">Coaching-agent approach</a></div>
   </div>
 </article>
 
-<p class="contact-block">Interested in the research or a related problem? <a href="mailto:amit.pinaki@gmail.com">Start a conversation</a>.</p>
+<p class="contact-block">Interested in a related research or product problem? <a href="mailto:amit.pinaki@gmail.com">Start a conversation</a>.</p>

@@ -25,6 +25,7 @@ keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
       <div>
         <h3>Senior Principal Applied Scientist, Generative AI</h3>
         <p class="meta">Current role · Oracle AI Foundations</p>
+        <p>Lead applied-science work across agents, multimodal AI and evaluation, bringing research priorities and architecture into product engineering. Build reusable capabilities with science, engineering and application teams.</p>
       </div>
     </li>
     <li class="timeline-entry">

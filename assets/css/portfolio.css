@@ -1137,3 +1137,17 @@ iframe,object,embed {
 .timeline-entry h3 {
   margin-bottom:8px
 }
+
+/* Keep research recognition attached to the paper it honors. */
+.is-home .award-highlight {
+  margin: 0 0 16px;
+  padding: 24px 28px;
+  border: 0;
+  border-left: 3px solid var(--blue);
+  background: var(--wash);
+  border-radius: 0 4px 4px 0;
+}
+.is-home .award-highlight .recognition { margin: 0 0 10px; font-size: 1rem; }
+.research-context { margin: 28px 0; padding: 24px; background: var(--wash); border-radius: 4px; }
+.research-context h2 { margin-top: 0; font-size: 1.4rem; }
+@media (max-width: 650px) { .is-home .award-highlight { padding: 20px; } }
