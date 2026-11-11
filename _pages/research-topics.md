@@ -10,14 +10,7 @@ search: true
 description: "Browse research papers and patent records by topic, from document intelligence and retrieval to multilingual, multimodal, and responsible AI."
 ---
 
-{% assign paper_total = 0 %}
-{% assign patent_total = 0 %}
-{% for topic in site.data.research_topics %}
-  {% assign paper_total = paper_total | plus: topic.publications.size %}
-  {% assign patent_total = patent_total | plus: topic.patents.size %}
-{% endfor %}
-
-Explore my **{{ paper_total }} research papers** and **{{ patent_total }} patent records**, organized around the problems they address. Follow a title for its authors, abstract or summary, and original source.
+Explore the questions connecting my papers and inventions. Each topic links to the complete research records and original sources.
 
 <nav aria-label="Research topics"><ul>{% for topic in site.data.research_topics %}<li><a href="#{{ topic.slug }}">{{ topic.title }}</a></li>{% endfor %}</ul></nav>
 

@@ -2,276 +2,62 @@
 permalink: /awards/
 title: "Awards"
 layout: single
-author_profile: true
 classes: wide
 description: "Awards and recognitions across research, product, and innovation."
 tags: ["Awards", "Recognition", "AI"]
 keywords: ["Awards", "Recognition", "AI", "Innovation"]
 ---
 
-<style>
-  /* ========= Scoped theme tokens (light + dark) ========= */
-  .awards-scope{
-    --paper:#fffaf1;
-    --tile:#ffffff;
-    --ink:#0b1320;
-    --muted:#5a6b82;
-    --ring:#e7dbc7;
-    --ring-strong:#d9c6a6;
-    --shadow:0 10px 18px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06);
+<p class="lead">Research recognition and company awards.</p>
 
-    --accentA:#2d8fa2; --accentB:#7c62ff; --accentC:#f97316; --accentD:#14b8a6;
-    --pdfRed:#d44;
-  }
-  html.theme-dark .awards-scope{
-    --paper:#0e1624;
-    --tile:#0f1b2d;
-    --ink:#e6edf3;
-    --muted:#9fb4cc;
-    --ring:#1c2a42;
-    --ring-strong:#2a3b5d;
-    --shadow:0 12px 22px rgba(0,0,0,.32),0 1px 3px rgba(0,0,0,.2);
-
-    --accentA:#27a3c0; --accentB:#8b7bff; --accentC:#fb923c; --accentD:#2dd4bf;
-    --pdfRed:#ff7a7a;
-  }
-
-  /* ====== Layout (with a clearer divider + wider column gap) ====== */
-  /* grid + divider spacing tweaks */
-.awards-wrap{
-  display:grid;
-  grid-template-columns:minmax(460px,1fr) minmax(520px,1fr);
-  gap:2rem;                        /* was 1.25rem */
-  align-items:start;
-  position:relative;
-  }
-
-/* shift the divider slightly to the right and make it a touch stronger */
-.awards-wrap::before{
-  content:"";
-  position:absolute; top:.25rem; bottom:.25rem;
-  left:calc(50% + .75rem);         /* nudge off the left column */
-  width:2px;
-  background:linear-gradient(180deg, rgba(45,143,162,.28), rgba(124,98,255,.28));
-  border-radius:2px;
-  }
-
-/* add a bit of padding so the left column doesn't hug the divider */
-.awards-wrap > :first-child{ padding-right:1rem; }
-  @media(max-width:1100px){ .awards-wrap::before{ display:none; } }
-
-  /* ====== Metric tiles (left) ====== */
-  .metrics{ display:grid; grid-template-columns:repeat(2,minmax(220px,1fr)); gap:1rem; }
-  @media(max-width:720px){ .metrics{ grid-template-columns:1fr 1fr; } }
-
-  .metric{
-    background:var(--tile); border:1.5px solid var(--ring); border-radius:16px;
-    box-shadow:var(--shadow); padding:1rem 1rem .9rem;
-  }
-  .metric strong{ display:block; font-size:2.2rem; line-height:1; letter-spacing:.02em; color:var(--ink); margin-bottom:.35rem; }
-  .metric small{ display:block; color:var(--muted); font-weight:600; font-size:.96rem; }
-  .metric small .muter{ font-weight:500; opacity:.95; }
-
-  /* ====== Best paper (left) ====== */
-  .best-paper{
-    margin-top:1rem;
-    background:var(--tile); border:1.5px solid var(--ring); border-radius:16px;
-    box-shadow:var(--shadow); padding:1rem 1.1rem;
-  }
-  .best-paper h4{ margin:.1rem 0 .75rem; color:var(--ink); display:flex; align-items:center; gap:.6rem; }
-  .bp-chip{
-    display:inline-block; padding:.2rem .55rem; border-radius:999px;
-    background:rgba(20,184,166,.12); color:var(--ink); font-weight:800; font-size:.78rem;
-    border:1px solid rgba(20,184,166,.35);
-  }
-  .bp-item{ display:flex; gap:.6rem; align-items:flex-start; margin:.45rem 0; }
-  .bp-emoji{ font-size:1.15rem; line-height:1.15; margin-top:.05rem }
-  .bp-title a{ font-weight:800; color:var(--ink); text-decoration:underline; }
-  .bp-title a:visited{ color:var(--ink); }
-  .bp-title span{ color:var(--muted); font-weight:600; margin-left:.35rem; }
-
-  /* ====== Award bubbles (right) ====== */
-  .awards-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(min(100%,340px),1fr));
-    gap:1rem;
-    max-height:70vh;
-    overflow:auto;
-    padding-right:.4rem;
-  }
-  @media(max-width: 720px){
-    .awards-grid{ max-height:none; overflow:visible; }
-  }
-  .award-card{
-    background:var(--tile); border:1.5px solid var(--ring); border-radius:20px;
-    box-shadow:var(--shadow); padding:1rem 1.1rem; display:flex; align-items:center; gap:.9rem;
-    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-  }
-  .award-card:hover{ transform:translateY(-2px) scale(1.01); border-color:var(--ring-strong); }
-
-  .award-icon{
-    flex:0 0 44px; height:44px; border-radius:999px; display:grid; place-items:center;
-    color:#fff; font-size:1.05rem; font-weight:900;
-    background:linear-gradient(135deg, var(--accentA), var(--accentB));
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
-  }
-
-  .award-body{ min-width:0; }
-  .award-title{
-    font-weight:800; color:var(--ink);
-    font-size:1.02rem; line-height:1.25;
-    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-  }
-  .award-meta{ color:var(--muted); font-weight:600; font-size:.95rem; }
-
-  .award-actions{ margin-left:auto; display:flex; gap:.5rem; }
-  .pill{
-    display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .7rem; border-radius:999px;
-    border:1px solid var(--accentA); color:var(--accentA); background:#f0fbfe; text-decoration:none; font-weight:800;
-  }
-  .pill, .pill:visited{ color:var(--accentA); }
-  .pill:hover{ background:var(--accentA); color:#fff; }
-
-  .pill--pdf{
-    border-color:var(--pdfRed); color:var(--pdfRed); background:rgba(255,0,0,.06);
-  }
-  .pill--pdf, .pill--pdf:visited{ color:var(--pdfRed); }
-  .pill--pdf:hover{ background:var(--pdfRed); color:#fff; }
-
-  /* Slight rim hue variety */
-  .awards-grid .award-card:nth-child(4n+1){ --accentA:#2d8fa2; --accentB:#7c62ff; }
-  .awards-grid .award-card:nth-child(4n+2){ --accentA:#f97316; --accentB:#f59e0b; }
-  .awards-grid .award-card:nth-child(4n+3){ --accentA:#14b8a6; --accentB:#0ea5e9; }
-  .awards-grid .award-card:nth-child(4n+4){ --accentA:#22c55e; --accentB:#10b981; }
-
-  /* --- Mobile resilience fixes for Awards --- */
-
-  /* 1) Never force a column wider than the viewport */
-  .awards-wrap{
-    grid-template-columns: minmax(0,1.1fr) minmax(0,1.1fr); /* remove 420px min */
-    max-width: 100%;
-  }
-  
-  /* 2) Soften the single-column breakpoint and make the left side breathe a bit */
-  @media (max-width: 1100px){
-    .awards-wrap{ grid-template-columns: 1fr; }
-    .awards-wrap::before{ display:none; } /* hide the vertical divider on small screens */
-  }
-  /* extra small phones: stack metrics in one column */
-  @media (max-width: 560px){
-    .metrics{ grid-template-columns: 1fr !important; }
-  }
-  
-  /* 3) Allow long award names / orgs to wrap instead of forcing a wide row */
-  .award-title,
-  .award-meta{
-    white-space: normal;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-  
-  /* 4) Ensure icons/buttons shrink and never cause overflow */
-  .award-actions{ flex-wrap: wrap; min-width: 0; }
-  .award-card{ min-width: 0; }
-  .award-icon{ flex:0 0 38px; height:38px; }
-  
-
-  
-</style>
-
-{%- comment -%}
-Counts:
-- Papers  = site.publications.size
-- Patents = site.patents.size
-- Talks   = total talks (per your request)
-Paper recognition comes from highlighted publications and their recognition_type metadata.
-Awards come from the _awards collection. Front matter supported:
-  title, year, org, icon: trophy|medal|star, certificate: /assets/awards/xxx.pdf, link:
-{%- endcomment -%}
-
-{% assign papers_count = site.publications | size %}
-{% assign patents_count = site.patents | size %}
-{% assign talks_total   = site.talks | size %}
-
-<div class="awards-scope">
-  <div class="awards-wrap">
-    <!-- LEFT -->
-    <div>
-      <div class="metrics">
-        <div class="metric">
-          <strong>{{ papers_count }}</strong>
-          <small>research<br><span class="muter">publications</span></small>
-        </div>
-        <div class="metric">
-          <strong>{{ patents_count }}</strong>
-          <small>patents</small>
-        </div>
-        <div class="metric">
-          <strong>&gt;{{ talks_total }}</strong>
-          <small>talks at tier-1<br><span class="muter">conferences</span></small>
-        </div>
-      </div>
-
-      <div class="best-paper">
-        <h4>Paper Recognition</h4>
-        {%- assign recognized_papers = site.publications | where: "highlight", true | sort: "highlight_rank" -%}
-        {%- for paper in recognized_papers -%}
-          <div class="bp-item">
-            <div class="bp-emoji" aria-hidden="true">{% if paper.recognition_type == "spotlight" %}⭐{% else %}🏅{% endif %}</div>
-            <div class="bp-title">
-              <a href="{{ paper.url | relative_url }}">{{ paper.title }}</a>
-              <span>{{ paper.recognition }}</span>
-            </div>
-          </div>
-        {%- endfor -%}
-      </div>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="awards-grid">
-      {%- assign awards = site.awards | sort: "year" | reverse -%}
-      {%- for a in awards -%}
-        {%- assign icon = a.icon | default:"trophy" -%}
-        {%- assign cert = a.certificate | default:a.pdf | default:a.certificate_url -%}
-
-        {%- if cert == nil or cert == "" -%}
-          {%- assign akey = a.slug | default:a.title | slugify: "pretty" -%}
-          {%- for sf in site.static_files -%}
-            {%- assign sp = sf.path | downcase -%}
-            {%- if sp contains "/assets/awards/" and sf.extname == ".pdf" -%}
-              {%- assign base = sf.name | remove: sf.extname | slugify: "pretty" -%}
-              {%- if base == akey -%}
-                {%- assign cert = sf.path | relative_url -%}
-                {%- break -%}
-              {%- endif -%}
-            {%- endif -%}
-          {%- endfor -%}
-        {%- endif -%}
-
-        <div class="award-card">
-          <div class="award-icon">
-            {%- if icon == "medal" -%}🥇
-            {%- elsif icon == "star" -%}⭐
-            {%- else -%}🏆
-            {%- endif -%}
-          </div>
-          <div class="award-body">
-            <div class="award-title" title="{{ a.title }}">{{ a.title }}</div>
-            <div class="award-meta">
-              {%- if a.org %}{{ a.org }}{% endif -%}
-              {%- if a.year %}{% if a.org %} • {% endif %}{{ a.year }}{% endif -%}
-            </div>
-          </div>
-          <div class="award-actions">
-            {%- if cert and cert != "" -%}
-              <a class="pill pill--pdf" href="{{ cert }}" target="_blank" rel="noopener">PDF</a>
-            {%- endif -%}
-            {%- if a.link and a.link != "" -%}
-              <a class="pill" href="{{ a.link }}" target="_blank" rel="noopener">Site</a>
-            {%- endif -%}
-          </div>
-        </div>
-      {%- endfor -%}
-    </div>
+{% assign recognized_papers = site.publications | where_exp: "paper", "paper.recognition != nil" | sort: "year" | reverse %}
+{% if recognized_papers.size > 0 %}
+<section aria-labelledby="research-recognition-heading">
+  <div class="section-head">
+    <h2 id="research-recognition-heading">Research recognition</h2>
   </div>
-</div>
+  <ul class="award-list">
+    {% for paper in recognized_papers %}
+    <li class="award-entry">
+      <div>
+        <h3><a class="text-link" href="{{ paper.url | relative_url }}">{{ paper.title | escape }}</a></h3>
+      </div>
+      <p class="meta">{{ paper.recognition | escape }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% assign awards = site.awards | sort: "year" | reverse %}
+{% assign organizations = "Oracle,Abzooba" | split: "," %}
+{% for organization in organizations %}
+  {% assign organization_awards = awards | where: "org", organization %}
+  {% if organization_awards.size > 0 %}
+<section aria-labelledby="{{ organization | slugify }}">
+  <div class="section-head">
+    <h2 id="{{ organization | slugify }}">{{ organization }}</h2>
+  </div>
+  <ul class="award-list">
+    {% for award in organization_awards %}
+      {% assign certificate = award.certificate | default: award.pdf | default: award.certificate_url | default: "" %}
+      {% assign recognition_link = award.link | default: "" %}
+    <li class="award-entry">
+      <div>
+        <h3>{{ award.title | escape }}</h3>
+        <p class="meta">{{ award.year }}</p>
+      </div>
+      <div class="link-row">
+        {% if certificate != "" %}
+        <a class="text-link" href="{{ certificate | relative_url }}" target="_blank" rel="noopener">Certificate (PDF)</a>
+        {% endif %}
+        {% if recognition_link != "" %}
+        <a class="text-link" href="{{ recognition_link }}" target="_blank" rel="noopener">Recognition details</a>
+        {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+  {% endif %}
+{% endfor %}

@@ -10,7 +10,7 @@ I work in Oracle AI Foundations under the guidance of [Dan Roth](https://www.cis
 
 Current work spans enterprise semantic layers, personalized search and agents, support automation, multimodal models, post-training, and evaluation. The leadership-coaching work described on the site is a pilot.
 
-Research areas: agents and reasoning; multimodal models and post-training; search and retrieval; evaluation and responsible AI.
+Research directions: agents that use knowledge, memory and tools; multimodal understanding across language, images and video; evaluation of reasoning, robustness and bias.
 
 ## Pages
 
@@ -18,6 +18,10 @@ Research areas: agents and reasoning; multimodal models and post-training; searc
 - [{{ item.title }}]({{ item.url | absolute_url }})
 {% endfor %}
 - [Home]({{ '/' | absolute_url }})
+- [Patents]({{ '/patents/' | absolute_url }}) — invention records and inventors.
+- [Recognition]({{ '/awards/' | absolute_url }}) — research and company awards.
+- [Media]({{ '/media/' | absolute_url }}) — coverage and interviews.
+- [Talks]({{ '/talks/' | absolute_url }}) — presentations and materials.
 
 - [Research topics]({{ "/research-topics/" | absolute_url }}) — browse the complete paper and patent portfolio by research question.
 - [Workshops]({{ "/workshops/" | absolute_url }}) — Amit Agarwal’s workshop organizing and related research.

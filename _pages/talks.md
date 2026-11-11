@@ -2,129 +2,57 @@
 permalink: /talks/
 title: "Talks"
 layout: single
-author_profile: true
 classes: wide
 description: "Invited talks, presentations, and workshops across AI, evaluation, and document understanding."
 tags: ["Talks", "Workshops", "Presentations", "AI"]
 keywords: ["Talks", "Workshops", "Presentations", "AI", "LLM", "Evaluation", "RAG", "Agentic AI", "Multimodal", "Multilingual"]
 ---
 
-<style>
-  /* Layout: 2-column venue grid */
-  .venue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;margin-top:.5rem;}
-  @media(max-width:1100px){.venue-grid{grid-template-columns:1fr}}
-  .venue-col{min-width:0;}
+<p class="lead">Recorded talks, panel participation, and workshop appearances, with linked material where it is available.</p>
 
-  /* Venue heading (links to official site if provided) */
-  .venue-title{margin:.5rem 0 1rem;font-size:1.35rem;font-weight:800;}
-  .venue-title a{text-decoration:none;border-bottom:2px solid transparent}
-  .venue-title a:hover{border-color:var(--brand-accent,#0ea5e9)}
-
-  /* Card grid inside each venue (make cards sit next to each other) */
-  .talks-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));
-    gap:1.25rem;
-  }
-
-  .talk-card{background:var(--mm-surface,#fff);border:1px solid rgba(0,0,0,.08);
-             border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04);
-             display:flex;flex-direction:column}
-  html.theme-dark .talk-card{background:#0b1220;border-color:#1f2937;box-shadow:none}
-
-  .talk-cover img{
-    width:100%;
-    aspect-ratio:16/9;
-    height:auto;
-    object-fit:cover;
-    display:block;
-  }
-  .talk-placeholder{
-    aspect-ratio:16/9;
-    height:auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    opacity:.6;
-  }
-
-  .talk-meta{flex:1; padding:.75rem 1rem 1rem}
-  .talk-title{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:0;font-size:1.05rem;line-height:1.35}
-  .talk-title a{text-decoration:none}
-  .talk-title a:hover{text-decoration:underline}
-
-  /* Badges next to the title */
-  .badge-year{background:#f1f5f9;border:1px solid #cbd5e1;color:#0f172a;
-              padding:.12rem .55rem;border-radius:999px;font-weight:700;font-size:.8rem}
-  html.theme-dark .badge-year{background:#0f172a;border-color:#1f2937;color:#e6edf3}
-
-  .badge{display:inline-block;padding:.12rem .6rem;border-radius:999px;
-         font-weight:700;font-size:.8rem;text-decoration:none;transition:.15s ease}
-  .badge-event{border:1px solid var(--brand-accent,#0ea5e9)}
-  .badge-event:hover{background:var(--brand-accent,#0ea5e9);color:#fff}
-  .badge-pdf{border:1px solid #ef4444}
-  .badge-pdf:hover{background:#ef4444;color:#fff}
-  .badge-paper{border:1px solid #2563eb}
-  .badge-paper:hover{background:#2563eb;color:#fff}
-</style>
-
-Talks cover **evaluation**, **retrieval**, **RAG**, **multimodal/multilingual** systems, and **responsible AI**.
-
-{% assign talks_all = site.talks | sort: "year" | reverse %}
-{% assign by_venue = talks_all | group_by: "venue" %}
-
-<div class="venue-grid">
-  {% for v in by_venue %}
-    {% assign venue_slug = v.name | slugify %}
-    {% assign venue_meta = site.data.venues[venue_slug] %}
-
-    <section class="venue-col">
-      <h2 class="venue-title">
-        {% if venue_meta and venue_meta.url %}
-          <a href="{{ venue_meta.url }}" target="_blank" rel="noopener">{{ v.name }}</a>
-        {% else %}
-          {{ v.name }}
+{% assign talks = site.talks | sort: "year" | reverse %}
+<ol class="archive-list">
+  {% for talk in talks %}
+    {% assign event_url = talk.link_url | default: talk.event_url | default: talk.website | default: talk.site_url | default: "" %}
+    {% assign pdf_url = talk.pdf_url | default: "" %}
+    {% assign paper_link = talk.pub_url | default: "" %}
+    {% if paper_link == "" and talk.pub_slug %}
+      {% assign paper_match = site.publications | where_exp: "paper", "paper.url contains talk.pub_slug" | first %}
+      {% if paper_match %}{% assign paper_link = paper_match.url | relative_url %}{% endif %}
+    {% elsif paper_link == "" and talk.pub_title %}
+      {% assign paper_match = site.publications | where: "title", talk.pub_title | first %}
+      {% if paper_match %}{% assign paper_link = paper_match.url | relative_url %}{% endif %}
+    {% endif %}
+  <li class="archive-entry">
+    <article>
+      <div class="section-head">
+        <h2><a href="{{ talk.url | relative_url }}">{{ talk.title | escape }}</a></h2>
+        <p class="meta">{% if talk.date %}<time datetime="{{ talk.date | date: '%Y-%m-%d' }}">{{ talk.date | date: "%Y-%m-%d" }}</time>{% else %}{{ talk.year }}{% endif %} · {{ talk.venue }}</p>
+      </div>
+      <div class="link-row">
+        {% if event_url != "" %}
+        <a class="text-link" href="{{ event_url }}" target="_blank" rel="noopener">Event link</a>
         {% endif %}
-      </h2>
-
-      <div class="talks-list">
-        {% assign items = v.items | sort: "year" | reverse %}
-        {% for t in items %}
-          {% assign event_url = t.link_url | default: t.event_url | default: t.website | default: t.site_url %}
-
-          {%- comment -%} Resolve related publication link via pub_url / pub_slug / pub_title {%- endcomment -%}
-          {%- assign pub_link = nil -%}
-          {% if t.pub_url %}
-            {% assign pub_link = t.pub_url %}
-          {% elsif t.pub_slug %}
-            {% assign match = site.publications | where_exp: 'p', 'p.url contains t.pub_slug' | first %}
-            {% if match %}{% assign pub_link = match.url | relative_url %}{% endif %}
-          {% elsif t.pub_title %}
-            {% assign match = site.publications | where: 'title', t.pub_title | first %}
-            {% if match %}{% assign pub_link = match.url | relative_url %}{% endif %}
-          {% endif %}
-
-          <article class="talk-card">
-            <a class="talk-cover" href="{{ t.url | relative_url }}">
-              {% if t.images and t.images[0] %}
-                <img src="{{ t.images[0] | relative_url }}" alt="{{ t.title | escape }}">
-              {% else %}
-                <div class="talk-placeholder">Talk</div>
-              {% endif %}
-            </a>
-
-            <div class="talk-meta">
-              <h3 class="talk-title">
-                <a href="{{ t.url | relative_url }}">{{ t.title }}</a>
-                {% if t.year %}<span class="badge-year">{{ t.year }}</span>{% endif %}
-                {% if event_url %}<a class="badge badge-event" href="{{ event_url }}" target="_blank" rel="noopener">Event</a>{% endif %}
-                {% if pub_link %}<a class="badge badge-paper" href="{{ pub_link }}">Paper</a>{% endif %}
-                {% if t.pdf_url %}<a class="badge badge-pdf" href="{{ t.pdf_url | relative_url }}" target="_blank" rel="noopener">PDF</a>{% endif %}
-              </h3>
-            </div>
-          </article>
+        {% if pdf_url != "" %}
+        <a class="text-link" href="{{ pdf_url | relative_url }}" target="_blank" rel="noopener">PDF</a>
+        {% endif %}
+        {% if paper_link != "" %}
+        <a class="text-link" href="{{ paper_link }}">Related paper</a>
+        {% endif %}
+      </div>
+      {% if talk.images %}
+      <div class="media-grid">
+        {% for image in talk.images %}
+        <figure class="media-card">
+          <a href="{{ image | relative_url }}" target="_blank" rel="noopener" aria-label="Open full image for {{ talk.title | escape }}">
+            <img class="media-image" src="{{ image | relative_url }}" alt="" loading="lazy">
+          </a>
+          <figcaption class="media-caption">{{ talk.venue }} · {{ talk.year }}</figcaption>
+        </figure>
         {% endfor %}
       </div>
-    </section>
+      {% endif %}
+    </article>
+  </li>
   {% endfor %}
-</div>
+</ol>
