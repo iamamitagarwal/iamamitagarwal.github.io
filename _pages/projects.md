@@ -44,10 +44,11 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 </article>
 
 <article class="case-study" id="multimodal-search" aria-labelledby="media-search-heading">
-  <header class="case-heading"><h2 id="media-search-heading">Multimodal &amp; media search</h2></header>
+  <header class="case-heading"><h2 id="media-search-heading">Multimodal search &amp; creative media</h2></header>
   <div class="case-body">
     <p>I lead work on search across documents, images and video, including media and learning content. The research connects visual and language understanding with retrieval, ranking and evaluation.</p>
     <p>The useful answer may be a moment within a long video or evidence spread across several modalities. I work on how to represent that content, retrieve the right evidence and avoid filling results with repeated views of the same asset.</p>
+    <p>Current research also covers creative-media workflows and the evaluation of image, audio and video generation.</p>
     <div class="article-links"><a href="/projects/multimodal-evaluation/">Multimodal evaluation</a><a href="/research-topics/#multimodal-evaluation-and-reliability">Related research</a></div>
   </div>
 </article>

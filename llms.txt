@@ -10,7 +10,7 @@ I work in Oracle AI Foundations under the guidance of [Dan Roth](https://www.cis
 
 I build applied-science teams and lead research from problem selection and system architecture through evaluation and product integration. My applied-science contributions span Oracle Fusion ERP, Oracle AI Database 26ai and cloud support workflows.
 
-Current work spans Shared Knowledge Store (SKS), a shared knowledge layer for enterprise AI; agentic information retrieval; cloud DevOps and support automation; multimodal and media search; model adaptation and evaluation. The leadership-coaching work described on the site is a pilot.
+Current work spans Shared Knowledge Store (SKS), a shared knowledge layer for enterprise AI; agentic information retrieval; cloud DevOps and support automation; multimodal search and creative-media workflows; model adaptation and evaluation across text, images, audio and video. The leadership-coaching work described on the site is a pilot.
 
 Research directions: agents that use knowledge, memory and tools; multimodal understanding across language, images and video; evaluation of reasoning, robustness and bias.
 
