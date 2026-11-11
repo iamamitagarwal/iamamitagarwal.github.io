@@ -53,6 +53,6 @@ last_modified_at: 2026-11-11
 
 <section class="contact-block" aria-labelledby="community-heading">
   <h2 id="community-heading">Beyond the research</h2>
-  <p>I serve as a lead organizer of <a href="/workshops/">GRAIL-V, SURGeLLM and DocInsights</a>, and mentor emerging researchers. Outside work, I enjoy paragliding and scuba diving.</p>
+  <p>I lead-organize workshops at <strong>CVPR, ACL and EMNLP</strong>, including <a href="/workshops/grail-v-cvpr-2026/">GRAIL-V</a>, <a href="/workshops/surgellm-acl-2026/">SURGeLLM</a> and <a href="/workshops/docinsights-emnlp-2026/">DocInsights</a>, and mentor emerging researchers. Outside work, I enjoy paragliding and scuba diving.</p>
   <p>For research collaborations and technical leadership conversations, <a href="mailto:amit.pinaki@gmail.com">get in touch</a>.</p>
 </section>
