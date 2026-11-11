@@ -15,10 +15,11 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 <p>My work spans shared knowledge infrastructure, cloud agents, multimodal applications and the evaluation methods that guide their development.</p>
 
 <article class="case-study" id="knowledge-systems" aria-labelledby="knowledge-heading">
-  <header class="case-heading"><h2 id="knowledge-heading">Shared knowledge &amp; semantic understanding</h2></header>
+  <header class="case-heading"><h2 id="knowledge-heading">Shared Knowledge Store (SKS)</h2></header>
   <div class="case-body">
-    <p>I lead work on reusable knowledge infrastructure for enterprise AI: bringing ingestion, hybrid retrieval, reranking and evaluation into a foundation that multiple application teams can build on.</p>
+    <p>I lead work on a shared knowledge layer for enterprise AI, connecting ingestion, hybrid retrieval, reranking and evaluation so multiple application teams can build on a common foundation.</p>
     <p>My current work connects structured data with unstructured evidence through a unified semantic layer. It addresses how agents interpret a question, choose the right source and retain the context behind an answer. Knowledge graphs and multimodal retrieval are part of this research direction.</p>
+    <p>My current research extends this foundation toward agentic information retrieval: helping agents refine a search, select sources and combine evidence as a task develops.</p>
     <p>My research on hard-negative mining for reranker training and multilingual fine-tuning addresses the model-adaptation questions behind reliable retrieval and consistent behavior across languages.</p>
     <div class="article-links"><a href="/projects/enterprise-retrieval/">Retrieval research</a><a href="/projects/agentic-knowledge-systems/">Knowledge and agent design</a><a href="/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/">Multilingual model adaptation</a></div>
   </div>
@@ -27,7 +28,7 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 <article class="case-study" id="support-agents" aria-labelledby="support-heading">
   <header class="case-heading"><h2 id="support-heading">Oracle Support &amp; Agent Hub</h2></header>
   <div class="case-body">
-    <p>I lead applied-science work on support automation, connecting ticket triage, incident investigation and service-request resolution with grounded evidence and tool use.</p>
+    <p>I lead applied-science work on cloud DevOps and support automation, connecting ticket triage, incident investigation and service-request resolution with grounded evidence and tool use.</p>
     <p>In the separate Agent Hub effort, my architecture work includes agent routing, skill and tool retrieval, shared context and memory. I work across science and engineering to make those capabilities reusable and to evaluate whether an agent makes progress on longer tasks.</p>
     <div class="article-links"><a href="/projects/agentic-knowledge-systems/">Agent research and applications</a></div>
   </div>
@@ -39,6 +40,15 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
     <p>Console AI brings conversational guidance and approved resource actions into the OCI Console. It connects a user's operational goal with their cloud context, permissions and available tools.</p>
     <p>My work spans the applied-science questions behind cloud-console agents: intent and tool routing, evidence-grounded assistance, multi-turn context and evaluation. This connects my support-agent work with broader questions about reliable task execution and useful human oversight.</p>
     <div class="article-links"><a href="https://blogs.oracle.com/cloud-infrastructure/introducing-console-ai-oci">About Console AI</a><a href="https://docs.oracle.com/en-us/iaas/releasenotes/console/consoleai-availability-oct-2026.htm">Product availability</a></div>
+  </div>
+</article>
+
+<article class="case-study" id="multimodal-search" aria-labelledby="media-search-heading">
+  <header class="case-heading"><h2 id="media-search-heading">Multimodal &amp; media search</h2></header>
+  <div class="case-body">
+    <p>I lead work on search across documents, images and video, including media and learning content. The research connects visual and language understanding with retrieval, ranking and evaluation.</p>
+    <p>The useful answer may be a moment within a long video or evidence spread across several modalities. I work on how to represent that content, retrieve the right evidence and avoid filling results with repeated views of the same asset.</p>
+    <div class="article-links"><a href="/projects/multimodal-evaluation/">Multimodal evaluation</a><a href="/research-topics/#multimodal-evaluation-and-reliability">Related research</a></div>
   </div>
 </article>
 

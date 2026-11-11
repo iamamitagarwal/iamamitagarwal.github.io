@@ -16,7 +16,7 @@ last_modified_at: 2026-11-11
     <h1 id="intro-heading">Amit Agarwal</h1>
     <p class="role">Senior Principal Applied Scientist · Oracle AI Foundations</p>
     <p class="lead">I build applied-science teams and lead research from problem selection and system architecture through evaluation and product integration.</p>
-    <p>At Oracle AI Foundations, I bring science, engineering and product teams together on agentic systems, multimodal AI and evaluation. My applied-science contributions span Oracle Fusion ERP, Oracle AI Database 26ai and cloud support workflows. I work under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>.</p>
+    <p>At Oracle AI Foundations, I bring science, engineering and product teams together on agentic systems, multimodal AI and evaluation. My applied-science contributions span Oracle Fusion ERP, Oracle AI Database 26ai and cloud operations and support workflows. I work under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>.</p>
     <div class="link-row"><a href="/publications/">Research</a><a href="/projects/">Selected projects</a><a href="/cv/">CV</a></div>
   </div>
   <div class="portrait-group"><div class="portrait-frame"><img class="portrait" src="/images/profile.jpeg" alt="Amit Agarwal" width="480" height="480" fetchpriority="high"></div><div class="portrait-profiles"><a href="https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&amp;hl=en">Scholar</a><a href="https://www.linkedin.com/in/amitagarwal6/">LinkedIn</a><a href="https://github.com/iamamitagarwal">GitHub</a></div></div>
@@ -43,9 +43,9 @@ last_modified_at: 2026-11-11
 <section aria-labelledby="work-heading">
   <div class="section-head"><h2 id="work-heading">Research into practice</h2><a class="text-link" href="/projects/">Explore the projects</a></div>
   <div class="selected-work">
-    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#support-agents">Agents grounded in shared knowledge</a></h3><p>Research and architecture for support workflows that connect evidence with action.</p></div></article>
-    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#multimodal-applications">Multimodal business applications</a></h3><p>Applied-science contributions to Oracle Fusion ERP and Oracle AI Database 26ai.</p></div></article>
-    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#evaluation">Evaluation as a research question</a></h3><p>Studies of what visual benchmarks measure and when their metrics become unreliable.</p></div></article>
+    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#support-agents">Cloud operations &amp; support agents</a></h3><p>Console AI, incident triage and support automation for cloud DevOps workflows.</p></div></article>
+    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#multimodal-search">Multimodal &amp; media search</a></h3><p>Finding useful evidence across documents, images and video, including moments within longer content.</p></div></article>
+    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#knowledge-systems">Shared knowledge &amp; agentic retrieval</a></h3><p>Shared Knowledge Store (SKS): a common knowledge layer connecting enterprise evidence with agents and applications.</p></div></article>
   </div>
 </section>
 
