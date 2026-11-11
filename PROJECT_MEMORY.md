@@ -148,3 +148,12 @@ Dev/production builds pass;100HTMLpages zeroerrors,8HTML/JSONabstractmatches and
 
 
 November11 Community media follow-up: third native disclosure previews Ahmedabad Mirror interview + Substack hard-negative research coverage, from existing images/sourceURLs. All media coverage links to the full archive; all10archiveentries and previousimage/PDF/sourcedestinations preserved.3workshops/5talks remain. Reuses media-card/grid styling and data-driven community_featured/image/description fields. Build/100page and media preservation checks pass;390/1366 nooverflow, imagesloaded, click/Enter toggle and archive navigation verified. Private screenshots/log in workspace website-audit/2026-11-11/abstract-community/. Localonly,no push.
+
+
+## November 11 — enterprise breadth and workflow evaluation
+
+Added `/projects/database-ai/` with current public 26ai vector/hybrid/GraphRAG and distinct Agent Engine/Select AI context. Personal scope stays at retrieval, semantic context and evaluation science. The existing Fusion permalink now presents Fusion Applications & Enterprise Agents; Studio and Claw are product context. Projects has nine cases and jump links, with old anchors retained.
+
+Evaluation now leads with long-horizon Support/SR, Console tool/state checks, verified streaming-harness engineering and creative-media work, followed by the unchanged published research. Editing/video/style extensions remain development. The bio explains science-leadership/product/engineering collaboration and reusable capabilities. No defensible 75-person count, direct-report count, ROI or direct VP reporting line was found or added.
+
+Private evidence and source reviews: workspace `website-audit/2026-11-11/enterprise-scope/`. Development and production builds and 101 HTML checks pass; 45 paper records unchanged, crawler policy unchanged, 116 main sitemap URLs and 45 paper URLs with none removed. Ten responsive checks at 390/1366px pass. No restricted source details enter public content. No push, deployment, resume/LinkedIn or Search Console change; old dirty `_site/` remains excluded. Current indexing and personal impact denominators remain unverified.

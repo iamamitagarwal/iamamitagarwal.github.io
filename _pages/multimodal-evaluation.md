@@ -1,15 +1,37 @@
 ---
 permalink: /projects/multimodal-evaluation/
-title: "Evaluation & Responsible AI"
+title: "Evaluating Agents & Multimodal AI"
 layout: single
 author_profile: true
 classes: wide project-story
 project_story: true
-last_modified_at: 2026-11-02
-description: "Amit Agarwal on first-author research into image-text metric invariance, global versus local reasoning, and reliable model comparisons."
+last_modified_at: 2026-11-11
+description: "Amit Agarwal on long-horizon agent evaluation, tool use, research harnesses, creative-media workflows and reliable multimodal measurement."
 ---
 
-When a model’s score improves, I want to understand what changed. Did the model become more useful, did the benchmark reward a shortcut, or did the evaluator react to an irrelevant detail? My multimodal evaluation research investigates the measurement itself so that comparisons can support better research and engineering decisions.
+I lead evaluation work across enterprise agents and multimodal AI, connecting task outcomes, tool use, safety and failure analysis with research and product decisions. My work spans support conversations and service-request workflows, cloud-console tasks, multimodal retrieval and creative-media evaluation.
+
+## Long-horizon tasks and useful progress
+
+In support and service-request workflows, I examine grounded answers, useful next steps, clarification, handoff and failure recovery. A longer conversation needs to preserve relevant context and recognize when a tool or retrieval step has failed. Evaluation must track progress across those steps as well as the final answer.
+
+For cloud-console agents, the evaluation problem includes correct tool selection and arguments, appropriate human approval and verifiable changes to system state. The evaluation plans I work with combine outcome checks, tool-call evidence and multi-turn testing, with separate failure categories for the agent, infrastructure, simulator and verifier. These distinctions help science and engineering teams choose the right intervention.
+
+## Research harnesses and reproducibility
+
+I combine evaluation design with hands-on research engineering. My contributions include a streaming multimodal API evaluator with bounded concurrency, case-level evidence, explicit configuration and clear handling of incomplete runs. Durable per-query results make failures inspectable and support comparisons that another researcher can reproduce.
+
+The broader method is to retain the evidence behind a score: task and data versions, model and prompt configuration, tool behavior, outputs and failure status. Human review and judge calibration matter when success depends on judgment, safety or the quality of a handoff.
+
+## Creative-media workflows
+
+Our multimodal work has included image-generation evaluation using prompt-constraint checks and image-based questions, including chart understanding. This connects generation quality with whether the requested content is actually present and supported.
+
+My current research also considers evaluation for editing, video and consistent style. Those extensions remain areas of development. They complement retrieval and image-understanding evaluation, with safety and moderation requirements included in the design.
+
+## What do the measurement instruments miss?
+
+When a model’s score improves, I want to understand what changed: useful behavior, a benchmark shortcut or sensitivity in the evaluator itself. My published research investigates that measurement question.
 
 ## Can Meaning Stay Constant While Scores Change?
 
@@ -29,13 +51,9 @@ My collaborative research also examines what evaluation misses. [AccessEval](/pu
 
 Together, these studies motivate complementary checks for task quality, safety, bias, consistency, and evaluator reliability. In agent workflows, that means examining task completion and tool use alongside the quality of the final response, with clear failure categories and human review where judgments are sensitive.
 
-## How I Use These Questions
+## Turning evaluation into research decisions
 
-My perspective is that evaluation design is part of technical leadership. Before a team optimizes a number, it should be able to explain the behavior that number is intended to measure. Otherwise, an apparently successful iteration can send development in an unhelpful direction.
-
-I favor complementary views of quality: representative examples, controlled changes, aggregate results, and human inspection where judgment matters. Each answers a different question. A controlled change can expose sensitivity, while a realistic task can reveal whether that sensitivity matters to the application. Neither replaces the other.
-
-There is a practical tradeoff between richer evaluation and the time required to interpret it. I would prioritize checks capable of changing a decision: whether a model comparison is stable, whether a benchmark requires the capability we need, and whether the evaluator agrees with the intended notion of correctness. Calibration and diagnostic scores help investigate these questions; their value still depends on the use case.
+I use task-level failures, controlled comparisons and human inspection to help teams decide what to change next. That includes checking whether a model comparison is stable, whether a benchmark tests the capability the application needs and whether the evaluator rewards the intended behavior.
 
 This perspective connects to [Enterprise Retrieval](/projects/enterprise-retrieval/) and [Agentic Systems: From Evidence to Action](/projects/agentic-knowledge-systems/), where evidence selection and answer evaluation shape the same end-to-end decision. More work is listed under [publications](/publications/).
 

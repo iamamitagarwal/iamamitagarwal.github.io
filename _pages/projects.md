@@ -16,10 +16,11 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 
 <nav class="project-index" aria-label="Project sections">
   <a href="#knowledge-systems">Knowledge &amp; retrieval</a>
+  <a href="#database-ai">Database AI</a>
   <a href="#support-agents">Support &amp; Agent Hub</a>
   <a href="#console-ai">Console AI</a>
   <a href="#multimodal-search">Multimodal &amp; media</a>
-  <a href="#multimodal-applications">Fusion &amp; Database 26ai</a>
+  <a href="#multimodal-applications">Fusion &amp; application agents</a>
   <a href="#evaluation">Evaluation</a>
   <a href="#video-documents">Video &amp; document AI</a>
   <a href="#coaching-pilot">Coaching pilot</a>
@@ -33,6 +34,15 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
     <p>My current research extends this foundation toward agentic information retrieval: helping agents refine a search, select sources and combine evidence as a task develops.</p>
     <p>My research on hard-negative mining for reranker training and multilingual fine-tuning addresses the model-adaptation questions behind reliable retrieval and consistent behavior across languages.</p>
     <div class="article-links"><a href="/projects/enterprise-retrieval/">Retrieval research</a><a href="/projects/agentic-knowledge-systems/">Knowledge and agent design</a><a href="/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/">Multilingual model adaptation</a></div>
+  </div>
+</article>
+
+<article class="case-study" id="database-ai" aria-labelledby="database-heading">
+  <header class="case-heading"><h2 id="database-heading">Oracle AI Database 26ai</h2></header>
+  <div class="case-body">
+    <p>My research in this ecosystem focuses on retrieval, ranking, semantic context and evaluation: connecting structured business data with document evidence so agents can find and use the right information.</p>
+    <p>The platform brings vector, hybrid and graph-aware retrieval together with database-side agent capabilities. These provide the product context for my application-facing science and shared-knowledge architecture work.</p>
+    <div class="article-links"><a href="/projects/database-ai/">Database AI and agentic retrieval</a><a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html">AI Vector Search</a></div>
   </div>
 </article>
 
@@ -65,20 +75,20 @@ keywords: ["Projects", "GenAI", "RAG", "Evaluation", "Retrieval", "LLM", "Agenti
 </article>
 
 <article class="case-study" id="multimodal-applications" aria-labelledby="applications-heading">
-  <header class="case-heading"><h2 id="applications-heading">Oracle Fusion &amp; AI Database 26ai</h2></header>
+  <header class="case-heading"><h2 id="applications-heading">Fusion ERP &amp; application agents</h2></header>
   <div class="case-body">
-    <p>I led applied-science contributions to multimodal and agentic enablement across Oracle Fusion business applications, working with product engineering on image understanding, document knowledge and retrieval-grounded workflows. I work with application engineering to translate model evaluation into integration requirements.</p>
-    <p>The work connects model selection and evaluation with application requirements: preserving useful evidence from business documents, evaluating answer quality and understanding latency–quality tradeoffs. Around Oracle AI Database 26ai, my focus includes RAG, semantic search and the connection between structured data and document evidence.</p>
-    <div class="article-links"><a href="/projects/multimodal-business-applications/">Science and application delivery</a><a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html">Oracle AI Vector Search</a><a href="https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/">Fusion applications</a><a href="/research-topics/#document-intelligence">Related document research</a></div>
+    <p>I led applied-science contributions to multimodal Fusion applications, working with product engineering on image understanding, document knowledge and retrieval-grounded workflows. Earlier work contributed to a production image-to-text capability.</p>
+    <p>My role connects model evaluation with application behavior and integration requirements. The detailed story places that contribution alongside the distinct capabilities of Fusion ERP, AI Agent Studio and Fusion Claw.</p>
+    <div class="article-links"><a href="/projects/multimodal-business-applications/">Fusion science and application agents</a><a href="/projects/database-ai/">Related database AI work</a></div>
   </div>
 </article>
 
 <article class="case-study" id="evaluation" aria-labelledby="evaluation-heading">
-  <header class="case-heading"><h2 id="evaluation-heading">Evaluation that informs development</h2></header>
+  <header class="case-heading"><h2 id="evaluation-heading">Agent &amp; multimodal evaluation</h2></header>
   <div class="case-body">
-    <p>I lead evaluation work across retrieval, multimodal understanding and responsible AI, using controlled experiments and reproducible harnesses to turn failure analysis into research and product decisions.</p>
-    <p>My first-author RCI study examined 13 multimodal benchmarks and found a tendency toward localized reasoning and spatial bias. Related work tests context robustness and whether image–text metrics remain stable under meaning-preserving changes. Collaborative studies examine disability bias, benchmark composition and multilingual consistency.</p>
-    <div class="article-links"><a href="/projects/multimodal-evaluation/">Methods and findings</a><a href="/publications/">Research papers</a></div>
+    <p>I lead evaluation across enterprise agents and multimodal AI—from long-running support conversations and service-request workflows to cloud-console tasks and creative-media evaluation. The work connects task outcomes, tool use, safety and failure analysis with reproducible research harnesses.</p>
+    <p>My hands-on contributions include a streaming multimodal evaluator with case-level evidence and explicit incomplete-run handling. Published research on benchmark reasoning, metric reliability and bias adds a complementary scientific foundation.</p>
+    <div class="article-links"><a href="/projects/multimodal-evaluation/">Workflow evaluation and research</a><a href="/publications/">Research papers</a></div>
   </div>
 </article>
 

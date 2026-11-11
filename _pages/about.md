@@ -17,7 +17,7 @@ last_modified_at: 2026-11-11
     <p class="role">Senior Principal Applied Scientist · Oracle AI Foundations</p>
     <p class="lead">I build applied-science teams and lead research from problem selection and system architecture through evaluation and product integration.</p>
     <div class="link-row"><a href="/publications/">Research</a><a href="/projects/">Selected projects</a><a href="/cv/">CV</a></div>
-    <p>At Oracle AI Foundations, I bring science, engineering and product teams together to develop agentic AI, multimodal models and reliable evaluation. I lead research and architecture for shared knowledge systems, connecting retrieval, ranking and semantic context across structured data, documents and media. My work spans Oracle Fusion ERP, Oracle AI Database 26ai, cloud operations and support automation.</p>
+    <p>At Oracle AI Foundations, I work with science leadership, product and engineering teams to turn research into reusable capabilities for enterprise applications. I lead research and architecture for shared knowledge and agentic systems, connecting retrieval, ranking and semantic context with model and workflow evaluation. My work spans Oracle Fusion ERP, Oracle AI Database 26ai, cloud operations and support automation.</p>
     <p>My research also covers creative-media workflows and evaluation across text, images, audio and video. I work under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>.</p>
   </div>
   <div class="portrait-group"><div class="portrait-frame"><img class="portrait" src="/images/profile.jpeg" alt="Amit Agarwal" width="480" height="480" fetchpriority="high"></div><div class="portrait-profiles"><a href="https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&amp;hl=en">Scholar</a><a href="https://www.linkedin.com/in/amitagarwal6/">LinkedIn</a><a href="https://github.com/iamamitagarwal">GitHub</a></div></div>
@@ -46,7 +46,7 @@ last_modified_at: 2026-11-11
   <div class="selected-work">
     <article class="work-row"><div class="work-copy"><h3><a href="/projects/#knowledge-systems">Agentic retrieval &amp; knowledge systems</a></h3><p>Research and architecture combining multimodal retrieval, ranking, knowledge graphs and semantic context to help agents find and use enterprise evidence.</p></div></article>
     <article class="work-row"><div class="work-copy"><h3><a href="/projects/#multimodal-applications">Multimodal business applications</a></h3><p>Applied-science contributions to Oracle Fusion ERP and Oracle AI Database 26ai.</p></div></article>
-    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#evaluation">Evaluation as a research question</a></h3><p>Studies of what visual benchmarks measure and when their metrics become unreliable.</p></div></article>
+    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#evaluation">Evaluation as a research question</a></h3><p>Task progress and tool use in agent workflows; robustness, bias and reliability in multimodal evaluation.</p></div></article>
   </div>
 </section>
 
