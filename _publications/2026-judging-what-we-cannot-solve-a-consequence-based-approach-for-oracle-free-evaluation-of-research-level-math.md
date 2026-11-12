@@ -42,6 +42,4 @@ solve.
 
 **Source.** [Published ICML paper, PMLR 306](https://proceedings.mlr.press/v306/son26a.html). Copyright © 2026 by the authors.
 
-**Summary.** This work proposes an oracle-free evaluation method for research-level mathematics.
-Instead of relying on expert verification for every solution, it scores candidate solutions by
-measuring how useful they are as in-context exemplars for solving related, verifiable problems.
+**Summary.** This study evaluates research-level mathematics when checking each proposed solution directly is impractical. It scores a candidate solution by testing how useful it is as an example for solving related problems whose answers can be checked.

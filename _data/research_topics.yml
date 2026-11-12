@@ -36,6 +36,7 @@
   title: Multilingual Language Technology
   description: Work on language identification, tokenization, multilingual knowledge, and reasoning across languages.
   publications:
+    - '2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications'
     - '2025-pushing-on-multilingual-reasoning-models-with-language-mixed-chain-of-thought'
     - '2025-tokenization-matters-improving-zero-shot-ner-for-indic-languages'
     - '2026-commonlid-re-evaluating-state-of-the-art-language-identification-performance-on-web-data'

@@ -17,7 +17,7 @@ I lead application-facing science and architecture work, collaborating across re
 Oracle AI Database 26ai brings AI retrieval and agent execution close to business data. Its complementary capabilities include:
 
 - [AI Vector Search](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html): embedding-based retrieval alongside relational business data, with [hybrid search](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/understand-hybrid-search.html) for questions that depend on exact identifiers and semantic similarity.
-- [GraphRAG](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/query-knowledge-graph.html): vector retrieval combined with graph traversal to find evidence through entities and relationships.
+- [Graph-based retrieval (GraphRAG)](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/query-knowledge-graph.html): combines semantic search with relationships between entities to find supporting evidence.
 - [AI Database Agent Engine](https://blogs.oracle.com/database/introducing-oracle-ai-database-agent-engine): governed, stateful agent workflows within the database, including routing, loops and human approval gates.
 
 These capabilities broaden what an application can ask of its data foundation. A workflow can combine a business record, a document that explains a policy and a tool that performs an authorized operation. The research challenge is to make their meanings and evidence agree.
@@ -26,7 +26,11 @@ These capabilities broaden what an application can ask of its data foundation. A
 
 My current research on a unified semantic layer examines how business concepts, source mappings, relationships and constraints can guide an agent toward the right evidence. A field name is not enough: its meaning can depend on a stored value, a time period or a rule defined in a document.
 
+I work on the architectural choices behind a common ontology: a shared vocabulary of concepts and relationships across systems. Knowledge graphs give those concepts concrete links to records, documents and supporting evidence. The research includes how to grow that representation across sources while retaining source identity, conflicting interpretations and the context in which a relationship applies.
+
 I work on how to represent that context, connect structured and unstructured sources and evaluate whether the added meaning improves the application's decisions. This research complements the [Shared Knowledge Store](/projects/shared-knowledge-store/), which makes enterprise knowledge reusable across agents and applications.
+
+The database provides complementary building blocks. Its [knowledge-graph creation and maintenance tools](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/dbms_graphRAG.html) extract entities and relationships from source text, add sources and update graph data when configured. Those product capabilities support application research; an accurate business ontology still requires decisions about meaning, evidence and ownership.
 
 ## Research that informs platform use
 

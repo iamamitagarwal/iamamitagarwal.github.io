@@ -24,6 +24,14 @@ I connect this research with my [shared knowledge architecture work](/projects/s
 
 The research also informs how I work with science and engineering teams. Failure analysis needs to distinguish a gap in the source material from a representation, ranking or labeling problem. Each points to a different intervention and a different experiment.
 
+## Model adaptation and post-training
+
+Post-training adapts an already pretrained model to a task or domain. My work includes training ranking models on difficult enterprise examples and fine-tuning language models for consistent responses across languages.
+
+I am the first author of [Aligning LLMs for Multilingual Consistency in Enterprise Applications](/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/). The study fine-tunes large language models (LLMs) using examples with equivalent meanings in different languages within each training batch. It addresses a practical application failure: a model answering well in English but inconsistently in another language.
+
+Across this work, I connect training-data design, model adaptation and evaluation with application requirements. Ranking research concerns which evidence is selected; multilingual alignment concerns how consistently the model responds. Controlled comparisons keep those different objectives visible when teams choose a model or training intervention.
+
 ## From ranking quality to agent behavior
 
 The paper establishes a ranking improvement on its evaluated cloud-services dataset. Application-level evaluation then asks whether the selected evidence helps an agent answer correctly or make a useful next move. Those are related questions, with different success criteria.

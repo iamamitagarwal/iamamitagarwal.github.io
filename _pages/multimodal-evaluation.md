@@ -29,6 +29,8 @@ The broader method retains the evidence behind a score: task and data versions, 
 
 Our multimodal work has included image-generation evaluation using prompt-constraint checks and image-based questions, including chart understanding. This connects generation quality with whether the requested content is actually present and supported.
 
+I also contribute to [storyboard evaluation research](/projects/multimodal-media/#from-a-written-story-to-visual-frames): testing whether generated frames preserve a story's events, characters and causal sequence. My research-design contributions include frame-count analysis and examining how panel boundaries affect controlled evaluation. A judge must inspect the image faithfully, not infer the intended result from the prompt.
+
 I am studying how to evaluate editing, video and style consistency, including whether a system preserves the user's intent and content across changes. This research complements retrieval and image-understanding evaluation, with safety and moderation requirements included in the design.
 
 ## Research on the measurement itself
@@ -37,7 +39,7 @@ When a model’s score improves, I want to understand what changed: useful behav
 
 ### Can meaning stay constant while scores change?
 
-I am the first author of [Do Image–Text Metrics Respect Semantic Invariances?](https://aclanthology.org/2026.findings-acl.1948/), published in ACL 2026 Findings. Our team tested five evaluators—CLIPScore, PAC-S, UMIC, FLEUR, and a deterministic LLM judge—using spatial, object, and wording perturbations intended to preserve meaning.
+I am the first author of [Do Image–Text Metrics Respect Semantic Invariances?](https://aclanthology.org/2026.findings-acl.1948/), published in ACL 2026 Findings. Our team tested five evaluators—CLIPScore, PAC-S, UMIC, FLEUR, and a deterministic large-language-model judge—using spatial, object, and wording changes intended to preserve meaning.
 
 Across curated slices of three detection datasets and three caption evaluation suites, the study reports average score changes of approximately **6–9%**. For systems separated by **0.7%**, ranking reversals occurred in up to approximately **37% of cases**. A small human study supported the interpretation that the evaluated pairs generally remained equally correct. The proposed calibration roughly halved median absolute sensitivity. These findings describe the paper’s tested conditions, not all images, evaluators, or applications. [Primary paper record](https://aclanthology.org/2026.findings-acl.1948/).
 

@@ -9,7 +9,7 @@ tags: ["Patents", "IP", "AI", "Document AI", "Information Extraction", "LLM"]
 keywords: ["Patents", "IP", "Document AI", "Information Extraction", "LLM", "Retrieval", "Enterprise AI"]
 ---
 
-<p class="lead">Public patent records include issued patents and published applications. Each entry links to its local record and source identifier.</p>
+<p class="lead">These inventions cover document understanding, retrieval and language models. Entries distinguish granted patents from published applications and link to the patent documents.</p>
 
 <p>Browse the <a class="text-link" href="{{ '/research-topics/' | relative_url }}">research topics</a> hub for subject groupings that connect patents with related research papers.</p>
 

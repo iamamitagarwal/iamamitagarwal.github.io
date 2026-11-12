@@ -11,7 +11,7 @@
     workflows for Oracle Support, connecting research questions with product requirements.
   - Architect Agent Hub routing, skill/tool retrieval, and shared context and memory
     for long-horizon tasks.
-  - Developed a personalized leadership-coaching agent pilot combining assessment-driven
+  - Developed a personalized leadership-coaching assistant prototype combining assessment-driven
     plans, persistent memory, retrieval-grounded recommendations, role-play practice,
     and proactive nudges.
   links:
@@ -63,9 +63,12 @@
   - Multilingual
   - Multimodal
   bullets:
-  - Owned applied-science contributions to multimodal and agentic enablement of Oracle Fusion ERP
-    and Oracle AI Database 26ai, spanning multimodal RAG, embedding fusion, image understanding,
-    and text-to-image capabilities with product engineering.
+  - Led multimodal applied-science contributions for Fusion applications, including image
+    understanding and retrieval, working with application engineering.
+  - Lead application-facing research on shared knowledge and semantic context in the
+    Oracle AI Database 26ai ecosystem.
+  - Model-adaptation research includes multilingual language-model fine-tuning and
+    training ranking models with difficult enterprise examples.
   - Developed document-understanding capabilities spanning OCR, key-value and table extraction.
     Earlier at Jio Platforms, led computer-vision work including video analytics,
     detection and tracking, and OCR-based document understanding.

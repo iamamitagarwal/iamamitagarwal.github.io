@@ -20,7 +20,7 @@ The collaboration carries research through demonstrations, controlled evaluation
 
 ## From business evidence to agentic workflows
 
-Oracle Fusion Cloud Applications connects ERP and other business suites with a growing set of agentic capabilities. [AI Agent Studio](https://www.oracle.com/news/announcement/oracle-expands-ai-agent-studio-for-fusion-applications-with-agentic-applications-builder-2026-03-24/) supports composing agents and workflows, integrating business content, retaining context and observing execution. [Fusion Claw](https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/) adds a runtime for longer-running, governed business processes.
+Oracle Fusion Cloud Applications connects enterprise resource planning (ERP) and other business suites with a growing set of agentic capabilities. [AI Agent Studio](https://www.oracle.com/news/announcement/oracle-expands-ai-agent-studio-for-fusion-applications-with-agentic-applications-builder-2026-03-24/) supports composing agents and workflows, integrating business content, retaining context and observing execution. [Fusion Claw](https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/) adds a runtime for longer-running, governed business processes.
 
 This evolution makes the quality of business evidence more consequential. In a multi-tool workflow, a misunderstanding can affect the next action as well as the answer. An agent needs the applicable document or image, the relevant business context and a way to recognize uncertainty before proceeding.
 

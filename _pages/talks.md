@@ -8,7 +8,7 @@ tags: ["Talks", "Workshops", "Presentations", "AI"]
 keywords: ["Talks", "Workshops", "Presentations", "AI", "LLM", "Evaluation", "RAG", "Agentic AI", "Multimodal", "Multilingual"]
 ---
 
-<p class="lead">Recorded talks, panel participation, and workshop appearances, with linked material where it is available.</p>
+<p class="lead">Talks, panel discussions and workshop appearances, with event materials where available.</p>
 
 {% assign talks = site.talks | sort: "year" | reverse %}
 <ol class="archive-list">

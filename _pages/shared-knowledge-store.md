@@ -24,15 +24,17 @@ The architecture connects Confluence and documentation, Jira and incident histor
 
 Consider an on-call engineer investigating an incident. A relevant runbook is useful, but the decision may also depend on a related ticket, a service dependency, the applicable product version and who can authorize a change. An agent needs to bring those pieces together without treating similarity as proof that a recommendation is correct.
 
-My research addresses relationship-aware retrieval, evidence coverage and context selection across a developing task. Knowledge graphs connect related artifacts; source and time context help distinguish a useful precedent from an outdated one. The evaluation question is whether the assembled evidence supports a sound next step for the agent or engineer.
+My research addresses relationship-aware retrieval, evidence coverage and context selection across a developing task. Knowledge graphs connect related artifacts; knowing where evidence came from and when it applied helps distinguish a useful precedent from an outdated one. The evaluation question is whether the assembled evidence supports a sound next step for the agent or engineer.
 
-This foundation supports work on SRE and on-call assistance, incident investigation, service-request resolution and internal knowledge assistants. Logs, metrics and deployment context create further demands on how operational evidence is linked and interpreted. Finding a related incident can guide investigation; establishing a cause requires additional validation.
+This foundation supports work on site reliability engineering (SRE), on-call assistance, incident investigation, service-request resolution and internal knowledge assistants. Logs, metrics and deployment context create further demands on how operational evidence is linked and interpreted. Finding a related incident can guide investigation; establishing a cause requires additional validation.
 
 ## Business meaning across records and documents
 
 My current research on a unified semantic layer asks how an agent can connect the meaning in a business question with the right records and supporting documents. The design links concepts, source mappings, relationships and constraints with their evidence, while keeping the underlying systems authoritative.
 
-This is an ontology-informed approach to context: a term, relation or policy must be interpreted in its source and business setting. The research examines how that shared meaning can guide source selection, structured queries, document retrieval and clarification when the question is ambiguous.
+An ontology is an explicit map of concepts and their relationships; a knowledge graph connects specific entities using those relationships. I work on how these representations can connect systems while preserving the evidence behind their meaning. A service, an incident and its owner should retain their identities as an agent moves between sources.
+
+The research examines how shared meaning can guide source selection, structured database queries, document retrieval and clarification when a question is ambiguous. The [Oracle AI Database 26ai work](/projects/database-ai/) connects this application-facing research with the database's graph and retrieval capabilities.
 
 ## Multimodal knowledge
 

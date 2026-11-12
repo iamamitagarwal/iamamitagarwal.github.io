@@ -28,7 +28,8 @@ keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
         <p>Lead applied-science work across agents, multimodal AI and evaluation, bringing research priorities and architecture into product engineering. Build reusable capabilities with science, engineering and application teams.</p>
         <ul>
           <li>Lead research and architecture for shared knowledge, agent routing, context and memory across cloud-support and application teams.</li>
-          <li>Led applied-science contributions to multimodal and agentic enablement of Oracle Fusion ERP and Oracle AI Database 26ai, working with product engineering on model selection, image understanding and retrieval-grounded workflows.</li>
+          <li>Led multimodal applied-science contributions for Fusion applications and application-facing retrieval and semantic-context work in the Oracle AI Database 26ai ecosystem.</li>
+          <li>Develop model-adaptation methods through multilingual language-model fine-tuning and enterprise ranking-model training, connecting data design and evaluation with application needs.</li>
           <li>Lead evaluation across retrieval, multimodal understanding and responsible AI, connecting controlled experiments and failure analysis with development decisions.</li>
         </ul>
         <p><a class="text-link" href="{{ '/projects/' | relative_url }}">Selected projects and research contributions</a></p>
@@ -39,7 +40,7 @@ keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
       <div>
         <h3>Data Science Lead, Computer Vision</h3>
         <p>Jio Platforms</p>
-        <p>Led computer-vision work across video analytics, detection and tracking, and OCR-based document understanding, from data and model design to evaluation and product integration.</p>
+        <p>Led computer-vision work across video analytics, detection and tracking, and document understanding using optical character recognition (OCR), from data and model design to evaluation and product integration.</p>
       </div>
     </li>
     <li class="timeline-entry">
@@ -47,7 +48,7 @@ keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
       <div>
         <h3>Data Scientist</h3>
         <p>Abzooba Infotech</p>
-        <p>Developed NLP, recommendation and search capabilities for enterprise applications.</p>
+        <p>Developed natural language processing, recommendation and search capabilities for enterprise applications.</p>
       </div>
     </li>
   </ol>

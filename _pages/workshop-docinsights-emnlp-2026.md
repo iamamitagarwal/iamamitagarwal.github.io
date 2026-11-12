@@ -10,7 +10,7 @@ tags: ["DocInsights", "EMNLP 2026", "Workshop", "Amit Agarwal"]
 keywords: ["Amit Agarwal", "DocInsights", "EMNLP 2026", "Document Intelligence", "Document AI", "Multimodal Retrieval"]
 ---
 
-I am Amit Agarwal, an applied scientist at Oracle AI and a lead organizer of DocInsights. This page connects the workshop’s research themes with my related work.
+I am a lead organizer of DocInsights, which studies how AI can understand documents through their text, layout, tables and visual evidence.
 
 DocInsights was held with EMNLP 2026 on October 29 in Budapest. Its theme was document intelligence beyond plain text, including structure-aware modeling, evidence grounding, multimodal document understanding, long-document retrieval, evaluation, and deployment. The [official site](https://docinsights-workshop.github.io/docinsights-2026/) provides the program, papers, and challenge information.
 

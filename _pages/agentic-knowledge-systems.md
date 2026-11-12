@@ -21,11 +21,13 @@ The broader scope spans ticket triage, incident investigation, product and licen
 
 ## Agent Hub: reusable capabilities across applications
 
-Agent Hub is a separate platform effort. My architecture work addresses agent routing, skill and tool retrieval, shared context and memory: capabilities that application teams can reuse as they build more specialized agents.
+Agent Hub is a separate platform effort. My architecture work addresses semantic routing: using the meaning of a request and the task's current state to select an agent, skill, tool or knowledge source. Shared context and memory let application teams build specialized agents around reusable capabilities.
 
 The scientific problem is choosing what an agent should do next when several tools, skills or knowledge sources look plausible. A routing decision needs to account for the user's intent, the task's current state and the limits of the available capability. Memory must retain useful context without carrying forward an incorrect assumption.
 
-I work across science and engineering on those decisions, connecting reusable architecture with application-level evaluation. The aim is to let teams build on common capabilities while preserving the rules and expertise specific to each workflow.
+I work across science and engineering on those decisions, connecting reusable architecture with application-level evaluation. Task-specific tools need clear inputs, permitted actions and interpretable results. Feedback traces—records of the agent's decisions, evidence and tool results—help teams diagnose errors and decide what to change.
+
+Model selection raises a related question: which model offers the right quality, response time and cost for a request? I connect these application requirements with model evaluation, while keeping selection among models distinct from choosing an agent's next tool or action.
 
 ## Console AI
 
@@ -35,9 +37,11 @@ My applied-science work connects task intent, tool selection, evidence and multi
 
 That creates a research agenda extending beyond response quality: long-horizon task completion, failure recovery, meaningful human oversight and the reliability of the evaluation environment itself. I use these questions to help align scientific investigation with the behavior the application needs.
 
-## Personalized leadership coaching pilot
+<span id="personalized-leadership-coaching-pilot"></span>
 
-I developed a leadership-coaching agent pilot that carries assessment and personal context into a learning plan, recommendations and role-play practice. Persistent memory and proactive nudges explore a different form of long-running assistance: helping someone act on feedback over time, rather than completing a single transaction.
+## Leadership coaching assistant
+
+I developed a leadership-coaching assistant that carries assessment and personal context into a learning plan, recommendations and role-play practice. The current prototype uses persistent memory and proactive nudges to explore a different form of long-running assistance: helping someone act on feedback over time.
 
 ## A common research agenda
 
