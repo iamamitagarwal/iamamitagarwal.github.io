@@ -275,6 +275,10 @@ iframe,object,embed {
 .home-intro .link-row {
   margin-top:12px
 }
+.intro-summary {
+  line-height:1.55;
+  margin-bottom:16px
+}
 .home-bio {
   grid-column:1 / -1;
   columns:2;
