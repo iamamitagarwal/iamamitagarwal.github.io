@@ -12,8 +12,6 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
 
 <p class="page-intro">Research across agents, multimodal models, retrieval, and evaluation. Browse by year, topic, or title, or visit the <a href="{{ '/research-topics/' | relative_url }}">research topics hub</a>.</p>
 
-<p class="publication-exports"><a href="{{ '/publications.json' | relative_url }}">Publication data (JSON)</a> · <a href="{{ '/llms-full.txt' | relative_url }}">Full research index (text)</a></p>
-
 {% assign publications = site.publications | sort: "year" | reverse %}
 {% assign publication_years = "" | split: "" %}
 {% assign publication_topics = "" | split: "" %}
