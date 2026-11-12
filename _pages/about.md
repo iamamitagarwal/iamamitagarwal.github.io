@@ -15,10 +15,10 @@ last_modified_at: 2026-11-11
   <div class="intro-copy">
     <h1 id="intro-heading">Amit Agarwal</h1>
     <p class="role">Senior Principal Applied Scientist · Oracle AI Foundations</p>
-    <p class="lead">I build applied-science teams and lead research from problem selection and system architecture through evaluation and product integration.</p>
+    <p class="lead">I build applied-science teams and lead research, architecture and technical delivery across enterprise AI.</p>
     <div class="link-row"><a href="/publications/">Research</a><a href="/projects/">Selected projects</a><a href="/cv/">CV</a></div>
-    <p>At Oracle AI Foundations, I work with science leadership, product and engineering teams to set technical direction and turn research into reusable capabilities. I lead research and architecture for shared knowledge and AI agents: software that uses knowledge and tools to carry out multi-step tasks. My work spans Oracle Fusion business applications, the Oracle AI Database 26ai ecosystem, cloud operations and support automation.</p>
-    <p>My model research includes fine-tuning language models for multilingual consistency and training ranking models for specialized knowledge. I also work on multimodal understanding and creative-media evaluation across text, images, audio and video. I work under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>.</p>
+    <p>At Oracle AI Foundations, I work across science, engineering and product teams on shared knowledge and agents that use evidence and tools. My contributions include science behind a production image-to-text capability for Fusion applications, alongside current work in the Oracle AI Database 26ai ecosystem.</p>
+    <p>My research spans multilingual fine-tuning, enterprise ranking, multimodal understanding and creative-media evaluation. I work under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>.</p>
   </div>
   <div class="portrait-group"><div class="portrait-frame"><img class="portrait" src="/images/profile.jpeg" alt="Amit Agarwal" width="480" height="480" fetchpriority="high"></div><div class="portrait-profiles"><a href="https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&amp;hl=en">Scholar</a><a href="https://www.linkedin.com/in/amitagarwal6/">LinkedIn</a><a href="https://github.com/iamamitagarwal">GitHub</a></div></div>
 </section>
@@ -28,7 +28,7 @@ last_modified_at: 2026-11-11
   <ul class="paper-list">
     <li class="paper-entry award-highlight"><p class="recognition">EMNLP 2025 Social Impact Award</p><h3><a href="/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/">AccessEval</a></h3><p>Measuring disability bias in language-model responses.</p></li>
     <li class="paper-entry award-highlight"><p class="recognition">ICML 2026 Spotlight</p><h3><a href="/publications/2026-judging-what-we-cannot-solve-a-consequence-based-approach-for-oracle-free-evaluation-of-research-level-math/">Judging What We Cannot Solve</a></h3><p>Evaluating research-level math solutions through related, verifiable problems.</p></li>
-    <li class="paper-entry"><h3><a href="/publications/2026-do-image-text-metrics-respect-semantic-invariances/">Do Image–Text Metrics Respect Semantic Invariances?</a></h3><p>Testing whether image–text evaluators change their scores when meaning stays the same.</p><p class="meta">ACL Findings 2026</p></li>
+    <li class="paper-entry"><h3><a href="/publications/2026-do-image-text-metrics-respect-semantic-invariances/">Do Image–Text Metrics Respect Semantic Invariances?</a></h3><p>First-author study of whether image–text evaluators change their scores when meaning stays the same.</p><p class="meta">ACL Findings 2026</p></li>
   </ul>
 </section>
 

@@ -12,16 +12,16 @@ keywords: ["Projects", "Generative AI", "Evaluation", "Retrieval", "Model adapta
 ---
 
 <p class="lead">I lead research and architecture for AI capabilities that multiple product teams can build on.</p>
-<p>At Oracle AI Foundations, I bring science, engineering and product teams together to take new ideas from research through application integration. My work connects a shared knowledge foundation with agents that use business data, understand multimodal content and act within real workflows.</p>
+<p>My delivered contributions include multimodal science for a production Fusion capability and published work on model adaptation and retrieval. Current work extends shared knowledge, agent architecture and evaluation across business applications and cloud workflows.</p>
 
 <nav class="project-index" aria-label="Project sections">
   <a href="#knowledge-systems">Knowledge &amp; retrieval</a>
+  <a href="#multimodal-applications">Fusion &amp; application agents</a>
   <a href="#model-adaptation">Model adaptation</a>
   <a href="#database-ai">Database AI</a>
   <a href="#support-agents">Support &amp; Agent Hub</a>
   <a href="#console-ai">Console AI</a>
   <a href="#multimodal-search">Video &amp; creative media</a>
-  <a href="#multimodal-applications">Fusion &amp; application agents</a>
   <a href="#evaluation">Evaluation</a>
   <a href="#video-documents">Document intelligence</a>
   <a href="#coaching-pilot">Leadership coaching</a>
@@ -34,6 +34,15 @@ keywords: ["Projects", "Generative AI", "Evaluation", "Retrieval", "Model adapta
     <p>This greenfield work brings application teams around a common foundation instead of rebuilding knowledge pipelines for every assistant. It spans evidence for site reliability engineering (SRE) and support agents, multimodal knowledge for media applications, and research on a semantic layer linking structured records with documents.</p>
     <p>The scientific challenge is assembling the right context as a task evolves: following relationships across sources, resolving ambiguity and balancing relevance, freshness and trust. I connect that research agenda with architecture decisions, evaluation and product integration.</p>
     <div class="article-links"><a href="/projects/shared-knowledge-store/">Knowledge fabric and research</a><a href="/projects/enterprise-retrieval/">Learning to rank enterprise evidence</a><a href="/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/">Multilingual model adaptation</a></div>
+  </div>
+</article>
+
+<article class="case-study" id="multimodal-applications" aria-labelledby="applications-heading">
+  <header class="case-heading"><h2 id="applications-heading">Fusion ERP &amp; application agents</h2></header>
+  <div class="case-body">
+    <p>I led multimodal applied-science contributions for Fusion enterprise resource planning (ERP) and related business applications, working with application engineering to bring image understanding and document evidence into workflows. This included science behind a production image-to-text capability and demonstrations spanning image, audio and video retrieval.</p>
+    <p>My role is to turn model research into capabilities an application team can use: selecting representations, investigating failures and resolving quality, latency and integration tradeoffs. As business workflows involve more tools and modalities, I focus on how agents interpret evidence and how to evaluate the behavior that follows.</p>
+    <div class="article-links"><a href="/projects/multimodal-business-applications/">Fusion science and application agents</a><a href="/projects/database-ai/">Related database AI work</a></div>
   </div>
 </article>
 
@@ -82,14 +91,6 @@ keywords: ["Projects", "Generative AI", "Evaluation", "Retrieval", "Model adapta
   </div>
 </article>
 
-<article class="case-study" id="multimodal-applications" aria-labelledby="applications-heading">
-  <header class="case-heading"><h2 id="applications-heading">Fusion ERP &amp; application agents</h2></header>
-  <div class="case-body">
-    <p>I led multimodal applied-science contributions for Fusion enterprise resource planning (ERP) and related business applications, working with application engineering to bring image understanding and document evidence into workflows. This included science behind a production image-to-text capability and demonstrations spanning image, audio and video retrieval.</p>
-    <p>My role is to turn model research into capabilities an application team can use: selecting representations, investigating failures and resolving quality, latency and integration tradeoffs. As business workflows involve more tools and modalities, I focus on how agents interpret evidence and how to evaluate the behavior that follows.</p>
-    <div class="article-links"><a href="/projects/multimodal-business-applications/">Fusion science and application agents</a><a href="/projects/database-ai/">Related database AI work</a></div>
-  </div>
-</article>
 
 <article class="case-study" id="evaluation" aria-labelledby="evaluation-heading">
   <header class="case-heading"><h2 id="evaluation-heading">Agent &amp; multimodal evaluation</h2></header>

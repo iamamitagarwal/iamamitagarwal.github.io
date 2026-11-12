@@ -15,7 +15,7 @@ I lead applied-science work on agents that help people investigate problems and 
 
 Support requests rarely arrive as complete specifications. An agent may need to clarify symptoms, find relevant product guidance, interpret prior tickets and decide whether to investigate further or hand over to an engineer. A fluent answer is only useful if it moves that process forward.
 
-My Oracle Support work connects model integration, retrieval quality and multi-turn reasoning with service-request workflows. I work with support and engineering teams to investigate failures in application use, turn them into research questions and re-evaluate changes against representative conversations. This connects the science agenda with what the product must do reliably.
+My Oracle Support work connects model integration, retrieval quality and multi-turn reasoning with service-request workflows. To enable independent assessment, I coordinated a handoff across science, engineering and Support: aligning the model and retrieval configuration, verifying access and sharing the setup with the evaluation team. That gave evaluators the material needed to run their own checks.
 
 The broader scope spans ticket triage, incident investigation, product and licensing questions, and resolution assistance. Different tasks need different evidence and authority. I focus on the shared capabilities behind them: retaining relevant context, selecting useful knowledge and tools, handling uncertainty and evaluating progress toward resolution.
 
