@@ -36,7 +36,7 @@ keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
       </div>
     </li>
     <li class="timeline-entry">
-      <p class="meta">Earlier</p>
+      <p class="meta">June 2020–April 2021</p>
       <div>
         <h3>Data Science Lead, Computer Vision</h3>
         <p>Jio Platforms</p>
@@ -44,7 +44,7 @@ keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
       </div>
     </li>
     <li class="timeline-entry">
-      <p class="meta">Earlier</p>
+      <p class="meta">June 2016–June 2020</p>
       <div>
         <h3>Data Scientist</h3>
         <p>Abzooba Infotech</p>
