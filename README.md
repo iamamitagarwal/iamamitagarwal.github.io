@@ -224,3 +224,7 @@ git push origin main
 ```
 
 Check the Pages workflow and live pages after the push. Keep both tags unchanged. If later releases have landed, review the revert for conflicts and compatibility before deploying it. Stage source files explicitly; generated `_site` output and local automation files must not be included in release commits.
+
+## Reviewing the current portfolio
+
+The current layout uses `_layouts/default.html`, `assets/css/portfolio.css` and `assets/js/portfolio.js`; older theme overrides are historical. Review one frozen source revision with fresh desktop, tablet and phone screenshots. Inspect first-screen hierarchy, later sections, available-column use and long paper records, then exercise filters, disclosures, menu/Escape and both themes. Check unfocused controls as well as focus indicators. Keep reader navigation separate from machine exports. Run `scripts/verify_portfolio.py` against the build: every paper's original abstract must precede its editorial explanation. A passing build or no-overflow result is only part of the visual review; record concrete findings and accepted tradeoffs rather than a blanket approval.

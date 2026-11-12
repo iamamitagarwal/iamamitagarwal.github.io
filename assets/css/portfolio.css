@@ -17,6 +17,7 @@
   --quiet:#526472;
   --blue:#145c9b;
   --line:#dce3e8;
+  --control-border:#7a8c9a;
   --wash:#f3f7fa;
   --focus:#a65600;
   --content:1360px
@@ -28,6 +29,7 @@
   --quiet:#b2c1cd;
   --blue:#8dc8ff;
   --line:#374a58;
+  --control-border:#8297a7;
   --wash:#1b2e3c;
   --focus:#f5b866
 }
@@ -489,6 +491,9 @@ iframe,object,embed {
   text-decoration:none;
   filter:brightness(.92)
 }
+.cv-download {
+  margin-bottom:24px
+}
 .theme-dark .button {
   color:#14212a
 }
@@ -509,7 +514,7 @@ iframe,object,embed {
 }
 .filter-input,.filter-bar input,.filter-bar select {
   background:var(--paper);
-  border:1px solid var(--line);
+  border:1px solid var(--control-border);
   color:var(--ink);
   border-radius:3px;
   padding:.5rem .7rem;

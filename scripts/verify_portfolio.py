@@ -38,6 +38,10 @@ for route in sorted(set(routes)):
     if route.startswith('/publications/') and route != '/publications/':
         if not soup.select('meta[name=citation_title]') or not soup.select('meta[name=citation_author]'):
             errors.append(f'{route}: missing citation title/authors')
+        body = soup.select_one('.paper-body')
+        first_block = body.find(recursive=False) if body else None
+        if first_block is None or not first_block.get_text(' ', strip=True).startswith('Abstract.'):
+            errors.append(f'{route}: author-written abstract must precede editorial overview')
     for script in soup.select('script[type="application/ld+json"]'):
         try:
             json.loads(script.string or script.get_text())

@@ -11,7 +11,7 @@ keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
 ---
 
 <p class="lead">Professional experience and education.</p>
-<div class="paper-actions">
+<div class="paper-actions cv-download">
   <a class="button" href="{{ '/files/amit-agarwal-cv.pdf' | relative_url }}" target="_blank" rel="noopener">Download CV (PDF)</a>
 </div>
 
