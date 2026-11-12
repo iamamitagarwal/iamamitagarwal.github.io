@@ -88,8 +88,7 @@ h1,h2,h3,h4 {
   margin:0 0 .6em
 }
 h1 {
-  font-size:clamp(2.4rem,4.6vw,3.9rem);
-  max-width:24ch
+  font-size:clamp(2.4rem,4.6vw,3.9rem)
 }
 h2 {
   font-size:clamp(1.65rem,2.6vw,2.05rem)
@@ -264,8 +263,7 @@ iframe,object,embed {
 .lead {
   font-size:clamp(1.3rem,2.2vw,1.62rem);
   line-height:1.4;
-  letter-spacing:-.015em;
-  max-width:53ch
+  letter-spacing:-.015em
 }
 .home-intro .lead {
   font-size:clamp(1.3rem,1.9vw,1.4rem);
@@ -337,7 +335,6 @@ iframe,object,embed {
 }
 .direction h3 {
   font-size:1.23rem;
-  max-width:26ch;
   color:var(--blue)
 }
 .direction p {
@@ -378,9 +375,6 @@ iframe,object,embed {
 .paper-entry p {
   margin:.35rem 0
 }
-.paper-entry p:not(.meta):not(.paper-authors) {
-  max-width:70ch
-}
 .meta,.quiet,.status,.paper-authors {
   color:var(--quiet);
   font-size:1rem;
@@ -394,9 +388,6 @@ iframe,object,embed {
   font-size:.95rem;
   font-weight:600
 }
-.paper-authors {
-  max-width:88ch
-}
 .paper-actions {
   font-size:.97rem;
   margin-top:.7rem
@@ -409,9 +400,6 @@ iframe,object,embed {
 .contact-block h2 {
   font-size:1.6rem
 }
-.contact-block p {
-  max-width:75ch
-}
 .contact-block p:last-child {
   margin-bottom:0
 }
@@ -420,9 +408,6 @@ iframe,object,embed {
 }
 .page-heading h1 {
   font-size:clamp(2.5rem,4.7vw,3.6rem)
-}
-.page__content>p {
-  max-width:75ch
 }
 .page__content>.lead {
   margin-bottom:44px
@@ -448,9 +433,6 @@ iframe,object,embed {
   font-size:.94rem;
   margin-bottom:14px
 }
-.case-body p {
-  max-width:66ch
-}
 .case-facts {
   font-size:1rem;
   color:var(--quiet);
@@ -471,6 +453,9 @@ iframe,object,embed {
   margin:0 0 .5rem;
   font-size:1.3rem
 }
+.award-entry h3 .text-link {
+  white-space:normal
+}
 .archive-entry p:last-child,.award-entry p:last-child {
   margin-bottom:0
 }
@@ -486,9 +471,6 @@ iframe,object,embed {
 }
 .timeline-entry h2,.timeline-entry h3 {
   margin-top:0
-}
-.timeline-entry p {
-  max-width:65ch
 }
 .timeline-entry ul {
   margin-top:.4rem
@@ -552,14 +534,7 @@ iframe,object,embed {
   margin:0
 }
 .paper-detail .page-heading h1 {
-  font-size:clamp(2rem,3.5vw,3rem);
-  max-width:36ch
-}
-.paper-detail .page__content {
-  max-width:850px
-}
-.paper-detail .page__content>p {
-  max-width:72ch
+  font-size:clamp(2rem,3.5vw,3rem)
 }
 .paper-detail .paper-authors {
   font-size:1.1rem
@@ -1099,7 +1074,6 @@ iframe,object,embed {
   }
 }
 .page-intro {
-  max-width:70ch;
   font-size:1.3rem;
   line-height:1.5
 }
@@ -1144,9 +1118,6 @@ iframe,object,embed {
   padding-bottom:26px;
   border-bottom:1px solid var(--line);
   margin-bottom:30px
-}
-.paper-body {
-  max-width:75ch
 }
 .paper-body p {
   margin-bottom:1.3em
