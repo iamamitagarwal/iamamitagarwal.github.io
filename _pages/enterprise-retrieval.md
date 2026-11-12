@@ -34,7 +34,7 @@ Across this work, I connect training-data design, model adaptation and evaluatio
 
 ## From ranking quality to agent behavior
 
-The paper establishes a ranking improvement on its evaluated cloud-services dataset. Application-level evaluation then asks whether the selected evidence helps an agent answer correctly or make a useful next move. Those are related questions, with different success criteria.
+The hard-negative mining study establishes a ranking improvement on its evaluated cloud-services dataset. Application-level evaluation then asks whether the selected evidence helps an agent answer correctly or make a useful next move. Those are related questions, with different success criteria.
 
 That distinction matters as retrieval becomes part of an agent loop. A new observation can change what information is needed, which source should be queried and whether earlier context is still applicable. My current work connects those agentic retrieval questions with reusable knowledge infrastructure and task-level evaluation.
 

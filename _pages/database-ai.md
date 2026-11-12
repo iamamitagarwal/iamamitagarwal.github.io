@@ -28,7 +28,7 @@ My current research on a unified semantic layer examines how business concepts, 
 
 I work on the architectural choices behind a common ontology: a shared vocabulary of concepts and relationships across systems. Knowledge graphs give those concepts concrete links to records, documents and supporting evidence. The research includes how to grow that representation across sources while retaining source identity, conflicting interpretations and the context in which a relationship applies.
 
-I work on how to represent that context, connect structured and unstructured sources and evaluate whether the added meaning improves the application's decisions. This research complements the [Shared Knowledge Store](/projects/shared-knowledge-store/), which makes enterprise knowledge reusable across agents and applications.
+This research complements the [Shared Knowledge Store](/projects/shared-knowledge-store/), which makes enterprise knowledge reusable across agents and applications. I evaluate whether the added business context improves the application's decisions.
 
 The database provides complementary building blocks. Its [knowledge-graph creation and maintenance tools](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/dbms_graphRAG.html) extract entities and relationships from source text, add sources and update graph data when configured. Those product capabilities support application research; an accurate business ontology still requires decisions about meaning, evidence and ownership.
 

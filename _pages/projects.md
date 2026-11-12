@@ -95,7 +95,7 @@ keywords: ["Projects", "Generative AI", "Evaluation", "Retrieval", "Model adapta
   <header class="case-heading"><h2 id="evaluation-heading">Agent &amp; multimodal evaluation</h2></header>
   <div class="case-body">
     <p>I lead evaluation as a research and product discipline: deciding what successful behavior means, where an agent can fail and what evidence a team needs before changing a model or workflow. The scope spans long-horizon support tasks, cloud-console actions and creative-media quality.</p>
-    <p>My work combines task-level evaluation and reproducible harnesses with published research on reasoning, metric reliability, safety and bias. It helps teams distinguish a better benchmark score from an improvement in the behavior the application actually needs.</p>
+    <p>My work combines task-level evaluation and reproducible evaluation software with published research on reasoning, metric reliability, safety and bias. It helps teams distinguish a better benchmark score from an improvement in the behavior the application actually needs.</p>
     <div class="article-links"><a href="/projects/multimodal-evaluation/">Workflow evaluation and research</a><a href="/publications/">Research papers</a></div>
   </div>
 </article>

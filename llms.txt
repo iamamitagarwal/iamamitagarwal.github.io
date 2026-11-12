@@ -14,7 +14,7 @@ I lead research and architecture for Shared Knowledge Store (SKS), a common know
 
 Other work spans semantic routing, agent tools, context and memory for Oracle Support, Agent Hub and Oracle Cloud Infrastructure (OCI) Console AI. Model adaptation and post-training include published multilingual language-model fine-tuning and enterprise ranking-model training. Creative-media research includes text-to-storyboard evaluation, with scene editing and character-aware search as current directions. I also developed a leadership-coaching assistant prototype.
 
-Research directions: agents that use knowledge, memory and tools; multimodal understanding across language, images and video; evaluation of long-horizon tasks, tool use, reasoning, robustness and bias, supported by reproducible research harnesses.
+Research directions: agents that use knowledge, memory and tools; multimodal understanding across language, images and video; evaluation of long-horizon tasks, tool use, reasoning, robustness and bias, supported by reproducible evaluation software.
 
 ## Pages
 

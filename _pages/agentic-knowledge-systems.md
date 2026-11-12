@@ -31,7 +31,7 @@ Model selection raises a related question: which model offers the right quality,
 
 ## Console AI
 
-[Console AI](https://blogs.oracle.com/cloud-infrastructure/introducing-console-ai-oci) brings conversational guidance and reviewable resource actions into the OCI Console. It gives cloud operators a different interaction model: describe a goal, inspect the proposed action and work with an assistant that understands the surrounding cloud context.
+[Console AI](https://blogs.oracle.com/cloud-infrastructure/introducing-console-ai-oci) brings conversational guidance and reviewable resource actions into the Oracle Cloud Infrastructure (OCI) Console. It gives cloud operators a different interaction model: describe a goal, inspect the proposed action and work with an assistant that understands the surrounding cloud context.
 
 My applied-science work connects task intent, tool selection, evidence and multi-turn evaluation with engineering integration. A successful agent needs to use the right resource and arguments, preserve permissions and approval boundaries, and recognize when the expected state change did not occur.
 

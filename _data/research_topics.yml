@@ -1,6 +1,6 @@
 - slug: document-intelligence
   title: Document Intelligence and Information Extraction
-  description: Work on extracting fields, marks, and structured information from visually rich documents, along with graph-based and synthetic approaches to training document understanding models.
+  description: Extracting useful information from documents whose meaning depends on text, layout, tables and visual marks, including graph models and synthetic training data.
   publications:
     - '2024-enhancing-document-ai-data-generation-through-graph-based-synthetic-layouts'
     - '2024-llm-for-barcodes-generating-diverse-synthetic-data-for-identity-documents'
@@ -19,7 +19,7 @@
 
 - slug: retrieval-and-knowledge-systems
   title: Retrieval, Knowledge Access, and Conversational Systems
-  description: Work on retrieving domain knowledge, answering specialized questions, and organizing multi-turn or structured-data interactions with language models.
+  description: Finding relevant evidence for specialized questions and conversations, training ranking models and connecting language models with enterprise knowledge.
   publications:
     - '2024-review-of-reference-generation-methods-in-large-language-models'
     - '2025-clinical-qa-2-0-multi-task-learning-for-answer-extraction-and-categorization'
@@ -34,7 +34,7 @@
 
 - slug: multilingual-language-technology
   title: Multilingual Language Technology
-  description: Work on language identification, tokenization, multilingual knowledge, and reasoning across languages.
+  description: Making language models more consistent across languages, from fine-tuning and multilingual reasoning to language identification and tokenization, the way text is split into model inputs.
   publications:
     - '2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications'
     - '2025-pushing-on-multilingual-reasoning-models-with-language-mixed-chain-of-thought'
@@ -45,7 +45,7 @@
 
 - slug: responsible-and-cultural-ai
   title: Responsible, Inclusive, and Culturally Grounded AI
-  description: Work examining how language models and vision-language systems respond to disability, demographic and cultural context, including questions of safety and representation.
+  description: Testing how language and image-understanding models respond to disability, demographic and cultural context, with attention to safety, representation and unequal behavior.
   publications:
     - '2024-sweeval-do-llms-really-swear-a-safety-benchmark-for-testing-limits-for-enterpris'
     - '2025-accesseval-benchmarking-disability-bias-in-large-language-models'
@@ -60,7 +60,7 @@
 
 - slug: multimodal-evaluation-and-reliability
   title: Multimodal Evaluation and Reliability
-  description: Work assessing multimodal models, visual-language benchmarks, metric behavior, and robustness under changes to images, context, or inputs.
+  description: Checking whether models understand images and video reliably, and whether evaluation scores measure the abilities people care about when the image, context or input changes.
   publications:
     - '2021-evaluate-generalisation-robustness-of-visual-features-from-images-to-video'
     - '2024-mvtamperbench-evaluating-robustness-of-vision-language-models'
@@ -75,7 +75,7 @@
 
 - slug: reasoning-and-evaluation-methods
   title: Reasoning and Evaluation Methods
-  description: Work on evaluating language-model reasoning, interpreting benchmark composition, generating meaningful test variations, and assessing structured outputs.
+  description: Evaluating model reasoning and structured answers, testing how the choice of benchmark questions affects a comparison and creating meaningful variations of test problems.
   publications:
     - '2025-benchhub-a-unified-benchmark-suite-for-holistic-and-customizable-llm-evaluation'
     - '2025-can-llms-narrate-tabular-data-an-evaluation-framework-for-natural-language-representations-of-text-to-sql-system-outputs'
@@ -86,7 +86,7 @@
 
 - slug: adaptation-and-generalization
   title: Visual Recognition, Adaptation, and Generalization
-  description: Work on visual activity recognition, model behavior under domain or distribution shifts, adaptation at evaluation time, and continual learning.
+  description: Adapting visual models when new images differ from the training data, including unfamiliar categories and changing environments, alongside research on recognizing activities.
   publications:
     - '2025-instance-aware-test-time-adaptation-for-domain-generalization'
     - '2025-learning-from-unknown-for-open-set-test-time-adaptation'

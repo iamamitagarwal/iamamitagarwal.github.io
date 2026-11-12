@@ -6,12 +6,12 @@ author_profile: true
 classes: wide project-story
 project_story: true
 last_modified_at: 2026-11-11
-description: "Amit Agarwal on long-horizon agent evaluation, tool use, research harnesses, creative-media workflows and reliable multimodal measurement."
+description: "Amit Agarwal on long-horizon agent evaluation, tool use, reproducible evaluation, creative-media workflows and reliable multimodal measurement."
 ---
 
 I lead evaluation work that helps science and product teams decide whether an AI capability is ready for its intended workflow. The scope spans long-horizon support workflows, cloud-console actions and multimodal content, where a single answer score cannot explain whether the system made useful progress.
 
-My work combines task and benchmark design, controlled comparisons, research harnesses and failure analysis. I bring those results into architecture and model decisions across science and engineering, with published research examining the reliability of the measurement itself.
+My work combines task and benchmark design, controlled comparisons, reusable evaluation software and failure analysis. I bring those results into architecture and model decisions across science and engineering, with published research examining the reliability of the measurement itself.
 
 ## Long-horizon tasks and useful progress
 
@@ -19,9 +19,9 @@ In support and service-request workflows, I examine grounded answers, useful nex
 
 For cloud-console agents, the evaluation problem includes correct tool selection and arguments, appropriate human approval and verifiable changes to system state. The evaluation plans I work with combine outcome checks, tool-call evidence and multi-turn testing, with separate failure categories for the agent, infrastructure, simulator and verifier. These distinctions help science and engineering teams choose the right intervention.
 
-## Research harnesses and reproducibility
+## Reproducible evaluation
 
-I build evaluation methods that teams can inspect and reuse. My hands-on contributions include a streaming multimodal evaluator that preserves case-level evidence and explicitly marks incomplete runs. This lets teams check whether a better score reflects better behavior or missing cases and execution differences.
+I build evaluation software, or test harnesses, that teams can inspect and reuse. My hands-on contributions include a streaming multimodal evaluator that preserves case-level evidence and explicitly marks incomplete runs. This lets teams check whether a better score reflects better behavior or missing cases and execution differences.
 
 The broader method retains the evidence behind a score: task and data versions, model and prompt configuration, tool behavior, outputs and failure status. Human review and judge calibration matter when success depends on judgment, safety or the quality of a handoff. The goal is to make a scientific comparison useful for a delivery decision and reproducible by another team.
 
