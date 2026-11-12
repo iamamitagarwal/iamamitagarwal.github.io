@@ -211,10 +211,11 @@ GitHub Pages builds and deploys when `main` is pushed. Tags preserve release sna
 
 - `site-v1-before-redesign`: the last live version before the November 2026 redesign (`b6efcc8`).
 - `site-v2.0.0`: the redesign release, merged into `main` with a merge commit.
+- `site-v2.0.1`: compact responsive layout, publication readability fixes and the approved homepage biography/platform wording.
 
-To inspect either snapshot locally, use `git switch --detach <tag>` after preserving any local edits, then rebuild the site. Return with `git switch main`. Switching source does not change an already running preview until it is rebuilt.
+To inspect a snapshot locally, use `git switch --detach <tag>` after preserving any local edits, then rebuild the site. Return with `git switch main`. Switching source does not change an already running preview until it is rebuilt.
 
-To roll back this release on the live site without rewriting history:
+To roll back the original redesign release on the live site without rewriting history (review later changes first):
 
 ```bash
 git switch main
@@ -224,6 +225,16 @@ git push origin main
 ```
 
 Check the Pages workflow and live pages after the push. Keep both tags unchanged. If later releases have landed, review the revert for conflicts and compatibility before deploying it. Stage source files explicitly; generated `_site` output and local automation files must not be included in release commits.
+
+To roll back only the v2.0.1 changes to the v2.0.0 content, start with a clean source checkout on updated `main`, then review the resulting revert before pushing:
+
+```bash
+git revert --no-commit site-v2.0.0..site-v2.0.1
+git commit -m "Revert portfolio v2.0.1 changes"
+git push origin main
+```
+
+Keep all release tags unchanged. If further releases have landed, inspect compatibility and conflicts before applying the range revert.
 
 ## Reviewing the current portfolio
 
