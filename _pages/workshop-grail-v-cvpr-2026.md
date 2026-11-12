@@ -10,7 +10,7 @@ tags: ["GRAIL-V", "CVPR 2026", "Workshop", "Amit Agarwal"]
 keywords: ["Amit Agarwal", "GRAIL-V", "CVPR 2026", "Vision-Language", "Grounded Retrieval", "Agentic Intelligence"]
 ---
 
-I am Amit Agarwal, an applied scientist at Oracle AI and a lead organizer of GRAIL-V. This page connects the workshop’s research themes with my related work.
+I am a lead organizer of GRAIL-V, which brings together researchers studying how AI agents find visual evidence, reason with it and verify their conclusions.
 
 GRAIL-V was held at CVPR 2026 on June 3 in Denver. Its focus was **Grounded Retrieval and Agentic Intelligence for Vision-Language**: planning, multimodal retrieval and reranking, grounded reasoning, and verification. The [workshop site](https://grailworkshops.github.io/) describes a plan–retrieve–reason–verify loop and includes the program and proceedings information.
 

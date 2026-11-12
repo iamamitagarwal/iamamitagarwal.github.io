@@ -5,8 +5,7 @@ org: "Abzooba"
 icon: "trophy"     # trophy | medal | star
 certificate: "/assets/awards/Abzoobian of Month 1.pdf"
 link: ""
-layout: single
+description: "Abzooba Employee of the Month recognition for Amit Agarwal, 2019."
+layout: award
 author_profile: true
 ---
-Award description (optional).
-

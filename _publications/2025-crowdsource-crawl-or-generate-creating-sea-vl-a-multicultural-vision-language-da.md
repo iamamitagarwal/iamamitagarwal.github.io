@@ -1,4 +1,5 @@
 ---
+description: "SEA-VL compares crowdsourcing, crawling and synthetic generation for culturally grounded vision-language data in Southeast Asia."
 layout: paper
 title: "Crowdsource, Crawl, or Generate? Creating SEA-VL, a Multicultural Vision-Language Dataset for Southeast Asia"
 authors: >-

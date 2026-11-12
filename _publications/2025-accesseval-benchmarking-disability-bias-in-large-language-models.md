@@ -1,5 +1,6 @@
 ---
 home_highlight_summary: "Measures disability bias in LLM responses across real-world domains."
+description: "AccessEval benchmarks disability bias in language models across real-world domains, comparing neutral and disability-aware questions."
 layout: paper
 title: "AccessEval: Benchmarking Disability Bias in Large Language Models"
 authors: 'Srikant Panda, Amit Agarwal, Hitesh Laxmichand Patel'

@@ -204,3 +204,23 @@ Also make sure `_config.yml` → `author` → `avatar` points to your **high-res
 - Content (text, images): © Amit Agarwal.
 - Code customizations in this repo: MIT unless noted.
 - Minimal Mistakes: see the theme’s license.
+
+## Website releases and rollback
+
+GitHub Pages builds and deploys when `main` is pushed. Tags preserve release snapshots; creating a tag alone does not deploy.
+
+- `site-v1-before-redesign`: the last live version before the November 2026 redesign (`b6efcc8`).
+- `site-v2.0.0`: the redesign release, merged into `main` with a merge commit.
+
+To inspect either snapshot locally, use `git switch --detach <tag>` after preserving any local edits, then rebuild the site. Return with `git switch main`. Switching source does not change an already running preview until it is rebuilt.
+
+To roll back this release on the live site without rewriting history:
+
+```bash
+git switch main
+git pull --ff-only origin main
+git revert -m 1 site-v2.0.0
+git push origin main
+```
+
+Check the Pages workflow and live pages after the push. Keep both tags unchanged. If later releases have landed, review the revert for conflicts and compatibility before deploying it. Stage source files explicitly; generated `_site` output and local automation files must not be included in release commits.

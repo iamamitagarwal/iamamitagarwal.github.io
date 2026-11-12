@@ -1,0 +1,76 @@
+# Research context derived from each matching publication record and its recorded abstract.
+# Terms describe the paper’s model classes, tasks and methods; no newer model coverage is implied.
+2025-rci-a-score-for-evaluating-global-and-local-reasoning-in-multimodal-benchmarks:
+  summary: Does a model need the whole image to answer a question, or can it succeed using only a small crop?
+    The Region Comprehension Index (RCI) compares performance on image patches and full images to study that difference.
+  terms:
+  - multimodal large language models
+  - vision-language benchmarks
+  - global and local visual reasoning
+  - image-patch evaluation
+2025-pcri-measuring-context-robustness-in-multimodal-models-for-enterprise-applicatio:
+  summary: The Patch Context Robustness Index (PCRI) tests whether additional visual context helps or distracts a model,
+    comparing cropped-image and full-image performance across 19 models and 15 benchmarks, including InternVL2-26B and Qwen2VL-72B.
+  terms:
+  - multimodal large language models
+  - visual context robustness
+  - InternVL2-26B
+  - Qwen2VL-72B
+  - image-patch evaluation
+2026-do-image-text-metrics-respect-semantic-invariances:
+  summary: Can an evaluation score change even when an image and its caption still mean the same thing?
+    This study tests that sensitivity and proposes a way to reduce it.
+  terms:
+  - image–text evaluation
+  - semantic invariance
+  - caption alignment
+  - invariance calibration
+2024-mvtamperbench-evaluating-robustness-of-vision-language-models:
+  summary: MVTamperBench tests how reliably 45 models understand video when frames are rotated, covered,
+    replaced, repeated or removed.
+  terms:
+  - multimodal large language models
+  - video understanding
+  - spatial and temporal coherence
+  - tampering robustness
+2025-accesseval-benchmarking-disability-bias-in-large-language-models:
+  summary: AccessEval compares answers to questions with and without disability context, examining factual accuracy,
+    tone and social perception across 21 language models.
+  terms:
+  - large language models
+  - disability bias
+  - paired-query evaluation
+  - factual accuracy
+  - social perception
+2026-recor-reasoning-focused-multi-turn-conversational-retrieval-benchmark:
+  summary: RECOR tests whether a search system can follow a conversation, reason about what the user needs
+    and find supporting information.
+  terms:
+  - conversational retrieval
+  - multi-turn search
+  - retrieval reasoning
+  - evidence retrieval
+2025-benchhub-a-unified-benchmark-suite-for-holistic-and-customizable-llm-evaluation:
+  summary: BenchHub examines how the mix of questions in a benchmark can change which model appears best.
+    It lets researchers build controlled test sets and vary that mix.
+  terms:
+  - large language model evaluation
+  - benchmark composition
+  - instance-level attributes
+  - reweighting and resampling
+2025-hard-negative-mining-for-domain-specific-retrieval-in-enterprise-systems:
+  summary: This work trains ranking models with irrelevant documents that closely resemble good answers,
+    testing whether difficult examples help models learn important domain distinctions.
+  terms:
+  - enterprise retrieval
+  - reranker training
+  - hard-negative mining
+  - embedding models
+2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications:
+  summary: This study fine-tunes language models using examples with the same meaning expressed in different
+    languages, aiming for more consistent answers across languages.
+  terms:
+  - large language models
+  - multilingual consistency
+  - batch-wise alignment
+  - multilingual fine-tuning

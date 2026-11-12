@@ -8,9 +8,15 @@ sitemap: false
 
 I work in Oracle AI Foundations under the guidance of [Dan Roth](https://www.cis.upenn.edu/~danroth/) and [Sujith Ravi](https://blogs.oracle.com/authors/sujithravi/), advancing agentic and enterprise AI, multimodal models, and media understanding.
 
-Current work spans enterprise semantic layers, personalized search and agents, support automation, multimodal models, post-training, and evaluation. The leadership-coaching work described on the site is a pilot.
+I build applied-science teams and lead research, technical direction and architecture through evaluation and product integration. I bring science, engineering and product teams together across agentic systems, Oracle Cloud Infrastructure, Console AI and DevOps workflows, including on-call assistance, incident investigation and support automation. My applied-science contributions include multimodal understanding, reasoning and evaluation for Oracle Fusion ERP agents, alongside shared knowledge and semantic-layer research in the Oracle AI Database 26ai ecosystem.
 
-Research areas: agents and reasoning; multimodal models and post-training; search and retrieval; evaluation and responsible AI.
+Working with business and technical leaders, I help set priorities across product groups and carry science and architecture decisions through to delivery. The goal is to make AI a core part of product workflows, with shared capabilities that can scale across business units.
+
+I lead research and architecture for Shared Knowledge Store (SKS), a common knowledge and context foundation for Oracle AI applications. The work connects enterprise evidence, relationships and semantic context across agentic use cases, including site reliability engineering (SRE), support workflows and multimodal knowledge. Current research on shared ontologies and semantic layers links structured records with document evidence.
+
+Other work spans semantic routing, agent tools, context and memory for Oracle Support, Agent Hub and Oracle Cloud Infrastructure (OCI) Console AI. Model adaptation and post-training include published multilingual language-model fine-tuning and enterprise ranking-model training. Creative-media research includes text-to-storyboard evaluation, with scene editing and character-aware search as current directions. I also developed a leadership-coaching assistant prototype.
+
+Research directions: agents that use knowledge, memory and tools; multimodal understanding across language, images and video; evaluation of long-horizon tasks, tool use, reasoning, robustness and bias, supported by reproducible evaluation software.
 
 ## Pages
 
@@ -18,9 +24,15 @@ Research areas: agents and reasoning; multimodal models and post-training; searc
 - [{{ item.title }}]({{ item.url | absolute_url }})
 {% endfor %}
 - [Home]({{ '/' | absolute_url }})
+- [Patents]({{ '/patents/' | absolute_url }}) — invention records and inventors.
+- [Recognition]({{ '/awards/' | absolute_url }}) — research and company awards.
+- [Media]({{ '/media/' | absolute_url }}) — coverage and interviews.
+- [Talks]({{ '/talks/' | absolute_url }}) — presentations and materials.
 
 - [Research topics]({{ "/research-topics/" | absolute_url }}) — browse the complete paper and patent portfolio by research question.
 - [Workshops]({{ "/workshops/" | absolute_url }}) — Amit Agarwal’s workshop organizing and related research.
+
+Upcoming workshop: RBD, planned for NAACL 2027; Amit Agarwal is a lead organizer.
 
 ## Project stories
 
@@ -38,6 +50,6 @@ Research areas: agents and reasoning; multimodal models and post-training; searc
 
 ## Complete machine-readable records
 
-- [Full research and workshop text]({{ '/llms-full.txt' | absolute_url }}) — publication records, abstracts or labeled summaries, topics, version notes, and workshop roles.
+- [Full research and project text]({{ '/llms-full.txt' | absolute_url }}) — public project narratives, publication records, abstracts or labeled summaries, research contexts, workshop roles and patent records.
 - [Publications JSON]({{ '/publications.json' | absolute_url }}) — metadata generated from the publication collection, with source links and recorded venue information.
 - [Workshops JSON]({{ '/workshops.json' | absolute_url }}) — public workshop records and author-reported roles; unknown dates omitted.

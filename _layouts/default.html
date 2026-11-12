@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="{{ site.locale | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include seo.html %}
+  {% if page.redirect_to %}<meta http-equiv="refresh" content="0;url={{ page.redirect_to | relative_url | escape }}">{% endif %}
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="Amit Agarwal research feed" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="describedby" type="text/plain" href="{{ '/llms.txt' | relative_url }}">
+  <link rel="preload" href="{{ '/assets/fonts/source-sans-3-regular.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
+  <script>document.documentElement.classList.remove('no-js');try{const t=localStorage.getItem('portfolio-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('theme-dark')}catch(e){}</script>
+  <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
+  <script src="{{ '/assets/js/portfolio.js' | relative_url }}" defer></script>
+  {% if jekyll.environment == 'production' %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-351QZEBS4T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-351QZEBS4T');</script>
+  {% endif %}
+</head>
+<body class="portfolio{% if page.url == '/' %} is-home{% endif %}">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="Amit Agarwal home"><img src="{{ '/images/logo.png' | relative_url }}" width="46" height="38" alt=""><span>Amit Agarwal</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu <span aria-hidden="true">☰</span></button>
+    <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+      <a href="{{ '/publications/' | relative_url }}" {% if page.url contains '/publications/' or page.url contains '/research-topics/' %}aria-current="{% if page.url == "/publications/" %}page{% else %}location{% endif %}"{% endif %}>Research</a>
+      <a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects/' %}aria-current="{% if page.url == "/projects/" %}page{% else %}location{% endif %}"{% endif %}>Projects</a>
+      <a href="{{ '/community/' | relative_url }}" {% if page.url contains '/community/' or page.url contains '/workshops/' or page.url contains '/talks/' %}aria-current="{% if page.url == "/community/" %}page{% else %}location{% endif %}"{% endif %}>Community</a>
+      <a href="{{ '/cv/' | relative_url }}" {% if page.url == '/cv/' %}aria-current="page"{% endif %}>CV</a>
+      <a class="nav-contact" href="mailto:amit.pinaki@gmail.com">Get in touch</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Switch to dark theme" title="Change color theme"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20.6 13.2A8.6 8.6 0 0 1 10.8 3.4a8.6 8.6 0 1 0 9.8 9.8Z"/></svg></button>
+  </div>
+</header>
+{{ content }}
+<footer class="site-footer" id="footer">
+  <div class="footer-top"><div><a class="footer-name" href="{{ '/' | relative_url }}">Amit Agarwal</a><p>Research, engineering & the space between.</p></div><div class="social-links" aria-label="Professional profiles"><a href="https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&amp;hl=en">Scholar</a><a href="https://www.linkedin.com/in/amitagarwal6/">LinkedIn</a><a href="https://github.com/iamamitagarwal">GitHub</a><a href="https://x.com/amitpinaki">X / Twitter</a><a href="mailto:amit.pinaki@gmail.com">Email</a></div></div>
+  <nav class="footer-nav" aria-label="More about Amit"><a href="{{ '/patents/' | relative_url }}">Patents</a><a href="{{ '/awards/' | relative_url }}">Recognition</a><a href="{{ '/media/' | relative_url }}">Media</a><a href="{{ '/talks/' | relative_url }}">Talks</a><a href="{{ '/research-topics/' | relative_url }}">Browse by topic</a><a href="{{ '/llms.txt' | relative_url }}">Research guide</a><a href="{{ '/feed.xml' | relative_url }}">RSS</a></nav>
+  <div class="footer-bottom"><span>© {{ site.time | date: '%Y' }} Amit Agarwal</span><span>Seattle, Washington</span></div>
+</footer>
+</body>
+</html>

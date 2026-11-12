@@ -15,6 +15,6 @@ pdf_url: "/files/talks/icdmai-2020-report-icdmai-2020.pdf"
 
 [PDF](/files/talks/icdmai-2020-report-icdmai-2020.pdf)
 
-![ICDMAI 2024](/images/talks/icdmai-2020-icdmai-2020-(2).jpeg)
+![Event photograph from ICDMAI 2020](/images/talks/icdmai-2020-icdmai-2020-(2).jpeg)
 
-![ICDMAI 2024](/images/talks/icdmai-2020-icdmai-2020.jpeg)
+![Event photograph from ICDMAI 2020](/images/talks/icdmai-2020-icdmai-2020.jpeg)

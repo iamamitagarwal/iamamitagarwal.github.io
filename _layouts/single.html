@@ -1,0 +1,10 @@
+---
+layout: default
+---
+<main id="main" class="page-shell{% if page.layout == 'paper' %} paper-detail{% endif %}">
+  <header class="page-heading">
+    {% if page.collection == 'publications' %}<p class="meta">Research paper</p>{% elsif page.collection == 'patents' %}<p class="meta">Invention</p>{% endif %}
+    <h1>{{ page.title | escape }}</h1>
+  </header>
+  <article class="page__content {{ page.classes }}">{{ content }}</article>
+</main>

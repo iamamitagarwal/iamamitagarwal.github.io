@@ -32,13 +32,16 @@ sitemap: false
     {%- assign paragraphs = rendered_content | split: '</p>' -%}
     {%- for paragraph in paragraphs -%}
       {%- if paragraph contains '<strong>Abstract.</strong>' -%}
-        {%- assign abstract = paragraph | split: '<strong>Abstract.</strong>' | last | strip_html | replace: '&amp;', '&' | strip -%}
+        {%- assign abstract = paragraph | split: '<strong>Abstract.</strong>' | last | strip_html | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | strip -%}
       {%- elsif paragraph contains '<strong>Summary.</strong>' -%}
-        {%- assign summary = paragraph | split: '<strong>Summary.</strong>' | last | strip_html | replace: '&amp;', '&' | strip -%}
+        {%- assign summary = paragraph | split: '<strong>Summary.</strong>' | last | strip_html | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | strip -%}
       {%- endif -%}
     {%- endfor -%}
     {
       "title": {{ paper.title | jsonify }},
+      {% assign research_context = site.data.paper_context[paper.slug] %}
+      {% if research_context %}"research_context": {{ research_context.summary | jsonify }},
+      "research_context_terms": {{ research_context.terms | jsonify }},{% endif %}
       "authors": {{ authors | jsonify }},
       "year": {{ paper.year | jsonify }},
       "venue": {{ paper.venue | jsonify }},
@@ -50,7 +53,7 @@ sitemap: false
       "keywords": {{ paper.keywords | jsonify }},
       "abstract": {{ abstract | jsonify }},
       "summary": {{ summary | jsonify }},
-      "record_text": {{ rendered_content | strip_html | replace: '&amp;', '&' | strip | jsonify }},
+      "record_text": {{ rendered_content | strip_html | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | strip | jsonify }},
       "recognition": {{ paper.recognition | jsonify }}
     }{% unless forloop.last %},{% endunless %}
   {%- endfor %}

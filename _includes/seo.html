@@ -40,8 +40,12 @@
   {%- assign author_twitter = author.twitter | replace: "@", "" -%}
 {%- endif -%}
 
-{%- assign page_large_image = page.header.og_image | default: page.header.overlay_image | default: page.header.image | absolute_url -%}
-{%- assign page_large_image = page_large_image | escape -%}
+{%- assign raw_large_image = page.header.og_image | default: page.header.overlay_image | default: page.header.image -%}
+{%- if raw_large_image and raw_large_image != "" -%}
+  {%- assign page_large_image = raw_large_image | absolute_url | escape -%}
+{%- else -%}
+  {%- assign page_large_image = nil -%}
+{%- endif -%}
 
 {%- assign page_teaser_image = page.header.teaser | default: site.og_image | absolute_url -%}
 {%- assign page_teaser_image = page_teaser_image | escape -%}
@@ -149,7 +153,8 @@
       "jobTitle": {{ profile_job_title | jsonify }},
       "worksFor": {
         "@type": "Organization",
-        "name": "Oracle Cloud Infrastructure",
+        "name": "Oracle AI Foundations",
+        "parentOrganization": {"@type": "Organization", "name": "Oracle Cloud Infrastructure"},
         "url": "https://www.oracle.com/cloud/"
       },
       "mainEntityOfPage": {{ '/' | absolute_url | jsonify }}{% if site.social.links %},

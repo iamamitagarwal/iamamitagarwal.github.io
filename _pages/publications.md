@@ -10,258 +10,311 @@ tags: ["Publications", "Research", "AI", "Alignment", "Reasoning", "Multilingual
 keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "Multimodal", "RAG", "Retrieval", "Evaluation", "Document AI", "LLM", "NLP", "Agentic AI", "AI safety", "CVPR", "ICLR", "ACL", "EMNLP", "WACV", "CIKM", "DASFAA"]
 ---
 
-Browse the [research topics]({{ '/research-topics/' | relative_url }}) hub for papers and patent records grouped by subject.
+<p class="page-intro">Research across agents, multimodal models, retrieval, and evaluation. Browse by year, topic, or title, or visit the <a href="{{ '/research-topics/' | relative_url }}">research topics hub</a>.</p>
 
-<style>
-/* Slightly smaller list typography so dense years feel lighter */
-  .pub-list li{ font-size:1rem; line-height:1.55; }
-.year-head{ font-size:1.55rem; }
+<p class="publication-exports"><a href="{{ '/publications.json' | relative_url }}">Publication data (JSON)</a> · <a href="{{ '/llms-full.txt' | relative_url }}">Full research index (text)</a></p>
 
-/* Venue badge */
-.venue-badge{
-  display:inline-flex; align-items:center;
-  padding:.14rem .6rem; margin-left:.5rem;
-  border-radius:999px; font-weight:700; font-size:.8rem;
-  border:1px solid transparent;
-}
-/* Color map */
-.badge-emnlp{ background:#0d9488; color:#fff; }
-.badge-acl{ background:#10b981; color:#0b1320; }
-.badge-aacl{ background:#34d399; color:#0b1320; }
-.badge-naacl{ background:#f59e0b; color:#111827; }
-.badge-neurips{ background:#06b6d4; color:#0b1320; }
-.badge-iclr{ background:#a78bfa; color:#111827; }
-.badge-icml{ background:#22c55e; color:#0b1320; }
-.badge-cvpr{ background:#60a5fa; color:#0b1320; }
-.badge-iccv{ background:#3b82f6; color:#fff; }
-.badge-eccv{ background:#2563eb; color:#fff; }
-.badge-ieee{ background:#93c5fd; color:#0b1320; }
-.badge-acm{ background:#f97316; color:#0b1320; }
-.badge-pakdd{ background:#fbbf24; color:#111827; }
-.badge-arxiv{ background:#e5e7eb; color:#111827; border-color:#cbd5e1; }
-html.theme-dark .badge-arxiv{ background:#374151; color:#e5e7eb; border-color:#4b5563; }
-</style>
+{% assign publications = site.publications | sort: "year" | reverse %}
+{% assign publication_years = "" | split: "" %}
+{% assign publication_topics = "" | split: "" %}
 
-{%- comment -%}
-Collect unique tags from all publications.
-Handles tags stored as arrays or strings (single or comma/space separated).
-{%- endcomment -%}
-{% assign pubs = site.publications | sort: "year" | reverse %}
-{% assign pub_tags = "" | split: "" %}
-{% for p in pubs %}
-  {% if p.tags %}
-    {% capture joined %}{{ p.tags | join: ' ' }}{% endcapture %}
-    {% assign tag_source = joined %}
-    {% if tag_source == "" %}
-      {% assign tag_source = p.tags %}
-    {% endif %}
-    {% assign tlist = tag_source | replace: ',', ' ' | split: ' ' %}
-    {% for t in tlist %}
-      {% assign tclean = t | strip %}
-      {% if tclean != "" %}
-        {% unless pub_tags contains tclean %}
-          {% assign pub_tags = pub_tags | push: tclean %}
-        {% endunless %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-{% endfor %}
-{% assign pub_tags = pub_tags | sort %}
-
-{%- comment -%} Build distinct venue token list (match badge inference) {%- endcomment -%}
-{% assign venue_tokens = "" | split: "" %}
-{% for p in pubs %}
-  {% assign tok = p.venue_token | downcase | default: "" %}
-  {% if tok == "" %}
-    {% assign vtxt = p.venue | default: "" | downcase %}
-    {% assign href = p.paper_url | default: "" | downcase %}
-    {% if vtxt contains "emnlp" or href contains "emnlp" %}{% assign tok = "emnlp" %}
-    {% elsif vtxt contains "naacl" or href contains "naacl" %}{% assign tok = "naacl" %}
-    {% elsif vtxt contains "aacl" or href contains "aacl" %}{% assign tok = "aacl" %}
-    {% elsif vtxt contains "acl"   or href contains "acl"   %}{% assign tok = "acl"   %}
-    {% elsif vtxt contains "neurips" or href contains "neurips" %}{% assign tok = "neurips" %}
-    {% elsif vtxt contains "iclr" or href contains "iclr" %}{% assign tok = "iclr" %}
-    {% elsif vtxt contains "icml" or href contains "icml" %}{% assign tok = "icml" %}
-    {% elsif vtxt contains "cvpr" or href contains "cvpr" %}{% assign tok = "cvpr" %}
-    {% elsif vtxt contains "iccv" or href contains "iccv" %}{% assign tok = "iccv" %}
-    {% elsif vtxt contains "eccv" or href contains "eccv" %}{% assign tok = "eccv" %}
-    {% elsif vtxt contains "ieee" or href contains "ieee" %}{% assign tok = "ieee" %}
-    {% elsif vtxt contains "acm"  or href contains "acm"  %}{% assign tok = "acm"  %}
-    {% elsif vtxt contains "arxiv" or href contains "arxiv" %}{% assign tok = "arxiv" %}
-    {% elsif vtxt contains "wacv" or href contains "wacv" %}{% assign tok = "wacv" %}
-    {% elsif vtxt contains "cikm" or href contains "cikm" %}{% assign tok = "cikm" %}
-    {% elsif vtxt contains "dasfaa" or href contains "dasfaa" %}{% assign tok = "dasfaa" %}
-    {% elsif vtxt contains "pakdd" or href contains "pakdd" %}{% assign tok = "pakdd" %}
-    {% endif %}
-  {% endif %}
-  {% if tok != "" %}
-    {% assign vt = tok | upcase | strip %}
-    {% unless venue_tokens contains vt %}
-      {% assign venue_tokens = venue_tokens | push: vt %}
-    {% endunless %}
-  {% endif %}
-{% endfor %}
-{% assign venue_tokens = venue_tokens | sort %}
-
-{%- comment -%} Build distinct year list {%- endcomment -%}
-{% assign years = "" | split: "" %}
-{% for p in pubs %}
-  {% unless years contains p.year %}
-    {% assign years = years | push: p.year %}
+{% for publication in publications %}
+  {% unless publication_years contains publication.year %}
+    {% assign publication_years = publication_years | push: publication.year %}
   {% endunless %}
-{% endfor %}
 
-<div id="pub-filters" style="margin:.5rem 0 1rem 0;">
-  <button class="btn btn--primary" data-tag="all">All</button>
-  {% for t in pub_tags %}
-    <button class="btn" data-tag="{{ t }}">{{ t }}</button>
-  {% endfor %}
-</div>
-
-<div id="pub-year-filters" style="margin:.35rem 0 1rem 0;">
-  {% assign years_sorted = years | sort | reverse %}
-  <button class="btn btn--primary" data-year="all">All years</button>
-  {% for y in years_sorted %}
-    <button class="btn" data-year="{{ y }}">{{ y }}</button>
-  {% endfor %}
-</div>
-
-{% if venue_tokens.size > 0 %}
-<div id="pub-venue-filters" style="margin:-.1rem 0 1rem 0;">
-  <button class="btn btn--primary" data-venue="all">All venues</button>
-  {% for v in venue_tokens %}
-    <button class="btn" data-venue="{{ v }}">{{ v }}</button>
-  {% endfor %}
-</div>
-{% endif %}
-
-<div markdown="0">
-{% for yr in years %}
-  {% assign in_year = pubs | where: "year", yr %}
-
-  {%- comment -%}
-  Order within year:
-  1) items with explicit priority (lower first)
-  2) remaining items by Amit Agarwal position: first, second, third+, none
-  {%- endcomment -%}
-  {% assign priority_items = "" | split: "" %}
-  {% assign normal_items = "" | split: "" %}
-
-  {% for p in in_year %}
-    {% if p.priority %}
-      {% assign priority_items = priority_items | push: p %}
-    {% else %}
-      {% assign normal_items = normal_items | push: p %}
+  {% capture joined_tags %}{{ publication.tags | join: '|' }}{% endcapture %}
+  {% assign tag_source = joined_tags | strip %}
+  {% if tag_source == "" %}
+    {% assign tag_source = publication.tags | default: "" %}
+  {% endif %}
+  {% assign tag_values = tag_source | replace: ',', '|' | split: '|' %}
+  {% for tag in tag_values %}
+    {% assign clean_tag = tag | strip %}
+    {% assign tag_key = clean_tag | downcase %}
+    {% case tag_key %}
+      {% when 'document-ai' %}{% assign clean_tag = 'Document AI' %}
+      {% when 'information-retrieval' %}{% assign clean_tag = 'Retrieval' %}
+      {% when 'responsible-ai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+      {% when 'responsibleai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+      {% when 'responsible ai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+      {% when 'safety' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+    {% endcase %}
+    {% if clean_tag != "" %}
+      {% unless publication_topics contains clean_tag %}
+        {% assign publication_topics = publication_topics | push: clean_tag %}
+      {% endunless %}
     {% endif %}
   {% endfor %}
-  {% assign priority_items = priority_items | sort: "priority" %}
+{% endfor %}
+{% assign publication_years = publication_years | sort | reverse %}
+{% assign publication_topics = publication_topics | sort %}
 
-  {% assign pos0 = "" | split: "" %}
-  {% assign pos1 = "" | split: "" %}
-  {% assign pos2 = "" | split: "" %}
-  {% assign pos3 = "" | split: "" %}
-  {% assign posNone = "" | split: "" %}
+<form class="filter-bar" id="publication-filters" role="search" hidden>
+  <label for="publication-search">
+    Search papers
+    <input class="filter-input" id="publication-search" name="q" type="search" autocomplete="off">
+  </label>
+  <label for="publication-year">
+    Year
+    <select class="filter-input" id="publication-year" name="year">
+      <option value="">All years</option>
+      {% for year in publication_years %}
+        <option value="{{ year | escape }}">{{ year }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label for="publication-topic">
+    Topic
+    <select class="filter-input" id="publication-topic" name="topic">
+      <option value="">All topics</option>
+      {% for topic in publication_topics %}
+        <option value="{{ topic | downcase | replace: ' ', '-' | escape }}">{{ topic | escape }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <button class="filter-button" id="clear-publication-filters" type="button">Clear filters</button>
+  <p class="filter-status" id="publication-filter-status" aria-live="polite"></p>
+</form>
 
-  {% for p in normal_items %}
-    {% assign alist = p.authors | split: "," %}
-    {% assign amit_idx = 999 %}
-    {% for a in alist %}
-      {% assign a_trim = a | strip | downcase %}
-      {% if a_trim contains "amit" and a_trim contains "agarwal" %}
-        {% assign amit_idx = forloop.index0 %}
+<noscript><p class="filter-note">Filtering is optional; the complete archive is listed below.</p></noscript>
+
+<div class="publication-archive">
+  {% for year in publication_years %}
+    {% assign year_publications = publications | where: "year", year %}
+    {% assign priority_publications = "" | split: "" %}
+    {% assign other_publications = "" | split: "" %}
+
+    {% for publication in year_publications %}
+      {% if publication.priority != nil %}
+        {% assign priority_publications = priority_publications | push: publication %}
+      {% else %}
+        {% assign other_publications = other_publications | push: publication %}
       {% endif %}
     {% endfor %}
-    {% if amit_idx == 0 %}
-      {% assign pos0 = pos0 | push: p %}
-    {% elsif amit_idx == 1 %}
-      {% assign pos1 = pos1 | push: p %}
-    {% elsif amit_idx == 2 %}
-      {% assign pos2 = pos2 | push: p %}
-    {% elsif amit_idx < 999 %}
-      {% assign pos3 = pos3 | push: p %}
-    {% else %}
-      {% assign posNone = posNone | push: p %}
-    {% endif %}
-  {% endfor %}
-  {% assign ordered_normal = pos0 | concat: pos1 | concat: pos2 | concat: pos3 | concat: posNone %}
-  {% assign ordered = priority_items | concat: ordered_normal %}
+    {% assign priority_publications = priority_publications | sort: "priority" %}
+    {% assign ordered_publications = priority_publications | concat: other_publications %}
 
-  {% if ordered.size > 0 %}
-    <section class="year-block" data-year="{{ yr }}">
-      <h2 class="year-head">{{ yr }}</h2>
-      <ul class="pub-list">
-        {% for p in ordered %}
-          {% include publication_row.html pub=p %}
+    <section class="publication-year" data-year="{{ year | escape }}">
+      <h2 class="meta">{{ year }}</h2>
+      <ul class="paper-list">
+        {% for publication in ordered_publications %}
+          {% assign joined_tags = "" %}
+          {% capture joined_tags %}{{ publication.tags | join: '|' }}{% endcapture %}
+          {% assign tag_source = joined_tags | strip %}
+          {% if tag_source == "" %}
+            {% assign tag_source = publication.tags | default: "" %}
+          {% endif %}
+          {% assign tag_values = tag_source | replace: ',', '|' | split: '|' %}
+          {% assign paper_topics = "" | split: "" %}
+          {% for tag in tag_values %}
+            {% assign clean_tag = tag | strip %}
+            {% assign tag_key = clean_tag | downcase %}
+            {% case tag_key %}
+              {% when 'document-ai' %}{% assign clean_tag = 'Document AI' %}
+              {% when 'information-retrieval' %}{% assign clean_tag = 'Retrieval' %}
+              {% when 'responsible-ai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+              {% when 'responsibleai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+              {% when 'responsible ai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+              {% when 'safety' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+            {% endcase %}
+            {% if clean_tag != "" %}
+              {% unless paper_topics contains clean_tag %}
+                {% assign paper_topics = paper_topics | push: clean_tag %}
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+
+          {% assign research_context = site.data.paper_context[publication.slug] %}
+          {% capture search_text %}{{ publication.title }} {{ publication.authors }} {{ publication.venue }} {{ publication.description }} {{ publication.abstract }} {{ publication.content | markdownify | strip_html }} {{ publication.tags | join: ' ' }} {{ publication.keywords | join: ' ' }} {{ research_context.summary }} {{ research_context.terms | join: ' ' }} {% for topic in paper_topics %}{{ topic }} {% endfor %}{% endcapture %}
+          <li class="paper-entry" data-year="{{ publication.year | escape }}" data-topics="{{ paper_topics | jsonify | escape }}" data-search="{{ search_text | strip_html | replace: '&lt;', '<' | replace: '&gt;', '>' | strip_newlines | escape }}">
+            {% if publication.recognition %}
+              <p class="recognition recognition--{{ publication.recognition_type | default: 'highlight' | slugify }}">{{ publication.recognition | escape }}</p>
+            {% endif %}
+            <h3><a class="paper-title" href="{{ publication.url | relative_url }}">{{ publication.title | escape }}</a></h3>
+
+            {% assign full_authors = publication.authors | default: "" %}
+            {% assign author_list = full_authors | split: "," %}
+            {% assign author_count = author_list | size %}
+            {% assign authors_display = full_authors %}
+            {% if author_count > 12 %}
+              {% assign lead_authors = author_list | slice: 0, 3 %}
+              {% capture authors_display %}{% for author in lead_authors %}{% unless forloop.first %}, {% endunless %}{{ author | strip }}{% endfor %}{% endcapture %}
+              {% assign authors_display = authors_display | strip %}
+              {% assign author_preview_has_amit = false %}
+              {% assign amit_author = "" %}
+              {% for author in author_list %}
+                {% assign author_name = author | strip %}
+                {% assign author_key = author_name | downcase %}
+                {% if author_key == "amit agarwal" %}
+                  {% assign amit_author = author_name %}
+                  {% if forloop.index0 < 3 %}
+                    {% assign author_preview_has_amit = true %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+              {% if amit_author != "" and author_preview_has_amit == false %}
+                {% assign authors_display = authors_display | append: ", … " | append: amit_author %}
+              {% endif %}
+              {% assign authors_display = authors_display | append: ", et al." %}
+            {% endif %}
+            <p class="paper-authors" title="{{ full_authors | escape }}">{% include publication_authors.html authors=authors_display %}</p>
+            {% if author_count > 12 %}
+            <details class="full-author-list">
+              <summary>All {{ author_count }} authors</summary>
+              <p class="paper-authors">{% include publication_authors.html authors=full_authors %}</p>
+            </details>
+            {% endif %}
+
+            {% assign venue_text = publication.venue | default: "" %}
+            <p class="meta">
+              {% if publication.venue %}
+                {% if publication.venue_url %}
+                  <a href="{{ publication.venue_url | escape }}" target="_blank" rel="noopener noreferrer">{{ publication.venue | escape }}</a>
+                {% else %}
+                  {{ publication.venue | escape }}
+                {% endif %}
+              {% endif %}
+              {% assign venue_year = publication.year | append: "" %}
+              {% if publication.year %}
+                {% unless venue_text contains venue_year %}<span>{{ publication.year }}</span>{% endunless %}
+              {% endif %}
+              {% if publication.status %}<span>{{ publication.status | escape }}</span>{% endif %}
+            </p>
+
+            {% if paper_topics.size > 0 %}
+              <p class="paper-topics"><span class="meta">Topics:</span>
+                {% for topic in paper_topics %}
+                  {% unless forloop.first %}<span aria-hidden="true"> · </span>{% endunless %}{{ topic | escape }}
+                {% endfor %}
+              </p>
+            {% endif %}
+
+            {% assign paper_href = publication.paper_url | default: "" %}
+            {% assign doi_value = publication.doi | default: publication.DOI | default: "" %}
+            {% assign arxiv_href = "" %}
+            {% if publication.arxiv_id %}
+              {% assign arxiv_href = "https://arxiv.org/abs/" | append: publication.arxiv_id %}
+            {% endif %}
+            {% if paper_href == "" and doi_value != "" %}
+              {% assign paper_href = "https://doi.org/" | append: doi_value %}
+            {% endif %}
+            {% if paper_href == "" and arxiv_href != "" %}
+              {% assign paper_href = arxiv_href %}
+            {% endif %}
+            {% assign paper_label = "Paper" %}
+            {% if paper_href contains "arxiv.org/" %}{% assign paper_label = "arXiv" %}{% endif %}
+            {% assign pdf_href = publication.pdf_url | default: publication.pdf | default: "" %}
+            {% assign code_href = publication.code_url | default: "" %}
+            {% assign dataset_href = publication.dataset_url | default: publication.data_url | default: "" %}
+            {% assign source_urls = "" | split: "" %}
+
+            <nav class="paper-actions" aria-label="Publication resources">
+              {% if paper_href != "" %}
+                {% assign paper_action_label = paper_label %}
+                {% if pdf_href != "" and paper_href == pdf_href %}
+                  {% assign paper_action_label = paper_label | append: " + PDF" %}
+                {% endif %}
+                <a href="{{ paper_href | escape }}" target="_blank" rel="noopener noreferrer">{{ paper_action_label }}</a>
+                {% assign source_urls = source_urls | push: paper_href %}
+              {% endif %}
+              {% if arxiv_href != "" %}
+                {% unless source_urls contains arxiv_href %}
+                  <a href="{{ arxiv_href | escape }}" target="_blank" rel="noopener noreferrer">arXiv</a>
+                  {% assign source_urls = source_urls | push: arxiv_href %}
+                {% endunless %}
+              {% endif %}
+              {% if pdf_href != "" %}
+                {% unless source_urls contains pdf_href %}
+                  <a href="{{ pdf_href | escape }}" target="_blank" rel="noopener noreferrer">PDF</a>
+                  {% assign source_urls = source_urls | push: pdf_href %}
+                {% endunless %}
+              {% endif %}
+              {% if code_href != "" %}
+                {% unless source_urls contains code_href %}
+                  <a href="{{ code_href | escape }}" target="_blank" rel="noopener noreferrer">Code</a>
+                  {% assign source_urls = source_urls | push: code_href %}
+                {% endunless %}
+              {% endif %}
+              {% if dataset_href != "" %}
+                {% unless source_urls contains dataset_href %}
+                  <a href="{{ dataset_href | escape }}" target="_blank" rel="noopener noreferrer">Dataset</a>
+                {% endunless %}
+              {% endif %}
+            </nav>
+          </li>
         {% endfor %}
       </ul>
     </section>
-  {% endif %}
-{% endfor %}
+  {% endfor %}
 </div>
 
 <script>
-  (function(){
-    const tagBtns  = document.querySelectorAll('#pub-filters .btn');
-    const yearBtns = document.querySelectorAll('#pub-year-filters .btn');
-    const items = Array.from(document.querySelectorAll('.pub-item'));
-    const blocks= Array.from(document.querySelectorAll('.year-block'));
-    const venueBtns = document.querySelectorAll('#pub-venue-filters .btn');
+  (function () {
+    var form = document.getElementById("publication-filters");
+    var searchInput = document.getElementById("publication-search");
+    var yearSelect = document.getElementById("publication-year");
+    var topicSelect = document.getElementById("publication-topic");
+    var clearButton = document.getElementById("clear-publication-filters");
+    var status = document.getElementById("publication-filter-status");
+    var entries = Array.prototype.slice.call(document.querySelectorAll(".paper-entry"));
+    var yearSections = Array.prototype.slice.call(document.querySelectorAll(".publication-year"));
 
-    let activeTag  = 'all';
-    let activeYear = 'all';
-    let activeVenue = 'all';
+    if (!form || !searchInput || !yearSelect || !topicSelect || !clearButton || entries.length === 0) {
+      return;
+    }
 
-    function updateYears(){
-      blocks.forEach(b=>{
-        const vis = Array.from(b.querySelectorAll('.pub-item'))
-          .some(li => li.style.display !== 'none');
-        b.style.display = vis ? '' : 'none';
+    function applyFilters() {
+      var query = searchInput.value.trim().toLowerCase();
+      var selectedYear = yearSelect.value;
+      var selectedTopic = topicSelect.value;
+      var visibleCount = 0;
+
+      entries.forEach(function (entry) {
+        var searchText = (entry.getAttribute("data-search") || "").toLowerCase();
+        var topics = JSON.parse(entry.getAttribute("data-topics") || "[]");
+        var matchesQuery = query === "" || searchText.indexOf(query) !== -1;
+        var matchesYear = selectedYear === "" || entry.getAttribute("data-year") === selectedYear;
+        var matchesTopic = selectedTopic === "" || topics.some(function (topic) {
+          return topic.toLowerCase().replace(/ /g, "-") === selectedTopic;
+        });
+        var visible = matchesQuery && matchesYear && matchesTopic;
+
+        entry.hidden = !visible;
+        if (visible) {
+          visibleCount += 1;
+        }
       });
-    }
 
-    function applyFilters(){
-      items.forEach(li=>{
-        const tags = (li.dataset.tags || '').split(/\s+/).filter(Boolean);
-        const yr   = li.closest('.year-block')?.dataset.year || '';
-        const venue = (li.querySelector('.pill--venue')?.textContent || '').trim();
-        const tagOk  = (activeTag === 'all' || tags.includes(activeTag));
-        const yearOk = (activeYear === 'all' || yr === activeYear);
-        const venueOk = (activeVenue === 'all' || venue === activeVenue);
-        li.style.display = (tagOk && yearOk && venueOk) ? '' : 'none';
+      yearSections.forEach(function (section) {
+        section.hidden = section.querySelector(".paper-entry:not([hidden])") === null;
       });
-      updateYears();
+
+      status.textContent = visibleCount + " of " + entries.length + " papers shown.";
     }
 
-    function setTag(tag){
-      activeTag = tag;
-      tagBtns.forEach(x => x.classList.toggle('btn--primary', x.dataset.tag === tag));
+    form.hidden = false;
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
       applyFilters();
-    }
-
-    function setYear(y){
-      activeYear = y;
-      yearBtns.forEach(x => x.classList.toggle('btn--primary', x.dataset.year === y));
+    });
+    searchInput.addEventListener("input", applyFilters);
+    yearSelect.addEventListener("change", applyFilters);
+    topicSelect.addEventListener("change", applyFilters);
+    clearButton.addEventListener("click", function () {
+      searchInput.value = "";
+      yearSelect.value = "";
+      topicSelect.value = "";
       applyFilters();
-    }
-
-    tagBtns.forEach(b => b.addEventListener('click', () => setTag(b.dataset.tag)));
-    yearBtns.forEach(b => b.addEventListener('click', () => setYear(b.dataset.year)));
-    venueBtns.forEach(b => b.addEventListener('click', () => {
-      activeVenue = b.dataset.venue;
-      venueBtns.forEach(x => x.classList.toggle('btn--primary', x.dataset.venue === activeVenue));
-      applyFilters();
-    }));
-
-    updateYears();
+      searchInput.focus();
+    });
+    applyFilters();
   })();
 </script>
 
-
-[Download publication metadata (JSON)]({{ "/publications.json" | relative_url }}) · [Read the full research index (text)]({{ "/llms-full.txt" | relative_url }})
-
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ItemList","name":"Research publications by Amit Agarwal","itemListElement":[
-{% assign catalog = site.publications | sort: 'year' | reverse %}{% for paper in catalog %}
+{% for paper in publications %}
 {"@type":"ListItem","position":{{ forloop.index }},"name":{{ paper.title | jsonify }},"url":{{ paper.url | absolute_url | jsonify }}}{% unless forloop.last %},{% endunless %}
 {% endfor %}]}
 </script>

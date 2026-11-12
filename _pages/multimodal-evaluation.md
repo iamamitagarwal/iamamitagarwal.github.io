@@ -1,41 +1,61 @@
 ---
 permalink: /projects/multimodal-evaluation/
-title: "Evaluation & Responsible AI"
+title: "Evaluating Agents & Multimodal AI"
 layout: single
 author_profile: true
 classes: wide project-story
 project_story: true
-last_modified_at: 2026-11-02
-description: "Amit Agarwal on first-author research into image-text metric invariance, global versus local reasoning, and reliable model comparisons."
+last_modified_at: 2026-11-11
+description: "Amit Agarwal on long-horizon agent evaluation, tool use, reproducible evaluation, creative-media workflows and reliable multimodal measurement."
 ---
 
-When a model’s score improves, I want to understand what changed. Did the model become more useful, did the benchmark reward a shortcut, or did the evaluator react to an irrelevant detail? My multimodal evaluation research investigates the measurement itself so that comparisons can support better research and engineering decisions.
+I lead evaluation work that helps science and product teams decide whether an AI capability is ready for its intended workflow. The scope spans long-horizon support workflows, cloud-console actions and multimodal content, where a single answer score cannot explain whether the system made useful progress.
 
-## Can Meaning Stay Constant While Scores Change?
+My work combines task and benchmark design, controlled comparisons, reusable evaluation software and failure analysis. I bring those results into architecture and model decisions across science and engineering, with published research examining the reliability of the measurement itself.
 
-I am the first author of [Do Image–Text Metrics Respect Semantic Invariances?](https://aclanthology.org/2026.findings-acl.1948/), published in ACL 2026 Findings. Our team tested five evaluators—CLIPScore, PAC-S, UMIC, FLEUR, and a deterministic LLM judge—using spatial, object, and wording perturbations intended to preserve meaning.
+## Long-horizon tasks and useful progress
+
+In support and service-request workflows, I examine grounded answers, useful next steps, clarification, handoff and failure recovery. A longer conversation needs to preserve relevant context and recognize when a tool or retrieval step has failed. Evaluation must track progress across those steps as well as the final answer.
+
+For cloud-console agents, the evaluation problem includes correct tool selection and arguments, appropriate human approval and verifiable changes to system state. The evaluation plans I work with combine outcome checks, tool-call evidence and multi-turn testing, with separate failure categories for the agent, infrastructure, simulator and verifier. These distinctions help science and engineering teams choose the right intervention.
+
+## Reproducible evaluation
+
+I build evaluation software, or test harnesses, that teams can inspect and reuse. My hands-on contributions include a streaming multimodal evaluator that preserves case-level evidence and explicitly marks incomplete runs. This lets teams check whether a better score reflects better behavior or missing cases and execution differences.
+
+The broader method retains the evidence behind a score: task and data versions, model and prompt configuration, tool behavior, outputs and failure status. Human review and judge calibration matter when success depends on judgment, safety or the quality of a handoff. The goal is to make a scientific comparison useful for a delivery decision and reproducible by another team.
+
+## Creative-media workflows
+
+Our multimodal work has included image-generation evaluation using prompt-constraint checks and image-based questions, including chart understanding. This connects generation quality with whether the requested content is actually present and supported.
+
+I also contribute to [storyboard evaluation research](/projects/multimodal-media/#from-a-written-story-to-visual-frames): testing whether generated frames preserve a story's events, characters and causal sequence. My research-design contributions include frame-count analysis and examining how panel boundaries affect controlled evaluation. A judge must inspect the image faithfully, not infer the intended result from the prompt.
+
+I am studying how to evaluate editing, video and style consistency, including whether a system preserves the user's intent and content across changes. This research complements retrieval and image-understanding evaluation, with safety and moderation requirements included in the design.
+
+## Research on the measurement itself
+
+When a model’s score improves, I want to understand what changed: useful behavior, a benchmark shortcut or sensitivity in the evaluator itself. My published research investigates that measurement question.
+
+### Can meaning stay constant while scores change?
+
+I am the first author of [Do Image–Text Metrics Respect Semantic Invariances?](https://aclanthology.org/2026.findings-acl.1948/), published in ACL 2026 Findings. Our team tested five evaluators—CLIPScore, PAC-S, UMIC, FLEUR, and a deterministic large-language-model judge—using spatial, object, and wording changes intended to preserve meaning.
 
 Across curated slices of three detection datasets and three caption evaluation suites, the study reports average score changes of approximately **6–9%**. For systems separated by **0.7%**, ranking reversals occurred in up to approximately **37% of cases**. A small human study supported the interpretation that the evaluated pairs generally remained equally correct. The proposed calibration roughly halved median absolute sensitivity. These findings describe the paper’s tested conditions, not all images, evaluators, or applications. [Primary paper record](https://aclanthology.org/2026.findings-acl.1948/).
 
-## Does the Task Require the Whole Image?
+### Does the task require the whole image?
 
 I also first-authored [RCI: A Score for Evaluating Global and Local Reasoning in Multimodal Benchmarks](https://aclanthology.org/2025.emnlp-industry.10/), published at EMNLP 2025 Industry. The Region Comprehension Index compares reference-model performance using image patches and full images. Applied to **13 multimodal benchmarks**, the study found that most favored localized reasoning and exhibited spatial biases. RCI is a diagnostic tied to the models and benchmarks examined; it does not directly establish human-like understanding.
 
-Both projects are collaborative research. First authorship identifies my role in the published work; the experimental findings belong to the author teams.
-
-## Safety, Bias, and Benchmark Design
+### Safety, bias and benchmark design
 
 My collaborative research also examines what evaluation misses. [AccessEval](/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/) studies disability bias, while [Bias Before Disclosure](/publications/2026-bias-before-disclosure-a-behavioral-audit-of-llm-assistants-under-user-identity-uncertainty/) audits demographic assumptions when users provide no identity information. [BenchHub](/publications/2025-benchhub-a-unified-benchmark-suite-for-holistic-and-customizable-llm-evaluation/) examines how benchmark composition affects comparisons and model rankings.
 
 Together, these studies motivate complementary checks for task quality, safety, bias, consistency, and evaluator reliability. In agent workflows, that means examining task completion and tool use alongside the quality of the final response, with clear failure categories and human review where judgments are sensitive.
 
-## How I Use These Questions
+## Turning evaluation into research decisions
 
-My perspective is that evaluation design is part of technical leadership. Before a team optimizes a number, it should be able to explain the behavior that number is intended to measure. Otherwise, an apparently successful iteration can send development in an unhelpful direction.
-
-I favor complementary views of quality: representative examples, controlled changes, aggregate results, and human inspection where judgment matters. Each answers a different question. A controlled change can expose sensitivity, while a realistic task can reveal whether that sensitivity matters to the application. Neither replaces the other.
-
-There is a practical tradeoff between richer evaluation and the time required to interpret it. I would prioritize checks capable of changing a decision: whether a model comparison is stable, whether a benchmark requires the capability we need, and whether the evaluator agrees with the intended notion of correctness. Calibration and diagnostic scores help investigate these questions; their value still depends on the use case.
+I use task-level failures, controlled comparisons and human inspection to help teams decide what to change next. That includes checking whether a model comparison is stable, whether a benchmark tests the capability the application needs and whether the evaluator rewards the intended behavior.
 
 This perspective connects to [Enterprise Retrieval](/projects/enterprise-retrieval/) and [Agentic Systems: From Evidence to Action](/projects/agentic-knowledge-systems/), where evidence selection and answer evaluation shape the same end-to-end decision. More work is listed under [publications](/publications/).
 

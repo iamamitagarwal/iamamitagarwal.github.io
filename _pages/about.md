@@ -5,67 +5,57 @@ seo_title: "Amit Agarwal — Enterprise AI, Multimodal Models & Evaluation"
 layout: profile_home
 author_profile: true
 classes: wide profile-overview
-description: "Amit Agarwal, Senior Principal Applied Scientist in Oracle AI Foundations: agentic and enterprise AI, multimodal models, media understanding, retrieval and evaluation."
+description: "Amit Agarwal leads research, architecture and technical delivery across agentic systems, cloud operations, multimodal enterprise AI, model adaptation and evaluation at Oracle AI Foundations."
 tags: ["About", "Profile", "GenAI", "Oracle AI", "Amit Agarwal"]
-keywords: ["Amit Agarwal", "Oracle AI", "OCI", "GenAI", "LLM", "RAG", "Evaluation", "Retrieval", "Multilingual", "Multimodal", "Agentic AI", "AI agents", "AI safety"]
-last_modified_at: 2026-11-08
+keywords: ["Amit Agarwal", "Oracle AI", "OCI", "Generative AI", "Model adaptation", "Post-training", "Evaluation", "Retrieval", "Multilingual", "Multimodal", "Agentic AI", "AI agents", "AI safety"]
+last_modified_at: 2026-11-12
 ---
-<div class="home-profile">
-  <section class="intro" aria-labelledby="intro-heading">
-    <div class="intro-copy">
-      <h1 id="intro-heading">Amit Agarwal</h1>
-      <p class="role">Senior Principal Applied Scientist | <span>Oracle (Oracle Cloud Infrastructure)</span></p>
-      <p class="intro-statement">Building Enterprise AI. Connecting research to Product.</p>
-      <p class="intro-description">I build applied-science teams and lead research, architecture, evaluation, and product integration. With 10+ years across enterprise AI, I stay hands-on alongside science, engineering, and product teams.</p>
-      <p class="intro-description">I work in Oracle AI Foundations under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>, advancing agentic and enterprise AI, multimodal models, and media understanding.</p>
-      <div class="intro-links"><a class="primary-link" href="/publications/">Explore research</a><a class="primary-link" href="/projects/">Explore projects</a><a href="https://iamamitagarwal.github.io/cv/">View CV</a></div>
-    </div>
-  </section>
 
-  <section class="highlights" aria-labelledby="highlights-heading">
-    <div class="section-heading"><h2 id="highlights-heading">Selected research</h2><a href="https://iamamitagarwal.github.io/publications/">All publications</a></div>
-    <div class="highlight-grid">
-      <article>
-        <p class="recognition">EMNLP 2025 Social Impact Award</p>
-        <h3><a href="https://iamamitagarwal.github.io/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/">AccessEval</a></h3>
-        <p>Measuring disability bias in LLM responses across real-world domains.</p>
-      </article>
-      <article>
-        <p class="recognition">ICML 2026 Spotlight Paper</p>
-        <h3><a href="https://iamamitagarwal.github.io/publications/2026-judging-what-we-cannot-solve-a-consequence-based-approach-for-oracle-free-evaluation-of-research-level-math/">Judging What We Cannot Solve</a></h3>
-        <p>Evaluating research-level math solutions through related, verifiable problems.</p>
-      </article>
-    </div>
-  </section>
+<section class="home-intro" aria-labelledby="intro-heading">
+  <div class="intro-copy">
+    <h1 id="intro-heading">Amit Agarwal</h1>
+    <p class="role">Senior Principal Applied Scientist · Oracle AI Foundations</p>
+    <p class="lead">I build applied-science teams and lead research, architecture and technical delivery across enterprise AI.</p>
+    <div class="link-row"><a href="/publications/">Research</a><a href="/projects/">Selected projects</a><a href="/cv/">CV</a></div>
+    <p>At Oracle AI Foundations, I bring science, engineering and product teams together around a practical goal: helping AI understand business context and act on it. Across Oracle Cloud Infrastructure (OCI), <a href="/projects/agentic-knowledge-systems/#console-ai">Console AI</a> and DevOps, that means developing agentic systems for on-call assistance, incident investigation and support automation.</p>
+    <p>A central thread is how agents find, understand and use evidence across structured business data, documents and media. My research and architecture connect retrieval, knowledge graphs, semantic context, routing and memory. This work spans multimodal understanding, reasoning and evaluation for <a href="/projects/multimodal-business-applications/">Oracle Fusion ERP agents</a>, alongside shared knowledge and semantic-layer research in the <a href="/projects/database-ai/">Oracle AI Database 26ai ecosystem</a>.</p>
+    <p>Hands-on science remains central, from multilingual fine-tuning and enterprise ranking to model adaptation and post-training. Evaluation runs through this work, including long-horizon agent tasks and creative-media workflows, under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>.</p>
+    <p>I work with business and technical leaders to set priorities across product groups and carry science and architecture decisions through to delivery. The aim is to make AI a core part of how products work, with shared capabilities that can scale across business units.</p>
+  </div>
+  <div class="portrait-group"><div class="portrait-frame"><img class="portrait" src="/images/profile.jpeg" alt="Amit Agarwal" width="480" height="480" fetchpriority="high"></div><div class="portrait-profiles"><a href="https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&amp;hl=en">Scholar</a><a href="https://www.linkedin.com/in/amitagarwal6/">LinkedIn</a><a href="https://github.com/iamamitagarwal">GitHub</a></div></div>
+</section>
 
-  <section class="research-section" aria-labelledby="research-heading">
-    <h2 id="research-heading">What I work on</h2>
-    <div class="research-grid">
-      <article><h3><a href="https://iamamitagarwal.github.io/projects/agentic-knowledge-systems/">Agents &amp; reasoning</a></h3><p>Tool use, context engineering, and memory for support automation and multi-agent workflows. Current research explores long-horizon reasoning, task execution, and feedback loops.</p></article>
-      <article><h3><a href="https://iamamitagarwal.github.io/publications/">Multimodal models &amp; post-training</a></h3><p>LLMs and vision-language models across text, images, and video. Post-training spans supervised fine-tuning, preference optimization, and reinforcement learning, alongside multilingual alignment and synthetic data for agentic AI, multimodal reasoning, and document understanding.</p></article>
-      <article><h3><a href="https://iamamitagarwal.github.io/projects/enterprise-retrieval/">Search &amp; retrieval</a></h3><p>Learned retrieval, multilingual embeddings, and reranking for conversational and agentic search. Retrieval-augmented generation and semantic layers connect models to relevant knowledge and access-aware context.</p></article>
-      <article><h3><a href="https://iamamitagarwal.github.io/projects/multimodal-evaluation/">Evaluation &amp; responsible AI</a></h3><p>Model and agent evaluation through benchmarks, metrics, and reproducible harnesses. Measuring task success, retrieval quality, multimodal reasoning, and context robustness, with research on safety, bias, and consistency.</p></article>
-    </div>
-  </section>
+<section aria-labelledby="papers-heading">
+  <div class="section-head"><h2 id="papers-heading">Selected papers</h2><a class="text-link" href="/publications/">All publications</a></div>
+  <ul class="paper-list">
+    <li class="paper-entry award-highlight"><p class="recognition">EMNLP 2025 Social Impact Award</p><h3><a href="/publications/2025-accesseval-benchmarking-disability-bias-in-large-language-models/">AccessEval</a></h3><p>Measuring disability bias in language-model responses.</p></li>
+    <li class="paper-entry award-highlight"><p class="recognition">ICML 2026 Spotlight</p><h3><a href="/publications/2026-judging-what-we-cannot-solve-a-consequence-based-approach-for-oracle-free-evaluation-of-research-level-math/">Judging What We Cannot Solve</a></h3><p>Evaluating research-level math solutions through related, verifiable problems.</p></li>
+    <li class="paper-entry"><h3><a href="/publications/2026-do-image-text-metrics-respect-semantic-invariances/">Do Image–Text Metrics Respect Semantic Invariances?</a></h3><p>First-author study of whether image–text evaluators change their scores when meaning stays the same.</p><p class="meta">ACL Findings 2026</p></li>
+  </ul>
+</section>
 
-  <section class="experience-section" aria-labelledby="experience-heading">
-    <div><h2 id="experience-heading">Research in practice</h2><p class="section-lead">Applied science, built with engineering and product teams.</p><a href="https://iamamitagarwal.github.io/projects/">Explore projects</a><a class="secondary-link" href="https://iamamitagarwal.github.io/patents/">Related patents</a></div>
-    <div class="experience-list">
-      <p><strong>Oracle Fusion ERP & Oracle AI Database 26ai</strong>Owned applied-science contributions to multimodal capabilities and agentic workflows, combining image understanding, grounded context, and multi-tool use across business applications.</p>
-      <p><strong>Oracle Support</strong>Developing agents for ticket triage, on-call assistance, licensing issues, and service-request resolution, using tools and shared context to support long-horizon tasks.</p>
-      <p><strong>Personalized leadership coaching</strong>An agent pilot combining assessment-driven plans, persistent memory, retrieval-grounded recommendations, and role-play practice.</p>
-      <p><strong>Video analytics</strong>Led video-analytics development at Jio Platforms, from data and model design through evaluation and product integration.</p>
-      <p><strong>Content moderation &amp; AI safety</strong>Research and evaluation of harmful content, multilingual safety, and model biases. Build benchmarks and harnesses to examine moderation behavior, consistency, and failure cases.</p>
-      <p class="earlier">Earlier work also includes document understanding at Jio Platforms and search, NLP, and recommendation systems at Abzooba.</p>
-    </div>
-  </section>
+<section aria-labelledby="directions-heading">
+  <div class="section-head"><h2 id="directions-heading">Questions that guide my work</h2></div>
+  <div class="research-directions">
+    <article class="direction"><h3>How can agents make useful progress?</h3><p>Retrieval, memory and tool use that help agents make progress on multi-step tasks.</p></article>
+    <article class="direction"><h3>What does a model understand across modalities?</h3><p>Connecting language, images and video, from visual reasoning to document understanding.</p></article>
+    <article class="direction"><h3>What do our evaluations miss?</h3><p>Examining reasoning, robustness and bias beyond a single benchmark score.</p></article>
+  </div>
+</section>
 
-  <section class="community-section" aria-labelledby="community-heading">
-    <h2 id="community-heading">Research community</h2>
-    <p>I serve as a lead workshop organizer for <a href="/workshops/grail-v-cvpr-2026/">GRAIL-V at CVPR 2026</a>, <a href="/workshops/surgellm-acl-2026/">SURGeLLM at ACL 2026</a>, and <a href="/workshops/docinsights-emnlp-2026/">DocInsights at EMNLP 2026</a>. I also mentor emerging researchers and practitioners and share work through <a href="https://iamamitagarwal.github.io/talks/">talks</a> and open-source collaboration.</p>
-    <p class="personal">I hold a Master’s in Machine Learning & AI from Liverpool John Moores University. Outside work, I enjoy paragliding and scuba diving.</p>
-  </section>
+<section aria-labelledby="work-heading">
+  <div class="section-head"><h2 id="work-heading">Research into practice</h2><a class="text-link" href="/projects/">Explore the projects</a></div>
+  <div class="selected-work">
+    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#knowledge-systems">Agentic retrieval &amp; knowledge systems</a></h3><p>Research and architecture combining multimodal retrieval, ranking, knowledge graphs and semantic context to help agents find and use enterprise evidence.</p></div></article>
+    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#multimodal-applications">Multimodal business applications</a></h3><p>Bringing image understanding and document evidence into Oracle Fusion business workflows with application engineering teams.</p></div></article>
+    <article class="work-row"><div class="work-copy"><h3><a href="/projects/#evaluation">Evaluation as a research question</a></h3><p>Task progress and tool use in agent workflows; robustness, bias and reliability in multimodal evaluation.</p></div></article>
+  </div>
+</section>
 
-  <section class="contact-section" aria-labelledby="contact-heading"><div><h2 id="contact-heading">Let’s connect.</h2><p>Reach out about research collaborations, technical leadership, or research and internship opportunities in Oracle AI.</p></div><a href="mailto:amit.pinaki@gmail.com">amit.pinaki@gmail.com</a></section>
 
-</div>
+
+<section class="contact-block" aria-labelledby="community-heading">
+  <h2 id="community-heading">Beyond the research</h2>
+  <p>I lead-organize workshops at <strong>CVPR, ACL and EMNLP</strong>, including <a href="/workshops/grail-v-cvpr-2026/">GRAIL-V</a>, <a href="/workshops/surgellm-acl-2026/">SURGeLLM</a> and <a href="/workshops/docinsights-emnlp-2026/">DocInsights</a>. I am also a lead organizer of RBD, planned for <strong>NAACL 2027</strong>, and mentor emerging researchers. Outside work, I enjoy paragliding and scuba diving.</p>
+  <p>For research collaborations and technical leadership conversations, <a href="mailto:amit.pinaki@gmail.com">get in touch</a>.</p>
+</section>

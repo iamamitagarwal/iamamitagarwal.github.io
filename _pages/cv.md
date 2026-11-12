@@ -1,53 +1,71 @@
 ---
 permalink: /cv/
 title: "CV"
-classes: wide cv-overview
+layout: single
+classes: wide
 search: true
-last_modified_at: 2026-11-02
+last_modified_at: 2026-11-11
 description: "Curriculum vitae and downloadable resume for Amit Agarwal."
 tags: ["CV", "Resume", "Amit Agarwal"]
 keywords: ["CV", "Resume", "Curriculum Vitae", "Amit Agarwal", "Oracle AI"]
 ---
 
-## Professional summary
-
-I lead applied AI work from research framing and architecture through evaluation and enterprise delivery. My experience spans agentic systems and retrieval, multimodal and multilingual models, and document AI. I have built and grown applied-science teams from inception through architecture and delivery of enterprise semantic layers, personalized search and agents, and support automation. A recurring focus is making evaluation useful for product decisions and building capabilities that multiple teams can reuse.
-
-## Current role and experience
-
-**Current title:** Senior Principal Applied Scientist, Generative AI, Oracle Cloud Infrastructure (OCI).
-
-**Company tenure:** Oracle Cloud Infrastructure, April 2021–present.
-
-My work spans shared knowledge and retrieval systems, agentic applications, multimodal and multilingual search, and evaluation. Earlier roles include Data Science Lead, Computer Vision at Jio Platforms and Data Scientist at Abzooba Infotech.
-
-## Selected contributions
-
-- Owned applied-science contributions to multimodal and agentic enablement of Oracle Fusion ERP and Oracle AI Database 26ai, including multimodal RAG, embedding fusion, image understanding, and text-to-image capabilities with product engineering.
-- Develop support agents for cloud-console assistance, ticket triage, and DevOps incident resolution; architect Agent Hub routing, skill/tool retrieval, and shared context and memory for long-horizon tasks.
-- Developed a personalized leadership-coaching agent pilot combining assessment-driven plans, persistent memory, retrieval-grounded recommendations, role-play practice, and proactive nudges.
-- Led a multi-agent platform across 15+ engagements and delivered document-understanding capabilities to 20+ customers.
-- Lead workshop organizer for GRAIL-V at CVPR, SURGeLLM at ACL, and DocInsights at EMNLP.
-- Inventor on 10 issued patents, with 41 pending (author-reported count, October 2026). The [patent collection](/patents/) links selected public records.
-
-## Research areas
-
-- Retrieval, ranking, and agentic systems
-- Multimodal and multilingual models
-- Evaluation, robustness, and responsible AI
-- Document AI and synthetic data
-
-## Education
-
-- **MS, Machine Learning & Artificial Intelligence, Distinction** — Liverpool John Moores University
-- **BTech, Computer Science & Engineering** — Institute of Engineering & Management (IEM), West Bengal University of Technology
-
-## Resume
-
-[Download resume (PDF)](/files/amit-agarwal-cv.pdf)
-
-<div style="margin-top:16px; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden;">
-  <iframe title="Amit Agarwal — resume" src="/files/amit-agarwal-cv.pdf#view=FitH" style="width:100%; height:900px;" loading="lazy"></iframe>
+<p class="lead">Professional experience and education.</p>
+<div class="paper-actions">
+  <a class="button" href="{{ '/files/amit-agarwal-cv.pdf' | relative_url }}" target="_blank" rel="noopener">Download CV (PDF)</a>
 </div>
 
-If the preview doesn’t load, use the download link above.
+<section aria-labelledby="career-heading">
+  <div class="section-head">
+    <h2 id="career-heading">Career</h2>
+  </div>
+  <ol class="timeline">
+    <li class="timeline-entry">
+      <p class="meta">Company tenure · April 2021–present</p>
+      <div>
+        <h3>Senior Principal Applied Scientist, Generative AI</h3>
+        <p class="meta">Current role · Oracle AI Foundations</p>
+        <p>Lead applied-science work across agents, multimodal AI and evaluation, bringing research priorities and architecture into product engineering. Build reusable capabilities with science, engineering and application teams.</p>
+        <ul>
+          <li>Lead research and architecture for shared knowledge, agent routing, context and memory across cloud-support and application teams.</li>
+          <li>Led multimodal applied-science contributions for Fusion applications and application-facing retrieval and semantic-context work in the Oracle AI Database 26ai ecosystem.</li>
+          <li>Develop model-adaptation methods through multilingual language-model fine-tuning and enterprise ranking-model training, connecting data design and evaluation with application needs.</li>
+          <li>Lead evaluation across retrieval, multimodal understanding and responsible AI, connecting controlled experiments and failure analysis with development decisions.</li>
+        </ul>
+        <p><a class="text-link" href="{{ '/projects/' | relative_url }}">Selected projects and research contributions</a></p>
+      </div>
+    </li>
+    <li class="timeline-entry">
+      <p class="meta">June 2020–April 2021</p>
+      <div>
+        <h3>Data Science Lead, Computer Vision</h3>
+        <p>Jio Platforms</p>
+        <p>Led computer-vision work across video analytics, detection and tracking, and document understanding using optical character recognition (OCR), from data and model design to evaluation and product integration.</p>
+      </div>
+    </li>
+    <li class="timeline-entry">
+      <p class="meta">June 2016–June 2020</p>
+      <div>
+        <h3>Data Scientist</h3>
+        <p>Abzooba Infotech</p>
+        <p>Developed natural language processing, recommendation and search capabilities for enterprise applications.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section aria-labelledby="education-heading">
+  <div class="section-head">
+    <h2 id="education-heading">Education</h2>
+  </div>
+  <ul class="archive-list">
+    <li class="archive-entry">
+      <h3>MS, Machine Learning &amp; Artificial Intelligence, Distinction</h3>
+      <p class="meta">Liverpool John Moores University</p>
+    </li>
+    <li class="archive-entry">
+      <h3>BTech, Computer Science &amp; Engineering</h3>
+      <p class="meta">Institute of Engineering &amp; Management (IEM), West Bengal University of Technology</p>
+    </li>
+  </ul>
+</section>
