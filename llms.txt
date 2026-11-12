@@ -8,7 +8,7 @@ sitemap: false
 
 I work in Oracle AI Foundations under the guidance of [Dan Roth](https://www.cis.upenn.edu/~danroth/) and [Sujith Ravi](https://blogs.oracle.com/authors/sujithravi/), advancing agentic and enterprise AI, multimodal models, and media understanding.
 
-I build applied-science teams and lead research, technical direction and architecture through evaluation and product integration. I work with science leadership, product and engineering teams to turn research into reusable capabilities. My work includes multimodal contributions for Fusion applications, application-facing research in the Oracle AI Database 26ai ecosystem and cloud support workflows.
+I build applied-science teams and lead research, technical direction and architecture through evaluation and product integration. I bring science, engineering and product teams together across agentic systems, Oracle Cloud Infrastructure, Console AI and DevOps workflows, including on-call assistance, incident investigation and support automation. My applied-science contributions include multimodal understanding, reasoning and evaluation for Oracle Fusion ERP agents, alongside shared knowledge and semantic-layer research in the Oracle AI Database 26ai ecosystem.
 
 I lead research and architecture for Shared Knowledge Store (SKS), a common knowledge and context foundation for Oracle AI applications. The work connects enterprise evidence, relationships and semantic context across agentic use cases, including site reliability engineering (SRE), support workflows and multimodal knowledge. Current research on shared ontologies and semantic layers links structured records with document evidence.
 

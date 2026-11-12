@@ -5,10 +5,10 @@ seo_title: "Amit Agarwal — Enterprise AI, Multimodal Models & Evaluation"
 layout: profile_home
 author_profile: true
 classes: wide profile-overview
-description: "Amit Agarwal, Senior Principal Applied Scientist in Oracle AI Foundations: agentic and enterprise AI, multimodal models, media understanding, retrieval and evaluation."
+description: "Amit Agarwal leads research, architecture and technical delivery across agentic systems, cloud operations, multimodal enterprise AI, model adaptation and evaluation at Oracle AI Foundations."
 tags: ["About", "Profile", "GenAI", "Oracle AI", "Amit Agarwal"]
 keywords: ["Amit Agarwal", "Oracle AI", "OCI", "Generative AI", "Model adaptation", "Post-training", "Evaluation", "Retrieval", "Multilingual", "Multimodal", "Agentic AI", "AI agents", "AI safety"]
-last_modified_at: 2026-11-11
+last_modified_at: 2026-11-12
 ---
 
 <section class="home-intro" aria-labelledby="intro-heading">
@@ -17,8 +17,9 @@ last_modified_at: 2026-11-11
     <p class="role">Senior Principal Applied Scientist · Oracle AI Foundations</p>
     <p class="lead">I build applied-science teams and lead research, architecture and technical delivery across enterprise AI.</p>
     <div class="link-row"><a href="/publications/">Research</a><a href="/projects/">Selected projects</a><a href="/cv/">CV</a></div>
-    <p>At Oracle AI Foundations, I work across science, engineering and product teams on shared knowledge and agents that use evidence and tools. My contributions include science behind a production image-to-text capability for Fusion applications, alongside current work in the Oracle AI Database 26ai ecosystem.</p>
-    <p>My research spans multilingual fine-tuning, enterprise ranking, multimodal understanding and creative-media evaluation. I work under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>.</p>
+    <p>At Oracle AI Foundations, I bring science, engineering and product teams together to build agentic systems that connect enterprise knowledge with action. My work spans Oracle Cloud Infrastructure (OCI), <a href="/projects/agentic-knowledge-systems/#console-ai">Console AI</a> and DevOps workflows—from on-call assistance and incident investigation to support automation.</p>
+    <p>My applied-science contributions span multimodal understanding, reasoning and evaluation for <a href="/projects/multimodal-business-applications/">Oracle Fusion ERP agents</a>, alongside shared knowledge and semantic-layer research in the <a href="/projects/database-ai/">Oracle AI Database 26ai ecosystem</a>. I connect retrieval, knowledge graphs, agent routing and memory so applications can use evidence across structured business data, documents and media.</p>
+    <p>I stay hands-on in model adaptation and post-training, including multilingual fine-tuning and enterprise ranking. My research also covers long-horizon agent evaluation and creative-media workflows. I work under the guidance of <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a> and <a href="https://blogs.oracle.com/authors/sujithravi/">Sujith Ravi</a>.</p>
   </div>
   <div class="portrait-group"><div class="portrait-frame"><img class="portrait" src="/images/profile.jpeg" alt="Amit Agarwal" width="480" height="480" fetchpriority="high"></div><div class="portrait-profiles"><a href="https://scholar.google.com/citations?user=Mc9RC6QAAAAJ&amp;hl=en">Scholar</a><a href="https://www.linkedin.com/in/amitagarwal6/">LinkedIn</a><a href="https://github.com/iamamitagarwal">GitHub</a></div></div>
 </section>
