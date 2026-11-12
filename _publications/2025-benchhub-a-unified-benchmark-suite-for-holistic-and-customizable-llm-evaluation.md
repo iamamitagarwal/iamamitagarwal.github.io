@@ -1,4 +1,5 @@
 ---
+description: "BenchHub examines benchmark composition to reveal coverage gaps and model-ranking changes hidden by aggregate LLM evaluation scores."
 layout: paper
 title: "Benchmarks Are Not Atomic: Composition-Aware LLM Evaluation using BenchHub"
 authors: 'Eunsu Kim, Haneul Yoo, Guijin Son, Hitesh Patel, Amit Agarwal, Alice Oh'

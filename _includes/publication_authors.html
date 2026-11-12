@@ -1,0 +1,12 @@
+{%- assign author_names = include.authors | default: "" | strip_newlines | split: "," -%}
+{%- for author in author_names -%}
+  {%- assign author_name = author | strip -%}
+  {%- unless forloop.first -%}{{ ', ' }}{%- endunless -%}
+  {%- if author_name == "Amit Agarwal" -%}
+    <strong>{{ author_name | escape }}</strong>
+  {%- elsif author_name == "… Amit Agarwal" -%}
+    … <strong>Amit Agarwal</strong>
+  {%- else -%}
+    {{ author_name | escape }}
+  {%- endif -%}
+{%- endfor -%}

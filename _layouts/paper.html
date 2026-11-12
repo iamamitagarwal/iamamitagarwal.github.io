@@ -23,7 +23,7 @@ layout: single
 
 <header class="paper-record-header">
   {% if page.authors %}
-    <p class="paper-authors">{{ page.authors | strip_newlines | escape }}</p>
+    <p class="paper-authors">{% include publication_authors.html authors=page.authors %}</p>
   {% endif %}
 
   {% assign venue_text = page.venue | default: "" %}
@@ -105,6 +105,10 @@ layout: single
   {% endif %}
 </header>
 
+<div class="paper-body">
+  {{ content }}
+</div>
+
 {% assign research_context = site.data.paper_context[page.slug] %}
 {% if research_context %}
 <section class="research-context" aria-labelledby="research-context-heading">
@@ -114,10 +118,6 @@ layout: single
   {% if page.paper_url %}<p><a href="{{ page.paper_url | escape }}">Read the research paper</a></p>{% endif %}
 </section>
 {% endif %}
-
-<div class="paper-body">
-  {{ content }}
-</div>
 
 {% if page.related_topics or page.related_projects or page.related_patents %}
   <section class="related-work">
@@ -212,7 +212,7 @@ layout: single
   {% endif %}
 {% endif %}
 
-{% assign description_raw = page.description | default: content | strip_html | strip_newlines | strip %}
+{% assign description_raw = page.description | default: content | strip_html | replace: '&lt;', '<' | replace: '&gt;', '>' | strip_newlines | strip %}
 {% if description_raw.size > 200 %}
   {% assign description_text = description_raw | truncate: 200 %}
 {% else %}

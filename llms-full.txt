@@ -24,7 +24,7 @@ The following project descriptions reproduce public website content. They descri
 {% for project_page in public_projects %}
 ### {{ project_page.title }}
 Page: {{ project_page.url | absolute_url }}
-{{ project_page.content | markdownify | replace: '</a>', '</a> ' | strip_html | replace: '&amp;', '&' | strip }}
+{{ project_page.content | markdownify | replace: '</a>', '</a> ' | strip_html | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | strip }}
 {% endfor %}
 
 ## Publications
@@ -46,7 +46,7 @@ Record: {{ paper.url | absolute_url }}
 {% endif %}{% if paper.pdf_url %}PDF: {{ paper.pdf_url }}
 {% endif %}{% if paper.recognition %}Recognition: {{ paper.recognition }}
 {% endif %}
-{{ paper.content | markdownify | strip_html | replace: '&amp;', '&' | strip }}
+{{ paper.content | markdownify | strip_html | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | strip }}
 {% endfor %}
 ## Workshops
 {% for workshop in site.data.workshops %}

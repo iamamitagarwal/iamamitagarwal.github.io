@@ -1,4 +1,5 @@
 ---
+description: "A behavioral audit of unsupported demographic assumptions in LLM assistants, with an identity-abstention intervention and clarification tradeoffs."
 layout: paper
 title: "Bias Before Disclosure: A Behavioral Audit of LLM Assistants Under User-Identity Uncertainty"
 authors: "Hitesh Laxmichand Patel, Srikant Panda, Amit Agarwal, Tejaswini Kumar, Bhargava Kumar, Karan Dua, Jyotika Singh, Taki Hasan Rafi, Mithil Bangera, Yeshil Bangera, Gouthami Vadithya"

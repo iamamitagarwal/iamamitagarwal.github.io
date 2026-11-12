@@ -11,9 +11,12 @@ keywords:
   - "Responsible-AI"
   - "Evaluation"
   - "arXiv"
-paper_url: https://arxiv.org/abs/2508.15830
+paper_url: https://arxiv.org/abs/2508.15830v1
 search: true
-last_modified_at: 2026-01-31
+last_modified_at: 2026-11-11
 ---
 
 **Abstract.** Large Language Models (LLMs) are known to reflect social biases when demographic attributes, such as gender or race, are explicitly present in the input. But even in their absence, these models still infer user identities based solely on question phrasing. This subtle behavior has received far less attention, yet poses serious risks: it violates expectations of neutrality, infers unintended demographic information, and encodes stereotypes that undermine fairness in various domains including healthcare, finance and education. We introduce Demographic Attribute Inference from Questions (DAIQ), a task and framework for auditing an overlooked failure mode in language models: inferring user demographic attributes from questions that lack explicit demographic cues. Our approach leverages curated neutral queries, systematic prompting, and both quantitative and qualitative analysis to uncover how models infer demographic information. We show that both open and closed source LLMs do assign demographic labels based solely on question phrasing. Prevalence and consistency of demographic inferences across diverse models reveal a systemic and underacknowledged risk: LLMs can fabricate demographic identities, reinforce societal stereotypes, and propagate harms that erode privacy, fairness, and trust posing a broader threat to social equity and responsible AI deployment. To mitigate this, we develop a prompt-based guardrail that substantially reduces identity inference and helps align model behavior with fairness and privacy objectives.
+
+
+**Version note.** This record follows [arXiv v1, August 18, 2025](https://arxiv.org/abs/2508.15830v1), including its complete author-written abstract. A later [v2](https://arxiv.org/abs/2508.15830v2) has a revised abstract.

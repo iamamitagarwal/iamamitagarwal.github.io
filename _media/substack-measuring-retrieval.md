@@ -2,7 +2,9 @@
 title: "Substack Measuring Retrieval ..."
 outlet: "Press"
 pdf_url: "/assets/media/pdfs/Substack-Measuring-Retrieval.pdf"
-layout: single
+layout: media_redirect
+redirect_to: "/media/#media-substack-measuring-retrieval"
+canonical_url: "https://iamamitagarwal.github.io/media/"
+sitemap: false
 author_profile: true
 ---
-Coverage summary (optional).

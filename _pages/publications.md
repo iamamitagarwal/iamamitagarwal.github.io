@@ -31,10 +31,14 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
   {% assign tag_values = tag_source | replace: ',', '|' | split: '|' %}
   {% for tag in tag_values %}
     {% assign clean_tag = tag | strip %}
-    {% case clean_tag %}
-      {% when 'Document-AI' %}{% assign clean_tag = 'Document AI' %}
-      {% when 'Information-Retrieval' %}{% assign clean_tag = 'Retrieval' %}
-      {% when 'Responsible-AI' %}{% assign clean_tag = 'Responsible AI' %}
+    {% assign tag_key = clean_tag | downcase %}
+    {% case tag_key %}
+      {% when 'document-ai' %}{% assign clean_tag = 'Document AI' %}
+      {% when 'information-retrieval' %}{% assign clean_tag = 'Retrieval' %}
+      {% when 'responsible-ai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+      {% when 'responsibleai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+      {% when 'responsible ai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+      {% when 'safety' %}{% assign clean_tag = 'Responsible AI & Safety' %}
     {% endcase %}
     {% if clean_tag != "" %}
       {% unless publication_topics contains clean_tag %}
@@ -105,19 +109,25 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
           {% assign paper_topics = "" | split: "" %}
           {% for tag in tag_values %}
             {% assign clean_tag = tag | strip %}
-            {% case clean_tag %}
-              {% when 'Document-AI' %}{% assign clean_tag = 'Document AI' %}
-              {% when 'Information-Retrieval' %}{% assign clean_tag = 'Retrieval' %}
-              {% when 'Responsible-AI' %}{% assign clean_tag = 'Responsible AI' %}
+            {% assign tag_key = clean_tag | downcase %}
+            {% case tag_key %}
+              {% when 'document-ai' %}{% assign clean_tag = 'Document AI' %}
+              {% when 'information-retrieval' %}{% assign clean_tag = 'Retrieval' %}
+              {% when 'responsible-ai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+              {% when 'responsibleai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+              {% when 'responsible ai' %}{% assign clean_tag = 'Responsible AI & Safety' %}
+              {% when 'safety' %}{% assign clean_tag = 'Responsible AI & Safety' %}
             {% endcase %}
             {% if clean_tag != "" %}
-              {% assign paper_topics = paper_topics | push: clean_tag %}
+              {% unless paper_topics contains clean_tag %}
+                {% assign paper_topics = paper_topics | push: clean_tag %}
+              {% endunless %}
             {% endif %}
           {% endfor %}
 
           {% assign research_context = site.data.paper_context[publication.slug] %}
-          {% capture search_text %}{{ publication.title }} {{ publication.authors }} {{ publication.venue }} {{ publication.description }} {{ publication.abstract }} {{ publication.content | markdownify | strip_html }} {{ publication.keywords | join: ' ' }} {{ research_context.summary }} {{ research_context.terms | join: ' ' }} {% for topic in paper_topics %}{{ topic }} {% endfor %}{% endcapture %}
-          <li class="paper-entry" data-year="{{ publication.year | escape }}" data-topics="{{ paper_topics | jsonify | escape }}" data-search="{{ search_text | strip_html | strip_newlines | escape }}">
+          {% capture search_text %}{{ publication.title }} {{ publication.authors }} {{ publication.venue }} {{ publication.description }} {{ publication.abstract }} {{ publication.content | markdownify | strip_html }} {{ publication.tags | join: ' ' }} {{ publication.keywords | join: ' ' }} {{ research_context.summary }} {{ research_context.terms | join: ' ' }} {% for topic in paper_topics %}{{ topic }} {% endfor %}{% endcapture %}
+          <li class="paper-entry" data-year="{{ publication.year | escape }}" data-topics="{{ paper_topics | jsonify | escape }}" data-search="{{ search_text | strip_html | replace: '&lt;', '<' | replace: '&gt;', '>' | strip_newlines | escape }}">
             {% if publication.recognition %}
               <p class="recognition recognition--{{ publication.recognition_type | default: 'highlight' | slugify }}">{{ publication.recognition | escape }}</p>
             {% endif %}
@@ -136,7 +146,7 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
               {% for author in author_list %}
                 {% assign author_name = author | strip %}
                 {% assign author_key = author_name | downcase %}
-                {% if author_key contains "amit" and author_key contains "agarwal" %}
+                {% if author_key == "amit agarwal" %}
                   {% assign amit_author = author_name %}
                   {% if forloop.index0 < 3 %}
                     {% assign author_preview_has_amit = true %}
@@ -148,7 +158,13 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
               {% endif %}
               {% assign authors_display = authors_display | append: ", et al." %}
             {% endif %}
-            <p class="paper-authors" title="{{ full_authors | escape }}">{{ authors_display | strip_newlines | escape }}</p>
+            <p class="paper-authors" title="{{ full_authors | escape }}">{% include publication_authors.html authors=authors_display %}</p>
+            {% if author_count > 12 %}
+            <details class="full-author-list">
+              <summary>All {{ author_count }} authors</summary>
+              <p class="paper-authors">{% include publication_authors.html authors=full_authors %}</p>
+            </details>
+            {% endif %}
 
             {% assign venue_text = publication.venue | default: "" %}
             <p class="meta">

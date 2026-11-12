@@ -49,7 +49,7 @@ keywords: ["Media", "Press", "Interviews", "AI", "GenAI", "LLM"]
       {% if image_url != "" %}
         {% assign display_title = entry.title | default: entry_key %}
         {% assign site_url = entry.site | default: "" %}
-    <figure class="media-card">
+    <figure class="media-card" id="media-{{ entry_key | slugify }}">
       <a href="{{ image_url | relative_url }}" target="_blank" rel="noopener" aria-label="Open full image: {{ display_title | escape }}">
         <img class="media-image" src="{{ image_url | relative_url }}" alt="" loading="lazy">
       </a>

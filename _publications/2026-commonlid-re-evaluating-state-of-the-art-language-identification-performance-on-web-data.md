@@ -43,7 +43,11 @@ paper_url: "https://aclanthology.org/2026.acl-long.1527/"
 arxiv_id: "2601.18026"
 pdf_url: "https://aclanthology.org/2026.acl-long.1527.pdf"
 search: true
-last_modified_at: 2026-08-04
+last_modified_at: 2026-11-11
 ---
 
-**Abstract.** CommonLID introduces a community-driven benchmark for language identification on noisy web data across 109 languages. The paper reevaluates widely used LID systems and shows that current benchmarks often overestimate performance on real multilingual web content.
+**Abstract.** Language identification (LID) is a fundamental step in curating multilingual corpora. However, LID models still perform poorly for many languages, especially on the noisy and heterogeneous web data often used to train multilingual language models. In this paper, we introduce CommonLID, a community-driven, human-annotated LID benchmark for the web domain, covering 109 languages. Many of the included languages have been previously under-served, making CommonLID a key resource for developing more representative high-quality text corpora. We show CommonLID’s value by using it, alongside five other common evaluation sets, to test eight popular LID models. We analyse our results to situate our contribution and to provide an overview of the state of the art. In particular, we highlight that existing evaluations overestimate LID accuracy for many languages in the web domain. We make CommonLID and the code used to create it available under an open, permissive license.
+
+**Source.** [ACL Anthology proceedings PDF](https://aclanthology.org/2026.acl-long.1527.pdf); [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+**Summary.** CommonLID introduces a community-driven benchmark for language identification on noisy web data across 109 languages. The paper reevaluates widely used LID systems and shows that current benchmarks often overestimate performance on real multilingual web content.

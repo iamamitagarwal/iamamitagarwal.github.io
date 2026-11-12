@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% include seo.html %}
+  {% if page.redirect_to %}<meta http-equiv="refresh" content="0;url={{ page.redirect_to | relative_url | escape }}">{% endif %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
   <link rel="alternate" type="application/atom+xml" title="Amit Agarwal research feed" href="{{ '/feed.xml' | relative_url }}">
   <link rel="describedby" type="text/plain" href="{{ '/llms.txt' | relative_url }}">
