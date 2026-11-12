@@ -5,31 +5,35 @@ layout: single
 classes: wide project-story
 project_story: true
 last_modified_at: 2026-11-11
-description: "Amit Agarwal's retrieval, semantic-context and evaluation work in the Oracle AI Database 26ai ecosystem, with vector, hybrid, graph and agent platform context."
+description: "Amit Agarwal's research on shared knowledge, semantic context and agentic retrieval in the Oracle AI Database 26ai ecosystem, connecting business data with application intelligence."
 ---
 
-Enterprise agents need to interpret business data and retrieve supporting evidence from documents. My applied-science work in the Oracle AI Database 26ai ecosystem focuses on retrieval, ranking, semantic context and the evaluation needed to connect those capabilities with applications.
+Enterprise agents need both business facts and the context that explains them. My work in the Oracle AI Database 26ai ecosystem connects shared knowledge architecture, semantic context and retrieval research with the needs of applications using enterprise data.
 
-## The data and retrieval foundation
+I lead application-facing science and architecture work, collaborating across research, platform and product teams. The database organization provides the underlying search and execution capabilities; my contribution focuses on how applications find, interpret and evaluate the evidence they use.
 
-Oracle AI Database 26ai provides several complementary capabilities:
+## A data foundation for agentic applications
 
-- [AI Vector Search](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html) uses embeddings for semantic retrieval alongside business data.
-- [Hybrid search](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/understand-hybrid-search.html) combines keyword and vector signals, useful when a query depends on both exact identifiers and meaning.
-- [Graph-aware retrieval](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/query-knowledge-graph.html) brings relationships into evidence selection for GraphRAG applications.
+Oracle AI Database 26ai brings AI retrieval and agent execution close to business data. Its complementary capabilities include:
 
-These platform capabilities establish the environment in which application-facing science must work. My focus is the quality of the evidence selected, how business meaning is represented and whether the resulting context helps an agent answer the actual question.
+- [AI Vector Search](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html): embedding-based retrieval alongside relational business data, with [hybrid search](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/understand-hybrid-search.html) for questions that depend on exact identifiers and semantic similarity.
+- [GraphRAG](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/query-knowledge-graph.html): vector retrieval combined with graph traversal to find evidence through entities and relationships.
+- [AI Database Agent Engine](https://blogs.oracle.com/database/introducing-oracle-ai-database-agent-engine): governed, stateful agent workflows within the database, including routing, loops and human approval gates.
 
-## Agents at the data boundary
+These capabilities broaden what an application can ask of its data foundation. A workflow can combine a business record, a document that explains a policy and a tool that performs an authorized operation. The research challenge is to make their meanings and evidence agree.
 
-Oracle also provides database-side agent offerings. [Oracle AI Database Agent Engine](https://blogs.oracle.com/database/introducing-oracle-ai-database-agent-engine) addresses agent execution around enterprise data. The [Select AI Agent Framework](https://docs.oracle.com/en/database/oracle/oracle-database/26/selai/select-ai-agent1.html) documents agent construction for Autonomous AI Database. These are distinct product interfaces that shape integration and evaluation requirements.
+## Shared meaning across business data
 
-An application must connect the user's intent with eligible data, useful tools and evidence. That creates research questions about source selection, semantic interpretation, grounding and the handling of ambiguity.
+My current research on a unified semantic layer examines how business concepts, source mappings, relationships and constraints can guide an agent toward the right evidence. A field name is not enough: its meaning can depend on a stored value, a time period or a rule defined in a document.
 
-## My research and architecture work
+I work on how to represent that context, connect structured and unstructured sources and evaluate whether the added meaning improves the application's decisions. This research complements the [Shared Knowledge Store](/projects/shared-knowledge-store/), which makes enterprise knowledge reusable across agents and applications.
 
-I lead work on shared knowledge infrastructure and current research connecting structured data with document evidence. Retrieval and ranking are part of that foundation; semantic context helps determine what a source means and how an agent should use it. The architecture must also preserve the evidence behind an answer as the task develops.
+## Research that informs platform use
 
-My [hard-negative mining research](/projects/enterprise-retrieval/) studies how ranking models distinguish relevant material from convincing distractions. My [agent and multimodal evaluation work](/projects/multimodal-evaluation/) examines the outcomes and failure modes that matter after evidence is retrieved. Together, these connect model research with the needs of application and platform teams.
+My [hard-negative mining research](/projects/enterprise-retrieval/) studies how models distinguish relevant evidence from convincing distractions. My [evaluation work](/projects/multimodal-evaluation/) asks whether an improvement survives changes in context, task and measurement. Both matter when application teams decide which representation, retrieval path or model to adopt.
+
+I bring these findings into architecture and integration discussions with science and engineering teams. The aim is a reusable data-to-context foundation that supports business applications while keeping the evidence behind their answers inspectable.
+
+The broader portfolio includes [Select AI's agent framework](https://docs.oracle.com/en/database/oracle/oracle-database/26/selai/select-ai-agent1.html). Oracle's October 2026 [AI Data Platform announcement](https://www.oracle.com/ca-en/news/announcement/ai-world-oracle-ai-data-platform-brings-ai-assisted-business-context-to-enterprise-ai-2026-10-27/) extends the product direction toward reusable business context and human-governed ontologies, with new capabilities planned over the following 12 months.
 
 [Shared knowledge and agent applications](/projects/agentic-knowledge-systems/) · [Fusion business applications](/projects/multimodal-business-applications/) · [All projects](/projects/)

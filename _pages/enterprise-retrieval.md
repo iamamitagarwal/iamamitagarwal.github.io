@@ -8,7 +8,7 @@ project_story: true
 description: "Amit Agarwal on co-first-author hard-negative mining research, domain-specific reranking, and the decisions behind useful retrieval evaluation."
 ---
 
-A document can share the right vocabulary and still answer the wrong question. My enterprise retrieval research asks how to teach a ranking model to recognize that distinction. It connects a practical search problem with a broader technical leadership responsibility: choosing training examples and evaluation criteria that reflect the decisions a system must make.
+A document can share the right vocabulary and still answer the wrong question. For an enterprise agent, that mistake can propagate into a recommendation or action. My retrieval research studies how to teach ranking models to distinguish useful evidence from convincing distractions.
 
 ## The Research Question
 
@@ -16,19 +16,19 @@ I am a **co-first author** of [Hard Negative Mining for Domain-Specific Retrieva
 
 The published method combines multiple embedding representations, reduces their dimensionality, and selects difficult negatives for fine-tuning. On the proprietary cloud-services test set, the in-house cross-encoder reranker achieved **MRR@10 of 0.64**, compared with **0.57 for ADORE+STAR** and **0.45 without fine-tuning**. MRR rewards placing the first relevant result near the top; here the cutoff is ten results. The paper reports 1,000 training and 4,250 test query–positive-document pairs, with metrics averaged across three runs. These are study results from the shared research effort. [Paper, Tables 2–3](https://aclanthology.org/2025.acl-industry.72.pdf).
 
-## The Design Decision
+## Training data as a research decision
 
-The decision I find most useful is to treat training-data selection as a model-design choice. When two documents discuss neighboring concepts, a strong system needs to distinguish their relevance to the actual question. More data helps only when it teaches the distinction we care about.
+Selecting negatives is a decision about what the model should learn. Randomly irrelevant documents can make training look successful without exposing the distinctions that matter in a specialized domain. Challenging examples make those distinctions measurable, but an incorrectly labeled negative can teach the model to reject a valid answer.
 
-In my approach to technical leadership, that means making the error understandable before choosing the intervention. I want a team to be able to explain why a candidate is wrong, what information would make it right, and whether the labeling process captures that difference. A difficult negative that is actually a valid answer can teach the wrong behavior.
+I connect this research with my [shared knowledge architecture work](/projects/shared-knowledge-store/), where an agent may need to select evidence across products, versions and source types. The modeling question and the system question meet at the same point: what evidence is sufficient for this particular task?
 
-There is also a tradeoff between richer representations and operational complexity. My preference is to judge additional components by the failures they resolve and the evidence they add. An architecture should remain understandable enough that another researcher can inspect its assumptions and an engineer can reason about its maintenance.
+The research also informs how I work with science and engineering teams. Failure analysis needs to distinguish a gap in the source material from a representation, ranking or labeling problem. Each points to a different intervention and a different experiment.
 
-## What the Result Establishes
+## From ranking quality to agent behavior
 
-The comparison supports the reported ranking improvement under the paper’s dataset and training conditions. It does not quantify downstream answer correctness, customer adoption, production latency, or business impact. A retrieval result is one part of an agent’s evidence chain.
+The paper establishes a ranking improvement on its evaluated cloud-services dataset. Application-level evaluation then asks whether the selected evidence helps an agent answer correctly or make a useful next move. Those are related questions, with different success criteria.
 
-My practical takeaway is to connect model development to an explicit evaluation question: did the system learn to separate the relevant answer from a convincing distraction? That question remains useful when the surrounding application, model, or document collection changes.
+That distinction matters as retrieval becomes part of an agent loop. A new observation can change what information is needed, which source should be queried and whether earlier context is still applicable. My current work connects those agentic retrieval questions with reusable knowledge infrastructure and task-level evaluation.
 
 Continue with [Agentic Systems: From Evidence to Action](/projects/agentic-knowledge-systems/) and [Multimodal Evaluation](/projects/multimodal-evaluation/), or explore my [publications](/publications/).
 

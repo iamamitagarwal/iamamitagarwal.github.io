@@ -1,61 +1,54 @@
 ---
 permalink: /projects/agentic-knowledge-systems/
-title: "Agentic Systems: From Evidence to Action"
+title: "Cloud Agents: Support, Operations & Reusable Intelligence"
 layout: single
 author_profile: true
 classes: wide project-story
 project_story: true
-description: "Amit Agarwal's work on support agents, incident triage, shared knowledge infrastructure, and research directions in long-horizon tasks and multimodal memory."
+last_modified_at: 2026-11-11
+description: "Amit Agarwal's applied-science leadership across Oracle Support, Agent Hub and Console AI: long-horizon workflows, agent routing, context, tool use and evaluation."
 ---
 
-An enterprise agent needs to connect evidence with useful action: understand a support request, gather context, choose a next step, and assess whether the task is progressing. My work spans support agents, ticket automation, incident triage and resolution workflows, and the shared knowledge infrastructure that grounds them.
+I lead applied-science work on agents that help people investigate problems and get work done across cloud and support workflows. The challenge is to connect a user's goal with the right knowledge, tools and operational context, then sustain useful progress across a task that may take many steps.
 
-## Research and delivery across cloud agents
+## From support answers to resolution workflows
 
-At Oracle AI Foundations, I lead applied-science work across research, architecture, evaluation and product integration. Shared knowledge infrastructure connects retrieval, ranking and semantic context with the evidence an agent needs to use.
+Support requests rarely arrive as complete specifications. An agent may need to clarify symptoms, find relevant product guidance, interpret prior tickets and decide whether to investigate further or hand over to an engineer. A fluent answer is only useful if it moves that process forward.
 
-### Support and service-request workflows
+My Oracle Support work connects model integration, retrieval quality and multi-turn reasoning with service-request workflows. I work with support and engineering teams to investigate failures in application use, turn them into research questions and re-evaluate changes against representative conversations. This connects the science agenda with what the product must do reliably.
 
-I collaborate with support and engineering teams on retrieval quality, multi-turn behavior and evaluation for enterprise support agents. My work includes model integration, testing with support tasks and investigating failures that appear in application use. Re-evaluating a change against the actual conversation helps connect a science recommendation with engineering follow-through.
+The broader scope spans ticket triage, incident investigation, product and licensing questions, and resolution assistance. Different tasks need different evidence and authority. I focus on the shared capabilities behind them: retaining relevant context, selecting useful knowledge and tools, handling uncertainty and evaluating progress toward resolution.
 
-Service-request resolution, ticket triage and incident investigation require an agent to retain context and choose useful next steps. I work on the retrieval and evaluation questions behind those workflows: whether the evidence addresses the request, whether follow-up turns remain grounded and whether the next action advances the task.
+## Agent Hub: reusable capabilities across applications
 
-### Console AI and reusable agent capabilities
+Agent Hub is a separate platform effort. My architecture work addresses agent routing, skill and tool retrieval, shared context and memory: capabilities that application teams can reuse as they build more specialized agents.
 
-[Console AI](https://blogs.oracle.com/cloud-infrastructure/introducing-console-ai-oci) brings conversational assistance and reviewable resource actions into the OCI Console. My work connects applied science with cloud-console agent evaluation and integration, including the relationship between task intent, cloud context and useful evidence.
+The scientific problem is choosing what an agent should do next when several tools, skills or knowledge sources look plausible. A routing decision needs to account for the user's intent, the task's current state and the limits of the available capability. Memory must retain useful context without carrying forward an incorrect assumption.
 
-In the separate Agent Hub effort, my architecture work includes agent routing, skill and tool retrieval, shared context and memory. These capabilities raise a common research question: how can several agents use relevant evidence and tools without losing the context of a longer task?
+I work across science and engineering on those decisions, connecting reusable architecture with application-level evaluation. The aim is to let teams build on common capabilities while preserving the rules and expertise specific to each workflow.
 
-My [Fusion and business-application work](/projects/multimodal-business-applications/) applies related retrieval and evaluation questions in another product setting.
+## Console AI
 
-## Personalized Leadership Coaching Pilot
+[Console AI](https://blogs.oracle.com/cloud-infrastructure/introducing-console-ai-oci) brings conversational guidance and reviewable resource actions into the OCI Console. It gives cloud operators a different interaction model: describe a goal, inspect the proposed action and work with an assistant that understands the surrounding cloud context.
 
-I developed a personalized leadership-coaching agent pilot combining assessment-driven plans, persistent memory, retrieval-grounded recommendations, role-play practice, and proactive nudges. This pilot brings personalization, context retention, and practice into a shared agent workflow.
+My applied-science work connects task intent, tool selection, evidence and multi-turn evaluation with engineering integration. A successful agent needs to use the right resource and arguments, preserve permissions and approval boundaries, and recognize when the expected state change did not occur.
 
-## Evaluating longer tasks
+That creates a research agenda extending beyond response quality: long-horizon task completion, failure recovery, meaningful human oversight and the reliability of the evaluation environment itself. I use these questions to help align scientific investigation with the behavior the application needs.
 
-For a support workflow, I ask three practical questions:
+## Personalized leadership coaching pilot
 
-- **Context:** What evidence and prior steps should the agent retain, and when should that context be refreshed?
-- **Action:** What can the agent do, what needs human review, and how does it recognize an unsuccessful step?
-- **Evaluation:** Did the workflow make useful progress toward resolution, and can we trace errors to evidence, reasoning, or tool use?
+I developed a leadership-coaching agent pilot that carries assessment and personal context into a learning plan, recommendations and role-play practice. Persistent memory and proactive nudges explore a different form of long-running assistance: helping someone act on feedback over time, rather than completing a single transaction.
 
-These questions help connect research priorities with engineering decisions and product needs. They also separate a plausible answer from progress on a real task.
+## A common research agenda
 
-## From Search Results to Evidence
+Across these applications, I focus on three connected questions:
 
-Consider an illustrative support question whose answer depends on a paragraph, a diagram, and the product version. Retrieving a relevant paragraph may still leave the agent without the relationship shown in the diagram or the qualification attached to the version. I think about knowledge infrastructure as a way to preserve those relationships while making evidence retrievable.
+- **Context and memory:** Which evidence and prior decisions remain useful as the task changes?
+- **Reasoning and action:** Which agent, skill or tool can advance the task, and what should require human review?
+- **Evaluation:** Can we verify progress and distinguish failures in the agent from failures in its tools or environment?
 
-Retrieval finds candidates; reranking prioritizes them; a knowledge graph can preserve explicit relationships. Access-aware grounding determines which evidence is eligible for use. I evaluate these choices against representative tasks, including cases where extra context distracts a model or visual-to-text conversion loses important information.
+I bring these questions into cross-team design and delivery discussions, linking controlled experiments with integration feedback. My role is to make the scientific decisions useful to the people responsible for the product.
 
-## Evaluation as a Shared Language
-
-My co-first-author [enterprise retrieval paper](https://aclanthology.org/2025.acl-industry.72/) examines difficult negative examples for ranking. My first-author [image–text evaluation paper](https://aclanthology.org/2026.findings-acl.1948/) examines whether evaluators respond to changes that preserve meaning. Together, they motivate my preference for inspecting both the evidence selected and the instrument used to judge the answer.
-
-For technical leadership, I find it useful to make failures actionable across disciplines. Was necessary evidence absent? Was it retrieved but ranked poorly? Did the answer overlook a qualification? Did the evaluation reward the wrong behavior? These are distinct questions that help science and engineering teams choose the next intervention.
-
-My architectural aim is a system whose decisions can be inspected and whose improvements can be explained with evidence.
-
-Read [Enterprise Retrieval](/projects/enterprise-retrieval/) and [Multimodal Evaluation](/projects/multimodal-evaluation/) for the supporting research, or return to [projects](/projects/).
+The [Shared Knowledge Store](/projects/shared-knowledge-store/) supplies the broader knowledge foundation. My [Fusion application work](/projects/multimodal-business-applications/) explores multimodal AI in business workflows, while [agent and multimodal evaluation](/projects/multimodal-evaluation/) examines how to judge these capabilities.
 
 [Discuss this work](mailto:amit.pinaki@gmail.com).
