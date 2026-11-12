@@ -203,6 +203,9 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
             {% assign paper_label = "Paper" %}
             {% if paper_href contains "arxiv.org/" %}{% assign paper_label = "arXiv" %}{% endif %}
             {% assign pdf_href = publication.pdf_url | default: publication.pdf | default: "" %}
+            {% if pdf_href contains "arxiv.org/" and paper_label != "arXiv" %}
+              {% assign pdf_href = "" %}
+            {% endif %}
             {% assign code_href = publication.code_url | default: "" %}
             {% assign dataset_href = publication.dataset_url | default: publication.data_url | default: "" %}
             {% assign source_urls = "" | split: "" %}
@@ -215,12 +218,6 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
                 {% endif %}
                 <a href="{{ paper_href | escape }}" target="_blank" rel="noopener noreferrer">{{ paper_action_label }}</a>
                 {% assign source_urls = source_urls | push: paper_href %}
-              {% endif %}
-              {% if arxiv_href != "" %}
-                {% unless source_urls contains arxiv_href %}
-                  <a href="{{ arxiv_href | escape }}" target="_blank" rel="noopener noreferrer">arXiv</a>
-                  {% assign source_urls = source_urls | push: arxiv_href %}
-                {% endunless %}
               {% endif %}
               {% if pdf_href != "" %}
                 {% unless source_urls contains pdf_href %}

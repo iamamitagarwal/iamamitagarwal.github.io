@@ -49,6 +49,7 @@ sitemap: false
       "url": {{ paper.url | absolute_url | jsonify }},
       "paper_url": {{ paper.paper_url | jsonify }},
       "pdf_url": {{ paper.pdf_url | jsonify }},
+      "arxiv_url": {% if paper.arxiv_id %}{{ 'https://arxiv.org/abs/' | append: paper.arxiv_id | jsonify }}{% else %}null{% endif %},
       "topics": {{ paper.tags | jsonify }},
       "keywords": {{ paper.keywords | jsonify }},
       "abstract": {{ abstract | jsonify }},

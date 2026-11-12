@@ -44,6 +44,7 @@ Research context terms: {{ research_context.terms | join: ', ' }}
 Record: {{ paper.url | absolute_url }}
 {% if paper.paper_url %}Paper: {{ paper.paper_url }}
 {% endif %}{% if paper.pdf_url %}PDF: {{ paper.pdf_url }}
+{% endif %}{% if paper.arxiv_id %}arXiv: https://arxiv.org/abs/{{ paper.arxiv_id }}
 {% endif %}{% if paper.recognition %}Recognition: {{ paper.recognition }}
 {% endif %}
 {{ paper.content | markdownify | strip_html | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | strip }}
