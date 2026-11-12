@@ -4,7 +4,7 @@ title: "Fusion Applications & Enterprise Agents"
 layout: single
 classes: wide project-story
 project_story: true
-last_modified_at: 2026-11-11
+last_modified_at: 2026-11-12
 description: "Amit Agarwal's multimodal applied-science leadership for Oracle Fusion applications: image understanding, cross-modal retrieval, evaluation and collaboration with application engineering."
 ---
 
@@ -14,9 +14,9 @@ I led multimodal applied-science contributions for Oracle Fusion applications, w
 
 My contributions include science behind an image-to-text capability deployed in production, as well as multimodal retrieval demonstrations spanning images, audio and video. The broader research problem is to make information inside visual and document-rich content available to applications that need to answer questions and assist with business tasks.
 
-I work with science and application teams on the decisions behind that capability: which model and representation fit the task, what information is lost during parsing, how evidence and citations survive retrieval, and why an application's behavior can differ from an offline comparison.
+A recurring challenge was understanding what happened between a model comparison and the answer an application produced. Parsing could lose visual information; the order of retrieved evidence and its citations could change what the model could use. Our science and application-engineering reviews examined those differences alongside model and prompt choices, rather than treating an offline score as the final product decision.
 
-The collaboration carries research through demonstrations, controlled evaluation, integration feedback and re-evaluation in application use. I bring failures and tradeoffs into reviews with science leadership and engineering so that model choices lead to clear product decisions.
+I brought image, audio and video retrieval demonstrations into that collaboration, making the behavior visible to the teams integrating it. In later multimodal evaluation work, I developed tooling that retains query-level evidence and explicitly marks incomplete runs. The goal is to give science and application teams a comparison they can inspect, including cases where an additional retrieval signal introduces noise instead of useful context.
 
 ## From business evidence to agentic workflows
 
@@ -24,7 +24,7 @@ Oracle Fusion Cloud Applications connects enterprise resource planning (ERP) and
 
 This evolution makes the quality of business evidence more consequential. In a multi-tool workflow, a misunderstanding can affect the next action as well as the answer. An agent needs the applicable document or image, the relevant business context and a way to recognize uncertainty before proceeding.
 
-I work with Fusion application teams on the underlying multimodal understanding, retrieval and evaluation, using these workflow requirements to guide model and integration decisions.
+For my work with Fusion teams, that means evaluating multimodal understanding in the context of the task an agent is trying to complete. An answer may look plausible while missing the evidence needed for the next tool call or business decision.
 
 ## Reusing research across product boundaries
 

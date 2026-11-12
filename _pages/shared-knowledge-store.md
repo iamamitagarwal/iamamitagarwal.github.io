@@ -4,7 +4,7 @@ title: "Shared Knowledge Store: A Common Knowledge Fabric for Agents"
 layout: single
 classes: wide project-story
 project_story: true
-last_modified_at: 2026-11-11
+last_modified_at: 2026-11-12
 description: "Amit Agarwal's research and architecture leadership on Shared Knowledge Store, connecting enterprise knowledge, semantic context and multimodal evidence for agentic applications."
 ---
 
@@ -16,7 +16,9 @@ The ambition is a connected institutional memory: an agent should understand how
 
 An application team building a support assistant and another building an operational agent often face the same knowledge problems. They need relevant sources, current context, citations and a way to understand relationships across systems. Solving those independently repeats work and leaves each application with a different view of the organization.
 
-I lead this greenfield effort around a reusable foundation, bringing application needs into the research agenda and working with engineering on architecture and integration. The work connects documentation and support knowledge with operational and multimodal use cases, while a complementary semantic-layer research track links structured records with document evidence.
+An important architecture question is how teams can share a knowledge service without blurring the boundaries of the evidence they are using. A request needs an explicit knowledge scope, and bringing in new sources should not leave applications uncertain about what was processed or where it belongs.
+
+My contributions have made those boundaries concrete: requests with an unrecognized scope are rejected rather than quietly searching more broadly, and interrupted ingestion can resume against the intended sources and destination. That gives application teams an explicit contract for the knowledge they build on, while keeping source updates recoverable as the shared service evolves.
 
 The architecture connects Confluence and documentation, Jira and incident history with code, service dependencies and ownership. My semantic-layer research extends that view to business records held in structured systems. The common goal is to preserve the relationships and evidence that each application needs.
 
@@ -44,7 +46,7 @@ Current research extends toward creative-media workflows, where retrieved assets
 
 ## Connecting the research agenda with delivery
 
-I bring application requirements, model comparisons and failure analysis into shared decisions with science and engineering teams. That means deciding what should be reusable, where a product needs specialized behavior and how to evaluate the resulting capability in its actual workflow.
+The shared foundation does not remove the need for application-specific judgment. An incident investigation, a business question and a media search can use the same knowledge layer while needing different evidence, models and checks. I work with the teams building those applications to make that distinction explicit in the research and evaluation.
 
 My [hard-negative mining research](/projects/enterprise-retrieval/) addresses evidence selection; my [multilingual model-adaptation work](/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/) addresses consistent responses across languages. [Agent and multimodal evaluation](/projects/multimodal-evaluation/) examines how these capabilities behave in complete workflows.
 

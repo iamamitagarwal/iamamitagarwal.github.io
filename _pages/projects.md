@@ -5,7 +5,7 @@ layout: single
 author_profile: true
 classes: wide
 search: true
-last_modified_at: 2026-11-11
+last_modified_at: 2026-11-12
 description: "Amit Agarwal's research and architecture leadership across shared knowledge, enterprise agents, Oracle Fusion, Oracle AI Database 26ai, multimodal AI and evaluation."
 tags: ["Projects", "GenAI", "ML Systems", "RAG", "Evaluation", "Retrieval"]
 keywords: ["Projects", "Generative AI", "Evaluation", "Retrieval", "Model adaptation", "Post-training", "Semantic routing", "Knowledge graphs", "Ontologies", "Agentic AI", "AI safety", "Enterprise AI", "Multimodal media"]
@@ -32,7 +32,7 @@ keywords: ["Projects", "Generative AI", "Evaluation", "Retrieval", "Model adapta
   <div class="case-body">
     <p>I lead research and architecture for Shared Knowledge Store (SKS), a reusable knowledge and context foundation for Oracle AI applications. The goal is to give agents a connected understanding of an organization: its documentation, systems, incidents, dependencies and ownership, with evidence they can trace back to the source.</p>
     <p>This greenfield work brings application teams around a common foundation instead of rebuilding knowledge pipelines for every assistant. It spans evidence for site reliability engineering (SRE) and support agents, multimodal knowledge for media applications, and research on a semantic layer linking structured records with documents.</p>
-    <p>The scientific challenge is assembling the right context as a task evolves: following relationships across sources, resolving ambiguity and balancing relevance, freshness and trust. I connect that research agenda with architecture decisions, evaluation and product integration.</p>
+    <p>The scientific challenge is assembling the right context as a task evolves. My architecture contributions also make the boundaries of that context explicit, including which knowledge a request can use and how interrupted source processing can resume consistently.</p>
     <div class="article-links"><a href="/projects/shared-knowledge-store/">Knowledge fabric and research</a><a href="/projects/enterprise-retrieval/">Learning to rank enterprise evidence</a><a href="/publications/2025-aligning-llms-for-multilingual-consistency-in-enterprise-applications/">Multilingual model adaptation</a></div>
   </div>
 </article>
@@ -68,7 +68,7 @@ keywords: ["Projects", "Generative AI", "Evaluation", "Retrieval", "Model adapta
   <header class="case-heading"><h2 id="support-heading">Oracle Support &amp; Agent Hub</h2></header>
   <div class="case-body">
     <p>I lead applied-science work that helps support agents move from answering questions to investigating and progressing service requests. The work connects ticket history, product knowledge, multi-turn reasoning and tool use across triage, incident investigation and resolution workflows.</p>
-    <p>I work with support and engineering teams to turn failures into research priorities and integration decisions. My Agent Hub architecture work includes semantic routing—using a request's meaning and the task's state to select an agent, tool or knowledge source—along with shared context and memory. Records of agent decisions and tool results help us analyze failures and refine the workflow.</p>
+    <p>I work with Support and engineering to make research comparisons usable in application-level evaluation. Within Oracle AI Data Platform, I also lead science and architecture for Agent Hub discovery, routing and tool selection. Alongside AI Registry, that work helps organizations find and reuse agents, tools and skills across business functions.</p>
     <div class="article-links"><a href="/projects/agentic-knowledge-systems/">Agent research and applications</a></div>
   </div>
 </article>
