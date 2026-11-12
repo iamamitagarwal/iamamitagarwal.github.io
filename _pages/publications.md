@@ -71,8 +71,8 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
       {% endfor %}
     </select>
   </label>
-  <button class="filter-button" id="clear-publication-filters" type="button">Clear filters</button>
   <p class="filter-status" id="publication-filter-status" aria-live="polite"></p>
+  <button class="filter-button" id="clear-publication-filters" type="button">Clear filters</button>
 </form>
 
 <noscript><p class="filter-note">Filtering is optional; the complete archive is listed below.</p></noscript>

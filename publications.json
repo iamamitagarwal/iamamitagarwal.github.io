@@ -44,6 +44,9 @@ sitemap: false
       "research_context_terms": {{ research_context.terms | jsonify }},{% endif %}
       "authors": {{ authors | jsonify }},
       "year": {{ paper.year | jsonify }},
+      {% if paper.first_online_date %}"first_online_date": {{ paper.first_online_date | jsonify }},{% endif %}
+      {% if paper.publisher_citation_year %}"publisher_citation_year": {{ paper.publisher_citation_year | jsonify }},{% endif %}
+      {% if paper.publication_date_note %}"publication_date_note": {{ paper.publication_date_note | jsonify }},{% endif %}
       "venue": {{ paper.venue | jsonify }},
       "status": {{ status | jsonify }},
       "url": {{ paper.url | absolute_url | jsonify }},

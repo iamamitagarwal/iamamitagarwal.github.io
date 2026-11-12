@@ -40,6 +40,10 @@ layout: single
     {% if page.status %}<span>{{ page.status | escape }}</span>{% endif %}
   </p>
 
+  {% if page.publication_date_note %}
+    <p class="meta publication-date-note">{{ page.publication_date_note | escape }}</p>
+  {% endif %}
+
   {% if page.recognition %}
     <p class="recognition recognition--{{ page.recognition_type | default: 'highlight' | slugify }}">{{ page.recognition | escape }}</p>
   {% endif %}
@@ -216,7 +220,9 @@ layout: single
   {% assign description_text = description_raw %}
 {% endif %}
 {% assign publication_date = "" %}
-{% if page.year %}
+{% if page.first_online_date %}
+  {% assign publication_date = page.first_online_date | append: "" %}
+{% elsif page.year %}
   {% assign publication_date = page.year | append: "" %}
 {% elsif page.date %}
   {% assign publication_date = page.date | date_to_xmlschema %}

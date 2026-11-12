@@ -24,7 +24,26 @@ The following project descriptions reproduce public website content. They descri
 {% for project_page in public_projects %}
 ### {{ project_page.title }}
 Page: {{ project_page.url | absolute_url }}
-{{ project_page.content | markdownify | replace: '</a>', '</a> ' | strip_html | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | strip }}
+{% assign rendered_project_content = project_page.content | markdownify -%}
+{% assign project_link_parts = rendered_project_content | split: 'href="' -%}
+{% assign project_sources = '' | split: '' -%}
+{% for project_link_part in project_link_parts -%}
+  {% assign project_source = project_link_part | split: '"' | first | replace: '&amp;', '&' -%}
+  {% assign project_source_https = project_source | slice: 0, 8 -%}
+  {% assign project_source_http = project_source | slice: 0, 7 -%}
+  {% if project_source_https == 'https://' or project_source_http == 'http://' -%}
+    {% unless project_sources contains project_source -%}
+      {% assign project_sources = project_sources | push: project_source -%}
+    {% endunless -%}
+  {% endif -%}
+{% endfor -%}
+{% if project_sources.size > 0 %}
+Sources:
+{% for project_source in project_sources %}
+- {{ project_source }}
+{% endfor %}
+{% endif %}
+{{ rendered_project_content | replace: '</a>', '</a> ' | strip_html | replace: '&amp;', '&' | replace: '&lt;', '<' | replace: '&gt;', '>' | strip }}
 {% endfor %}
 
 ## Publications
@@ -33,6 +52,10 @@ Page: {{ project_page.url | absolute_url }}
 ### {{ paper.title }}
 Authors: {{ paper.authors }}
 Year: {{ paper.year }}
+{% if paper.first_online_date %}First online: {{ paper.first_online_date }}
+{% endif %}{% if paper.publisher_citation_year %}Publisher citation year: {{ paper.publisher_citation_year }}
+{% endif %}{% if paper.publication_date_note %}Date note: {{ paper.publication_date_note }}
+{% endif %}
 Venue: {{ paper.venue }}
 {% assign venue_key = paper.venue | downcase %}{% if venue_key contains 'arxiv' or paper.venue_token == 'arxiv' %}Status: Preprint
 {% elsif venue_key == 'under review' %}Status: Under review
