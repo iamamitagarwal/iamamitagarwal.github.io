@@ -47,7 +47,7 @@ Across these applications, I focus on three connected questions:
 - **Reasoning and action:** Which agent, skill or tool can advance the task, and what should require human review?
 - **Evaluation:** Can we verify progress and distinguish failures in the agent from failures in its tools or environment?
 
-I bring these questions into cross-team design and delivery discussions, linking controlled experiments with integration feedback. My role is to make the scientific decisions useful to the people responsible for the product.
+I bring these questions into cross-team design and delivery discussions, linking controlled experiments with integration feedback. I use those discussions to set research priorities, resolve architectural tradeoffs and guide integration across teams.
 
 The [Shared Knowledge Store](/projects/shared-knowledge-store/) supplies the broader knowledge foundation. My [Fusion application work](/projects/multimodal-business-applications/) explores multimodal AI in business workflows, while [agent and multimodal evaluation](/projects/multimodal-evaluation/) examines how to judge these capabilities.
 

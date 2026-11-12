@@ -9,7 +9,7 @@ last_modified_at: 2026-11-11
 description: "Amit Agarwal on long-horizon agent evaluation, tool use, research harnesses, creative-media workflows and reliable multimodal measurement."
 ---
 
-I lead evaluation work that helps science and product teams decide whether an AI capability is ready for the behavior they need. The scope spans long-horizon support workflows, cloud-console actions and multimodal content, where a single answer score cannot explain whether the system made useful progress.
+I lead evaluation work that helps science and product teams decide whether an AI capability is ready for its intended workflow. The scope spans long-horizon support workflows, cloud-console actions and multimodal content, where a single answer score cannot explain whether the system made useful progress.
 
 My work combines task and benchmark design, controlled comparisons, research harnesses and failure analysis. I bring those results into architecture and model decisions across science and engineering, with published research examining the reliability of the measurement itself.
 
@@ -29,7 +29,7 @@ The broader method retains the evidence behind a score: task and data versions, 
 
 Our multimodal work has included image-generation evaluation using prompt-constraint checks and image-based questions, including chart understanding. This connects generation quality with whether the requested content is actually present and supported.
 
-My current research also considers evaluation for editing, video and consistent style. Those extensions remain areas of development. They complement retrieval and image-understanding evaluation, with safety and moderation requirements included in the design.
+I am studying how to evaluate editing, video and style consistency, including whether a system preserves the user's intent and content across changes. This research complements retrieval and image-understanding evaluation, with safety and moderation requirements included in the design.
 
 ## Research on the measurement itself
 

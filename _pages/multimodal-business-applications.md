@@ -24,7 +24,7 @@ Oracle Fusion Cloud Applications connects ERP and other business suites with a g
 
 This evolution makes the quality of business evidence more consequential. In a multi-tool workflow, a misunderstanding can affect the next action as well as the answer. An agent needs the applicable document or image, the relevant business context and a way to recognize uncertainty before proceeding.
 
-My contribution is the multimodal understanding, knowledge retrieval and evaluation that applications build on. Studio and Claw are developed by their product teams; they provide a broader setting in which those scientific capabilities must support useful, inspectable behavior.
+I work with Fusion application teams on the underlying multimodal understanding, retrieval and evaluation, using these workflow requirements to guide model and integration decisions.
 
 ## Reusing research across product boundaries
 

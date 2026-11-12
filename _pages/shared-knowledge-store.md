@@ -20,7 +20,7 @@ I lead this greenfield effort around a reusable foundation, bringing application
 
 The architecture connects Confluence and documentation, Jira and incident history with code, service dependencies and ownership. My semantic-layer research extends that view to business records held in structured systems. The common goal is to preserve the relationships and evidence that each application needs.
 
-## Context for decisions, not just matching text
+## Context for agent decisions
 
 Consider an on-call engineer investigating an incident. A relevant runbook is useful, but the decision may also depend on a related ticket, a service dependency, the applicable product version and who can authorize a change. An agent needs to bring those pieces together without treating similarity as proof that a recommendation is correct.
 
