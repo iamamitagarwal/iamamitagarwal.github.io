@@ -156,13 +156,7 @@ keywords: ["Publications", "Papers", "Alignment", "Reasoning", "Multilingual", "
               {% endif %}
               {% assign authors_display = authors_display | append: ", et al." %}
             {% endif %}
-            <p class="paper-authors" title="{{ full_authors | escape }}">{% include publication_authors.html authors=authors_display %}</p>
-            {% if author_count > 12 %}
-            <details class="full-author-list">
-              <summary>All {{ author_count }} authors</summary>
-              <p class="paper-authors">{% include publication_authors.html authors=full_authors %}</p>
-            </details>
-            {% endif %}
+            <p class="paper-authors">{% include publication_authors.html authors=authors_display %}</p>
 
             {% assign venue_text = publication.venue | default: "" %}
             <p class="meta">
