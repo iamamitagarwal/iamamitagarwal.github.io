@@ -212,6 +212,7 @@ GitHub Pages builds and deploys when `main` is pushed. Tags preserve release sna
 - `site-v1-before-redesign`: the last live version before the November 2026 redesign (`b6efcc8`).
 - `site-v2.0.0`: the redesign release, merged into `main` with a merge commit.
 - `site-v2.0.1`: compact responsive layout, publication readability fixes and the approved homepage biography/platform wording.
+- `site-v2.0.2`: concrete project contribution stories, compact mobile research filters and publication/source metadata refinements.
 
 To inspect a snapshot locally, use `git switch --detach <tag>` after preserving any local edits, then rebuild the site. Return with `git switch main`. Switching source does not change an already running preview until it is rebuilt.
 
@@ -235,6 +236,8 @@ git push origin main
 ```
 
 Keep all release tags unchanged. If further releases have landed, inspect compatibility and conflicts before applying the range revert.
+
+To revert only v2.0.2, use the same clean-checkout review/build process with the range `site-v2.0.1..site-v2.0.2`, then commit and push the reviewed revert. Keep the tags fixed.
 
 ## Reviewing the current portfolio
 
